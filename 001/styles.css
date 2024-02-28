@@ -11,7 +11,8 @@ body {
     border:5px;
     border-color: black;
     border-style: solid;
-
+    
+}
 .box {
     display: flex;
     display: inline-flex;
@@ -27,7 +28,8 @@ body {
 
 .tekstas {
     
-
+    text-align: center;
+    font-family: fantasy;
     border:5px;
     border-color: black;
     border-style: solid;
