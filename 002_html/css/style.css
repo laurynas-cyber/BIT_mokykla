@@ -1,0 +1,33 @@
+h1 {
+    text-transform: uppercase;
+    color: #0b883b;
+    font-family:fantasy;
+    letter-spacing: 4px;
+}
+
+.list {
+    text-decoration: none;
+    color: orange;
+}
+
+.list:hover {
+    color: red;
+}
+
+li {
+    color: grey;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+td {
+    border: solid;
+    border-color: black;
+    background-color: aquamarine;
+    /* display:inline-block; */
+}
+
+tr {
+    border: solid;
+    border-color: rgb(173, 11, 11);
+}
