@@ -3,6 +3,8 @@ h1 {
     color: #0b883b;
     font-family:fantasy;
     letter-spacing: 4px;
+    border: solid;
+    border-color: black;
 }
 
 .list {
@@ -14,20 +16,46 @@ h1 {
     color: red;
 }
 
+ol {
+    width: 300px;
+}
+
 li {
     color: grey;
     font-weight: bold;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+table {
+    display: block;
+    border: solid;
+    border-color: black;
+}
+
+tbody {
+    display:block;
+}
+
+tr {
+    display:block;
+    width: 100%;
+    border: solid;
+    color: red;
+}
+
 td {
     border: solid;
     border-color: black;
     background-color: aquamarine;
-    /* display:inline-block; */
+    width: 100%;
 }
 
-tr {
-    border: solid;
-    border-color: rgb(173, 11, 11);
+.testas {
+    display: flex;
+    flex-direction: row;
 }
+.testas2 {
+    display: flex;
+    flex-direction: row;
+}
+
