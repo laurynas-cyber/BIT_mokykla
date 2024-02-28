@@ -26,8 +26,7 @@ li {
 
 table {
     display: block;
-    border: solid;
-    border-color: black;
+    
 }
 
 tbody {
@@ -37,14 +36,18 @@ tbody {
 tr {
     display:block;
     width: 100%;
-    border: solid;
+    
 }
 
 td {
-    border: solid;
-    border-color: black;
+    margin:1px;
     background-color: aquamarine;
     width: 100%;
+}
+
+td:hover{
+    cursor:pointer;
+    background-color: aqua;
 }
 
 .testas {
@@ -62,21 +65,31 @@ h2, p{
     font-weight: 100;
 }
 
-.logo {
-    height: 40%;
+
+img{
+
     width: 40%;
-    border: solid;
 }
 
-.logo2 {
-    height: 100%;
-    width: 100%;
-    left:0;
-    border: solid; /* kaip sumažinti padding img*/
-}
+/* kaip padaryti img vienodo dydzio ir responsive*/
+/* 
+.logo {
+    width: 40%;
+} */
+
+
 
 .aprasymo_top {
     display: flex;
-    border: solid;
+
     justify-content: space-between;
+}
+
+.empty {
+    background-color: white;
+}
+
+.empty:hover{
+    background-color: white;
+    cursor: auto;
 }
