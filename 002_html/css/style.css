@@ -3,8 +3,6 @@ h1 {
     color: #0b883b;
     font-family:fantasy;
     letter-spacing: 4px;
-    border: solid;
-    border-color: black;
 }
 
 .list {
@@ -40,7 +38,6 @@ tr {
     display:block;
     width: 100%;
     border: solid;
-    color: red;
 }
 
 td {
@@ -59,3 +56,27 @@ td {
     flex-direction: row;
 }
 
+h2, p{
+    font-family:fantasy;
+    letter-spacing: 4px;
+    font-weight: 100;
+}
+
+.logo {
+    height: 40%;
+    width: 40%;
+    border: solid;
+}
+
+.logo2 {
+    height: 100%;
+    width: 100%;
+    left:0;
+    border: solid; /* kaip sumažinti padding img*/
+}
+
+.aprasymo_top {
+    display: flex;
+    border: solid;
+    justify-content: space-between;
+}
