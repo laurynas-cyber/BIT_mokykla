@@ -1,38 +1,38 @@
 body {
-    color: aqua;
-    font-size: 50px;
-    border:5px;
-    border-color: green;
-    border-style: solid;
+  color: aqua;
+  font-size: 50px;
+  border: 5px;
+  border-color: green;
+  border-style: solid;
 }
 
 .bandom {
-    color:blue;
-    border:5px;
-    border-color: black;
-    border-style: solid;
-    
+  color: blue;
+  border: 5px;
+  border-color: black;
+  border-style: solid;
 }
 .box {
-    display: flex;
-    display: inline-flex;
-    flex-direction: row;
-    justify-content: center;
-    border:6px;
-    border-color:red;
-    border-style: solid;
-    /*flex-direction: row;
+  display: flex;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  border: 6px;
+  border-color: red;
+  border-style: solid;
+  /*flex-direction: row;
     flex-wrap:wrap-reverse;
     justify-content: flex-start;*/
 }
 
 .tekstas {
-    
-    text-align: center;
-    font-family: fantasy;
-    border:5px;
-    border-color: black;
-    border-style: solid;
-    font-size: 30px;
-    
+  text-align: center;
+  font-family: fantasy;
+  border: 5px;
+  border-color: black;
+  border-style: solid;
+  font-size: 30px;
+}
+
+.video-iframe {
 }

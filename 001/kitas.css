@@ -1,0 +1,25 @@
+.hover {
+  height: 500px;
+}
+
+.bag_front1 {
+}
+
+/* .bag_front1:hover {
+  display: none;
+} */
+
+.bag_front2 {
+  height: 332px;
+  width: 390px;
+  display: none;
+}
+
+.bag_front1:hover {
+  display: none;
+}
+
+.bag_font2:hover {
+  display: block;
+  text-align: left;
+}
