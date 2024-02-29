@@ -20,3 +20,13 @@ img {
 .no-space {
   font-size: 0; /*panaikina tarpa nuotrauku ar elemento*/
 }
+
+h1 {
+  transition: all 1s;
+  text-align: center;
+  padding: 5px;
+}
+
+h1:hover {
+  text-align: right;
+}
