@@ -70,13 +70,15 @@ h2, p{
 
 img{
 
-    width: 40%;
-}
+    width: 10rem; /*max-width:100%; 100px etc*/
+    height: 10rem;
 
+}
+/* 
 .testas3 {
     width:100%;
     width: 300px;
-}
+} */
 
 /* kaip padaryti img norimo dydžio bet responsive. 
 kuo per skaitumuo prie html? 
