@@ -8,6 +8,8 @@ h1 {
 .list {
     text-decoration: none;
     color: orange;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .list:hover {
@@ -71,11 +73,18 @@ img{
     width: 40%;
 }
 
-/* kaip padaryti img vienodo dydzio ir responsive*/
-/* 
-.logo {
-    width: 40%;
-} */
+.testas3 {
+    width:100%;
+    width: 300px;
+}
+
+/* kaip padaryti img norimo dydžio bet responsive. 
+kuo per skaitumuo prie html? 
+minamlus formatas formatas nuotraukos? kodėl neleidžia mažiau.
+prie lakers.html nurodyti tie patys heigh skaičiai ne tie patys kas css, kodel?.
+*/
+
+
 
 
 
