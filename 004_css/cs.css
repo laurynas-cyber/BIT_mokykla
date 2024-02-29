@@ -4,14 +4,17 @@ body {
 
 img {
   width: 100%;
+  display: inline-block;
 }
 
 .lol {
   width: 500px;
   height: 500px;
   object-fit: contain; /*cover visa plota*/
-  border: solid;
+  border: solid !important; /*over writina kitus pasikartuojančius elementus*/
+  border-radius: 10px;
   border-color: black;
+  display: inline-block;
 }
 
 .no-space {
