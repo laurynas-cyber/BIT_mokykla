@@ -7,9 +7,9 @@ img {
 }
 
 .lol {
-  width: auto;
+  width: 500px;
   height: 500px;
-  object-fit: cover;
+  object-fit: contain; /*cover visa plota*/
   border: solid;
   border-color: black;
 }
