@@ -1,3 +1,19 @@
+body {
+  margin: 0;
+}
+
 img {
   width: 100%;
+}
+
+.lol {
+  width: auto;
+  height: 500px;
+  object-fit: cover;
+  border: solid;
+  border-color: black;
+}
+
+.no-space {
+  font-size: 0; /*panaikina tarpa nuotrauku ar elemento*/
 }
