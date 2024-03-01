@@ -112,38 +112,51 @@ header {
 
 .golden {
   background-color: #937c41;
-  height: 40px;
+  height: 30px;
 }
 
 .blue {
   display: flex;
   background-color: #0b4fd4;
-  height: 40px;
+  height: 30px;
 }
 
 /*!!! nekeisti pradzia*/
 
 .smalltx {
-  font-size: small;
+  font-size: 10px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-.flex {
+.morchevron {
   display: flex;
 }
 
 /*!!! nekeisti pradzia*/
 
 .canada,
+.fa-chevron-down,
 .more {
   color: #c2d5f9;
-  text-align: center;
+  padding-top: 7px;
+}
+
+.more {
+  text-align: left;
+  font-weight: 700;
+}
+
+.canada {
+  text-align: right;
+  font-weight: 700;
 }
 
 .canada,
-.flex {
+.morechevron {
   width: 50%;
 }
 
-.fa-chevron-down {
+ {
   color: white;
 }
