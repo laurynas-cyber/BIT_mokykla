@@ -1,3 +1,7 @@
-justify-content: center; /*sitas elementu per ploti*/ 
+justify-content: center; /*sitas elementu per ploti*/
 align-items: center; /*per aukštį*/
 
+.fa-chevron-down {
+  color: #c2d5f9;
+  font-size: 10px; /*iconos dydis*/
+}
