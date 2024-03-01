@@ -268,7 +268,25 @@ header {
     display: none;
   }
 
-  .set-language {
+  .more {
+    color: red;
+    display: none;
+  }
+  .morchevron {
+    width: 30px;
+    height: 30px;
+  }
+
+  .fa-chevron-down {
+    padding-top: 0px;
+    margin-left: 0px;
+  }
+
+  .fa-envelope {
+    display: none; /* kodel neveikia iconai? */
+  }
+
+  .search .fa-regular {
     display: none;
   }
 }
