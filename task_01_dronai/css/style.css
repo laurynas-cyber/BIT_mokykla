@@ -87,13 +87,13 @@ video {
 
 /* prasideda kodas */
 
-
 /*!!! nekeisti pradzia*/
 
 .smalltx {
   font-size: 10px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 700;
 }
 
 /*!!! nekeisti pabaiga*/
@@ -112,9 +112,50 @@ header {
 .golden {
   background-color: #937c41;
   height: 30px;
+  display: flex;
+  justify-content: center; /*sitas elementu per ploti*/
+  align-items: center; /*per aukštį*/
 }
 
-/*golden bar blokas*/
+.test {
+  border: 1px solid black;
+}
+
+.golden-text,
+.golden-container {
+  width: 50%;
+}
+
+.social {
+  color: #c2d5f9;
+  font-size: 10px;
+  padding-left: 70px;
+}
+
+.fa-brands {
+  margin: 2px;
+}
+
+.flex {
+  display: flex;
+}
+
+.set-language,
+.cad {
+  color: #c2d5f9;
+}
+
+.cad {
+  color: #c2d5f9;
+  margin-left: 20px;
+}
+
+.languages {
+  justify-content: right;
+  padding-right: 100px;
+}
+
+/*golden bar blokas end*/
 
 /*--------------blue bar kodai*/
 
@@ -168,3 +209,21 @@ header {
 }
 
 /*--------------blue bar tekstas end*/
+
+/*--------------slider bar kodai*/
+
+.slider-bar {
+  height: 101px;
+}
+
+.upscale,
+.search,
+.fa-bars {
+  width: 33.33%;
+}
+
+.serach {
+  color: black;
+}
+
+/*------------slider bar end*/
