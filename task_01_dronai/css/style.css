@@ -96,6 +96,28 @@ video {
   font-weight: 700;
 }
 
+.english,
+.set-region,
+.fa-bars,
+.morchevron {
+  transition: all 0.2s;
+}
+
+.set-region:hover,
+.english:hover,
+.fa-bars:hover {
+  cursor: pointer;
+  padding-bottom: 4px;
+}
+
+.test {
+  border: 1px solid black;
+}
+
+.flex {
+  display: flex;
+}
+
 /*!!! nekeisti pabaiga*/
 
 /*------------- header pirmas blokas */
@@ -117,37 +139,43 @@ header {
   align-items: center; /*per aukštį*/
 }
 
-.test {
-  border: 1px solid black;
-}
-
 .golden-text,
 .golden-container {
   width: 50%;
+  height: 100%;
+  display: flex;
+}
+
+.golden-text {
+  justify-content: right;
 }
 
 .social {
+  display: flex;
+  align-items: center;
   color: #c2d5f9;
   font-size: 0.875rem;
   padding-left: 70px;
 }
 
-.fa-brands {
-  margin: 5px;
-}
-
-.flex {
-  display: flex;
-}
-
-.set-language,
-.cad {
+.set-language {
   color: #c2d5f9;
 }
 
 .cad {
   color: #c2d5f9;
   margin-left: 20px;
+}
+
+.social a {
+  color: #c2d5f9;
+  margin-right: 20px;
+  transition: all 0.2s;
+  font-size: 15px;
+}
+
+.social a:hover {
+  margin-bottom: 4px;
 }
 
 .languages {
@@ -204,6 +232,14 @@ header {
   height: 30px;
   justify-content: center;
   align-items: center;
+  position: relative; /* kad matytusi reikia nuimti*/
+  transition: all s;
+}
+
+.morchevron:hover {
+  margin-bottom: 4px;
+  /* ? kaip padaryt kad border nejudetu su hoveriu ? */
+  cursor: pointer;
 }
 
 .fa-chevron-down {
@@ -215,6 +251,10 @@ header {
 /*--------------blue bar tekstas end*/
 
 /*--------------slider bar kodai*/
+
+.fa-bars {
+  transition: all 0.2s;
+}
 
 .slider-bar {
   height: 101px;
@@ -246,6 +286,13 @@ header {
 .search i {
   margin-left: 25px;
   margin-right: 0px;
+  transition: all 0.2s;
+}
+
+.search .fa-regular:hover,
+.search .fa-solid:hover {
+  cursor: pointer;
+  margin-bottom: 4px;
 }
 
 .container-menu {
@@ -261,6 +308,12 @@ header {
 }
 
 /*------------slider bar end*/
+
+/* --------------prasideda banner video*/
+
+
+
+/* -----------banner video pabaiga*/
 
 /* responsive */
 @media screen and (max-width: 748px) {
