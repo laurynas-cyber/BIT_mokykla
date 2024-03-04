@@ -93,7 +93,6 @@ video {
   font-size: 0.875rem;
   font-family: "Archivo Narrow", sans-serif;
   font-weight: 700;
-  
 }
 
 .txt {
@@ -166,7 +165,7 @@ header {
   align-items: center;
   color: #c2d5f9;
   font-size: 0.875rem;
-  padding-left: 70px;
+  padding-left: 40px;
 }
 
 .set-language {
@@ -309,7 +308,7 @@ header {
 .container-menu {
   display: flex;
   align-items: center;
-  padding-left: 70px;
+  padding-left: 40px;
 }
 
 .fa-regular,
@@ -388,7 +387,7 @@ header {
 content {
   display: flex;
   flex-direction: column;
-  margin-left: 70px;
+  margin-left: 40px;
   margin-right: 40px;
 }
 
@@ -408,11 +407,59 @@ content {
 
 .sell-container {
   display: flex;
+  color: rgb(35, 34, 31);
+}
+
+.view,
+.fa-solid {
+  letter-spacing: 1px;
+  font-weight: 100;
+  margin-right: 10px;
+  transition: all 0.2s;
+  /* position: absolute; */
+}
+
+.viewall {
+  display: flex;
+  /* justify-content: flex-end; */
+  justify-content: start;
+  align-items: center;
+  border: #0b4fd4 solid 2px;
+  transition: all 0.2s;
+  /* position: absolute; */
+}
+
+.viewall:hover {
+  margin-bottom: 4px;
+  cursor: pointer;
+  /* gap: 2px; */
+}
+
+/* .fa-solid:hover {
+  margin-right: 5px; kaip padaryti kad nuvedus pele ant viewall paslinktu fa solid
+} */
+
+.viewall-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.fa-arrow-right-long {
+  font-size: 15px;
+  border: #0b4fd4 solid 1px;
 }
 
 .best,
-.viewall {
+.viewall-container {
   width: 50%;
+}
+
+.best {
+  font-size: 3rem;
+  /* font-size: 40px; */
+  letter-spacing: -1px;
+  /* color: rgb(35, 34, 31); */
 }
 
 /* responsive */
