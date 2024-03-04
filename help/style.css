@@ -5,3 +5,52 @@ align-items: center; /*per aukštį*/
   color: #c2d5f9;
   font-size: 10px; /*iconos dydis*/
 }
+
+.view,
+.fa-solid {
+  transition: all 0.2s;
+  position: relative; /*position relative nusako nuo kurio elemento turėtu buti postion absolute*/
+}
+
+.view {
+  right: 20px;
+}
+
+.fa-solid {
+  right: 10px;
+}
+
+.viewall:hover .fa-solid {
+  /*uzvedus pelę ant viewall icona fa solid paeis i desine*/
+  right: 5px;
+}
+
+.img-container2 {
+  border: 1px solid black;
+  padding: 20px;
+  width: 500px;
+  position: relative;
+  margin: 20px;
+  height: 290px;
+  overflow: hidden; /* viskas kas už dėžės pasislepia. paslėpti galima su pasition absolute is 005 destytojo papkes*/
+}
+
+.img-container2 .img12 {
+  top: 20px;
+  left: 20px;
+  transition: all 0.5s;
+}
+
+.img-container2 .img22 {
+  top: 20px;
+  left: 540px;
+  transition: all 0.5s;
+}
+
+.img-container2:hover .img12 {
+  left: -520px;
+}
+
+.img-container2:hover .img22 {  /* slideris is 005 destytojo papkės */
+  left: 20px;
+}
