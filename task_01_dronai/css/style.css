@@ -416,7 +416,15 @@ content {
   font-weight: 100;
   margin-right: 10px;
   transition: all 0.2s;
-  /* position: absolute; */
+  position: relative;
+}
+
+.viewall:hover .fa-solid {
+  margin-right: 5px;
+}
+
+.viewall:hover .view {
+  color: red;
 }
 
 .viewall {
@@ -426,7 +434,7 @@ content {
   align-items: center;
   border: #0b4fd4 solid 2px;
   transition: all 0.2s;
-  /* position: absolute; */
+  position: relative;
 }
 
 .viewall:hover {
