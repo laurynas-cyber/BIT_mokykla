@@ -564,18 +564,28 @@ content {
   .bannertext {
     height: 700px;
   }
-  .bannertext {
-    height: 600px;
-  }
 
+  /* content {
+    margin-top: 200px;
+  } */
   .main-text {
     font-size: 4em;
   }
 }
 
 @media screen and (max-width: 748px) {
-  .vid,
-  .bannertext {
+  .vid {
     height: 500px;
+  }
+  .bannertext {
+    height: 400px;
+  }
+
+  .best {
+    font-size: 2em;
+  }
+
+  .main-text {
+    font-size: 3em;
   }
 }
