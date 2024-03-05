@@ -264,10 +264,33 @@ header {
 
 .fa-bars {
   transition: all 0.2s;
+  color: white;
+  font-size: 20px;
 }
 
 .slider-bar {
   height: 101px;
+  position: sticky;
+  top: 0px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.slider-bar:hover {
+  background-color: white;
+}
+
+/* .slider-bar.scrolled {
+  background-color: white;
+  opacity: 0.98;
+}
+
+.slider-bar.scrolled .serach i {
+  color: black;
+} */
+
+.slider-bar:hover .search i,
+.slider-bar:hover .fa-bars {
+  color: black;
 }
 
 .upscale,
@@ -296,7 +319,9 @@ header {
 .search i {
   margin-left: 25px;
   margin-right: 0px;
+  color: white;
   transition: all 0.2s;
+  font-size: 20px;
 }
 
 .search .fa-regular:hover,
@@ -311,23 +336,29 @@ header {
   padding-left: 40px;
 }
 
-.fa-regular,
-.fa-solid {
-  color: black;
-  font-size: 20px;
-}
-
 /*------------slider bar end*/
 
 /* --------------prasideda banner video*/
 
 .video {
+  width: auto;
+  /* overflow: hidden; */
+  position: relative;
+}
+
+iframe {
+  z-index: -1;
+  position: absolute;
+  /* object-fit: contain; */
+  /* max-width: auto; */
+  /* left: -10px; */
   width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .vid,
 .bannertext {
-  width: 100%;
   height: 800px;
 }
 
@@ -335,6 +366,7 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  color: #c2d5f9;
 }
 
 .bannertext div {

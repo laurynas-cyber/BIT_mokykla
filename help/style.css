@@ -6,6 +6,8 @@ align-items: center; /*per aukštį*/
   font-size: 10px; /*iconos dydis*/
 }
 
+object-fit: contain; /*įrėmina graziai paveikslėlį padaro per centra*/
+
 .view,
 .fa-solid {
   transition: all 0.2s;
