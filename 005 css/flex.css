@@ -1,9 +1,11 @@
 :root {
-  --img: 500px;
+  --img2: 500px;
+  --img: 300px;
 }
 
 body {
   margin: 0;
+  font-family: "Oswald", sans-serif;
 }
 
 .layout {
@@ -126,7 +128,30 @@ img {
 
 .about .text {
   width: 100%;
+  position: relative;
   /* padding: 20px; */
+}
+
+.about .text h2::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: blue;
+  position: relative;
+  bottom: 10px;
+}
+
+.about .text h2::after {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: pink;
+  position: relative;
+  bottom: 10px;
 }
 
 /* @media only screen and (max-width: 600px) {
