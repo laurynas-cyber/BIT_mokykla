@@ -53,6 +53,15 @@ object-fit: contain; /*įrėmina graziai paveikslėlį padaro per centra*/
   left: -520px;
 }
 
-.img-container2:hover .img22 {  /* slideris is 005 destytojo papkės */
+.img-container2:hover .img22 {
+  /* slideris is 005 destytojo papkės */
   left: 20px;
 }
+
+/* background-color: rgba(254, 254, 254, 0.3); */ /* blur efektai*/
+
+filter: blur(1px);
+-webkit-filter: blur(1px);
+
+background-color: rgba(255, 255, 255, 0.1);
+backdrop-filter: blur(10px);

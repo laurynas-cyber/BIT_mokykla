@@ -172,6 +172,10 @@ header {
   color: #c2d5f9;
 }
 
+.chfix {
+  padding-top: 2px;
+}
+
 .cad {
   color: #c2d5f9;
   margin-left: 20px;
@@ -247,14 +251,13 @@ header {
 }
 
 .morchevron:hover {
-  margin-bottom: 4px;
+  margin-bottom: 3px;
   /* ? kaip padaryt kad border nejudetu su hoveriu ? */
   cursor: pointer;
 }
 
 .fa-chevron-down {
   font-size: 9px;
-  padding-top: 3px;
   margin-left: 5px;
 }
 
@@ -270,23 +273,31 @@ header {
 
 .slider-bar {
   height: 101px;
-  position: sticky;
-  top: 0px;
+
   transition: background-color 0.2s ease-in-out;
+}
+
+header {
+  background-color: none;
+  position: sticky;
+  top: -1px;
+  transition: background-color 0.2s ease-in-out;
+  z-index: 1;
+}
+
+header.scrolled {
+  background-color: white;
+}
+
+header.scrolled .search i,
+header.scrolled .fa-bars {
+  color: black;
 }
 
 .slider-bar:hover {
   background-color: white;
-}
-
-/* .slider-bar.scrolled {
-  background-color: white;
   opacity: 0.98;
 }
-
-.slider-bar.scrolled .serach i {
-  color: black;
-} */
 
 .slider-bar:hover .search i,
 .slider-bar:hover .fa-bars {
@@ -366,7 +377,7 @@ iframe {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #c2d5f9;
+  color: white;
 }
 
 .bannertext div {
@@ -374,10 +385,16 @@ iframe {
 }
 
 .shop-box {
+  color: white;
   width: 160px;
   height: 40px;
-  border: black 1px solid;
+  border: white 1px solid;
   transition: all 0.2s;
+  /* background-color: transparent; */
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  z-index: 0;
 }
 
 .shop-container {
@@ -397,6 +414,7 @@ iframe {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: bold;
+  text-align: center;
 }
 
 .brands {
@@ -541,5 +559,23 @@ content {
   }
   .morchevron {
     margin-right: 50px;
+  }
+  .vid,
+  .bannertext {
+    height: 700px;
+  }
+  .bannertext {
+    height: 600px;
+  }
+
+  .main-text {
+    font-size: 4em;
+  }
+}
+
+@media screen and (max-width: 748px) {
+  .vid,
+  .bannertext {
+    height: 500px;
   }
 }
