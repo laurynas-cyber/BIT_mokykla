@@ -417,6 +417,10 @@ iframe {
   text-align: center;
 }
 
+/* -----------banner video pabaiga*/
+
+/* -----------content brands pradžia*/
+
 .brands {
   display: flex;
   justify-content: space-around;
@@ -431,9 +435,10 @@ iframe {
   justify-content: center;
 }
 
-/* -----------banner video pabaiga*/
+.antras {
+  scale: 0.8;
+}
 
-/* -----------content brands pradžia*/
 content {
   display: flex;
   flex-direction: column;
@@ -587,5 +592,13 @@ content {
 
   .main-text {
     font-size: 3em;
+  }
+
+  .brands {
+    margin-top: 70px;
+  }
+
+  .antras {
+    scale: none;
   }
 }
