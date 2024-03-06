@@ -94,7 +94,7 @@ button[type="submit"] {
 
 .parent > p {
   color: red;
-} /* tik tiesioginiai vaikai p. bet .parent p butu visi p parent elemente*/
+} /* tik tiesioginiai vaikai p. bet .parent p butu visi p parent elemente pamoka 007*/
 
 h2 + h3 {
   /*pirmas elementas po h2*/
@@ -104,4 +104,58 @@ h2 + h3 {
 h5 ~ span {
   /*paiima visus span brolius panašiai kaip +*/
   color: green;
+}
+
+ul li:last-child {
+  /*paskutinis vaikas*/
+  border: none;
+}
+
+ul li:nth-child(2n) {
+  /*kas du elementus be n radaies tai bus kelintas arba odd ir even*/
+  color: brown;
+}
+
+height: 100vh; /* vh yra ekrano matomos dalies skaicius meniu baras is 005 flex paskaitos*/
+
+box-sizing: border-box; /*neprideda papildomu px*/
+
+li.m {
+  transform: translate(-100px, 0px);
+}
+
+.bin {
+  width: 50px;
+  height: 50px;
+  animation-name: kuku; /*animacijos panaudojimas*/
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes kuku {
+  0% {
+    background-color: aqua;
+    transform: rotate(0deg);
+  }
+
+  25% {
+    background-color: gold;
+    transform: rotate(180deg);
+  }
+}
+
+html
+<label for="or">go red</label> /* mobile menu baras 007 pamoka 005 folderis. input checked. paspaudus ant go red arba check veiksmas. galima pasidaryti menu mobile bar. tik label gali buti suristas su input */ 
+<input id="or" type="checkbox" />
+<div class="after">checked</div>
+
+
+[type="checkbox"]:checked + div {
+  color: red;
+}
+
+label {
+  user-select: none; /*tam kad netyčia nepaspaustų*/
+  cursor: pointer;
 }
