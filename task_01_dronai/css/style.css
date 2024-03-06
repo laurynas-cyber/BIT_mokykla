@@ -213,6 +213,7 @@ header {
   height: 50px;
   justify-content: center; /*sitas per ploti*/
   align-items: center; /*per aukštį*/
+  position: relative;
 }
 
 .canada,
@@ -278,12 +279,15 @@ header {
 }
 
 header {
-  background-color: none;
+  background: none;
+  /* background-color: rgba(255, 255, 255, 0); */
   position: sticky;
   top: -1px;
   transition: background-color 0.2s ease-in-out;
   z-index: 1;
 }
+
+/*header scroll */
 
 header.scrolled {
   background-color: white;
@@ -351,6 +355,11 @@ header.scrolled .fa-bars {
 
 /* --------------prasideda banner video*/
 
+.banner {
+  position: relative;
+  bottom: 101px;
+}
+
 .video {
   width: auto;
   /* overflow: hidden; */
@@ -360,9 +369,11 @@ header.scrolled .fa-bars {
 iframe {
   z-index: -1;
   position: absolute;
-  /* object-fit: contain; */
+  /* scale: 1.2;  veikia bet tada .banner overflow:hidden slideris neveikia */
+  /* object-fit: cover; */
   /* max-width: auto; */
   /* left: -10px; */
+  filter: brightness(0.8);
   width: 100%;
   margin: 0;
   padding: 0;
@@ -426,6 +437,7 @@ iframe {
   justify-content: space-around;
   width: 100%;
   height: 170px;
+  margin-top: 20px;
 }
 
 .brands img {
@@ -458,7 +470,7 @@ content {
   letter-spacing: 2px;
 }
 
-/*------ drones pradzia */
+/*------ brands pradzia */
 
 .sell-container {
   display: flex;
@@ -520,6 +532,33 @@ content {
   letter-spacing: -1px;
   color: rgb(35, 34, 31);
 }
+
+/*------ drones pradzia brands pabaiga*/
+
+.drones {
+  background-color: #0b4fd4;
+  width: 100%;
+}
+
+.block {
+  width: 33%;
+  margin: 5px;
+  /* position: relative; */
+}
+
+.block img {
+  height: 100%;
+  width: 100%;
+  /* position: relative; */
+}
+/* 
+.block a {
+  position: relative;
+}
+
+.quickview {
+  position: absolute;
+} */
 
 /* responsive */
 @media screen and (max-width: 748px) {
@@ -594,11 +633,11 @@ content {
     font-size: 3em;
   }
 
-  .brands {
-    margin-top: 70px;
-  }
-
   .antras {
     scale: none;
+  }
+
+  .best {
+    font-size: 2em;
   }
 }
