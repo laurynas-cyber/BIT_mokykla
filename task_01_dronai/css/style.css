@@ -545,7 +545,7 @@ content {
   margin: 5px;
   display: flex;
   flex-direction: column;
-  height: 400px;
+  height: 500px;
   position: relative;
 }
 
@@ -618,6 +618,7 @@ content {
   position: absolute;
   bottom: 0;
   left: 0px;
+  color: rgb(35, 34, 31);
 }
 
 /* responsive */

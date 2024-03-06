@@ -1,0 +1,56 @@
+* {
+  letter-spacing: 5px;
+}
+
+i {
+  color: steelblue;
+}
+
+.big {
+  font-size: 2em;
+  color: greenyellow;
+}
+
+.big .small {
+  font-size: 0.5em;
+  color: crimson;
+}
+
+.big.small {
+  font-size: 3.5em;
+  color: lightcoral;
+}
+
+#big {
+  color: blue;
+}
+
+#big .small {
+  color: orange;
+}
+
+button {
+  font-size: 1.5em;
+  color: darkorchid;
+  background-color: lightgray;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+}
+
+button[type="submit"] {
+  background-color: chartreuse;
+}
+
+.parent > p {
+  color: red;
+}
+
+h2 + h3 {
+  color: orange;
+}
+
+h5 ~ span {
+  color: green;
+}

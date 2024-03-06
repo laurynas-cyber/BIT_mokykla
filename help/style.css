@@ -72,6 +72,10 @@ backdrop-filter: blur(10px);
   --img: 300px;
 } /*kintamieji*/
 
+.img-container2:hover .img12 {
+  left: calc(-1 * (var(--img) + 20px)); /*kintamojo naudijamas*/
+}
+
 .about .text h2::after {
   /*after arba before sukuria nematoma div. į content galima rašyti tik tekstą*/
   content: "";
@@ -82,4 +86,22 @@ backdrop-filter: blur(10px);
   background-color: pink;
   position: relative;
   bottom: 10px;
+}
+
+button[type="submit"] {
+  background-color: chartreuse;
+} /*kreipimasis i atributa */
+
+.parent > p {
+  color: red;
+} /* tik tiesioginiai vaikai p. bet .parent p butu visi p parent elemente*/
+
+h2 + h3 {
+  /*pirmas elementas po h2*/
+  color: orange;
+}
+
+h5 ~ span {
+  /*paiima visus span brolius panašiai kaip +*/
+  color: green;
 }
