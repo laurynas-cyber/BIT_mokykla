@@ -358,6 +358,7 @@ header.scrolled .fa-bars {
 .banner {
   position: relative;
   bottom: 101px;
+  overflow: hidden;
 }
 
 .video {
@@ -370,7 +371,9 @@ iframe {
   z-index: -1;
   position: absolute;
   /* scale: 1.2;  veikia bet tada .banner overflow:hidden slideris neveikia */
-  /* object-fit: cover; */
+  /* background: center; */
+  /* overflow: hidden; */
+  scale: 1.2;
   /* max-width: auto; */
   /* left: -10px; */
   filter: brightness(0.8);
@@ -456,6 +459,8 @@ content {
   flex-direction: column;
   margin-left: 40px;
   margin-right: 40px;
+  position: relative;
+  bottom: 20px;
 }
 
 .brand-text {
@@ -586,34 +591,13 @@ content {
   .search .fa-regular {
     display: none;
   }
-}
 
-@media screen and (max-width: 990px) {
-  .canada {
-    padding-left: 70px;
-    text-align: left;
+  content {
+    margin-top: 0;
   }
-  #morchevron-conteiner {
-    display: flex;
-    justify-content: right;
-  }
-  .brand-text,
+
   .brands {
-    height: 100px;
-  }
-  .morchevron {
-    margin-right: 50px;
-  }
-  .vid,
-  .bannertext {
-    height: 700px;
-  }
-
-  /* content {
-    margin-top: 200px;
-  } */
-  .main-text {
-    font-size: 4em;
+    margin-top: 0px;
   }
 }
 
@@ -639,5 +623,34 @@ content {
 
   .best {
     font-size: 2em;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .canada {
+    padding-left: 70px;
+    text-align: left;
+  }
+  #morchevron-conteiner {
+    display: flex;
+    justify-content: right;
+  }
+  .brand-text,
+  .brands {
+    height: 100px;
+  }
+  .morchevron {
+    margin-right: 50px;
+  }
+  .vid,
+  .bannertext {
+    height: 700px;
+  }
+
+  content {
+    bottom: 60px;
+  }
+  .main-text {
+    font-size: 4em;
   }
 }
