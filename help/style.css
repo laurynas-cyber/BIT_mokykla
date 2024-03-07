@@ -121,8 +121,12 @@ height: 100vh; /* vh yra ekrano matomos dalies skaicius meniu baras is 005 flex 
 box-sizing: border-box; /*neprideda papildomu px*/
 
 li.m {
-  transform: translate(-100px, 0px);
+  transform: translate(
+    -100px,
+    0px
+  ); /*perkelia per x ir y ashy. gali buti reikia keisti position. arba ne */
 }
+background: linear-gradient(90deg); /*kas cia*/
 
 .bin {
   width: 50px;

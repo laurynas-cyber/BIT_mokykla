@@ -576,16 +576,25 @@ content {
 .drone-container-up {
   display: flex;
   flex-direction: column;
-  justify-content: center; /*sitas elementu per ploti*/
+  justify-content: flex-start; /*sitas elementu per ploti*/
   align-items: center; /*per aukštį*/
   margin-top: 5px;
   transition: all 0.2s;
-  /* position: relative; */
+  position: relative;
+  /* min-height: auto;
+  max-height: 500px; */
+  height: 100%;
+  /* min-height: 500px; */
 }
 
 .block img {
-  height: 100%;
+  /* min-height: 180px;
+  max-height: 320px; */
   width: 100%;
+}
+
+.block a {
+  position: relative;
 }
 
 .block .quickview {
@@ -620,6 +629,49 @@ content {
   left: 0px;
   color: rgb(35, 34, 31);
 }
+
+.drone-name {
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.drone-info div {
+  margin-bottom: 5px;
+}
+
+.drone-price {
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.deletedtx {
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: rgb(83, 79, 79);
+}
+
+.stars {
+  color: rgb(35, 34, 31);
+  font-size: 7.5px;
+}
+
+.empty {
+  color: rgba(127, 122, 122, 0.758);
+}
+
+/* .stars::before {
+  content: "\2605\2605\2605\2605\2605";
+
+  color: linear-gradient(
+    90deg,
+    var(currentColor)
+      var(
+        calc(4 / 5 * 100%-1.5px),
+        var(rgba(35, 34, 31, 0.2) var(cal(4/5 * 100%-1.5px)))
+      )
+  );
+} */
 
 /* responsive */
 @media screen and (max-width: 748px) {
@@ -680,6 +732,14 @@ content {
   .best {
     font-size: 2em;
   }
+
+  .drone-3 {
+    display: none;
+  }
+
+  .block {
+    width: 50%;
+  }
 }
 
 @media screen and (max-width: 990px) {
@@ -708,5 +768,9 @@ content {
   }
   .main-text {
     font-size: 4em;
+  }
+
+  .block {
+    height: 350px;
   }
 }
