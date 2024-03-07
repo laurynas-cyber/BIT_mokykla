@@ -731,6 +731,22 @@ content {
   height: 200px;
   border-radius: 20px;
   display: flex;
+  text-decoration: none;
+}
+
+.learn {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  height: 100%;
+}
+
+.learn div {
+  display: inline-block;
+  margin: 10px;
+  /* height: 50%; */
 }
 
 .golden-learn {
