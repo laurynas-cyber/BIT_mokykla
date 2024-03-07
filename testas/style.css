@@ -11,3 +11,8 @@
   font-size: 100px;
   color: blue;
 }
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+}
