@@ -6,13 +6,14 @@ ul {
 ul li {
   position: relative;
   display: inline-block;
-  transition: all 1s;
+  transition: 1s;
   margin: 5px;
 }
 
 ul li:hover {
   cursor: pointer;
-  /* left: 4px; */
+  left: 4px;
+  transition: 1s;
   color: red;
-  transform: translate(4px, 4px);
+  /* transform: translate(4px, 4px); */
 }
