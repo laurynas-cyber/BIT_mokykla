@@ -725,6 +725,7 @@ content {
   scale: 1.8;
 }
 
+/* drones pabaiga*/
 /* learn banner pradzia drone pabaiga*/
 
 .learn-banner {
@@ -802,7 +803,56 @@ content {
   );
 } */
 
-/* drones pabaiga*/
+/* drones learn pabaiga*/
+
+/*drone groups pradzia*/
+
+.groups-switch {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100px;
+}
+
+.drone-groups {
+  width: auto;
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  align-items: baseline;
+  border-bottom: 1px solid;
+  font-weight: 100;
+  letter-spacing: 1px;
+  color: rgb(35, 34, 31);
+  height: 100%;
+  position: relative;
+}
+
+.drone-groups li {
+  /* padding-bottom: 15px; */
+  /* height: 40px; */
+  display: inline-block;
+  margin-left: 35px;
+  position: relative;
+  transition: all 0.4s;
+  align-self: flex-end;
+}
+
+.drone-groups li {
+  border-color: rgb(35, 34, 31);
+}
+
+.drone-groups li:first-child {
+  margin-left: 0px;
+  /* border-bottom: 4px solid; */
+}
+
+.drone-groups li:hover {
+  cursor: pointer;
+  bottom: 4px;
+}
+
+/*drone groups pabaiga*/
 
 /* responsive */
 @media screen and (max-width: 748px) {
