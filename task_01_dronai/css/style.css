@@ -728,32 +728,65 @@ content {
 /* learn banner pradzia drone pabaiga*/
 
 .learn-banner {
-  height: 200px;
+  height: 180px;
   border-radius: 20px;
   display: flex;
   text-decoration: none;
+  margin-top: 100px;
+  overflow: hidden;
+  width: 100%;
 }
 
 .learn {
   text-decoration: none;
   color: white;
   display: flex;
-  align-items: baseline;
   justify-content: center;
   height: 100%;
+  max-width: 50%;
+  overflow: hidden;
 }
 
 .learn div {
   display: inline-block;
-  margin: 10px;
-  /* height: 50%; */
 }
 
 .golden-learn {
   background-color: #937c41;
   width: 50%;
-  height: auto;
-  border-radius: 20px 0px 0px 20px;
+  /* height: auto; */
+  /* border-radius: 20px 0px 0px 20px; */
+  align-items: baseline;
+  align-content: center;
+}
+
+.golden-learn div {
+  align-self: center;
+}
+
+.smalllearn {
+  font-size: 27px;
+  padding: 0;
+  margin-left: 12px;
+  letter-spacing: 0px;
+}
+
+.upperlearn {
+  font-weight: normal;
+  margin-right: 12px;
+  letter-spacing: 2px;
+}
+
+.learn-img {
+  flex-direction: column;
+  width: 100%;
+}
+
+.learn-img img {
+  background-image: cover;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
 }
 
 /* .stars::before {
@@ -773,6 +806,11 @@ content {
 
 /* responsive */
 @media screen and (max-width: 748px) {
+  content {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
   .golden {
     display: none;
   }
@@ -846,6 +884,34 @@ content {
 
   .bubles {
     width: 100%;
+  }
+
+  .learn-banner {
+    flex-direction: column;
+    height: 400px;
+  }
+
+  .learn-banner div {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .golden-learn {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50%;
+  }
+
+  .smalllearn {
+    height: auto;
+    font-size: 24px;
+  }
+  .golden-learn div {
+    margin: 0;
+    width: auto;
+    margin-bottom: 10px;
+    text-align: center;
   }
 }
 
