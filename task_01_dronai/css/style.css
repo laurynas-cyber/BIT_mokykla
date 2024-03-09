@@ -755,8 +755,6 @@ content {
 .golden-learn {
   background-color: #937c41;
   width: 50%;
-  /* height: auto; */
-  /* border-radius: 20px 0px 0px 20px; */
   align-items: baseline;
   align-content: center;
 }
@@ -807,6 +805,10 @@ content {
 
 /*drone groups pradzia*/
 
+.groups-container {
+  margin-top: 180px;
+}
+
 .groups-switch {
   display: flex;
   justify-content: center;
@@ -829,32 +831,178 @@ content {
 }
 
 .drone-groups li {
-  /* padding-bottom: 15px; */
-  /* height: 40px; */
+  padding: 0px 0 15px 0;
   display: inline-block;
   margin-left: 35px;
   position: relative;
-  transition: all 0.4s;
+  transition: all 0.2s;
   align-self: flex-end;
-}
-
-.drone-groups li {
-  border-color: rgb(35, 34, 31);
+  border-bottom: 4px solid;
+  border-color: white;
 }
 
 .drone-groups li:first-child {
   margin-left: 0px;
-  /* border-bottom: 4px solid; */
+  border-color: rgb(35, 34, 31);
 }
 
 .drone-groups li:hover {
   cursor: pointer;
-  bottom: 4px;
+  bottom: 0px;
+  padding-bottom: 17px;
+  color: rgb(83, 79, 79);
 }
 
+.groups-switch + div {
+  margin-top: 50px;
+  height: 550px;
+}
+
+.long-range-vid,
+.shop-long-container {
+  width: 50%;
+}
+
+.shop-long-container {
+  color: white;
+  background-color: rgb(35, 34, 31);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 50%;
+}
+
+.long-container {
+  border: white solid 1px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 95%;
+}
+
+.shop-long-container div {
+  margin: 20px;
+}
+
+.shop-long-container div:first-child {
+  margin-bottom: 30px;
+}
+
+.shop-long-container div:last-child {
+  margin-top: 30px;
+}
+
+.first {
+  letter-spacing: 1px;
+  font-weight: 600;
+  border: white solid 1px;
+  font-size: 18px;
+}
+
+.second {
+  font-size: 40px;
+  letter-spacing: 0px;
+  border: white solid 1px;
+  margin-top: 10px;
+}
+
+.third {
+  border: white solid 1px;
+  font-size: 22px;
+  font-weight: 300;
+}
+
+.fourth {
+  background-color: white;
+  color: black;
+  font-weight: 300;
+  padding: 13px;
+  width: fit-content;
+}
+
+.fourth:hover {
+  cursor: pointer;
+}
+
+.long-range-vid {
+  background-image: cover;
+  height: 100%;
+  position: relative;
+}
+
+.long-range-pic {
+  z-index: -1;
+  position: absolute;
+}
+
+.long-range-pic img {
+  background-image: cover;
+  object-fit: cover;
+  height: 550px;
+  width: 104%;
+}
+
+.pop-up-long {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  z-index: 1;
+  bottom: 40px;
+  left: 40px;
+  border-radius: 100%;
+  box-sizing: border-box;
+}
+
+.fa-play {
+  transform: translate(25px, 20px);
+}
+
+.pop-up-long:hover {
+  cursor: pointer;
+}
 /*drone groups pabaiga*/
 
 /* responsive */
+
+@media screen and (max-width: 990px) {
+  .canada {
+    padding-left: 70px;
+    text-align: left;
+  }
+  #morchevron-conteiner {
+    display: flex;
+    justify-content: right;
+  }
+  .brand-text,
+  .brands {
+    height: 100px;
+  }
+  .morchevron {
+    margin-right: 50px;
+  }
+  .vid,
+  .bannertext {
+    height: 700px;
+  }
+
+  content {
+    bottom: 60px;
+  }
+  .main-text {
+    font-size: 4em;
+  }
+
+  .block {
+    height: 350px;
+  }
+
+  .shop-long-container div {
+    margin: 10px;
+  }
+}
+
 @media screen and (max-width: 748px) {
   content {
     margin-left: 20px;
@@ -963,37 +1111,12 @@ content {
     margin-bottom: 10px;
     text-align: center;
   }
-}
 
-@media screen and (max-width: 990px) {
-  .canada {
-    padding-left: 70px;
-    text-align: left;
-  }
-  #morchevron-conteiner {
-    display: flex;
-    justify-content: right;
-  }
-  .brand-text,
-  .brands {
-    height: 100px;
-  }
-  .morchevron {
-    margin-right: 50px;
-  }
-  .vid,
-  .bannertext {
-    height: 700px;
+  .groups-switch + div {
+    height: 900px;
   }
 
-  content {
-    bottom: 60px;
-  }
-  .main-text {
-    font-size: 4em;
-  }
-
-  .block {
-    height: 350px;
+  .shop-long-container .long-container {
+    width: 95%;
   }
 }
