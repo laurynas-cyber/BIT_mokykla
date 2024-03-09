@@ -873,7 +873,6 @@ content {
 }
 
 .long-container {
-  border: white solid 1px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -896,19 +895,16 @@ content {
 .first {
   letter-spacing: 1px;
   font-weight: 600;
-  border: white solid 1px;
   font-size: 18px;
 }
 
 .second {
   font-size: 40px;
   letter-spacing: 0px;
-  border: white solid 1px;
   margin-top: 10px;
 }
 
 .third {
-  border: white solid 1px;
   font-size: 22px;
   font-weight: 300;
 }
@@ -1089,11 +1085,13 @@ content {
     height: 400px;
   }
 
-  .learn-banner div {
+  .learn-banner > div {
     width: 100%;
     max-width: 100%;
   }
-
+  .groups-container {
+    margin-top: 70px;
+  }
   .golden-learn {
     flex-direction: column;
     align-items: center;
@@ -1115,8 +1113,22 @@ content {
   .groups-switch + div {
     height: 900px;
   }
+  .drone-groups {
+    flex-wrap: wrap;
+  }
 
-  .shop-long-container .long-container {
-    width: 95%;
+  .long-range-vid {
+    height: 100%;
+  }
+
+  .long-range-pic {
+    height: 100%;
+    width: 100%;
+  }
+
+  .long-range-pic img {
+    min-height: 100%;
+    height: 100%;
+    width: 100%;
   }
 }
