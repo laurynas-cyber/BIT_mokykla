@@ -6,6 +6,9 @@ align-items: center; /*per aukštį*/
   font-size: 10px; /*iconos dydis*/
 }
 
+background-image: cover;
+object-fit: cover; /*background image
+
 object-fit: contain; /*įrėmina graziai paveikslėlį padaro per centra*/
 width: fit-content; /*sutalpina iki deze iki maximum*/
 

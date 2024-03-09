@@ -959,7 +959,39 @@ content {
   cursor: pointer;
 }
 /*drone groups pabaiga*/
+/* blog pradzia*/
 
+#blog {
+  margin-top: 180px;
+  margin-bottom: 50px;
+}
+
+#blog > div {
+  width: 25%;
+}
+
+#blog div:nth-child(2) {
+  width: 50%;
+  text-align: center;
+}
+
+.blog-container {
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.duk {
+  overflow: hidden;
+  border-radius: 20px 20px 0px 0px;
+  display: flex;
+  flex-direction: column;
+  width: 33.33%;
+  justify-content: center;
+  /* background-image: cover;
+  object-fit: cover; */
+}
+
+/*blog pabaiga*/
 /* responsive */
 
 @media screen and (max-width: 990px) {
@@ -1130,5 +1162,16 @@ content {
     min-height: 100%;
     height: 100%;
     width: 100%;
+  }
+
+  #blog {
+    margin-top: 100px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #blog > div {
+    margin-bottom: 20px;
   }
 }
