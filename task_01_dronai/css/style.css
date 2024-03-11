@@ -986,9 +986,41 @@ content {
   display: flex;
   flex-direction: column;
   width: 33.33%;
-  justify-content: center;
   /* background-image: cover;
   object-fit: cover; */
+}
+
+.duktxt {
+  margin: 20px;
+  color: rgb(35, 34, 31);
+}
+
+.duktxt h1 {
+  margin-top: 10px;
+  margin-bottom: 25px;
+  font-size: 1.6875rem;
+}
+.duktxt p {
+  font-weight: 300;
+  font-size: 1.3rem;
+}
+
+.writer {
+  display: flex;
+  flex-direction: row;
+}
+
+.write img {
+  display: block;
+  max-width: 100%;
+}
+
+.writer-info {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: space-evenly;
+  margin-left: 10px;
 }
 
 /*blog pabaiga*/
@@ -1173,5 +1205,9 @@ content {
 
   #blog > div {
     margin-bottom: 20px;
+  }
+
+  .duktxt h1 {
+    font-size: 1.375rem;
   }
 }
