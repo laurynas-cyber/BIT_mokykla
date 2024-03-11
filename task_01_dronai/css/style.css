@@ -982,10 +982,6 @@ content {
   height: 600px;
 }
 
-.blog-container div:first-child {
-  display: none;
-}
-
 .duk {
   overflow: hidden;
   border-radius: 20px 20px 0px 0px;
@@ -1041,10 +1037,6 @@ content {
   font-size: small;
 }
 
-/* .ne {
-  display: none;
-} */
-
 /*blog pabaiga*/
 /* responsive */
 
@@ -1086,6 +1078,14 @@ content {
 
   .blog-container {
     height: 700px;
+  }
+
+  .blog-container > div:nth-child(3) {
+    display: none;
+  }
+
+  .duk {
+    width: 50%;
   }
 }
 
@@ -1250,11 +1250,11 @@ content {
     display: block;
   }
 
-  .duk {
-    width: 100%;
+  .blog-container > div:nth-child(2) {
+    display: none;
   }
 
-  .duktxt {
-    margin: 0px;
+  .duk {
+    width: 100%;
   }
 }
