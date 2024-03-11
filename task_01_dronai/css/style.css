@@ -1046,6 +1046,7 @@ content {
 
 .about {
   margin-top: 100px;
+  height: auto;
 }
 
 .about > div {
@@ -1056,6 +1057,7 @@ content {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  color: rgb(35, 34, 31);
 }
 
 .radiusimages {
@@ -1070,7 +1072,6 @@ content {
 .radiusimages img {
   width: 100%;
   border-radius: 20px;
-  border: 1px solid black;
   box-sizing: border-box;
   object-fit: cover;
 }
@@ -1092,6 +1093,47 @@ content {
   height: 70%;
 }
 
+.established {
+  color: #0b4fd4;
+  font-weight: 100;
+  font-size: medium;
+  letter-spacing: 2px;
+}
+
+.aboutconteiner > div {
+  margin-top: 40px;
+}
+
+.aboutconteiner h1 {
+  font-size: 6em;
+  letter-spacing: -5px;
+  margin-top: 40px;
+}
+
+.aboutext {
+  font-size: 1.95rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.aboutbutton {
+  color: white;
+  background-color: #0b4fd4;
+  width: fit-content;
+  padding: 0.5em 1em;
+  font-weight: 300;
+}
+
+.aboutbutton:hover {
+  cursor: pointer;
+}
+
+/*about pabaiga*/
+/*reviews pradzia*/
+.reviews-main {
+  display: flex;
+  text-align: center;
+}
 /* responsive */
 
 @media screen and (max-width: 990px) {
@@ -1315,5 +1357,29 @@ content {
 
   .duk {
     width: 100%;
+  }
+
+  .about {
+    flex-direction: column;
+  }
+
+  .about > div {
+    width: 100%;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+
+  .aboutconteiner {
+    align-items: center;
+    justify-items: center;
+  }
+
+  .aboutconteiner h1 {
+    text-align: center;
+    font-size: 4em;
+  }
+
+  .aboutext {
+    font-size: 1.5rem;
   }
 }
