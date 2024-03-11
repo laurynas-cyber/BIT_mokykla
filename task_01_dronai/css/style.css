@@ -964,6 +964,7 @@ content {
 #blog {
   margin-top: 180px;
   margin-bottom: 50px;
+  position: relative;
 }
 
 #blog > div {
@@ -978,6 +979,11 @@ content {
 .blog-container {
   justify-content: space-between;
   gap: 10px;
+  height: 600px;
+}
+
+.blog-container div:first-child {
+  display: none;
 }
 
 .duk {
@@ -986,13 +992,16 @@ content {
   display: flex;
   flex-direction: column;
   width: 33.33%;
+  height: 100%;
   /* background-image: cover;
   object-fit: cover; */
 }
 
 .duktxt {
-  margin: 20px;
+  margin: 20px 20px 0px 20px;
   color: rgb(35, 34, 31);
+  height: 100%;
+  position: relative;
 }
 
 .duktxt h1 {
@@ -1008,10 +1017,13 @@ content {
 .writer {
   display: flex;
   flex-direction: row;
+  position: absolute;
+  bottom: 0;
+  height: 50px;
 }
 
 .write img {
-  display: block;
+  /* display: block; */
   max-width: 100%;
 }
 
@@ -1021,7 +1033,17 @@ content {
   /* align-items: center; */
   justify-content: space-evenly;
   margin-left: 10px;
+  font-weight: 200;
 }
+
+.date {
+  color: rgb(83, 79, 79);
+  font-size: small;
+}
+
+/* .ne {
+  display: none;
+} */
 
 /*blog pabaiga*/
 /* responsive */
@@ -1060,6 +1082,10 @@ content {
 
   .shop-long-container div {
     margin: 10px;
+  }
+
+  .blog-container {
+    height: 700px;
   }
 }
 
@@ -1209,5 +1235,26 @@ content {
 
   .duktxt h1 {
     font-size: 1.375rem;
+  }
+
+  /*scroll bar overflow
+  .blog-container {
+    flex-direction: row;
+    display: inline-flex;
+    width: 900px;
+    height: 500px;
+  } */
+
+  .blog-container {
+    width: auto;
+    display: block;
+  }
+
+  .duk {
+    width: 100%;
+  }
+
+  .duktxt {
+    margin: 0px;
   }
 }
