@@ -1183,10 +1183,14 @@ content {
 /*banner pradzia*/
 
 content + div {
-  margin-top: 200px;
-  position: relative;
+  margin-top: 100px;
+  /* position: relative; */
   height: 450px;
   width: 100%;
+  /* margin-bottom: 0px; */
+}
+
+#botban {
   margin-bottom: 0;
 }
 
@@ -1230,11 +1234,60 @@ content + div {
 /*footer pradzia*/
 
 footer {
-  /* background-color: rgb(35, 34, 31); */
-  height: 400px;
+  background-color: rgb(35, 34, 31);
+  height: 450px;
+  color: white;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  position: relative;
+  top: 0;
+}
 
-  /* position: relative;
-  top: -110px; */
+.footcontainer {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  font-weight: 300;
+}
+
+#topcontainer {
+  height: 60%;
+  margin: 40px 40px 0 40px;
+}
+
+footer div {
+  border: 1px blue solid;
+}
+
+.followus {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* #topcontainer {
+  margin: 20px;
+} */
+
+#topcontainer > div {
+  width: 25%;
+}
+
+.top {
+  font-size: 1.125rem;
+  margin-bottom: 20px;
+}
+
+#botsocial {
+  color: white;
+  /* align-items: flex-start; */
+  height: 40px;
+  padding-left: 0px;
+}
+
+#botsocial a {
+  color: white;
 }
 
 /* responsive */
