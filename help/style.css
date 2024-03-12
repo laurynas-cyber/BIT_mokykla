@@ -114,6 +114,8 @@ ul li:last-child {
   border: none;
 }
 
+h1 > * /*visi h1 elementai*/
+
 ul li:nth-child(2n) {
   /*kas du elementus be n radaies tai bus kelintas arba odd ir even*/
   color: brown;
