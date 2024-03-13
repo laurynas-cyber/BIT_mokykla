@@ -38,3 +38,4 @@ console.log(
 
 console.log(t && f); /*true and false = false*/
 console.log(t || f); /*true or false = true*/
+

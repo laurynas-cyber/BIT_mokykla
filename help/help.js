@@ -60,3 +60,15 @@ console.log(t && f); /*true and false = false*/
 console.log(t || f); /*true or false = true*/
 //https://developer.mozilla.org/en-US/docs/Glossary/Falsy visos False reiksmes
 
+console.log("true || true", true || true);
+console.log("true || false", true || false);
+console.log("false || true:", false || true);
+console.log("false || false", false || false); // su || false bus tik tada kai abu bus false jis iesko true reiksmes
+
+console.log("true && true", true && true); //su && true bus tik tada kai abu bus true
+console.log("true && false", true && false);
+console.log("false && true:", false && true); //eigu && jis grazina false reiksme iesko false reiskmes
+console.log("false && false", false && false);
+
+console.log("1" == 1); // true lyginam reiskmes
+console.log("1" === 1); //false trys lyginam tipa
