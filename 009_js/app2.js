@@ -30,17 +30,105 @@ let zz = rand(0, 2);
 let ww = rand(0, 2);
 let xx = rand(0, 2);
 let yy = rand(0, 2);
-let result2 = zz + ww + xx + yy;
 
-if (result2 == 0) {
-  console.log("keturi nuliai");
-} else if (result2 == 8) {
-  console.log("keturi dvejetai");
-} else if ((((zz == ww) == xx) == yy) == 1) {
-  console.log("keturi vienetai");
-} else if (result == 1) {
-  console.log("trys nuliai ir viena vienetas");
+let nuliai = 0;
+let vienetai = 0;
+let dvejetai = 0;
+
+if (zz == 0) {
+  ++nuliai;
+} else if (2 > zz > 0) {
+  ++vienetai;
+} else {
+  ++dvejetai;
 }
 
-console.clear();
+if (ww == 0) {
+  ++nuliai;
+} else if (2 > ww > 0) {
+  ++vienetai;
+} else {
+  ++dvejetai;
+}
 
+if (xx == 0) {
+  ++nuliai;
+} else if (2 > xx > 0) {
+  ++vienetai;
+} else {
+  ++dvejetai;
+}
+
+if (yy == 0) {
+  ++nuliai;
+} else if (2 > yy > 0) {
+  ++vienetai;
+} else {
+  ++dvejetai;
+}
+
+console.log("nuliai:", nuliai, "vienetai:", vienetai, "dvejetai:", dvejetai);
+
+console.clear();
+//penktas uzdavinys
+let pirmas = rand(-10, 10);
+
+let pirmorez;
+
+let antras = rand(-10, 10);
+
+let antrorez;
+
+let trecias = rand(-10, 10);
+
+let treciorez;
+
+if (pirmas < 0) {
+  pirmorez = `+${pirmas}+`;
+} else if (pirmas == 0) {
+  pirmorez = `*${pirmas}*`;
+} else {
+  pirmorez = `-${pirmas}-`;
+}
+
+if (antras < 0) {
+  antrorez = `+${antras}+`;
+} else if (antras == 0) {
+  antrorez = `*${antras}*`;
+} else {
+  antrorez = `-${antras}-`;
+}
+
+if (trecias < 0) {
+  treciorez = `+${trecias}+`;
+} else if (trecias == 0) {
+  treciorez = `*${trecias}*`;
+} else {
+  treciorez = `-${trecias}-`;
+}
+
+console.log(pirmorez, antrorez, treciorez);
+console.clear();
+// sestas uzdavinys
+
+let zvakes = rand(5, 3000);
+let pvz = 1000;
+let nuolaida3 = 0.03;
+let nuolaida4 = 0.04;
+let kaina;
+
+if (zvakes >= 1000 && zvakes < 2000) {
+  kaina = zvakes * nuolaida3;
+  kaina = zvakes - kaina;
+  let vnt = 1 * nuolaida3;
+  vnt = 1 - vnt;
+  console.log("kaina:", kaina, "zvakes:", zvakes, "vnt kaina:", vnt);
+} else if (zvakes >= 2000) {
+  kaina = zvakes * nuolaida4;
+  kaina = zvakes - kaina;
+  let vnt = 1 * nuolaida4;
+  vnt = 1 - vnt;
+  console.log("kaina:", kaina, "zvakes:", zvakes, "vnt kaina:", vnt);
+} else if (zvakes < 1000) {
+  console.log("zvakes:", zvakes, "vnt kaina:", zvakes);
+}
