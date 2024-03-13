@@ -72,3 +72,7 @@ console.log("false && false", false && false);
 
 console.log("1" == 1); // true lyginam reiskmes
 console.log("1" === 1); //false trys lyginam tipa
+
+if (5 > 3) console.log("lol"); //if sintakse
+
+let vv = 0 ? "jo" : "ne"; //ternary if sąlyga

@@ -133,3 +133,6 @@ if (z > v > y || z < v < y) {
 } else if (v > y > z || v < y < z) {
   console.log("y", y);
 }
+
+console.clear();
+
