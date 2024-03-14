@@ -116,7 +116,7 @@ video {
 }
 
 .test {
-  border: 1px solid black;
+  border: 1px solid white;
 }
 
 .flex {
@@ -1193,13 +1193,13 @@ content + div {
   position: relative;
   bottom: 0px;
   margin: 0;
-  margin-top: 100px;
 }
 
 .bannerimg {
   position: absolute;
   z-index: -1;
-  overflow: hidden;
+  /* overflow: hidden; */
+
   /* transform: translate3d(0px, -18px, 0px) scale(1.7); */
   /* transition: opacity calc(0.15s * var(1)) cubic-bezier(0.5, 0, 0.175, 1) */
   /* will-change: transform; */
@@ -1213,7 +1213,6 @@ content + div {
   will-change: transform; */
 
   object-fit: cover;
-  /* background-image: cover;  */
   width: 100%;
   z-index: -10;
   overflow: hidden;
@@ -1237,14 +1236,12 @@ content + div {
 
 footer {
   background-color: rgb(35, 34, 31);
-  height: 450px;
+  height: 400px;
   color: white;
   box-sizing: border-box;
-  display: block;
   width: 100%;
   position: relative;
   top: 0;
-  margin-top: 0;
 }
 
 .footcontainer {
@@ -1255,13 +1252,13 @@ footer {
 }
 
 #topcontainer {
-  height: 100%;
-  margin: 40px 40px 0 40px;
+  height: 85%;
+  margin: 0px 40px 0 40px;
+  position: relative;
+  bottom: -40px;
+  display: flex;
+  justify-content: space-between;
 }
-
-/* footer div {
-  border: 1px blue solid;
-} */
 
 .followus {
   display: flex;
@@ -1281,6 +1278,17 @@ footer {
   display: block;
 }
 
+.foottxt,
+.top li,
+.top a {
+  font-size: 0.9rem;
+}
+
+.about-where {
+  width: 30%;
+  margin-right: 10px;
+}
+
 #botsocial {
   color: white;
   /* align-items: flex-start; */
@@ -1290,10 +1298,6 @@ footer {
 
 #botsocial a {
   color: white;
-}
-
-.about-where {
-  width: 30%;
 }
 
 .foottxt {
@@ -1337,15 +1341,77 @@ input {
 }
 
 #bot-container {
-  height: 40%;
+  height: 35%;
+  margin-top: 20px;
   width: 100%;
   box-sizing: border-box;
   font-weight: 300;
 }
 
 .botcontainer {
+  display: flex;
   height: 100%;
-  margin: 40px 0px 40px 40px;
+  margin: 0px 40px 0px 40px;
+}
+
+.botcontainer > div {
+  width: 50%;
+}
+
+.botcontainer div:last-child {
+  justify-content: right;
+  align-items: start;
+}
+
+#bot-container .set-language,
+#bot-container .cad,
+#bot-container .fa-chevron-down {
+  color: white;
+}
+
+.set-language,
+.cad {
+  font-weight: 300;
+}
+
+#bot-container .languages {
+  padding-right: 0;
+}
+
+#bot-container .english,
+#bot-container .set-region {
+  position: relative;
+  top: 2px;
+  transition: all 0.2s;
+}
+
+#bot-container .english:hover,
+#bot-container .set-region:hover {
+  top: 0px;
+  transition: all 0.4s;
+}
+
+.cards {
+  list-style: none;
+}
+
+.cards li {
+  margin-right: 5px;
+}
+
+.onyx,
+.onyx a {
+  color: white;
+  font-size: 10px;
+  text-decoration: none;
+}
+
+.onyx {
+  margin-top: 10px;
+}
+
+.onyx a {
+  margin: 0 1px 0 1px;
 }
 
 /* responsive */
