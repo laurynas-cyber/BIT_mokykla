@@ -132,3 +132,35 @@ if (zvakes >= 1000 && zvakes < 2000) {
 } else if (zvakes < 1000) {
   console.log("zvakes:", zvakes, "vnt kaina:", zvakes);
 }
+
+console.clear();
+
+//7uzdavinys
+
+let rr = rand(0, 100);
+let gg = rand(0, 100);
+let tt = rand(0, 100);
+let daliklis = 3;
+
+if (rr < 0 || rr > 90) {
+  rr = null;
+  --daliklis;
+}
+
+if (gg < 0 || gg > 90) {
+  gg = null;
+  --daliklis;
+}
+
+if (tt < 0 || tt > 90) {
+  tt = null;
+  --daliklis;
+}
+
+if (((tt == gg) == rr) == null) {
+  console.log("nėra skaičiaus");
+}
+
+let atsakymas = (rr + gg + tt) / daliklis;
+
+console.log(`${rr} ${gg} ${tt}/ ${daliklis}`, atsakymas);
