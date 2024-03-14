@@ -76,3 +76,9 @@ console.log("1" === 1); //false trys lyginam tipa
 if (5 > 3) console.log("lol"); //if sintakse
 
 let vv = 0 ? "jo" : "ne"; //ternary if sąlyga
+
+//ciklai
+i += 2; // i = i+2 trumpinys
+
+0, infinity // naudoti geriau while
+1 iki infinity // naudoti geriau do while. while nudojam kai nezinom kiek kartu reikia atlikti veiksma

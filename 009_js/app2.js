@@ -9,7 +9,6 @@ let aa = rand(1, 10);
 let bb = rand(1, 10);
 let cc = rand(1, 10);
 
-console.log(aa);
 
 if (aa + bb > cc) {
   console.log("galima su aa+bb", aa + bb);
