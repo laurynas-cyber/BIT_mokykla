@@ -112,7 +112,6 @@ console.clear();
 // sestas uzdavinys
 
 let zvakes = rand(5, 3000);
-let pvz = 1000;
 let nuolaida3 = 0.03;
 let nuolaida4 = 0.04;
 let kaina;
