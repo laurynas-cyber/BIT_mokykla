@@ -844,6 +844,13 @@ content {
 
 .drone-groups li:first-child {
   margin-left: 0px;
+}
+
+.drone-groups li:active {
+  cursor: pointer;
+  bottom: 0px;
+  padding-bottom: 17px;
+  color: rgb(83, 79, 79);
   border-color: rgb(35, 34, 31);
 }
 
@@ -853,6 +860,18 @@ content {
   padding-bottom: 17px;
   color: rgb(83, 79, 79);
 }
+
+/* .drone-groups li:first-child {
+  margin-left: 0px;
+  border-color: rgb(35, 34, 31);
+}
+
+.drone-groups li:hover {
+  cursor: pointer;
+  bottom: 0px;
+  padding-bottom: 17px;
+  color: rgb(83, 79, 79);
+} */
 
 .groups-switch + div {
   margin-top: 50px;
@@ -1766,7 +1785,6 @@ input:focus {
     width: 100%;
   }
   .paycards {
-    border: 1px white solid;
     display: flex;
     flex-direction: column;
     align-self: center;
@@ -1783,7 +1801,6 @@ input:focus {
   }
 
   #bot-container .languages {
-    border: 1px solid white;
     justify-content: center;
     order: -1;
   }
