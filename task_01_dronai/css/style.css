@@ -1193,11 +1193,14 @@ content + div {
   position: relative;
   bottom: 0px;
   margin: 0;
+  margin-top: 100px;
 }
 
 .bannerimg {
   position: absolute;
   z-index: -1;
+  width: 100%;
+  height: 100%;
   /* overflow: hidden; */
 
   /* transform: translate3d(0px, -18px, 0px) scale(1.7); */
@@ -1211,7 +1214,7 @@ content + div {
   /* transform: translate3d(0px, -18px, 0px) scale(1.7);
   transition: opacity calc(0.15s * var(1)) cubic-bezier(0.5, 0, 0.175, 1);
   will-change: transform; */
-
+  background: cover;
   object-fit: cover;
   width: 100%;
   z-index: -10;
@@ -1330,15 +1333,56 @@ footer {
   text-underline-offset: 3px;
 }
 
+.inputBox {
+  position: relative;
+}
+
 input {
   background-color: rgb(35, 34, 31);
   color: white;
   margin-top: 20px;
   border: none;
   border-bottom: 2px solid white;
-  width: 100%;
-  height: 40px;
+  width: 80%;
+  height: 60px;
+  line-height: 0;
+  box-shadow: none;
+  padding-left: 10px;
+
+  box-sizing: border-box;
+  border-radius: none;
+  outline: none;
+  font-size: 0.9rem;
 }
+
+input:focus {
+  background-color: rgba(78, 77, 73, 0.282);
+}
+
+.inputBox span {
+  position: absolute;
+  left: 15px;
+  /* bottom: 15px; */
+  top: 35px;
+  transition: 0.2s;
+}
+
+.inputBox input:focus ~ span {
+  top: 25px;
+  font-size: 0.7rem;
+  left: 10px;
+}
+
+/* input:active {
+  border-color: none;
+  box-shadow: none;
+} */
+
+/* input:visited {
+  border-color: none;
+  box-shadow: none;
+  background-color: #0b4fd4;
+} */
 
 #bot-container {
   height: 35%;

@@ -15,3 +15,93 @@
   background-color: #60267f;
   color: white;
 }
+
+.learnMore {
+  text-decoration: underline;
+}
+
+.test {
+  border: solid 1px black;
+}
+
+.menuContainer {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 25px;
+  box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.35);
+  -webkit-box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.35);
+  -moz-box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.35);
+}
+
+.topnavcontainer,
+.topULcontainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.topULcontainer {
+  gap: 30px;
+  margin-right: 30px;
+}
+
+.topULcontainer li {
+  list-style: none;
+}
+
+.topULcontainer li a {
+  text-decoration: none;
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
+  color: #2b0236;
+}
+
+.logoImg {
+  width: 150px;
+}
+
+.request {
+  padding: 10px 25px;
+  background-color: transparent;
+  border-radius: 5px;
+  border: 2px solid#9A54BC;
+  color: #9a54bc;
+}
+
+.request:hover {
+  background-color: #9a54bc;
+  color: white;
+  cursor: pointer;
+}
+
+.mainContainersectionOne {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  margin-top: 100px;
+  padding: 30px 20px;
+  gap: 50px;
+}
+
+.topHead {
+  font-size: 28px;
+  text-align: center;
+  color: #2b0236;
+}
+
+.topHeadbtn {
+  background-color: #9a54bc;
+  padding: 15px 25px;
+  color: white;
+  border-radius: 5px;
+  border: 2px solid #9a54bc;
+}
+
+.topHeadbtn:hover {
+  background-color: transparent;
+  color: #9a54bc;
+  cursor: pointer;
+}
