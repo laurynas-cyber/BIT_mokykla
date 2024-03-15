@@ -168,3 +168,11 @@ label {
   user-select: none; /*tam kad netyčia nepaspaustų*/
   cursor: pointer;
 }
+
+pointer-events: none; /* neleidžia paspausti su pele ant elemento pvz darant placeholder.*/
+
+input {
+  outline: none; /* istrinas inputo veiksma*/
+}
+
+input: focus; /*type text ant inputo paspaudo daromas veiksmas*/

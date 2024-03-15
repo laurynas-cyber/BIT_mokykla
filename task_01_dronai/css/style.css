@@ -1343,12 +1343,12 @@ input {
   margin-top: 20px;
   border: none;
   border-bottom: 2px solid white;
-  width: 80%;
+  width: 100%;
   height: 60px;
   line-height: 0;
   box-shadow: none;
   padding-left: 10px;
-
+  padding-bottom: 0px;
   box-sizing: border-box;
   border-radius: none;
   outline: none;
@@ -1359,30 +1359,34 @@ input:focus {
   background-color: rgba(78, 77, 73, 0.282);
 }
 
-.inputBox span {
+.inputBox label {
   position: absolute;
   left: 15px;
-  /* bottom: 15px; */
-  top: 35px;
+  top: 45px;
   transition: 0.2s;
+  pointer-events: none;
 }
 
-.inputBox input:focus ~ span {
+.inputBox input:focus ~ label {
   top: 25px;
   font-size: 0.7rem;
   left: 10px;
 }
 
-/* input:active {
-  border-color: none;
-  box-shadow: none;
-} */
+.inputBox input:focus {
+  border-bottom: 4px solid white;
+}
 
-/* input:visited {
-  border-color: none;
-  box-shadow: none;
-  background-color: #0b4fd4;
-} */
+[type="submit"] {
+  position: absolute;
+  top: 45px;
+  font-weight: 100;
+  font-size: large;
+}
+
+[type="submit"]:hover {
+  cursor: pointer;
+}
 
 #bot-container {
   height: 35%;
@@ -1718,5 +1722,30 @@ input:focus {
 
   .reviews-main {
     margin-top: 100px;
+  }
+
+  footer {
+    height: 100%;
+  }
+
+  #topcontainer {
+    flex-direction: column;
+    height: 100%;
+    margin: 0px 20px 20px 20px;
+  }
+
+  #topcontainer {
+    flex-direction: column;
+    height: 100%;
+    gap: 40px;
+  }
+
+  #topcontainer > div {
+    width: 100%;
+  }
+
+  #bot-container {
+    height: 100%;
+    width: 100%;
   }
 }
