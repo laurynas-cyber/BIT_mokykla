@@ -68,3 +68,5 @@ while (r < 200) {
   r = r + rand(20, 50);
   console.log(r);
 }
+
+console.clear();

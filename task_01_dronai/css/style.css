@@ -854,15 +854,11 @@ content {
   border-color: rgb(35, 34, 31);
 }
 
-.drone-groups li:hover {
+.drone-groups li:visited {
   cursor: pointer;
   bottom: 0px;
   padding-bottom: 17px;
   color: rgb(83, 79, 79);
-}
-
-/* .drone-groups li:first-child {
-  margin-left: 0px;
   border-color: rgb(35, 34, 31);
 }
 
@@ -871,7 +867,12 @@ content {
   bottom: 0px;
   padding-bottom: 17px;
   color: rgb(83, 79, 79);
-} */
+}
+
+.drone-groups li:first-child {
+  margin-left: 0px;
+  border-color: rgb(35, 34, 31);
+}
 
 .groups-switch + div {
   margin-top: 50px;
@@ -964,7 +965,7 @@ content {
   width: 60px;
   height: 60px;
   background-color: white;
-  z-index: 1;
+  z-index: 0;
   bottom: 40px;
   left: 40px;
   border-radius: 100%;
