@@ -62,12 +62,90 @@ for (let y = 0; y < d; y++) {
 console.clear();
 
 //7uzduotis
-
+// 7.1 ir 7.2 uzv NEAISKU
 let e;
-
+let sume = 0;
+let numberstring = " "; //7.3 uzduotis
 for (let u = 0; u < 5; u++) {
   e = rand(10, 20);
-  console.log(e); // 7.1 uzv
+  sume = sume + e;
+  console.log("e:", e);
+  console.log("true:", sume);
+  numberstring = numberstring + e + " ";
+  if (u === 4) {
+    numberstring = numberstring + "=" + " " + sume; //7.4
+  }
 }
 
-console.log(e);
+console.log("stringas:", numberstring);
+
+console.clear();
+
+//8uzduotis
+
+let gg;
+let o = 0;
+let sumGG = 0;
+let sumCancel = 0;
+let C = 0;
+let even = 0;
+let odd = 0;
+do {
+  gg = rand(10, 25);
+  console.log(gg);
+  o++;
+  if (gg <= 18) {
+    sumGG = sumGG + gg;
+  } else if (gg > 18) {
+    C++;
+    sumCancel = sumCancel + gg;
+  }
+  if (gg % 2 == 0) {
+    even++;
+  } else odd++;
+} while (gg >= 12); //8.A
+
+// for (o = 0; o <= 20; o++) { //8.F NEAISKU
+//   gg = rand(10, 25);
+//   console.log(gg);
+// }
+
+console.log("operacijos", o); //8.B
+console.log("suma daugiau nei 18:", sumGG); //8.C
+console.log("nepriimti:", sumCancel, "number:", C); //8.D
+console.log("lyginiai:", even, "nelyginiai", odd); //8.E
+
+console.clear();
+//9uzduotis
+
+let vv = Infinity;
+let VV = 0;
+let I = 0;
+let B = 0;
+// while (vv > 5) {
+//   vv = rand(5, 10);
+//   console.log(vv);
+//   VV++;
+//   console.log(VV);
+
+//   do {
+//     I++;
+//     // console.log("I spauzdina", I, "vv:", vv);
+//   } while (I < vv);
+// }
+
+// console.log("išorinis ciklas:", VV, "vidinis ciklas:", I); //9.A
+
+while (vv > 5) {
+  vv = rand(5, 10);
+
+  switch (vv) {
+    case 5:
+      console.log("v=5:", vv);
+      B++;
+      if (B == 3) break;
+
+    default:
+      console.log("v>5:", vv);
+  }
+}
