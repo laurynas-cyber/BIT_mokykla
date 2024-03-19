@@ -122,30 +122,26 @@ let vv = Infinity;
 let VV = 0;
 let I = 0;
 let B = 0;
-// while (vv > 5) {
-//   vv = rand(5, 10);
-//   console.log(vv);
-//   VV++;
-//   console.log(VV);
-
-//   do {
-//     I++;
-//     // console.log("I spauzdina", I, "vv:", vv);
-//   } while (I < vv);
-// }
-
-// console.log("išorinis ciklas:", VV, "vidinis ciklas:", I); //9.A
+let sumI = 0;
 
 while (vv > 5) {
   vv = rand(5, 10);
-
-  switch (vv) {
-    case 5:
-      console.log("v=5:", vv);
-      B++;
-      if (B == 3) break;
-
-    default:
-      console.log("v>5:", vv);
+  console.log(vv);
+  VV++;
+  do {
+    I++;
+    console.log("I spauzdina", I, "vv:", vv);
+  } while (I < vv);
+  if (I >= vv) {
+    sumI = sumI + I;
+    console.log("sumI:", sumI);
+    I = 0;
   }
+  // switch (vv) {
+  //   case 5:
+  //     B++;
+  //     if (B == 3) break;
+  // }
 }
+
+console.log("išorinis ciklas:", VV, "vidinis ciklas:", sumI); //9.A
