@@ -129,7 +129,6 @@ while (vv > 5) {
   vv = rand(5, 10);
   console.log("vv:", vv);
   VV++;
-
   do {
     I++;
     // console.log("I spauzdina", I, "vv:", vv); //9.A?
@@ -146,12 +145,9 @@ while (vv > 5) {
       console.log("B:", B); //9.B
       if (B == 3) break; // 9.B
       vv = rand(5, 10); // neveikia vv = 0. kodel?
-    // case 5:
-    //   if (previous == vv) {
-    //     B++;
-    //     console.log("B:", B); //9.C
-    //     if (B == 3) break; // 9.C
-    //   } else vv = rand(5, 10);
+    default:
+      B = 0;
+      vv = rand(5, 10);
   }
 }
 
@@ -190,3 +186,4 @@ while (sumK <= 222 && sumP <= 222) {
     console.log("Partiją laimėjo Kazys:", sumK);
   }
 }
+console.clear();
