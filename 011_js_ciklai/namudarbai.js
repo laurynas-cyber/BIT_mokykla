@@ -123,25 +123,70 @@ let VV = 0;
 let I = 0;
 let B = 0;
 let sumI = 0;
+let previous = 0;
 
 while (vv > 5) {
   vv = rand(5, 10);
-  console.log(vv);
+  console.log("vv:", vv);
   VV++;
+
   do {
     I++;
-    console.log("I spauzdina", I, "vv:", vv);
+    // console.log("I spauzdina", I, "vv:", vv); //9.A?
   } while (I < vv);
   if (I >= vv) {
     sumI = sumI + I;
-    console.log("sumI:", sumI);
+    // console.log("sumI:", sumI);
     I = 0;
   }
-  // switch (vv) {
-  //   case 5:
-  //     B++;
-  //     if (B == 3) break;
-  // }
+
+  switch (vv) {
+    case 5:
+      B++;
+      console.log("B:", B); //9.B
+      if (B == 3) break; // 9.B
+      vv = rand(5, 10); // neveikia vv = 0. kodel?
+    // case 5:
+    //   if (previous == vv) {
+    //     B++;
+    //     console.log("B:", B); //9.C
+    //     if (B == 3) break; // 9.C
+    //   } else vv = rand(5, 10);
+  }
 }
 
 console.log("išorinis ciklas:", VV, "vidinis ciklas:", sumI); //9.A
+
+// console.clear();
+
+//10uzduotis
+
+let petras;
+let kazys;
+let sumP = 0;
+let sumK = 0;
+
+while (sumK <= 222 && sumP <= 222) {
+  petras = rand(10, 25);
+  kazys = rand(5, 25);
+
+  sumP = sumP + petras;
+  sumK = sumK + kazys;
+  console.log(
+    "petras",
+    petras,
+    "Petras sum:",
+    sumP,
+    "kazys",
+    kazys,
+    "Kazys sum:",
+    sumK
+  );
+  if (sumK >= 222 && sumP >= 222) {
+    console.log("partiją laimėjo abu");
+  } else if (sumP >= 222) {
+    console.log("Partiją laimėjo Petras:", sumP);
+  } else if (sumK >= 222) {
+    console.log("Partiją laimėjo Kazys:", sumK);
+  }
+}
