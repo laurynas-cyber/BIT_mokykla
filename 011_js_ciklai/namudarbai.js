@@ -186,4 +186,33 @@ while (sumK <= 222 && sumP <= 222) {
     console.log("Partiją laimėjo Kazys:", sumK);
   }
 }
+
+// 9 uzdavinys destytojo
+
+let vidinis;
+let kartai = 0;
+let kartaiDidelis = 0;
+let kartaiMazas = 0;
+
+do {
+  kartaiDidelis++;
+  vidinis = rand(5, 10);
+
+  if (vidinis === 5) {
+    kartai++;
+  } else {
+    kartai = 0;
+  }
+
+  console.log("Vidinis:", vidinis);
+
+  for (let i = 0; i < vidinis; i++) {
+    kartaiMazas++;
+    // console.log('A');
+  }
+} while (kartai != 3);
+
+console.log("Kartai didelis:", kartaiDidelis);
+console.log("Kartai mazas:", kartaiMazas);
+
 console.clear();
