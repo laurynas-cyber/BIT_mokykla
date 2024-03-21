@@ -17,6 +17,9 @@ console.log(a + "" + a);
 console.log(l1 + l2 + +x + x);
 // /* kadangi +x yra string ir tai yra NaN tai NaN paverčia į stringą
 
+number = parseInt(number); // stringa vercia i numeri
+number = +number //pries stringa padejus + ar - stringa pavercia i skaciu
+
 console.log(c - x);
 // string - string = NaN type number
 console.log(b - a);

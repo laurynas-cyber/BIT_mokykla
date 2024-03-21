@@ -83,3 +83,14 @@ if (box === 4) {
 }
 
 console.log("box", size);
+
+switch (size) {
+  case "S":
+    console.log("Tikriname S");
+  case "M":
+    console.log("Tikriname M");
+  case "L":
+    console.log("Tikriname L");
+  case "XL":
+    console.log("Tikriname XL");
+}
