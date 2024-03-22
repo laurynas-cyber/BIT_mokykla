@@ -85,3 +85,29 @@ i += 2; // i = i+2 trumpinys
 
 0, infinity // naudoti geriau while
 1 iki infinity // naudoti geriau do while. while nudojam kai nezinom kiek kartu reikia atlikti veiksma
+
+const B = 10; // const apsaugo kitnamaji nuo pakeitimo
+
+let V = 5;
+let V2 = V; // priskyrimas by value
+
+V2++;
+
+console.log(V, V2);
+
+let O = {
+  sk: 5,
+};
+
+let O2 = O; //priskyrimas by reference
+console.log(O, O2);// rodys 5 bet objekto viduj bus 7
+const O3 = { ...O, salt: 99 }; // copy of value. ... yra spreado operacija. salt:99 jeigu nori papildomai prideti.dar vienas kopijavimo Object.assign({}, O)
+const O5 = { ...O, salt: 99, name: "antanas" }; //nukopijuos ovewritins name objekte O
+
+const O6 = { salt: 99, name: "antanas", ...O }; // bus jonas nes paskutinis jonas
+
+const {sk, salt} = 05;
+O.sk++;
+O2.sk++;
+
+console.log(O, O2);

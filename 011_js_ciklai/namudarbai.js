@@ -216,3 +216,25 @@ console.log("Kartai didelis:", kartaiDidelis);
 console.log("Kartai mazas:", kartaiMazas);
 
 console.clear();
+
+//testas 1 uzdavinys
+
+
+
+// let v1 = rand(1, 7);
+// let v2 = rand(1, 7);
+// let v3 = rand(1, 7);
+
+// let min;
+// let mid;
+// let max;
+
+// if (v1 <= v2 || v1 <= v3) {
+//   min = v1;
+//   console.log("minimal", min);
+// } else if (v2 > v1 && v2 < v3) {
+//   mid = v2;
+//   console.log("mid", mid);
+// } else if ( v3 >= v2){
+//   max = v3
+// }
