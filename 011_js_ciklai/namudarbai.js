@@ -4,7 +4,7 @@ function rand(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-//pirmas uzdavinys
+//pirmas uzdavinys https://docs.google.com/document/d/1QHZ0Hhx5VM6o_eb_rgq_AeiAibvzKgCzs9jG-UtXKCU/edit?usp=sharing
 
 let a = rand(5, 25);
 let b = rand(5, 25);
@@ -218,8 +218,6 @@ console.log("Kartai mazas:", kartaiMazas);
 console.clear();
 
 //testas 1 uzdavinys
-
-
 
 // let v1 = rand(1, 7);
 // let v2 = rand(1, 7);

@@ -68,7 +68,7 @@ do {
   I++;
 } while (U != 5 && U != 7);
 
-console.log("cikslu skaic", I);
+console.log("ciklu skaic", I);
 console.clear();
 
 //11 uzdavinys
@@ -79,7 +79,78 @@ do {
   U = rand(0, 10);
   I++;
   console.log(U);
+  sumaDvim = sumaDvim + U;
 } while (I <= 11 || sumaDvim < 20);
 
-console.log("suma:", sumaDvim);
-console.log(I);
+console.log("suma:", sumaDvim, "I:", I);
+
+console.clear();
+//12uzdavinys
+
+let B = 0;
+
+do {
+  U = rand(0, 10);
+  if (U % 2 === 1) {
+    B++;
+  }
+  console.log(U);
+  console.log("b:", B);
+} while (B < 3);
+
+//13uzdavinys
+
+let W;
+
+do {
+  U = rand(0, 10);
+  W = rand(0, 10);
+  console.log("U:", U, "W:", W);
+} while (U !== W);
+
+console.clear();
+
+//14uzdavinys
+
+let G;
+let H;
+let Gi = 0;
+let Hi = 0;
+let sumG = 0;
+let sumH = 0;
+
+do {
+  G = rand(0, 10);
+  H = rand(0, 10);
+  sumG = sumG + G;
+  sumH = sumH + H;
+  if (sumG <= 100) {
+    Gi++;
+  }
+  if (sumG <= 100) {
+    Hi++;
+  }
+  console.log("G", G, "H", H);
+  console.log("sumG", sumG, "sumH", sumH);
+  console.log("Gi", Gi, "Hi", Hi);
+} while (sumG < 100 || sumH < 100);
+
+console.clear();
+
+G = 0;
+H = 0;
+Gi = 0;
+Hi = 0;
+
+do {
+  H = rand(0, 10);
+  G = rand(0, 10);
+  if (H % 2 === 1) {
+    Hi++;
+  }
+  if (G % 2 === 1) {
+    Gi++;
+  }
+  console.log("G", G, "H", H);
+  console.log("Gi", Gi, "Hi", Hi);
+} while (Hi < 3 || Gi < 3);
