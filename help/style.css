@@ -176,3 +176,18 @@ input {
 }
 
 input: focus; /*type text ant inputo paspaudo daromas veiksmas*/
+
+/* inputo check boxo style*/
+input {
+  -webkit-appearance: none !important;
+}
+
+input[type="checkbox"]:checked {
+  -webkit-appearance: checkbox !important;
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  background-color: #242424 !important;
+}
