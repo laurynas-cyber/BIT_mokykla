@@ -119,15 +119,146 @@ for (let i = 0; i < 20; i++) {
   }
 }
 
-// console.clear();
+// 3 uzdv
 
-// console.log(new1);
+console.clear();
 
-// let B = -1;
+let mas = [];
+let ABCD;
+let A = 0;
+let B = 0;
+let C = 0;
+let D = 0;
 
-// do {
-//   B++;
-//   if (new1[B] > 10) {
-//     console.log(new1.indexOf(new1[B]));
-//   } else "nerasta";
-// } while (new1[B] < 10);
+for (let i = 0; i < 200; i++) {
+  ABCD = rand(0, 3);
+
+  if (ABCD == 0) {
+    mas.push("A");
+    A++;
+  } else if (ABCD == 1) {
+    mas.push("B");
+    B++;
+  } else if (ABCD == 2) {
+    mas.push("C");
+    C++;
+  } else if (ABCD == 3) {
+    mas.push("D");
+    D++;
+  }
+}
+
+console.log("A", A, "B", B, "C", C, "D", D);
+
+console.clear();
+//4 uzdav
+
+let mas2 = [];
+let mas3 = [];
+let mas4 = [];
+let ABCD2;
+let ABCD3;
+let ABCD4;
+
+let unikalusABCD = 0;
+let neunikalusABCD = 0;
+let W = " ";
+
+// let lol = [0, 6, 4, 9];
+// let lol2 = [0, 6, 7, 9];
+// let lol3 = [0, 6, 7, 4];
+// let lol4 = [1, 6, 5, 9];
+
+// for (let i = 0; i < 4; i++) {
+//   if (lol[i] === lol2[i] && lol2[i] === lol3[i] && lol3[i] === lol4[i]) {
+//     unikalusABCD++;
+//     console.log("bingo", lol[i]);
+//   }
+//   if (lol[i] !== lol2[i] && lol[i] !== lol3[i] && lol[i] !== lol4) {
+//     if (lol2[i] !== lol3[i] && lol2[i] !== lol4) {
+//       if (lol3[i] !== lol4[i]) {
+//         neunikalusABCD++;
+//         console.log("nebingo", lol[i]);
+//       }
+//     }
+//   } else console.log("nėra");
+// }
+
+for (let i = 0; i < 200; i++) {
+  ABCD2 = rand(0, 3);
+  ABCD3 = rand(0, 3);
+  ABCD4 = rand(0, 3);
+  if (ABCD2 == 0) {
+    mas2.push("A");
+  } else if (ABCD2 == 1) {
+    mas2.push("B");
+  } else if (ABCD2 == 2) {
+    mas2.push("C");
+  } else if (ABCD2 == 3) {
+    mas2.push("D");
+  }
+
+  if (ABCD3 == 0) {
+    mas3.push("A");
+  } else if (ABCD3 == 1) {
+    mas3.push("B");
+  } else if (ABCD3 == 2) {
+    mas3.push("C");
+  } else if (ABCD3 == 3) {
+    mas3.push("D");
+  }
+
+  if (ABCD4 == 0) {
+    mas4.push("A");
+  } else if (ABCD4 == 1) {
+    mas4.push("B");
+  } else if (ABCD4 == 2) {
+    mas4.push("C");
+  } else if (ABCD4 == 3) {
+    mas4.push("D");
+  }
+
+  if (mas[i] === mas2[i] && mas2[i] === mas3[i] && mas3[i] === mas4[i]) {
+    unikalusABCD++;
+    console.log("bingo", mas[i], mas2[i], mas3[i], mas4[i]);
+  }
+  if (mas[i] !== mas2[i] && mas[i] !== mas3[i] && mas[i] !== mas4) {
+    if (mas2[i] !== mas3[i] && mas2[i] !== mas4[i]) {
+      if (mas3[i] !== mas4[i]) {
+        neunikalusABCD++;
+        console.log("nebingo", mas[i], mas2[i], mas3[i], mas4[i]);
+      }
+    }
+  }
+
+  W = W + mas[i] + mas2[i] + mas3[i] + mas4[i] + ", ";
+}
+
+console.log("unikal", unikalusABCD, "neunikal", neunikalusABCD);
+
+console.clear();
+
+//5uzdv
+
+let numbers = [1];
+let numbers2 = [];
+
+let numRand;
+let numRand2;
+
+for (let i = 0; i < 10; i++) {
+  numRand = rand(1, 9);
+  numRand2 = rand(100, 999);
+
+  numbers2.push(numRand2);
+
+  numbers.forEach((num, index) => {
+    if (num !== numRand) {
+      numbers.push(numRand);
+      console.log("yes");
+    }
+    numRand = rand(1, 9);
+  });
+}
+
+console.log(numbers);
