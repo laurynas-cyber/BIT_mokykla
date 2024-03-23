@@ -240,24 +240,30 @@ console.clear();
 
 //5uzdv
 
-let numbers = [1];
+let numbers = [];
 let numbers2 = [];
 
 let numRand;
 let numRand2;
 
 for (let i = 0; i < 10; i++) {
-  numRand = rand(1, 9);
+  numRand = rand(1, 11);
+  numbers.push(numRand);
+
   numRand2 = rand(100, 999);
-
   numbers2.push(numRand2);
+}
 
+console.log(numbers);
+
+for (let i = 0; i < numbers.length; i++) {
   numbers.forEach((num, index) => {
-    if (num !== numRand) {
-      numbers.push(numRand);
-      console.log("yes");
+    // console.log("num:", num, "numbers[i]:", numbers[i]);
+    if (num === numbers[i] && i !== index) {
+      numRand = rand(1, 11);
+      numbers[i] = numRand;
+      console.log("rand", numRand, "num", num);
     }
-    numRand = rand(1, 9);
   });
 }
 
