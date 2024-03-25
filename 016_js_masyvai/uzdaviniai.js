@@ -246,25 +246,19 @@ let numbers2 = [];
 let numRand;
 let numRand2;
 
-for (let i = 0; i < 10; i++) {
-  numRand = rand(1, 11);
-  numbers.push(numRand);
+while (numbers.length < 100) {
+  numRand = rand(100, 999);
+  if (!numbers.includes(numRand)) {
+    numbers.push(numRand);
+  }
+}
 
+while (numbers2.length < 100) {
   numRand2 = rand(100, 999);
-  numbers2.push(numRand2);
+  if (!numbers2.includes(numRand2)) {
+    numbers2.push(numRand2);
+  }
 }
 
 console.log(numbers);
-
-for (let i = 0; i < numbers.length; i++) {
-  numbers.forEach((num, index) => {
-    // console.log("num:", num, "numbers[i]:", numbers[i]);
-    if (num === numbers[i] && i !== index) {
-      numRand = rand(1, 11);
-      numbers[i] = numRand;
-      console.log("rand", numRand, "num", num);
-    }
-  });
-}
-
-console.log(numbers);
+console.log(numbers2);
