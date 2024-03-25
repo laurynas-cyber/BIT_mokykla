@@ -164,8 +164,6 @@ let unikalusABCD = 0;
 let neunikalusABCD = 0;
 let W = " ";
 
-
-
 for (let i = 0; i < 200; i++) {
   ABCD2 = rand(0, 3);
   ABCD3 = rand(0, 3);
@@ -242,17 +240,62 @@ while (numbers2.length < 100) {
   }
 }
 
+// 6 uzdavinys
+
 console.log(numbers);
 console.log(numbers2);
 
-
+console.clear();
 
 let numbers3 = [];
 numbers3 = [...numbers];
 
-numbers3.pop(numbers3[0]);
+for (let i = 100; i <= 999; i++) {
+  if (!numbers3.includes(i) && !numbers2.includes(i)) {
+    numbers3.push(i);
+  }
+}
 
 console.log(numbers3);
 console.log(numbers);
+console.log(numbers2);
+console.clear();
+// 7uzdavinys
+
+let numbers4 = [];
+
+for (let i = 0; i < numbers.length; i++) {
+  numbers2.forEach((element) => {
+    if (numbers[i] == element) {
+      numbers4.push(element);
+    }
+  });
+}
 
 console.clear();
+
+//8 uzdavinys
+
+let numbers5 = [];
+
+for (let i = 0; i < numbers.length; i++) {
+  let Y = numbers[i];
+
+  numbers5[Y] = numbers2[i];
+}
+
+console.log(numbers5);
+
+//9 uzdavinys
+console.clear();
+let numbers6 = [];
+
+for (let i = 0; i < 10; i++) {
+  if (i < 2) {
+    numbers6.push(rand(5, 25));
+  } else {
+    numbers6[i] = numbers6[i - 1] + numbers6[i - 2];
+  }
+}
+
+console.log(numbers6);

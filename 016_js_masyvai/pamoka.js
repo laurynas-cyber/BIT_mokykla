@@ -89,3 +89,4 @@ let fox = animals.indexOf("Fox");
 
 
 console.log(fox);
+console.clear();
