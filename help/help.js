@@ -99,7 +99,7 @@ let O = {
   sk: 5,
 };
 
-let O2 = O; //priskyrimas by reference
+let O2 = O; //priskyrimas by reference. redaguojant vieną, redaguosis ir kitas
 console.log(O, O2);// rodys 5 bet objekto viduj bus 7
 const O3 = { ...O, salt: 99 }; // copy of value. ... yra spreado operacija. salt:99 jeigu nori papildomai prideti.dar vienas kopijavimo Object.assign({}, O)
 const O5 = { ...O, salt: 99, name: "antanas" }; //nukopijuos ovewritins name objekte O
@@ -111,3 +111,21 @@ O.sk++;
 O2.sk++;
 
 console.log(O, O2);
+
+
+rez = animals.push("zuikis");
+console.log(rez, "zuikis push"); //gaunam masyvo ilgis 
+
+rez = animals.unshift("breidis"); // stumia i prieki
+
+console.log(rez, "animals unshift"); //gaunam naujo masyvo ilgi
+
+console.log(animals);
+
+animals.shift(); // istrina is pradzios
+
+animals.splice(2, 1); // 2 yra indeksas 1 kiek daug elementu reikia istrinti console. grazina masyva kuris buvo istrintas
+animals.splice(3, 1, "Fox"); // 2 yra indeksas 1 kiek daug elementu reikia istrinti console. grazina masyva kuris buvo istrintas
+animals.splice(3, 1, "Fox", "dog", "cow"); // priklijavo papildomai
+
+animals.indexOf("Fox"); // grazino ieskomo elemento indeksa masyve

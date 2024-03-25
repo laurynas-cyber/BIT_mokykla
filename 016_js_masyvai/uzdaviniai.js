@@ -164,25 +164,7 @@ let unikalusABCD = 0;
 let neunikalusABCD = 0;
 let W = " ";
 
-// let lol = [0, 6, 4, 9];
-// let lol2 = [0, 6, 7, 9];
-// let lol3 = [0, 6, 7, 4];
-// let lol4 = [1, 6, 5, 9];
 
-// for (let i = 0; i < 4; i++) {
-//   if (lol[i] === lol2[i] && lol2[i] === lol3[i] && lol3[i] === lol4[i]) {
-//     unikalusABCD++;
-//     console.log("bingo", lol[i]);
-//   }
-//   if (lol[i] !== lol2[i] && lol[i] !== lol3[i] && lol[i] !== lol4) {
-//     if (lol2[i] !== lol3[i] && lol2[i] !== lol4) {
-//       if (lol3[i] !== lol4[i]) {
-//         neunikalusABCD++;
-//         console.log("nebingo", lol[i]);
-//       }
-//     }
-//   } else console.log("nėra");
-// }
 
 for (let i = 0; i < 200; i++) {
   ABCD2 = rand(0, 3);
@@ -262,3 +244,15 @@ while (numbers2.length < 100) {
 
 console.log(numbers);
 console.log(numbers2);
+
+
+
+let numbers3 = [];
+numbers3 = [...numbers];
+
+numbers3.pop(numbers3[0]);
+
+console.log(numbers3);
+console.log(numbers);
+
+console.clear();
