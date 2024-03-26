@@ -216,6 +216,50 @@ for (let i = 0; i < 200; i++) {
 
 console.log("unikal", unikalusABCD, "neunikal", neunikalusABCD);
 
+//4uzdavinys is basic + destytojo
+
+console.clear();
+const vienas = [];
+const du = [];
+const trys = [];
+
+for (let i = 0; i < 200; i++) {
+  vienas.push(["A", "B", "C", "D"][rand(0, 3)]);
+  du.push(["A", "B", "C", "D"][rand(0, 3)]);
+  trys.push(["A", "B", "C", "D"][rand(0, 3)]);
+}
+
+console.log(vienas, du, trys);
+
+const bendras = [];
+
+for (let i = 0; i < 200; i++) {
+  bendras.push(vienas[i] + du[i] + trys[i]);
+}
+
+const unikalios = [];
+
+for (let i = 0; i < 200; i++) {
+  if (-1 == unikalios.indexOf(bendras[i])) {
+    unikalios.push(bendras[i]);
+  }
+}
+
+console.log(unikalios);
+
+const unikaliosPo1 = [];
+
+for (let i = 0; i < unikalios.length; i++) {
+  const nuo = bendras.indexOf(unikalios[i]);
+  if (-1 == bendras.indexOf(unikalios[i], nuo + 1)) {
+    unikaliosPo1.push(unikalios[i]);
+  }
+}
+
+console.log(unikaliosPo1);
+
+
+
 console.clear();
 
 //5uzdv

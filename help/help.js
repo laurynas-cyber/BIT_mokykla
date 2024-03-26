@@ -129,3 +129,5 @@ animals.splice(3, 1, "Fox"); // 2 yra indeksas 1 kiek daug elementu reikia istri
 animals.splice(3, 1, "Fox", "dog", "cow"); // priklijavo papildomai
 
 animals.indexOf("Fox"); // grazino ieskomo elemento indeksa masyve
+
+A = YU.lastIndexOf("A"); // paskutinis indeksas. neranda grazina - 1
