@@ -105,3 +105,43 @@
   color: #9a54bc;
   cursor: pointer;
 }
+
+.IconsContainer {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  flex-direction: column;
+  margin-top: 200px;
+}
+
+.IconContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.IconContainer div {
+  flex-direction: row;
+}
+
+.IconContainer h2 {
+  font-size: 36px;
+}
+
+.howHelpContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 50px;
+  margin-top: 150px;
+}
+
+.paraPhoneContainer {
+  display: flex;
+}
+
+.paraContainer {
+  width: 50%;
+}
