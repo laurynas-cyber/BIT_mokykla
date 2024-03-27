@@ -209,7 +209,6 @@ function compareNumbers(a, b) {
   return a - b;
 }
 
-nuotLenght.join();
 nuotLenght.sort();
 nuotLenght.sort(compareNumbers);
 

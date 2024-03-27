@@ -139,3 +139,23 @@ const array1 = [1, 3, 2];
 
 console.log(Math.max(...array1));
 // Expected output: 3
+
+const array1 = ["a", "b", "c"];
+const array2 = ["d", "e", "f"];
+const array3 = array1.concat(array2); //sujungia du
+
+const array1 = [1, 2, 3, 4];
+
+// Fill with 0 from position 2 until position 4
+
+
+console.log(array1.fill(6));
+// pakeičia masyvą visi bus 6
+const M = Array(100).fill("A");//prpipildys 100 ilgio
+
+const fairtTail =
+  "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.";
+
+const r7 = fairtTail.split(" "); // sudeda i stringa i masyva. skliaustai nurodo per kura splitinti
+
+console.log(r7);
