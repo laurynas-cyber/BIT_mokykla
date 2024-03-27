@@ -135,3 +135,91 @@ console.log(DidelePinigine);
 
 console.clear();
 //13uzdv
+
+let M = 0;
+let V = 0;
+
+korteles.forEach((element) => {
+  if (element == "MasterCard") {
+    M++;
+  } else if (element == "Visa") {
+    V++;
+  }
+});
+
+if (M > V) {
+  console.log("MasterCard daugiau", M);
+} else if (V > M) {
+  console.log("Visa daugiau", V);
+}
+
+//14uzd
+
+let loterijos = [];
+let lotRand;
+DidelePinigine.push(loterijos);
+
+for (let i = 0; i < 10; i++) {
+  lotRand = rand(1000000000, 9999999999);
+  loterijos.push(lotRand);
+}
+
+//15uzdv
+
+loterijos.sort();
+loterijos.reverse();
+console.log(DidelePinigine);
+
+//16uzdavinys
+
+let Rand;
+let IndexRand = 0;
+
+do {
+  Rand = rand(3, 10);
+
+  IndexRand = IndexRand + Rand;
+  pinigine2.push(Rand);
+} while (IndexRand < 500);
+
+//17uzdv
+
+sum = 0;
+
+for (let i = 0; i < loterijos.length; i++) {
+  if (loterijos[i] % 777 == 0) {
+    sum++;
+    console.log("laimėjote", sum, loterijos[i]);
+  }
+}
+
+//18uzdv
+
+let nuotCont = ["kiemas", "šuo", "katė", "automobilis", "namas"];
+
+let nuotLenght = [];
+
+let W;
+
+nuotCont.forEach((el) => {
+  nuotLenght.push(el.length);
+});
+
+function compareNumbers(a, b) {
+  return a - b;
+}
+
+nuotLenght.join();
+nuotLenght.sort();
+nuotLenght.sort(compareNumbers);
+
+for (let i = 0; i < nuotLenght.length; i++) {
+  nuotCont.forEach((el) => {
+    if (el.length == nuotLenght[i]) {
+      nuotLenght[i] = el;
+    }
+  });
+}
+
+console.log(nuotCont);
+console.log(nuotLenght);

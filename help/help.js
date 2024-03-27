@@ -131,3 +131,11 @@ animals.splice(3, 1, "Fox", "dog", "cow"); // priklijavo papildomai
 animals.indexOf("Fox"); // grazino ieskomo elemento indeksa masyve
 
 A = YU.lastIndexOf("A"); // paskutinis indeksas. neranda grazina - 1
+
+console.log(Math.max(-1, -3, -2));
+// Expected output: -1
+
+const array1 = [1, 3, 2];
+
+console.log(Math.max(...array1));
+// Expected output: 3
