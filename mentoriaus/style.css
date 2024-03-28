@@ -370,7 +370,95 @@
 .bigCard {
   border: 0.5px solid #aaaaaa;
   padding: 20px;
-  width: 300px;
-  height: 500px;
-  border-radius: 4px;
+  width: 200px;
+  height: 350px;
+  border-radius: 7px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  border: 0.44px solid #aaaaaa;
+  gap: 20px;
+}
+
+.bigCard span {
+  font-weight: 700;
+}
+
+.bigCard h2 {
+  font-size: 28px;
+}
+
+.bigCard button {
+  padding: 10px 15px;
+  border: none;
+  border: solid 2px #2b0236;
+  background-color: white;
+  color: #2b0236;
+  font-weight: 700;
+  border-radius: 5px;
+}
+
+.bigCard ul li {
+  list-style: none;
+  font-size: 12px;
+  margin-top: 10px;
+  padding: 0 0 0 5px;
+}
+
+.bigCard ul li::marker {
+  content: "▶";
+}
+
+.bigCardThree {
+  background-color: #56e6a5;
+}
+
+.bigCardThree p {
+  font-size: 12px;
+}
+
+.reviewContainer {
+  margin-top: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 120px;
+}
+
+.reviewContainer > img {
+  width: 200px;
+}
+
+.reviewContainer p {
+  width: 700px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 20px;
+}
+.rewviewPcont {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.rewviewPcont::after {
+  content: "\F138";
+  font-family: bootstrap-icons;
+  font-size: 48px;
+}
+
+.rewviewPcont::before {
+  content: "\F12F";
+  font-family: bootstrap-icons;
+  font-size: 48px;
+}
+
+.rewviewPhoto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-direction: column;
 }
