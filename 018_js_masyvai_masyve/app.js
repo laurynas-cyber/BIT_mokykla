@@ -95,3 +95,5 @@ for (i = 0; i < 5; i++) {
 }
 
 console.log("temp:", temp);
+
+console.clear()
