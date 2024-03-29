@@ -4,7 +4,7 @@ function rand(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-//1uzdv
+//1uzdv https://docs.google.com/document/d/1wGi8xCLiVel9q16jzEXakPKNjQj0HZtG2j56zjmvYPg/edit
 for (let i = 10; i >= 1; i--) {
   console.log("liko nuvazaiuoti:", i);
 }
@@ -60,34 +60,49 @@ for (let i = 10; i >= 1; i--) {
 
 console.log("greitis:", greitis, "posukis:", posukis, "ratas", ratas);
 
-
 ///boso
 
+console.clear();
 
-let tikimybe
+let tikimybe;
 let ivykis;
+let ratas2 = 0;
+let kengura;
+let vairas;
+let stabdis;
 
 do {
-    tikimybe = rand(0,2);
-    if (tikimybe == 0) {
-        ivykis = rand(0,1)
-        if (ivykis == 0){
-            console.log("Iššoko kengūra")
-        } else  console.log("neiššoko kengūra")
-    }
+  ratas2++;
+  ivykis = rand(0, 1);
+  if (ivykis == 0) {
+    kengura = 1;
+    console.log("Iššoko kengūra", kengura);
+  } else {
+    kengura = 0;
+    console.log("neiššoko kengūra", kengura);
+  }
 
-    if (tikimybe == 1) {
-        ivykis = rand(0,1)
-        if(ivykis == 0){
-            console.log("nespėjo pasukti vairo")
-        } else console.log("spėjo pasukti vaira")
-    }
+  ivykis = rand(0, 1);
+  if (ivykis == 0) {
+    vairas = 1;
+    console.log("nespėjo pasukti vairo", vairas);
+  } else {
+    vairas = 0;
+    console.log("spėjo pasukti vaira", vairas);
+  }
 
-    if (tikimybe == 2) {
-        ivykis = rand(0,1)
-        if(ivykis == 0){
-            console.log("nespėjo paspausti stabdziu")
-        } else console.log("spėjo pasukti vaira")
-    }
+  ivykis = rand(0, 1);
+  if (ivykis == 0) {
+    stabdis = 1;
+    console.log("nespėjo paspausti stabdziu", stabdis);
+  } else {
+    stabdis = 0;
+    console.log("spėjo stabdyti vaira", stabdis);
+  }
+  if (stabdis + vairas + kengura == 3) {
+    console.log("visi įvyko");
+  }
+} while (stabdis + vairas + kengura != 3);
 
-} while()
+console.clear();
+

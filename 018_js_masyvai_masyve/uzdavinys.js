@@ -30,7 +30,8 @@ for (let i = 0; i < 100; i++) {
     sumProductsTotal = sumProductsTotal + saskaitos[i].products[j].total;
   }
   saskaitos[i].total = sumProductsTotal;
-  saskaitos[i].vat = (sumProductsTotal / 1.21).toFixed(2);
+  saskaitos[i].vat = (sumProductsTotal / 100) * 21;
+  saskaitos[i].grandTotal = (sumProductsTotal + saskaitos[i].vat).toFixed(2);
 }
 
 console.table(saskaitos);

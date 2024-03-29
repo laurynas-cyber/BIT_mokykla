@@ -101,7 +101,7 @@ let O = {
 
 let O2 = O; //priskyrimas by reference. redaguojant vieną, redaguosis ir kitas
 console.log(O, O2);// rodys 5 bet objekto viduj bus 7
-const O3 = { ...O, salt: 99 }; // copy of value. ... yra spreado operacija. salt:99 jeigu nori papildomai prideti.dar vienas kopijavimo Object.assign({}, O)
+const O3 = { ...O, salt: 99 }; // shallow copy of value. ... yra spreado operacija. salt:99 jeigu nori papildomai prideti.dar vienas kopijavimo Object.assign({}, O)
 const O5 = { ...O, salt: 99, name: "antanas" }; //nukopijuos ovewritins name objekte O
 
 const O6 = { salt: 99, name: "antanas", ...O }; // bus jonas nes paskutinis jonas
@@ -159,3 +159,10 @@ const fairtTail =
 const r7 = fairtTail.split(" "); // sudeda i stringa i masyva. skliaustai nurodo per kura splitinti
 
 console.log(r7);
+
+const m1 = [
+  [1, 2, 3],
+  [4, 5, 6],
+];
+
+let m4 = structuredClone(m1); //kopijuoja visus masyvus ne tik išorinius bet ir vidinius. Deep copy
