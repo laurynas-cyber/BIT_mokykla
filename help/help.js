@@ -166,3 +166,24 @@ const m1 = [
 ];
 
 let m4 = structuredClone(m1); //kopijuoja visus masyvus ne tik išorinius bet ir vidinius. Deep copy
+
+console.log("%c-----", "color:blue"); //stilizuotas console rasymas su %c
+
+
+
+function multiAndSUm(a, b) { 
+  let rez = a * b;
+  let u = a + b;
+  return [rez, u]; //grazina du atsakymus
+}
+
+const [Y, o] = multiAndSUm(4, 5); 
+console.log(Y, o);
+
+
+
+const multia = function(a) { //anonimine funkcija su kintamuoju. lygiai tas pats kas arrow funkcija
+  return a * 10
+}
+
+const multia = a => a * 10 //arrow funkcijos jeigu viena eilute. a be skliausteliu tik tada kai yra tik vienas parametras.
