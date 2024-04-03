@@ -301,20 +301,78 @@ function square1(x, y) {
 
 console.log(square1(7, 5));
 
-//7
+//7 ir 8
 
-// function H1text(text) {
-//   document.body.innerHTML = text;
-// }
-
-function H1text(text) {
-  var H = document.getElementsByTagName("p");
-  H.innerHTML = text;
+function H1text(text, index) {
+  var H = document.getElementsByTagName("h" + index);
+  H[0].innerHTML = text;
 }
 
-H1text("Hello");
+H1text("Hello", 6);
 
-// function H1text(text) {
-//   let H = document.getElementsByTagName("p");
-//   return (H.innerHTML = text);
-// }
+//8
+
+document.body.onload = H1text2;
+
+function H1text2(text, index) {
+  // create a new h element
+  const newH = document.createElement("h" + index);
+
+  // and give it some content
+  const newContent = document.createTextNode(text);
+
+  // add the text node to the newly created div
+  newH.appendChild(newContent);
+
+  // add the newly created element and its content into the DOM
+  const currentH = document.getElementById("div1");
+  document.body.insertBefore(newH, currentH);
+}
+
+H1text2("kuriam H", 1);
+
+//9
+
+function pirminis(number) {
+  for (let i = 2; i <= number; i++) {
+    if (i == number) {
+      return true;
+    } else if (number % i == 0) {
+      return false;
+    }
+  }
+}
+
+console.log(!pirminis(16));
+
+//10
+
+let skaiciai = [];
+
+for (let i = 0; i < 100; i++) {
+  skaiciai.push(rand(997, 15991));
+}
+
+console.log(skaiciai);
+
+//11
+
+skaiciai.forEach((num, index) => {
+  if (num > 5000) {
+    if (!pirminis(num)) {
+      skaiciai.splice(index, 1);
+    }
+  }
+});
+
+console.log(skaiciai);
+
+// let numberMas = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+
+// numberMas.forEach((num, index) => {
+//   if (!pirminis(num)) {
+//     numberMas.splice(index, 1);
+//   }
+// });
+
+// console.log(numberMas);
