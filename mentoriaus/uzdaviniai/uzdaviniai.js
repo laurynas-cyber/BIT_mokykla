@@ -303,3 +303,18 @@ console.log(square1(7, 5));
 
 //7
 
+// function H1text(text) {
+//   document.body.innerHTML = text;
+// }
+
+function H1text(text) {
+  var H = document.getElementsByTagName("p");
+  H.innerHTML = text;
+}
+
+H1text("Hello");
+
+// function H1text(text) {
+//   let H = document.getElementsByTagName("p");
+//   return (H.innerHTML = text);
+// }
