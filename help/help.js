@@ -187,3 +187,25 @@ const multia = function(a) { //anonimine funkcija su kintamuoju. lygiai tas pats
 }
 
 const multia = a => a * 10 //arrow funkcijos jeigu viena eilute. a be skliausteliu tik tada kai yra tik vienas parametras.
+
+// for .. of ciklas
+
+for (const animal of animals) {
+  console.log(animal);
+}
+
+// for... in ciklas duodada inkesa. vienintelis ciklas eina per objekta
+
+for (const index in animals) {
+  console.log(animals[index]); // naudojant masyvui
+}
+
+const houses = {
+  house1: "red",
+  house2: "blue",
+  house3: "green",
+};
+
+for (const house in houses) {
+  console.log(house, houses[house]); // naudojant objektui
+}
