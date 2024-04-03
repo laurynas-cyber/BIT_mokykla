@@ -139,6 +139,167 @@ masyvas4.forEach((num) => {
   }
 });
 
-console.log(masyvas5);
 console.log(Math.max(...masyvas5));
 console.log(Math.min(...masyvas5));
+console.log(masyvas5);
+//Unikalūs elementai: Sukurkite masyvą su unikaliais elementais (pašalinkite dublikatus).
+let masyvas6 = [];
+
+for (let i = 0; i < masyvas5.length; i++) {
+  if (masyvas6.indexOf(masyvas5[i]) == -1) {
+    masyvas6.push(masyvas5[i]);
+  }
+}
+
+let masyvas6Sum = 0;
+let vidurkis;
+
+for (let i = 0; i < masyvas6.length; i++) {
+  console.log(masyvas6[i]);
+  masyvas6Sum += masyvas6[i];
+}
+
+vidurkis = masyvas6Sum / masyvas6.length;
+
+console.log(masyvas6, "Sum:", masyvas6Sum, "vidurkis:", vidurkis);
+
+let masyvas7 = [];
+
+for (let i = 0; i < masyvas.length; i++) {
+  masyvas7.push(masyvas[i] * masyvas[i]);
+}
+
+console.log(masyvas7, masyvas);
+console.log(masyvas7.includes(25));
+masyvas7.forEach((a, index) => {
+  masyvas7[index] = a + 5;
+});
+
+function compareNumbers(a, b) {
+  return b - a;
+}
+
+masyvas7.sort(compareNumbers);
+console.log(masyvas7);
+
+let masyvas8 = [];
+
+for (let i = 0; i < masyvas5.length; i++) {
+  if (masyvas8.indexOf(masyvas5[i]) == -1) {
+    masyvas.forEach((a) => {
+      if (a == masyvas5[i]) {
+        masyvas8.push(a);
+      }
+    });
+  }
+}
+
+console.log(masyvas8);
+
+const movieTheaterSeats = [
+  ["Jonas", "Petras", "Tomas"],
+  ["Kazys", "Rimas", "Antanas"],
+  ["Simas", null, "Lina"],
+  ["Radvilė", "Kęstas", "Lidija"],
+  ["Laurynas", "Kostas", "Alma"],
+];
+
+movieTheaterSeats[2][1] = "laurynas";
+
+console.log(movieTheaterSeats);
+
+for (let i = 0; i < movieTheaterSeats.length; i++) {
+  for (let K = 0; K < movieTheaterSeats[i].length; K++) {
+    if (
+      movieTheaterSeats[i][K] == "Tomas" ||
+      movieTheaterSeats[i][K] == "Kazys" ||
+      movieTheaterSeats[i][K] == "Kęstas" ||
+      movieTheaterSeats[i][K] == "Laurynas"
+    ) {
+      movieTheaterSeats[i][K] = "Clown";
+    }
+  }
+}
+
+console.clear();
+
+//funkcijos
+
+//1
+
+function Vardenis(name) {
+  console.log("labas", name);
+}
+
+Vardenis("Laurynas");
+
+//2
+
+function text(a) {
+  return a.length;
+}
+
+console.log(text("Once upon a time in hollywood"));
+
+//3
+
+function upperCase(name, lastname = "surname") {
+  name = name[0].toUpperCase() + name.slice(1);
+  lastname = lastname[0].toUpperCase() + lastname.slice(1);
+  rez = name + " " + lastname;
+  return rez;
+}
+
+console.log(upperCase("laurynas", "Stanciauskas"));
+
+//4
+
+function ThreeRandom() {
+  let U = rand(0, 5);
+  let I = rand(0, 5);
+  let Y = rand(0, 5);
+  let rez = U + "," + I + "," + Y;
+  console.log(rez);
+}
+
+ThreeRandom();
+
+//5
+
+function RandomMasyvas(from, to, limit) {
+  let newMas = [];
+  if (
+    typeof from === "number" &&
+    typeof to === "number" &&
+    typeof limit === "number"
+  ) {
+    for (let i = 0; i < limit; i++) {
+      newMas.push(rand(from, to));
+    }
+  } else console.log("we need numbers, please");
+
+  return console.log(newMas);
+}
+
+RandomMasyvas(-99, 99, 5);
+
+//6
+
+function square(x, y) {
+  return Math.pow(x, y);
+}
+
+console.log(square(7, 5));
+
+function square1(x, y) {
+  let rez = 1;
+  for (let i = 0; i < y; i++) {
+    rez = rez * x;
+  }
+  return rez;
+}
+
+console.log(square1(7, 5));
+
+//7
+
