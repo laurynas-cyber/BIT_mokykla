@@ -209,3 +209,18 @@ const houses = {
 for (const house in houses) {
   console.log(house, houses[house]); // naudojant objektui
 }
+
+animals.sort((a, b) => {
+  //jeigu stringai arba skaiciai
+  if (a > b) {
+    return 1;
+  } else if (a < b) {
+    return -1;
+  }
+  return 0;
+});
+
+
+animals.sort((a, (b) => a.localeCompare(b))); //stringam sortinti
+
+number.sort((a, b) => a - b); // jeigu skaiciai

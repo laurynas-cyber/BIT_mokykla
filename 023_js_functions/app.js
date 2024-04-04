@@ -1,96 +1,114 @@
-function rand(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+console.log("hello");
 
-const bitGirls = ["Edita", "Lina", "Brigita", "Deimantė", "Justė"];
-const cats = ["Murka", "Rainius", "Meilutė", "Bosas", "Dičkis"];
+animals = [
+  "cat",
+  "dog",
+  "elephant",
+  "bee",
+  "ant",
+  "whale",
+  "lion",
+  "tiger",
+  "bear",
+  "snake",
+  "shark",
+  "penguin",
+  "parrot",
+  "pigeon",
+  "eagle",
+  "sparrow",
+  "owl",
+  "seagull",
+  "woodpecker",
+  "flamingo",
+  "peacock",
+  "swan",
+  "duck",
+  "goose",
+  "pelican",
+  "stork",
+  "crane",
+  "heron",
+  "robin",
+  "nightingale",
+  "crow",
+  "raven",
+  "magpie",
+  "chickadee",
+];
 
-//1 uzdv
-bitGirls.unshift("Nauseda");
-console.log(bitGirls);
-//2uzd
+animals.forEach((a) => {
+  console.log(a);
+});
 
-let bitCats = [];
-let catSvoris = [];
-let svoris;
+//map metodas
 
-let storas = 0;
-let normalus = 0;
+// ka daro:perrenka visus masyvo elementus
+// ka grazina: nauja masyva su pakeistais elementais
 
-// Skirtingai supratau salyga tai du sprendimai
-// bitCats.push(cats);
-// bitCats.push(catSvoris);
-// for (let i = 0; i < cats.length; i++) {
-//   svoris = rand(0, 1);
-//   if (svoris == 1) {
-//     catSvoris.push("storas");
-//     storas++;
-//   } else if (svoris == 0) {
-//     normalus++;
-//     catSvoris.push("normalus");
+const newAnimals = animals.map((a) => {
+  console.log(a);
+});
+
+console.clear();
+
+let smallAnimals = animals.map((animal) =>
+  animal.length > 5 ? "big" : animal
+);
+
+// let smallAnimals = animals.map((animal) => {
+//   if (animal.length > 5) {
+//     return "big";
 //   }
-// }
+//   return animal;
+// });
 
-for (let i = 0; i < cats.length; i++) {
-  let newMake = [];
-  svoris = rand(0, 1);
-  if (svoris == 1) {
-    newMake.push("storas");
-    newMake.push(cats[i]);
-    storas++;
-    bitCats.push(newMake);
-  } else if (svoris == 0) {
-    normalus++;
-    newMake.push("normalus");
-    newMake.push(cats[i]);
-    bitCats.push(newMake);
-  }
-}
+console.log(smallAnimals);
 
-console.log(bitCats);
+let bigAnimals = animals.map((animal) =>
+  animal.length == 3 ? animal + "*****" : animal
+);
 
-//3 uzd
+console.log(bigAnimals);
 
-console.log(storas, normalus);
+//filter
+//ka daro:perrenka visus elementus
+// kas grazina:nauja masyva su tam tikrai elemntais
 
-//4 uzd
+const filteredAnimals = animals.filter((animal) => true);
+const S = animals.filter((animal) => animal[0] == "s");
 
-//5uzdv
+console.log(S);
 
-// let happyCats = [];
-// let skaic;
-// for (let i = 0; i < bitGirls.length; i++) {
-//   skaic = rand(0, 5);
-//   let newMas = [];
-//   if (bitGirls[i] == "Nauseda") {
-//     newMas.push(bitGirls[i]);
-//     newMas.push("Barsukas");
-//     happyCats.push(newMas);
-//   } else if (bitGirls[i] !== "Nauseda") {
-//     newMas.push(bitGirls[i]);
-//     newMas.push(cats[i - 1]);
-//     happyCats.push(newMas);
+const noTiger = animals.filter((animal) => animal != "tiger");
+
+console.log(noTiger);
+
+//sort
+//ka daro:surikiuoja masyvos elementus
+//ka grazino: ta pati surikiuota masyva
+
+// animals.sort((a, b) => {
+//   //jeigu stringai
+//   if (a > b) {
+//     return 1;
+//   } else if (a < b) {
+//     return -1;
 //   }
-// }
+//   return 0;
+// });
 
-// console.log(happyCats);
+// animals.sort((a, (b) => a.localeCompare(b))); //stringam sortinti
 
-let happyCats = [];
-let skaic;
-for (let i = 0; i < bitGirls.length; i++) {
-  skaic = rand(0, 5);
-  let newMas = [];
-  happyCats.forEach((element) => {
-    if (
-      element.indexOf(bitGirls[skaic]) == -1 &&
-      element.indexOf(cats[skaic]) == -1
-    ) {
-      newMas.push(bitGirls[skaic]);
-      newMas.push(cats[skaic]);
-      happyCats.push(newMas);
-    }
-  });
-}
-console.log(happyCats);
+let number = [5, 7, 9, 1, 2, 10];
+
+number.sort((a, b) => a - b);
+
+animals.sort((a, b) => b.length - a.length);
+
+console.log(animals);
+console.log(number);
+
+animals.sort((a, b) => a[1].localeCompare(b[1])); //stringam sortinti
+
+console.log(animals);

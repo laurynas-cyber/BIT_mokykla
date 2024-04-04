@@ -37,7 +37,7 @@ function HealthyNumbers(num) {
   return rez;
 }
 
-console.log(HealthyNumbers(607));
+console.log(HealthyNumbers(613));
 
 // 5 uzdv
 
@@ -47,29 +47,12 @@ for (let i = 0; i < 100; i++) {
   skaiciai.push(rand(33, 77));
 }
 
-let newNumbers = [];
-
-skaiciai.forEach((num) => {
-  newNumbers.push(HealthyNumbers(num));
-  newNumbers.sort();
-  newNumbers.reverse();
-});
+skaiciai.sort((a, b) => HealthyNumbers(a) - HealthyNumbers(b));
+skaiciai.reverse();
 
 console.log(skaiciai);
-console.log(newNumbers);
 
-// let numberMas = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
-
-// numberMas.forEach((num) => {
-//   newNumbers.push(HealthyNumbers(num));
-//   newNumbers.sort();
-//   newNumbers.reverse();
-// });
-
-// console.log(numberMas);
-// console.log(newNumbers);
-
-//6uzdv
+// 6uzdv
 
 let pirminiai = [];
 
@@ -88,3 +71,69 @@ pirminiai.forEach((num, index) => {
 console.log(pirminiai);
 
 //7uzdv
+
+let Mainmasyvas = [];
+let elementNum;
+let finish = rand(10, 30);
+
+function createSubArray(array) {
+  // array = [];
+  let Masyvoilgis = rand(10, 20);
+  for (let j = 0; j < finish; j++) {
+    for (let i = 0; i < Masyvoilgis; i++) {
+      if (i == Masyvoilgis - 1) {
+        return (array[i] = []);
+      } else array.push(rand(0, 10));
+    }
+  }
+  return array;
+}
+
+// for (let j = 0; j < finish; j++) {
+//   createSubArray(Mainmasyvas);
+// }
+createSubArray(Mainmasyvas);
+console.log(Mainmasyvas);
+
+// let vardai = ["jonas", "saulius", "Justas", "Kimas"];
+
+// vardai.push(createSubArray());
+
+// console.log(vardai);
+
+// function createSubArray() {
+//   let array = [];
+//   let Masyvoilgis = rand(10, 20);
+//   let newMas = [];
+//   for (let i = 0; i < Masyvoilgis; i++) {
+//     if (i == Masyvoilgis - 1) {
+//       // createSubArray(array);
+//     } else array.push(rand(0, 10));
+//   }
+//   return array;
+// }
+
+// console.log(createSubArray(Mainmasyvas));
+
+//9 uzdv
+
+let Newmasyvas = [rand(1, 33), rand(1, 33), rand(1, 33)];
+
+console.log(Newmasyvas);
+
+function AddifPirminis(array) {
+  do {
+    array.forEach((element) => {
+      if (HealthyNumbers(element) == 0) {
+        array.push(rand(1, 33));
+      }
+    });
+  } while (
+    HealthyNumbers(array[array.length - 1]) < 0 ||
+    HealthyNumbers(array[array.length - 2]) < 0 ||
+    HealthyNumbers(array[array.length - 3]) < 0
+  );
+  return array;
+}
+
+console.log(AddifPirminis(Newmasyvas));
