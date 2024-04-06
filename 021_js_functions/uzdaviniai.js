@@ -123,11 +123,15 @@ console.log(Newmasyvas);
 
 function AddifPirminis(array) {
   do {
-    array.forEach((element) => {
-      if (HealthyNumbers(element) == 0) {
+    for (let i = 0; i < array.length; i++) {
+      if (
+        HealthyNumbers(array[array.length - 1]) != 0 ||
+        HealthyNumbers(array[array.length - 2]) != 0 ||
+        HealthyNumbers(array[array.length - 3]) != 0
+      ) {
         array.push(rand(1, 33));
       }
-    });
+    }
   } while (
     HealthyNumbers(array[array.length - 1]) < 0 ||
     HealthyNumbers(array[array.length - 2]) < 0 ||
@@ -137,3 +141,40 @@ function AddifPirminis(array) {
 }
 
 console.log(AddifPirminis(Newmasyvas));
+
+console.clear();
+// 10 uzdv
+let DidelisMasyvas = [];
+
+for (let i = 0; i < 10; i++) {
+  DidelisMasyvas.push([]);
+  for (let j = 0; j < 10; j++) {
+    DidelisMasyvas[i].push(rand(1, 100));
+  }
+}
+
+console.log(DidelisMasyvas);
+
+let Allnumbers = DidelisMasyvas.flat();
+console.log(Allnumbers);
+
+let PirminiaiSum = 0;
+let PirminiaiIndex = 0;
+let PirminiaiVidurkis = 0;
+let minNumber = 0;
+
+do {
+  Allnumbers.forEach((el) => {
+    if (HealthyNumbers(el) == 0) {
+      PirminiaiSum += el;
+      PirminiaiIndex++;
+    }
+  });
+  PirminiaiVidurkis = PirminiaiSum / PirminiaiIndex;
+  if (PirminiaiVidurkis < 70) {
+    Allnumbers.sort((a, b) => a - b);
+    Allnumbers[0] = Allnumbers[0] + 3;
+  }
+} while (PirminiaiVidurkis < 70);
+
+console.log(PirminiaiVidurkis);

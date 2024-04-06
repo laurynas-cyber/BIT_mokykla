@@ -210,17 +210,57 @@ for (const house in houses) {
   console.log(house, houses[house]); // naudojant objektui
 }
 
-animals.sort((a, b) => {
-  //jeigu stringai arba skaiciai
-  if (a > b) {
-    return 1;
-  } else if (a < b) {
-    return -1;
-  }
-  return 0;
+//map metodas
+
+// ka daro:perrenka visus masyvo elementus
+// ka grazina: nauja masyva su pakeistais elementais
+
+const newAnimals = animals.map((a) => {
+  console.log(a);
 });
 
+console.clear();
 
-animals.sort((a, (b) => a.localeCompare(b))); //stringam sortinti
+let smallAnimals = animals.map((animal) =>
+  animal.length > 5 ? "big" : animal
+);
 
-number.sort((a, b) => a - b); // jeigu skaiciai
+
+
+//filter
+//ka daro:perrenka visus elementus
+// kas grazina:nauja masyva su tam tikrai elemntais
+
+const filteredAnimals = animals.filter((animal) => true);
+const S = animals.filter((animal) => animal[0] == "s");
+
+console.log(S);
+
+const noTiger = animals.filter((animal) => animal != "tiger");
+
+console.log(noTiger);
+
+//sort
+//ka daro:surikiuoja masyvos elementus
+//ka grazino: ta pati surikiuota masyva
+
+// animals.sort((a, b) => {
+//   //jeigu stringai
+//   if (a > b) {
+//     return 1;
+//   } else if (a < b) {
+//     return -1;
+//   }
+//   return 0;
+// });
+
+// animals.sort((a, (b) => a.localeCompare(b))); //stringam sortinti
+
+let number = [5, 7, 9, 1, 2, 10];
+
+number.sort((a, b) => a - b);
+
+animals.sort((a, b) => b.length - a.length);
+
+
+animals.sort((a, b) => a[1].localeCompare(b[1])); //stringam sortinti
