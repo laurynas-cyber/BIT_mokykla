@@ -25,6 +25,8 @@ console.log(c - x);
 console.log(b - a);
 // string - number = 0 type number
 
+console.log(NaN == NaN); //False NaN nera lygus NaN
+
 console.log(typeof a);
 console.log((0.3 + 0.6).toFixed(1));
 // /*.toFixed(kiek skaičių po kablelio)
