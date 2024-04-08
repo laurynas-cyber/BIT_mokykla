@@ -82,7 +82,7 @@ function createSubArray(array) {
   for (let j = 0; j < finish; j++) {
     for (let i = 0; i < Masyvoilgis; i++) {
       if (i == Masyvoilgis - 1) {
-        return (array[i] = []);
+        array.push(createSubArray(array));
       } else array.push(rand(0, 10));
     }
   }

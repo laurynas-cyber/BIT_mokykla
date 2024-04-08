@@ -458,3 +458,7 @@ FilterNoSeven.forEach((el) => {
   NoSevenSum += el;
 });
 console.log(NoSevenSum);
+
+console.clear();
+
+

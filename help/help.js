@@ -228,6 +228,15 @@ let smallAnimals = animals.map((animal) =>
 );
 
 
+//find
+// ka daro:nieko
+// ka grazina:iesko pirmo elemento pagal salyga, jeigu netenkina bus undefined
+
+const names = ["Jonas", "Petras", "Antanas", "Juozas", "Ona"];
+
+const foundnames = names.find((name) => name.length > 6);
+
+console.log(foundnames);
 
 //filter
 //ka daro:perrenka visus elementus
@@ -266,3 +275,18 @@ animals.sort((a, b) => b.length - a.length);
 
 
 animals.sort((a, b) => a[1].localeCompare(b[1])); //stringam sortinti
+
+// ka daro: nieko orginalo nekeicia
+//grazina: akumuliatoriu acc
+const sum = digitsArray.reduce((acc, item) => acc + item, 0);
+
+console.log("sum:", sum);
+
+//some geriausia naudoti paieskai 
+//ka daro:nieko
+//ka grazina: true ar false
+
+console.log(names.some((name) => name == "Ona"));
+
+let newCatsAge = [...catsAndOwners]; // shallow copy nukipojuos tik pirmus elementus, bet ne juose esanciuose dalykus
+structuredClone(catsAndOwners) // deep copy nusikloninam visa struktura
