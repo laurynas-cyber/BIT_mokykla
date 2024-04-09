@@ -70,31 +70,6 @@ pirminiai.forEach((num, index) => {
 
 console.log(pirminiai);
 
-//7uzdv
-
-let Mainmasyvas = [];
-let elementNum;
-let finish = rand(10, 30);
-
-function createSubArray(array) {
-  // array = [];
-  let Masyvoilgis = rand(10, 20);
-  for (let j = 0; j < finish; j++) {
-    for (let i = 0; i < Masyvoilgis; i++) {
-      if (i == Masyvoilgis - 1) {
-        array.push(createSubArray(array));
-      } else array.push(rand(0, 10));
-    }
-  }
-  return array;
-}
-
-// for (let j = 0; j < finish; j++) {
-//   createSubArray(Mainmasyvas);
-// }
-createSubArray(Mainmasyvas);
-console.log(Mainmasyvas);
-
 // let vardai = ["jonas", "saulius", "Justas", "Kimas"];
 
 // vardai.push(createSubArray());
@@ -178,3 +153,100 @@ do {
 } while (PirminiaiVidurkis < 70);
 
 console.log(PirminiaiVidurkis);
+
+console.clear();
+
+//7uzdv Maximum call stack size exceeded
+
+// let Mainmasyvas = [];
+// let elementNum;
+// let finish = rand(10, 30);
+
+// function createSubArray() {
+//   let array = [];
+//   let Masyvoilgis = rand(10, 20);
+//   let newMas = [];
+//   for (let i = 0; i < Masyvoilgis; i++) {
+//     if (i == Masyvoilgis - 1) {
+//       // createSubArray(array);
+//     } else array.push(rand(0, 10));
+//   }
+//   return array;
+// }
+
+// console.log(Mainmasyvas);
+
+// function generuotiMasyva() {
+//   const ilgis = rand(10, 20); // Atsitiktinis masyvo ilgis nuo 10 iki 20
+//   let masyvas = [];
+
+//   // Sukurkite masyvą su atsitiktiniais skaičiais nuo 0 iki 10, išskyrus paskutinį elementą
+//   for (let i = 0; i < ilgis - 1; i++) {
+//     masyvas.push(rand(0, 10));
+//   }
+
+//   // Sukurkite paskutinį elementą su atsitiktiniais skaičiais nuo 0 iki 10, išskyrus 0
+//   let paskutinisElementas = Math.floor(Math.random() * 11);
+//   while (paskutinisElementas === 0) {
+//     paskutinisElementas = Math.floor(Math.random() * 11);
+//   }
+//   masyvas.push(paskutinisElementas);
+
+//   return masyvas;
+// }
+
+// // Atsitiktinai generuojame nuo 10 iki 30 masyvų
+// const kiekis = Math.floor(Math.random() * (30 - 10 + 1)) + 10;
+// for (let i = 0; i < kiekis; i++) {
+//   let naujasMasyvas = generuotiMasyva();
+//   console.log(naujasMasyvas);
+// }
+
+//masyvas masyve rekursija
+
+function generuotiMasyvaMasyve(gylis) {
+  if (gylis === 0) {
+    return rand(0, 10); // Grąžiname atsitiktinį skaičių, kai pasiekiame gylį 0
+  } else {
+    let naujasMasyvas = [];
+    const ilgis = rand(10, 20); // Atsitiktinis masyvo ilgis nuo 1 iki 10
+    for (let i = 0; i < ilgis; i++) {
+      naujasMasyvas.push(generuotiMasyvaMasyve(gylis - 1)); // Kviečiame rekursyviai funkciją, sumažindami gylį
+    }
+    return naujasMasyvas;
+  }
+}
+
+// Kviečiame funkciją, nurodydami norimą gylį masyve
+const gylis = 2; // Galite pasirinkti bet kokį norimą gylį
+const masyvas = generuotiMasyvaMasyve(gylis);
+
+// Atspausdiname sukurtą masyvą
+console.log(masyvas);
+
+function areYouPlayingBanjo(name) {
+  if (name.startsWith("R") || name.startsWith("r")) {
+    return name + " plays banjo";
+  } else return name + " does not play banjo";
+}
+
+///////////
+
+function sumMix(x) {
+  let ar = x.flat();
+  let sum = 0;
+  ar.forEach((el) => {
+    sum += parseInt(el);
+  });
+  return sum;
+}
+
+console.log(sumMix([9, 3, "7", "3"]), 22);
+
+//----------------
+
+function removeSmallest(numbers) {
+  let num = Math.min(...numbers)
+  return numbers.filter(a => a != num);
+}
+console.log(removeSmallest([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));

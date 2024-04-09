@@ -276,6 +276,7 @@ animals.sort((a, b) => b.length - a.length);
 
 animals.sort((a, b) => a[1].localeCompare(b[1])); //stringam sortinti
 
+//reduce
 // ka daro: nieko orginalo nekeicia
 //grazina: akumuliatoriu acc
 const sum = digitsArray.reduce((acc, item) => acc + item, 0);
