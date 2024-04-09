@@ -461,3 +461,10 @@ console.log(NoSevenSum);
 
   console.clear();
 
+// using System;
+
+// public static class Kata {
+//   public static int CookPancakes(int n, int m) {
+//     return 0;
+//   }
+// }

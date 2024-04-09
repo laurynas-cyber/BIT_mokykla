@@ -246,7 +246,48 @@ console.log(sumMix([9, 3, "7", "3"]), 22);
 //----------------
 
 function removeSmallest(numbers) {
-  let num = Math.min(...numbers)
-  return numbers.filter(a => a != num);
+  let num = Math.min(...numbers);
+  let ind = numbers.indexOf(num);
+  let newArr = [...numbers];
+  newArr.splice(ind, 1);
+  return newArr;
 }
-console.log(removeSmallest([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+console.log(removeSmallest([3, 2, 1, 4, 1, 6, 7, 8, 9, 10]));
+
+function vardas(name) {
+  return name == "jonas" ? "laimejai" : "ne";
+}
+
+console.log(vardas(" pl"));
+
+//-------
+
+function squareDigits(num) {
+  let sum = "";
+  strNum = num.toFixed(0);
+  for (let i = 0; i < strNum.length; i++) {
+    sum = sum + parseFloat(strNum[i] * strNum[i]);
+  }
+  return parseFloat(sum);
+}
+
+let v = "2 1 3 a".split(" ");
+
+console.log(v.join(" "));
+
+function findMissingNumber(sequence) {
+  //your code here
+  let v = sequence.split(" ");
+  let max = Math.max(...v)
+  v.forEach((el, ind) => {
+    if (el !== "number") {
+      return 1;
+    } 
+    
+  });
+  for (let i = v.length - 1; i >= 0 ; i--) {
+    if (max - 1 == ) {
+
+    }
+  }
+}
