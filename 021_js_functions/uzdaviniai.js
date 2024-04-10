@@ -285,14 +285,21 @@ function findMissingNumber(sequence) {
   let sum = 0;
   v.sort();
 
+  // for (let i = 0; i < v.length; i++) {
+  //   if (v[i] - 0 >= 0 || v[i] - 0 <= 0) {
+  //     sum = sum + parseInt(v[i]);
+  //   } else return 1;
+  // }
 
-
-  for (let i = 0; i < v.length; i++) { // padaryti if pirmas elementas != 1 turi prasideti nuo 1.
+  // padaryti if pirmas elementas != 1 turi prasideti nuo 1.
     if (v[i] - 0 >= 0 || v[i] - 0 <= 0) {
-      sum = sum + parseInt(v[i]);
+      for (let i = 0; i < v.length; i++) {
+        if (v[0] - 0 != 1) {
+          return 1
+        }
+      }
     } else return 1;
-  }
-
+  
   let realSum = 0;
   for (let i = max; i > 0; --i) {
     realSum = realSum + i;
