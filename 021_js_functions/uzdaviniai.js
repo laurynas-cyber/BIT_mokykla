@@ -271,23 +271,44 @@ function squareDigits(num) {
   return parseFloat(sum);
 }
 
-let v = "2 1 3 a".split(" ");
+// let g = "2 1 3 a".split(" ");
 
-console.log(v.join(" "));
+// console.log(g);
+
+console.clear();
 
 function findMissingNumber(sequence) {
-  //your code here
+  //your code here https://www.codewars.com/kata/5512e5662b34d88e44000060/train/javascript
   let v = sequence.split(" ");
-  let max = Math.max(...v)
-  v.forEach((el, ind) => {
-    if (el !== "number") {
-      return 1;
-    } 
-    
-  });
-  for (let i = v.length - 1; i >= 0 ; i--) {
-    if (max - 1 == ) {
+  let max = Math.max(...v);
+  let min = Math.min(...v);
+  let sum = 0;
+  v.sort();
 
-    }
+
+
+  for (let i = 0; i < v.length; i++) { // padaryti if pirmas elementas != 1 turi prasideti nuo 1.
+    if (v[i] - 0 >= 0 || v[i] - 0 <= 0) {
+      sum = sum + parseInt(v[i]);
+    } else return 1;
   }
+
+  let realSum = 0;
+  for (let i = max; i > 0; --i) {
+    realSum = realSum + i;
+  }
+
+  if (realSum - sum == 0) {
+    return 0;
+  }
+
+  let answer;
+  v.forEach(() => {
+    if (!v.includes(min.toString())) {
+      return (answer = min);
+    } else min += 1;
+  });
+  return answer;
 }
+
+console.log(findMissingNumber("0 3 5"));
