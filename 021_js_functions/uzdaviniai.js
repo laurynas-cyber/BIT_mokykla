@@ -285,21 +285,22 @@ function findMissingNumber(sequence) {
   let sum = 0;
   v.sort();
 
-  // for (let i = 0; i < v.length; i++) {
-  //   if (v[i] - 0 >= 0 || v[i] - 0 <= 0) {
-  //     sum = sum + parseInt(v[i]);
-  //   } else return 1;
-  // }
+  if (sequence == "" || sequence == " ") return 0;
+  if (v[0] != 1) return 1;
+  for (let index = 0; index < v.length; index++) {
+    let bool1 = v[index] - 0 >= 0;
+    let bool2 = v[index] - 0 <= 0;
+    if (bool1 == false && bool2 == false) return 1;
+  }
 
+  for (let i = 1; i <= v.length; i++) {
+    sum = sum + parseInt(v[i - 1]);
+    if (!v.includes(i.toString())) {
+      return i;
+    }
+  }
   // padaryti if pirmas elementas != 1 turi prasideti nuo 1.
-    if (v[i] - 0 >= 0 || v[i] - 0 <= 0) {
-      for (let i = 0; i < v.length; i++) {
-        if (v[0] - 0 != 1) {
-          return 1
-        }
-      }
-    } else return 1;
-  
+
   let realSum = 0;
   for (let i = max; i > 0; --i) {
     realSum = realSum + i;
@@ -309,13 +310,26 @@ function findMissingNumber(sequence) {
     return 0;
   }
 
-  let answer;
-  v.forEach(() => {
-    if (!v.includes(min.toString())) {
-      return (answer = min);
-    } else min += 1;
-  });
-  return answer;
+  // let answer;
+  // v.forEach(() => {
+  //   if (!v.includes(min.toString())) {
+  //     return (answer = min);
+  //   } else min += 1;
+  // });
+  // return answer;
 }
 
-console.log(findMissingNumber("0 3 5"));
+console.log(findMissingNumber("1 2 6 8 a 9 11 B 4"));
+console.log(findMissingNumber("1 2 3 5"));
+// console.log(typeof ("5" - 0));
+// console.log(typeof ("A" - 0));
+// console.log(typeof (5 - 0));
+
+// console.log("5" - 0 > 0);
+// console.log(5 - 0 > 0);
+let A = "-5";
+let Bool = A - 0 > 0;
+let Bool2 = A - 0 < 0;
+console.log(Bool == false);
+
+if (Bool == false && Bool2 == false) console.log("debil");

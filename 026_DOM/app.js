@@ -44,4 +44,44 @@ window.addEventListener("load", (_) => {
       a.innerText = "Bunny";
     }
   });
+
+  const H1 = document.querySelector("h1");
+
+  H1.style.color = "skyblue";
+  H1.style.fontSize = "52px"; //jeigu bruksnys vietoj bruksnio raso camelCase is didzsios raides S
+
+  //   setInterval((_) => {
+  //     H1.style.color = H1.style.color == "skyblue" ? "crimson" : "skyblue";
+  //   }, 1000);
+
+  //   const blueRed = (_) => {
+  //     if (H1.style.color == "skyblue") {
+  //       H1.style.color = "crimson";
+  //     } else {
+  //       H1.style.color == "skyblue";
+  //     }
+  //   };
+
+  //   setInterval(blueRed, 100);
+
+  const Bin = document.querySelector(".bin");
+
+  let divs = "";
+
+  for (let i = 0; i < 20; i++) {
+    divs += "<div></div>";
+  }
+
+  Bin.innerHTML = divs;
+
+  const balls = document.querySelectorAll(".bin div");
+
+  const BallGo = (_) => {
+    balls.forEach((b) => {
+      b.style.top = rand(0, 450) + "px";
+      b.style.left = rand(0, 450) + "px";
+    }); // padaryt kad sustotu
+  };
+
+  setInterval(BallGo, 500);
 });
