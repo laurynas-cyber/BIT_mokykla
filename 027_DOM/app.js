@@ -32,4 +32,27 @@ window.addEventListener("load", (_) => {
       a.innerText += "----*";
     }
   });
+
+  const button = document.querySelector("button");
+
+  button.addEventListener("click", (e) => {
+    console.log("kuku");
+  });
+  button.addEventListener("mouseenter", (e) => {
+    console.log("apa", e.target);
+  });
+
+  let red = document.querySelector(".red");
+
+  red.addEventListener("click", (_) => {
+    if (red.dataset.squareColor == "blue") {
+      red.dataset.squareColor = "red";
+      red.style.backgroundColor = "#dc143c66";
+      red.style.borderColor = "#dc143c";
+    } else {
+      red.dataset.squareColor = "blue";
+      red.style.backgroundColor = "#87ceeb66";
+      red.style.borderColor = "#87ceeb";
+    }
+  }); //uzdavinys skaiciuotis turi numeriai viduj kvadrato, double klikas nusinulina
 });
