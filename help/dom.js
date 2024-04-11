@@ -1,11 +1,11 @@
-// selektinam elementus 
+// selektinam elementus
 const valio = document.querySelector(".valio div");
 const H3du = document.querySelector("h3 + h3");
 document.querySelectorAll(".animals span");
 //Nodelistas masyvo brolis. neturi jokiu metodu. bet turi forEach
 const animals = document.querySelectorAll(".animals span");
 
-console.log(animals); 
+console.log(animals);
 
 animals.forEach((el) => {
   console.log(el.innerText);
@@ -21,5 +21,11 @@ valio.innerHTML = "<b>888</b>";
 const h2Get = document.querySelector("h2 + h2");
 h2Get.innerText = "Pakeistas";
 
-//stilius 
+//stilius
 H1.style.fontSize = "52px"; //jeigu bruksnys vietoj bruksnio raso camelCase is didzsios raides S
+
+//pridedi i sarasa https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML
+const ul = document.querySelector(".test ul");
+ul.innerHTML += "<li>Beaver</li>"; // brangus dejimas
+const Lastli = document.querySelector(".test ul li:last-child"); // pigesnis
+Lastli.insertAdjacentHTML("afterend", "<li>Wolf</>");

@@ -299,7 +299,7 @@ function findMissingNumber(sequence) {
       return i;
     }
   }
-  // padaryti if pirmas elementas != 1 turi prasideti nuo 1.
+  
 
   let realSum = 0;
   for (let i = max; i > 0; --i) {
@@ -310,13 +310,7 @@ function findMissingNumber(sequence) {
     return 0;
   }
 
-  // let answer;
-  // v.forEach(() => {
-  //   if (!v.includes(min.toString())) {
-  //     return (answer = min);
-  //   } else min += 1;
-  // });
-  // return answer;
+ 
 }
 
 console.log(findMissingNumber("1 2 6 8 a 9 11 B 4"));
