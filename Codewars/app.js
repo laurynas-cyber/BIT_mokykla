@@ -60,7 +60,7 @@ function encrypt(text, n) {
   for (let j = 0; j < text.length; j += 2) {
     textEven = textEven + text[j];
   }
-  if (text == "" || n <= 0) {
+  if (text == "" || n <= 0 || text == null) {
     return text;
   } else if (n > 0) {
     text = textOdd + textEven;
@@ -68,14 +68,28 @@ function encrypt(text, n) {
   }
 }
 
-console.log("atsakymas", encrypt("This is a test!", 3));
-console.log("atsakymas", encrypt("012345", 3));
-
+console.log("atsakymas", encrypt("This is a test!", 2));
+console.log("atsakymas", encrypt("012345", 1));
+// console.log("atsakymas", encrypt("543210", 1));
+console.clear();
 function decrypt(encryptedText, n) {
-  
+  if (encryptedText == null || encryptedText == "" || n <= 0) {
+    return encryptedText;
+  }
+  let middle = encryptedText.length / 2;
+  let textBack = encryptedText.slice(middle); //024
+  let textFront = encryptedText.slice(0, middle); //135
+  let text = "";
+  // console.log("back", textBack, "Front", textFront);
+  for (let i = 0; i < textBack.length; i++) {
+    text += textBack[i];
+    if (textFront[i] != undefined) {
+      text += textFront[i];
+    }
+  }
+  console.log(text);
+  // return (text = encrypt(text, n - 1));
 }
 
-console.log("atsakymas", decrypt("This is a test!", 3));
-console.log("atsakymas", decrypt("012345", 3));
-
-console.log("lanas"[4]);
+console.log("atsakymas", decrypt("13024", 1));
+console.log("atsakymas", decrypt(" Tah itse sits!", 1));

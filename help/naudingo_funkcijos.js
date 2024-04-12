@@ -40,3 +40,15 @@ function sumAllElements() {
 let result = sumAllElements(1, 15, 4, 5, 5);
 
 console.log(result);
+
+// balsiu paieska
+
+function getVowels(str) {
+  const m = str.match(/[aeiou]/gi);
+  if (m === null) {
+    return 0;
+  }
+  return m.length;
+}
+
+console.log(getVowels('sky'));
