@@ -75,7 +75,7 @@ console.log(count);
 //A9
 console.clear();
 const ZirafosLi = document.querySelectorAll("#zirafos li");
-const plesrunaiLi = document.querySelectorAll("#plesrunai li");
+
 const GyvatesLi = document.querySelectorAll("#gyvates li");
 const zoliaedziaiLi = document.querySelectorAll("#zoliaedziai li");
 const ArrayH2 = [ZirafosLi, plesrunaiLi, GyvatesLi, zoliaedziaiLi];
@@ -125,4 +125,16 @@ PriceH2.forEach((a) => {
 });
 
 console.log(Math.min(...ArrayPrice));
+console.clear();
+//B1
 
+H1.innerText = "Zoo parkas";
+
+//B2
+
+console.log(Adress);
+
+//B3
+const plesrunaiLi = document.querySelectorAll("#plesrunai li");
+const Lastli = document.querySelector(".test ul li:last-child"); // pigesnis
+Lastli.insertAdjacentHTML("afterend", "<li>Wolf</>");
