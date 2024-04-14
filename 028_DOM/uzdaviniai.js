@@ -36,12 +36,11 @@ NewAnimals.forEach((el) => {
 
 const H2 = document.querySelectorAll("i + div h2");
 
-H2.forEach((el) => {
-  if (el.innerText.includes("Gyvatės")) {
-    el.innerText = "Gyvatės";
-  }
-  console.log(el.innerText);
-});
+H2.forEach((el) =>
+  el.innerHTML.includes("<span>Atsinaujinom</span>")
+    ? console.log(el.innerHTML.replace("<span>Atsinaujinom</span>", ""))
+    : console.log(el.innerText)
+);
 
 //A6
 
@@ -75,7 +74,7 @@ console.log(count);
 //A9
 console.clear();
 const ZirafosLi = document.querySelectorAll("#zirafos li");
-
+const plesrunaiLi = document.querySelectorAll("#plesrunai li");
 const GyvatesLi = document.querySelectorAll("#gyvates li");
 const zoliaedziaiLi = document.querySelectorAll("#zoliaedziai li");
 const ArrayH2 = [ZirafosLi, plesrunaiLi, GyvatesLi, zoliaedziaiLi];
@@ -135,6 +134,37 @@ H1.innerText = "Zoo parkas";
 console.log(Adress);
 
 //B3
-const plesrunaiLi = document.querySelectorAll("#plesrunai li");
-const Lastli = document.querySelector(".test ul li:last-child"); // pigesnis
-Lastli.insertAdjacentHTML("afterend", "<li>Wolf</>");
+const plesrunailastLi = document.querySelector("#plesrunai li:last-child");
+// pigesnis
+plesrunailastLi.insertAdjacentHTML("afterend", "<li>Leopardas</li>");
+
+//B4
+
+const GyvatesFirstLi = document.querySelector("#gyvates li");
+
+GyvatesFirstLi.insertAdjacentHTML("beforebegin", "<li>Jūrų sliekas</li>");
+
+//B5
+
+H2.forEach((a) =>
+  a.innerText == "Žoliaėdžiai"
+    ? a.insertAdjacentHTML("beforeend", " <span>Atsinaujinom</span>")
+    : false
+);
+
+//B6
+
+H2.forEach((el) => {
+  if (el.innerText.includes("Gyvatės")) {
+    el.innerHTML = "Gyvatės <span></span>";
+  }
+});
+
+//B7
+const zoliaedziai = document.querySelector("#zoliaedziai");
+zoliaedziai.innerHTML = " ";
+zoliaedziaiLi.forEach((el) => {
+  if (el.innerText != "Laukinė kiaulė") {
+    zoliaedziai.innerHTML += `<li>${el.innerText}</li>`;
+  }
+});
