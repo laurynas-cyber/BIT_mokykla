@@ -109,8 +109,6 @@ console.log(
     .innerText
 );
 
-console.log(document.querySelector("div h2:nth-child(1)")); // kodėl taip šokinėja renkantis child. jeigu pridesiu i + div irgi neveiks
-
 //A10
 
 const PriceH2 = document.querySelectorAll(".prices h2"); //
@@ -260,3 +258,5 @@ AtsinaujinomMelyna.forEach((a) => {
     a.style.color = a.style.color == "red" ? "skyblue" : "red";
   }, 1000);
 });
+
+console.log(document.querySelector("div h2:nth-child(5)")); // kodėl taip šokinėja renkantis child. jeigu pridesiu i + div irgi neveiks
