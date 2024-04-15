@@ -8,7 +8,7 @@ console.log(H1);
 
 //A2
 
-const Adress = document.querySelector("#contacts").innerText;
+const Adress = document.querySelector("#contacts");
 
 console.log(Adress);
 
@@ -34,7 +34,7 @@ NewAnimals.forEach((el) => {
 
 //A5
 
-const H2 = document.querySelectorAll("i + div h2");
+let H2 = document.querySelectorAll("i + div h2");
 
 H2.forEach((el) =>
   el.innerHTML.includes("<span>Atsinaujinom</span>")
@@ -74,7 +74,7 @@ console.log(count);
 //A9
 console.clear();
 const ZirafosLi = document.querySelectorAll("#zirafos li");
-const plesrunaiLi = document.querySelectorAll("#plesrunai li");
+let plesrunaiLi = document.querySelectorAll("#plesrunai li");
 const GyvatesLi = document.querySelectorAll("#gyvates li");
 const zoliaedziaiLi = document.querySelectorAll("#zoliaedziai li");
 const ArrayH2 = [ZirafosLi, plesrunaiLi, GyvatesLi, zoliaedziaiLi];
@@ -131,7 +131,11 @@ H1.innerText = "Zoo parkas";
 
 //B2
 
-console.log(Adress);
+InoSign.forEach((el) => {
+  if (el.innerText == "***") {
+    el.innerText = "*****";
+  }
+});
 
 //B3
 const plesrunailastLi = document.querySelector("#plesrunai li:last-child");
@@ -167,4 +171,92 @@ zoliaedziaiLi.forEach((el) => {
   if (el.innerText != "Laukinė kiaulė") {
     zoliaedziai.innerHTML += `<li>${el.innerText}</li>`;
   }
+});
+
+//B8
+
+const plesrunai = document.querySelector("i + div ul + h2");
+plesrunai.insertAdjacentHTML("afterend", "<h3>Neglostyti!</h3>");
+
+//B9
+
+const studentams = document.querySelector(".prices h2:nth-child(2)");
+console.log(studentams);
+studentams.insertAdjacentHTML("afterend", "<h2>Studentas 3eur</h2>");
+
+//B10
+plesrunaiLi = document.querySelectorAll("#plesrunai li");
+let ArrayPlesrunai = [];
+plesrunaiLi.forEach((a) => {
+  if (a.innerHTML != "PATINKA") {
+    ArrayPlesrunai.push(a.innerText);
+  }
+});
+ArrayPlesrunai.sort();
+console.log(ArrayPlesrunai);
+
+plesrunaiLi.forEach((a, ind) => {
+  if (a.innerHTML != "PATINKA") {
+    a.innerHTML = ArrayPlesrunai[ind - 1];
+  }
+});
+
+//C1
+
+H1.style.color = "crimson";
+
+//C2
+
+Adress.style.color = "grey";
+const SpanAdress = document.querySelector("#contacts span");
+SpanAdress.style.color = "black";
+
+//C3
+
+H2.forEach((a) => (a.style.color = "blue"));
+
+//C4
+
+const patinka = document.querySelectorAll("ul li");
+
+patinka.forEach((a) => {
+  if (a.innerHTML == "PATINKA") {
+    a.style.border = "1px solid black";
+  }
+  if (a.innerHTML == "Jūrų sliekas" || a.innerHTML == "Leopardas") {
+    //C5
+    a.style.color = "yellow";
+    a.style.backgroundColor = "grey";
+  }
+
+  if (a.innerHTML == "Zuikis") {
+    //C6
+    a.style.visibility = "hidden";
+  }
+});
+
+//C7
+
+const allAnimals = document.querySelectorAll("i + div ul");
+
+allAnimals.forEach((a) => (a.style.listStyle = "none"));
+
+//C8
+
+const UL = document.querySelectorAll("ul");
+
+UL.forEach((a) => (a.style.lineHeight = "30px"));
+
+//C9
+
+const AtsinaujinomMelyna = document.querySelectorAll("i + div h2 span");
+
+AtsinaujinomMelyna.forEach((a) => (a.style.color = "red"));
+
+//C10
+
+AtsinaujinomMelyna.forEach((a) => {
+  setInterval((_) => {
+    a.style.color = a.style.color == "red" ? "skyblue" : "red";
+  }, 1000);
 });

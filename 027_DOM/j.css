@@ -12,3 +12,8 @@
   height: 100px;
   margin: 30px;
 }
+
+.Rab {
+  /* display: none; */
+  visibility: hidden;
+}
