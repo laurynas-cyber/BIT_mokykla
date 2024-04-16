@@ -1,13 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/029_DOM/style.css" />
     <script src="/029_DOM/app.js" defer></script>
-    <title></title>
-</head>
-<body>
-    
-</body>
+    <title>Regex ir Dom</title>
+  </head>
+  <body>
+    <!-- https://regex101.com/ -->
+    <!-- [sš] i keturkampius skliaustus rasyti ko ieskai. iesko s arba š. be skliaustu ieško paprastai.  -->
+    <!-- [sš]{2} iesško sš kombinacijos. -->
+    <!-- [so]+ ieskos ir so kombinacijos ir s ir o atskirai raidziu -->
+
+    <div class="test">
+      <input type="text" class="i1" />
+      <button type="button">Read</button>
+    </div>
+    <div class="calc">
+      <input type="text" class="a1" /> + <input type="text" class="a2" />
+      <button type="button">multiply</button>
+    </div>
+
+    <div class="parent">
+      <div class="child"></div>
+    </div>
+  </body>
 </html>

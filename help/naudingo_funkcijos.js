@@ -51,4 +51,21 @@ function getVowels(str) {
   return m.length;
 }
 
-console.log(getVowels('sky'));
+console.log(getVowels("sky"));
+
+// pirmas argumentas funkcija. antras ka nori padaryti { } skliaustuose?? ir sekundes po kiek laiko tai bus
+setTimeout(function () {
+  console.log("hello");
+}, 3000);
+
+// kas kiek laiko persijungines pakeitimai
+setInterval((_) => {
+  a.style.color = a.style.color == "red" ? "skyblue" : "red";
+}, 1000);
+
+// spausdus atliekami dalykai. Eventu vietoj click yra daugybe
+sc_div.addEventListener("click", function () {
+  userLabel_div.style.backgroundColor = "red";
+  compLabel_div.style.backgroundColor = "red";
+  game("s");
+});

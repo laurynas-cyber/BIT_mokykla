@@ -29,3 +29,20 @@ const ul = document.querySelector(".test ul");
 ul.innerHTML += "<li>Beaver</li>"; // brangus dejimas
 const Lastli = document.querySelector(".test ul li:last-child"); // pigesnis
 Lastli.insertAdjacentHTML("afterend", "<li>Wolf</>");
+
+
+ // kitas html modifakvimo budas
+
+ const top = document.querySelector(".top"); //surandam elementa
+
+ const h1 = document.createElement("h1"); //sukuriam h1
+
+ const text = document.createTextNode("Labas"); // sukuriam teksta
+
+ h1.appendChild(text); //priskiriam h1 teksta. 
+
+ top.appendChild(h1); //elementui priskiriam h1 taga su tekstu. append child prideda prie elemento pabaigos
+
+ //elementas tas tekstas bus priskirtas tik vienam elementui. antra teksta sukurti reikia atskirai. 
+
+ top2.remove(); //istrina elementa
