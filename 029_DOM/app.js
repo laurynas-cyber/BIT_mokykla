@@ -57,3 +57,26 @@ child.addEventListener("click", (event) => {
   event.stopPropagation(); // sustabdo bublinima
   child.style.backgroundColor = "yellow"; //evento bublinimas. nusidazys abu. reikia stabdyti bubblinima stopPropogation()
 });
+
+
+//regex panaudojimas 
+const obj = {
+  smartAnimal32: 'Fox',
+  funnyAnimal88: 'Racoon',
+  bigAnimal105: 'Wolf'
+}
+
+const regex = /\d+/g;
+
+
+for (const a in obj) {
+
+    const found = a.match(regex);
+
+    console.log(obj[a], found[0]);
+}
+
+// <!-- https://regex101.com/ -->
+//     <!-- [sš] i keturkampius skliaustus rasyti ko ieskai. iesko s arba š. be skliaustu ieško paprastai.  -->
+//     <!-- [sš]{2} iesško sš kombinacijos. -->
+//     <!-- [so]+ ieskos ir so kombinacijos ir s ir o atskirai raidziu -->

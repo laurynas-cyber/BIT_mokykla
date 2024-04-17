@@ -291,3 +291,25 @@ console.log(names.some((name) => name == "Ona"));
 
 let newCatsAge = [...catsAndOwners]; // shallow copy nukipojuos tik pirmus elementus, bet ne juose esanciuose dalykus
 structuredClone(catsAndOwners) // deep copy nusikloninam visa struktura
+
+//regex panaudojimas 
+const obj = {
+  smartAnimal32: 'Fox',
+  funnyAnimal88: 'Racoon',
+  bigAnimal105: 'Wolf'
+}
+
+const regex = /\d+/g;
+
+
+for (const a in obj) {
+
+    const found = a.match(regex);
+
+    console.log(obj[a], found[0]);
+}
+
+// <!-- https://regex101.com/ -->
+//     <!-- [sš] i keturkampius skliaustus rasyti ko ieskai. iesko s arba š. be skliaustu ieško paprastai.  -->
+//     <!-- [sš]{2} iesško sš kombinacijos. -->
+//     <!-- [so]+ ieskos ir so kombinacijos ir s ir o atskirai raidziu -->

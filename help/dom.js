@@ -30,19 +30,37 @@ ul.innerHTML += "<li>Beaver</li>"; // brangus dejimas
 const Lastli = document.querySelector(".test ul li:last-child"); // pigesnis
 Lastli.insertAdjacentHTML("afterend", "<li>Wolf</>");
 
+// kitas html modifakvimo budas
 
- // kitas html modifakvimo budas
+const top = document.querySelector(".top"); //surandam elementa
 
- const top = document.querySelector(".top"); //surandam elementa
+const h1 = document.createElement("h1"); //sukuriam h1
 
- const h1 = document.createElement("h1"); //sukuriam h1
+const text = document.createTextNode("Labas"); // sukuriam teksta
 
- const text = document.createTextNode("Labas"); // sukuriam teksta
+h1.appendChild(text); //priskiriam h1 teksta.
 
- h1.appendChild(text); //priskiriam h1 teksta. 
+top.appendChild(h1); //elementui priskiriam h1 taga su tekstu. append child prideda prie elemento pabaigos
 
- top.appendChild(h1); //elementui priskiriam h1 taga su tekstu. append child prideda prie elemento pabaigos
+//elementas tas tekstas bus priskirtas tik vienam elementui. antra teksta sukurti reikia atskirai.
 
- //elementas tas tekstas bus priskirtas tik vienam elementui. antra teksta sukurti reikia atskirai. 
+top2.remove(); //istrina elementa
 
- top2.remove(); //istrina elementa
+i1.value; //paiima inputo reiskme
+//
+parent.addEventListener("click", (_) => {
+  parent.style.backgroundColor = "red"; // pakeis tiktai vienam
+});
+
+child.addEventListener("click", (event) => {
+  event.stopPropagation(); // sustabdo bublinima
+  child.style.backgroundColor = "yellow"; //evento bublinimas. nusidazys abu. reikia stabdyti bubblinima stopPropogation()
+});
+
+//jeigu tagas submit, button, a turi mygtuko veikima tai preventDefault sustabdo ta veikima
+const vz = document.querySelector("a");
+
+vz.addEventListener("click", (e) => {
+  e.preventDefault();
+  console.log("valio");
+});
