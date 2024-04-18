@@ -313,3 +313,21 @@ for (const a in obj) {
 //     <!-- [sš] i keturkampius skliaustus rasyti ko ieskai. iesko s arba š. be skliaustu ieško paprastai.  -->
 //     <!-- [sš]{2} iesško sš kombinacijos. -->
 //     <!-- [so]+ ieskos ir so kombinacijos ir s ir o atskirai raidziu -->
+
+const animal1 = "Antis";
+
+const animal3 = {
+  a: "Antis",
+  w: 200,
+};
+
+const zoo = document.querySelector(".zoo");
+
+zoo.dataset.a1 = animal1; //padeda animal i zoo div
+
+const readAnimal1 = zoo.dataset.a1;
+
+zoo.dataset.a3 = JSON.stringify(animal3); //sustringina objekta ir ideda i elementa
+
+const readAnimal3 = JSON.parse(zoo.dataset.a3); //istraukia objekta is elemento
+//JSON java script objekt notation aprasymas. taisykliu rinkys kaip objekta paversti i stringa ir is stringo i objekt. jeigu to nedarysim gausim suplota objekta
