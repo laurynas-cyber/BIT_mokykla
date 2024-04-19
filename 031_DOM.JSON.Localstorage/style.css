@@ -3,7 +3,7 @@
 }
 
 .stick {
-  background-image: linear-gradient(90deg, black 10%, white 80%, black 10%);
+  background-image: linear-gradient(90deg, black 45%, white 45%, black 10%);
 
   width: 200px;
   border: 1px solid black;
