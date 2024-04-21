@@ -20,7 +20,7 @@ window.addEventListener("load", (_) => {
   const readAnimal2 = parseFloat(zoo.dataset.a2);
   const readAnimal3 = JSON.parse(zoo.dataset.a3);
   console.log(readAnimal2, typeof readAnimal2);
-  console.log(readAnimal3, typeof readAnimal3);
+  console.log(readAnimal3, typeof readAnimal3, readAnimal3.w);
 
   //JSON java script objekt notation aprasymas. taisykliu rinkys kaip objekta paversti i stringa ir is stringo i objekt. jeigu to nedarysim gausim suplota objekta
 

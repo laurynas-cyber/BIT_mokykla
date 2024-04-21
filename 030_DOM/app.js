@@ -53,7 +53,7 @@ let colorsSelect = document.querySelector(".my-colors");
 let text;
 
 for (let i = 0; i < colors.length; i++) {
-  text += `<option value="${colors[i]}">${colors[i]}</option>`; 
+  text += `<option value="${colors[i]}">${colors[i]}</option>`;
 }
 
 colorsSelect.innerHTML = "<select>" + text + "</select>";

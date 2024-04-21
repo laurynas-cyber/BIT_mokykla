@@ -1,0 +1,27 @@
+/* .figures {
+  width: 0;
+  border-bottom: 100px solid black;
+  border-right: 100px solid transparent;
+} */
+
+.triangle {
+  /* display: inline; */
+  width: 0;
+  border-bottom: 100px solid black;
+  border-right: 50px solid transparent;
+  border-left: 50px solid transparent;
+  border-bottom-color: black;
+}
+
+.square {
+  border: black 2px solid;
+  width: 100px;
+  height: 100px;
+}
+
+.circle {
+  border: black 2px solid;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
