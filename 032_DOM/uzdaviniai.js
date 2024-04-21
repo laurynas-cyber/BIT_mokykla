@@ -96,7 +96,7 @@ let five;
 let seven;
 let nine;
 figures.forEach((a) => {
-  html = `<input type="checkbox" name="${a.name}"  value="${a.name}"></input><div class="figures" name="${a.name}">lol</div>`;
+  html = `<input type="checkbox" name="${a.name}"  value="${a.name}"></input><div >${a.name}</div>`;
   body.insertAdjacentHTML("beforeend", html);
   if (a.name == "five") {
     five = document.querySelector('[name="five"]');
@@ -107,24 +107,42 @@ figures.forEach((a) => {
   }
 });
 
-const allFigures = document.querySelectorAll(".figures");
-console.log(allFigures);
+const allFigures = document.querySelectorAll("input + div");
+
 document.querySelectorAll('[type="checkbox"]').forEach((c, ind) => {
   c.dataset.a = JSON.stringify(figures[ind]);
-  
+  c.addEventListener("click", (_) => {
+    let obj = JSON.parse(c.dataset.a);
+    allFigures.forEach((f) => {
+      if (f.innerText == c.value) {
+        f.classList.add("" + obj.figure + "");
+        f.style.borderColor = obj.color;
+      }
+    });
+  });
 });
 
-// const zoo = document.querySelector(".zoo");
+//8 uzdv
 
-// zoo.dataset.a1 = animal1; //padeda animal i zoo div
+const div = document.createElement("div");
+div.style.display = "flex";
 
-// const readAnimal1 = zoo.dataset.a1;
+body.appendChild(div);
 
-// console.log(readAnimal1, typeof readAnimal1);
+document.querySelectorAll('[type="checkbox"]').forEach((c, ind) => {
+  c.dataset.a = JSON.stringify(figures[ind]);
 
-// zoo.dataset.a2 = animalSvoris;
-// zoo.dataset.a3 = JSON.stringify(animal3);
-// const readAnimal2 = parseFloat(zoo.dataset.a2);
-// const readAnimal3 = JSON.parse(zoo.dataset.a3);
-// console.log(readAnimal2, typeof readAnimal2);
-// console.log(readAnimal3, typeof readAnimal3, readAnimal3.w);
+  c.addEventListener("click", (_) => {
+    let obj = JSON.parse(c.dataset.a);
+    if (c.checked) {
+      let Divshape = document.createElement("div");
+      Divshape.classList.add("" + obj.figure + "");
+      Divshape.style.borderColor = obj.color;
+      Divshape.innerText = obj.id;
+      Divshape.display = "flex";
+      div.appendChild(Divshape);
+    } else {
+      div.remove("Divshape");
+    }
+  });
+});
