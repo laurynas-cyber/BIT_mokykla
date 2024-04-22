@@ -123,26 +123,85 @@ document.querySelectorAll('[type="checkbox"]').forEach((c, ind) => {
 });
 
 //8 uzdv
+console.clear();
 
 const div = document.createElement("div");
+div.classList.add("allDivs");
 div.style.display = "flex";
 
+figures.forEach((e) => {
+  html = `<div class="${e.figure}">${e.id}</div>`;
+  div.insertAdjacentHTML("beforeend", html);
+});
+
 body.appendChild(div);
+
+const shapeDivsAll = document.querySelectorAll(".allDivs div");
+
+console.log(shapeDivsAll);
+
+shapeDivsAll.forEach((e) => {
+  e.style.display = "none";
+});
 
 document.querySelectorAll('[type="checkbox"]').forEach((c, ind) => {
   c.dataset.a = JSON.stringify(figures[ind]);
 
-  c.addEventListener("click", (_) => {
+  c.addEventListener("click", (event) => {
     let obj = JSON.parse(c.dataset.a);
-    if (c.checked) {
-      let Divshape = document.createElement("div");
-      Divshape.classList.add("" + obj.figure + "");
-      Divshape.style.borderColor = obj.color;
-      Divshape.innerText = obj.id;
-      Divshape.display = "flex";
-      div.appendChild(Divshape);
-    } else {
-      div.remove("Divshape");
-    }
+    shapeDivsAll.forEach((e) => {
+      if (c.checked && ind == parseFloat(e.innerText) - 1) {
+        if (e.classList.contains("triangle")) {
+          console.log("yes");
+          e.style.display = "inline";
+          e.style.borderColor = obj.color;
+          e.style.borderRight = "50px solid transparent";
+          e.style.borderLeft = "50px solid transparent";
+        } else {
+          e.style.borderColor = obj.color;
+          e.style.display = "inline";
+        }
+      } else if (!c.checked && ind == parseFloat(e.innerText) - 1) {
+        e.style.display = "none";
+      }
+    });
   });
 });
+
+//9uzdv
+
+shapeDivsAll.forEach((e) => {
+  e.addEventListener("click", (_) => {
+    e.style.display = "none";
+    document.querySelectorAll('[type="checkbox"]').forEach((c, ind) => {
+      if (c.checked && ind == parseFloat(e.innerText) - 1) {
+        c.checked = false;
+      }
+    });
+  });
+});
+
+//10uzdv
+
+let lengthArr;
+let newArr = [];
+// const ShapeRemove = (_) => {
+let count = 9;
+shapeDivsAll.forEach((e, ind) => {
+  // console.log(e);
+  // e.style.display = "inline";
+  // console.log(Math.max(parseFloat(e.innerText)));
+  newArr.push(parseFloat(e.innerText));
+  if (e.style.display == "none") {
+    console.log(shapeDivsAll[shapeDivsAll.length - ind - 1]);
+    shapeDivsAll[shapeDivsAll.length - ind - 1].style.display = "inline";
+    // e.style.color = "red";
+  }
+  console.log("e", e, "ind", ind);
+});
+// };
+
+// ShapeRemove();
+// console.log(Math.max(...newArr));
+
+// setInterval(ShapeRemove, 10000);
