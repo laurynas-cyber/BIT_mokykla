@@ -191,3 +191,17 @@ input[type="checkbox"] {
   height: 20px;
   background-color: #242424 !important;
 }
+
+button {
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+
+  &.green {
+    /*buttonui paciam priklausanti green klase - rasant be tarpo. & .green su tarpu tai ieskotu klasės buttono viduje*/
+    background-color: lightgreen;
+  }
+  &.gray {
+    background-color: gray;
+  }
+}

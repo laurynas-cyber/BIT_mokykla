@@ -1,1 +1,11 @@
-spredas -- 
+spredas -- kopijavimas
+
+JSON java script objekt notation aprasymas. taisykliu rinkys kaip objekta paversti i stringa ir is stringo i objekt. jeigu to nedarysim gausim suplota objekta
+
+crud - create, read, update, delete //32paskaita
+create turi ir store termina
+read turi ir show
+update turi  edit
+deletas turi is destroy
+
+modalo langas
