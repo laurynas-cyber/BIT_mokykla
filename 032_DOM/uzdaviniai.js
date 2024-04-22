@@ -187,18 +187,7 @@ let lengthArr;
 let newArr = [];
 // const ShapeRemove = (_) => {
 let count = 9;
-shapeDivsAll.forEach((e, ind) => {
-  // console.log(e);
-  // e.style.display = "inline";
-  // console.log(Math.max(parseFloat(e.innerText)));
-  newArr.push(parseFloat(e.innerText));
-  if (e.style.display == "none") {
-    console.log(shapeDivsAll[shapeDivsAll.length - ind - 1]);
-    shapeDivsAll[shapeDivsAll.length - ind - 1].style.display = "inline";
-    // e.style.color = "red";
-  }
-  console.log("e", e, "ind", ind);
-});
+shapeDivsAll.forEach((e, ind) => {});
 // };
 
 // ShapeRemove();

@@ -64,3 +64,5 @@ vz.addEventListener("click", (e) => {
   e.preventDefault();
   console.log("valio");
 });
+
+input.setAttribute("type", "checkbox"); //prideda atributa
