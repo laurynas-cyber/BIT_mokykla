@@ -190,24 +190,31 @@ shapeDivsAll.forEach((e, ind) => {
   newArr.push(e.innerText);
 });
 newArr.reverse();
-console.log(newArr);
-
+const inputs = document.querySelectorAll('[type="checkbox"]');
 
 let ShapeRemove = () => {
   let num = 0;
+  let flag = false;
+  do {
+    shapeDivsAll.forEach((e, ind) => {
+      
+      if (
+        shapeDivsAll[shapeDivsAll.length - 1 - num].style.display == "inline" &&
+        newArr[num] == shapeDivsAll[shapeDivsAll.length - 1 - num].innerText
+      ) {
+        flag = true;
 
-  return shapeDivsAll.forEach((e, ind) => {
-    if (shapeDivsAll[shapeDivsAll.length - 1 - num].style.display == "inline") {
-      console.log(shapeDivsAll[shapeDivsAll.length - 1 - num].innerText);
-      return (shapeDivsAll[shapeDivsAll.length - 1 - num].style.display =
-        "none");
-
- 
-    } else num++;
-
-  });
+        shapeDivsAll[shapeDivsAll.length - 1 - num].style.display = "none";
+        inputs.forEach((c, ind) => {
+          if (c.checked) {
+            inputs[inputs.length - 1 - num].checked = false;
+          }
+        });
+      }
+    });
+    num++;
+  } while (flag == false);
 };
-
 
 // let ShapeRemove = () => {
 //   let num = 0;
@@ -218,7 +225,6 @@ let ShapeRemove = () => {
 //       return (shapeDivsAll[shapeDivsAll.length - 1 - num].style.display =
 //         "none");
 
- 
 //     } else num++;
 
 //   });
@@ -238,4 +244,4 @@ let ShapeRemove = () => {
 
 // console.log(Math.max(...newArr));
 
-setInterval(ShapeRemove, 10000);
+setInterval(ShapeRemove, 5000);
