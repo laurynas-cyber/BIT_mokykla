@@ -39,6 +39,7 @@ window.addEventListener("load", (_) => {
 
   addButton.addEventListener("click", (_) => {
     const addValue = addInput.value;
+    console.log(addValue);
     localStorage.setItem("arr", [1, 2, 3]);
     localStorage.setItem("arr1", JSON.stringify([1, 2, 3]));
     localStorage.setItem("myH1", addValue); //local storage key:myH1 (susikurti paciam) addValue bus reiksme ne kintamasis ir tai bus stringas

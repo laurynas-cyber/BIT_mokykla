@@ -4,12 +4,34 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/032_DOM/products.css" />
-    <script src="/032_DOM/pamoka.js" defer></script>
+    <script src="/032_DOM/products.js" defer></script>
     <title>My products</title>
   </head>
   <body>
     <main>
-      <div class="modal">
+      <div class="products-container">
+        <div class="products">
+          <div class="buttons">
+            <button type="button" class="green --create">Create</button>
+          </div>
+          <div class="list --list">
+            <div class="product">
+              <div>
+                <div class="id">ID:5</div>
+                <div class="title">Baltas stalas</div>
+                <div class="price">20.50 eur</div>
+              </div>
+              <div>
+                <button type="button" class="brown --edit">Edit</button>
+                <button type="button" class="red --delete">Delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal modal--create --modal">
+        <!--du bruksniai atskiria kad su klase yra vykdomas js -->
         <div class="card">
           <h2>Create</h2>
           <div class="input">
@@ -18,15 +40,15 @@
           </div>
           <div class="input">
             <div>Product Price</div>
-            <input type="text" name="productTitle" />
+            <input type="text" name="productPrice" />
           </div>
           <div class="input">
             <div>Product Description</div>
             <textarea name="productDesc"></textarea>
           </div>
           <div class="buttons">
-            <button type="button" class="green">Add</button>
-            <button type="button" class="gray">Cancel</button>
+            <button type="button" class="green --submit">Save</button>
+            <button type="button" class="gray --close">Cancel</button>
           </div>
         </div>
       </div>
