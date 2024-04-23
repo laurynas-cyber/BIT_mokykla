@@ -22,6 +22,8 @@ const repaintFigures = (_) => {
     }
   });
 
+  console.log(paintIds);
+
   paintIds.forEach((id) => {
     const f = figures.find((f) => f.id == id);
     const fig = document.createElement("div");

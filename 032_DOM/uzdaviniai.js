@@ -185,12 +185,57 @@ shapeDivsAll.forEach((e) => {
 
 let lengthArr;
 let newArr = [];
-// const ShapeRemove = (_) => {
-let count = 9;
-shapeDivsAll.forEach((e, ind) => {});
+
+shapeDivsAll.forEach((e, ind) => {
+  newArr.push(e.innerText);
+});
+newArr.reverse();
+console.log(newArr);
+
+
+let ShapeRemove = () => {
+  let num = 0;
+
+  return shapeDivsAll.forEach((e, ind) => {
+    if (shapeDivsAll[shapeDivsAll.length - 1 - num].style.display == "inline") {
+      console.log(shapeDivsAll[shapeDivsAll.length - 1 - num].innerText);
+      return (shapeDivsAll[shapeDivsAll.length - 1 - num].style.display =
+        "none");
+
+ 
+    } else num++;
+
+  });
+};
+
+
+// let ShapeRemove = () => {
+//   let num = 0;
+
+//   return shapeDivsAll.forEach((e, ind) => {
+//     if (shapeDivsAll[shapeDivsAll.length - 1 - num].style.display == "inline") {
+//       console.log(shapeDivsAll[shapeDivsAll.length - 1 - num].innerText);
+//       return (shapeDivsAll[shapeDivsAll.length - 1 - num].style.display =
+//         "none");
+
+ 
+//     } else num++;
+
+//   });
 // };
 
-// ShapeRemove();
+// let ShapeRemove = () => {
+//   let num = 0;
+
+//   shapeDivsAll.forEach((e, ind) => {
+//     if (newArr[num] == e.innerText && e.style.display == "inline") {
+//       e.style.display = "none";
+//     }
+//     num++;
+//     console.log(num);
+//   });
+// };
+
 // console.log(Math.max(...newArr));
 
-// setInterval(ShapeRemove, 10000);
+setInterval(ShapeRemove, 10000);
