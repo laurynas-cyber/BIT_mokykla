@@ -9,3 +9,10 @@ update turi  edit
 deletas turi is destroy
 
 modalo langas
+
+
+Serverio status kodas https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+
+API - internetinis puslapis "masinom"?
+
+Axios - ? https://axios-http.com/docs/intro

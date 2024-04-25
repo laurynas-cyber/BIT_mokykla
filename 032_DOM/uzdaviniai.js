@@ -197,7 +197,7 @@ let ShapeRemove = () => {
   let flag = false;
   do {
     shapeDivsAll.forEach((e, ind) => {
-      
+     
       if (
         shapeDivsAll[shapeDivsAll.length - 1 - num].style.display == "inline" &&
         newArr[num] == shapeDivsAll[shapeDivsAll.length - 1 - num].innerText
