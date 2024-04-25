@@ -331,3 +331,31 @@ zoo.dataset.a3 = JSON.stringify(animal3); //sustringina objekta ir ideda i eleme
 
 const readAnimal3 = JSON.parse(zoo.dataset.a3); //istraukia objekta is elemento
 //JSON java script objekt notation aprasymas. taisykliu rinkys kaip objekta paversti i stringa ir is stringo i objekt. jeigu to nedarysim gausim suplota objekta
+
+closeButtons.forEach((b) => {
+  b.addEventListener("click", (_) => {
+    hideModal(b.closest(".--modal")); //artimiausias elementas (tevas) su modall klase
+  });
+});
+
+const getDataFromForm = (form) => {
+  const data = {};
+form.querySelectorAll("[name]").forEach((i) => {
+  data[i.getAttribute("name")] = i.value; //getAtribute gauna (imputo siuo atveju) name atributa. Taip pat si eilute reiskia objekte reiskia sasvybes vardas ir jo reiskme
+});
+return data;
+};
+
+///// objektu savybiu vardu manipuliacijos
+const A = {};
+
+
+const savybe = "zuikis";
+
+A[savybe] = "puikis"; //kintamasis i ojbekta
+
+A.pirmas = {};
+
+A.pirmas.antras = "valio";
+
+console.log(A.pirmas.antras, A.kitas?.pirmas); // su klaustuku tikrinam ar egzistuoja savybe

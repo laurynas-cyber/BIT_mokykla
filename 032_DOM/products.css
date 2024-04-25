@@ -1,39 +1,52 @@
 body {
   margin: 0;
   width: 100%;
-
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+main {
+  width: 100%;
+  position: relative;
 }
 
 h2 {
   text-align: center;
 }
 
-main {
-  width: 100%;
+.loading {
+  font-size: 30px;
+  letter-spacing: 10px;
+}
 
-  position: relative;
+.seed {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 10px;
+  color: gainsboro;
+  cursor: pointer;
+  &:hover {
+    color: green;
+  }
 }
 
 button {
   border: none;
   cursor: pointer;
   padding: 10px 20px;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  font-weight: 700;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+
   &.green {
-    /*buttonui paciam priklausanti green klase - rasant be tarpo. & .green su tarpu tai ieskotu klasės buttono viduje*/
     background-color: lightgreen;
   }
+
   &.gray {
     background-color: gray;
   }
-
   &.brown {
     background-color: brown;
-    color: white;
   }
   &.red {
     background-color: crimson;
@@ -41,7 +54,6 @@ button {
 }
 
 .modal {
-  /*nesting*/
   top: 0;
   left: 0;
   width: 100%;
@@ -51,27 +63,33 @@ button {
   display: none;
   justify-content: center;
   align-items: center;
+
   .card {
-    border: 3px solid black;
+    border: 1px solid black;
     min-width: 600px;
     min-height: 200px;
     background-color: white;
+
     .input {
       margin: 20px;
+
       div {
         font-size: 10px;
-        color: grey;
+        color: gray;
       }
+
       input {
         width: 300px;
         font-size: 16px;
       }
+
       textarea {
-        min-width: 300px;
+        width: 300px;
         font-size: 16px;
-        min-height: 100px;
+        min-height: 150px;
       }
     }
+
     .buttons {
       margin: 20px;
     }
@@ -81,16 +99,17 @@ button {
 .products-container {
   width: 100%;
   display: flex;
-
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+
   .products {
     width: 100%;
-    display: flex;
     max-width: 1200px;
-    align-items: center;
+    display: flex;
     flex-direction: column;
-    background-color: beige;
+    align-items: center;
+    background-color: aliceblue;
+
     .buttons {
       margin: 20px 0;
       width: 100%;
@@ -98,20 +117,22 @@ button {
       padding: 10px;
       box-sizing: border-box;
     }
+
     .list {
       width: 100%;
       display: flex;
-      align-items: center;
       flex-direction: column;
+      align-items: center;
+
       .product {
         display: flex;
         align-items: center;
         justify-content: space-between;
         width: 100%;
         div {
-          height: 80px;
           padding: 10px;
           display: flex;
+          height: 80px;
           align-items: center;
           width: 100%;
           box-sizing: border-box;
@@ -124,6 +145,7 @@ button {
           .title {
             font-size: 20px;
           }
+
           .price {
             font-style: italic;
           }

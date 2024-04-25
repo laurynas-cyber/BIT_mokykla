@@ -24,6 +24,8 @@
   width: 100px;
   height: 100px;
   border-radius: 50%;
+}
 
-  
+.loading {
+  font-size: 30px;
 }
