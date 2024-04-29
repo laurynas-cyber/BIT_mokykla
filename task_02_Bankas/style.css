@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: none;
+  font-family: "Rokkitt", serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(198, 72, 14);
+  height: 100vh;
+}
+
+main {
+  width: 85%;
+
+  background-color: bisque;
+}
+
+.create {
+  margin: 50px;
+  background-color: rgba(14, 10, 52, 0.644);
+  color: bisque;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: ease-in 0.3s;
+  font-size: 16px;
+}
+
+.create:hover {
+  background-color: rgba(14, 10, 52);
+  color: rgb(198, 72, 14);
+  padding: 10px 20px;
+}
+
+.info-line {
+  display: flex;
+  /* justify-content: center; */
+  border: solid 3px rgba(14, 10, 52, 0.644);
+  div {
+    border-right: solid 3px rgba(14, 10, 52, 0.644);
+    display: flex;
+    align-items: center;
+  }
+}
+
+.number {
+  padding: 10px 20px;
+}
+
+.name {
+  padding: 10px 100px;
+}
+
+.surname {
+  padding: 10px 100px;
+}
+
+.sum {
+  padding: 10px 100px;
+}
