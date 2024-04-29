@@ -16,3 +16,9 @@ Serverio status kodas https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
 API - internetinis puslapis "masinom"?
 
 Axios - ? https://axios-http.com/docs/intro
+
+Node - naršyklė. JS vykdymo aplinka
+
+User, vizualinis interfaces - programa kuri yra matoma
+
+Terminalas - programa kuri leidzia bendrauti su kita programa kuri neturi vartotojo interfaco
