@@ -18,10 +18,15 @@ main {
   background-color: bisque;
 }
 
-.create {
-  margin: 50px;
+button {
+  border: none;
   background-color: rgba(14, 10, 52, 0.644);
   color: bisque;
+}
+
+.create {
+  margin: 50px;
+
   border: none;
   padding: 10px 20px;
   cursor: pointer;
@@ -37,27 +42,79 @@ main {
 
 .info-line {
   display: flex;
-  /* justify-content: center; */
-  border: solid 3px rgba(14, 10, 52, 0.644);
+  font-weight: 700;
+  margin-bottom: 50px;
+  border: solid 3px rgba(14, 10, 52);
   div {
-    border-right: solid 3px rgba(14, 10, 52, 0.644);
+    border-right: solid 3px rgba(14, 10, 52);
     display: flex;
     align-items: center;
+    justify-content: center;
+  }
+  .sum {
+    border: none;
   }
 }
 
 .number {
-  padding: 10px 20px;
+  width: 90px;
 }
 
-.name {
-  padding: 10px 100px;
-}
-
+.name,
 .surname {
-  padding: 10px 100px;
+  min-width: 250px;
+  padding: 10px 0px;
 }
 
 .sum {
-  padding: 10px 100px;
+  min-width: 200px;
+}
+
+.client {
+  margin-bottom: 20px;
+  font-weight: 500;
+  border: solid 3px rgba(14, 10, 52, 0.644);
+  display: flex;
+  div {
+    border-right: solid 3px rgba(14, 10, 52, 0.644);
+    /* padding: 35px 0px; */
+  }
+  .sum {
+    border-right: solid 3px rgba(14, 10, 52, 0.644);
+  }
+  .btnContainer {
+    border-right: none;
+  }
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clientbtn {
+  padding: 0px 20px;
+  height: 40px;
+  margin: 20px 20px;
+  margin-left: 30px;
+  cursor: pointer;
+  transition: ease-in 0.3s;
+}
+
+.add:hover {
+  background-color: rgba(14, 10, 52);
+  color: rgb(198, 72, 14);
+  padding: 10px 20px;
+}
+
+.remove {
+  background-color: rgb(198, 72, 14, 0.644);
+  color: bisque;
+}
+
+.remove:hover {
+  background-color: rgb(198, 72, 14);
+  color: rgba(14, 10, 52);
+  padding: 10px 20px;
 }
