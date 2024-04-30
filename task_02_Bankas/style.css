@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: none;
+  /* box-sizing: none; */
   font-family: "Rokkitt", serif;
 }
 
@@ -94,10 +94,11 @@ button {
 }
 
 .clientbtn {
-  padding: 0px 20px;
+  /* padding: 0px 20px; */
   height: 40px;
-  margin: 20px 20px;
-  margin-left: 30px;
+  width: 100px;
+  margin: 20px 5px;
+  /* margin-left: 30px; */
   cursor: pointer;
   transition: ease-in 0.3s;
 }
@@ -105,7 +106,6 @@ button {
 .add:hover {
   background-color: rgba(14, 10, 52);
   color: rgb(198, 72, 14);
-  padding: 10px 20px;
 }
 
 .remove {
@@ -116,7 +116,6 @@ button {
 .remove:hover {
   background-color: rgb(198, 72, 14);
   color: rgba(14, 10, 52);
-  padding: 10px 20px;
 }
 
 /*Modalas Create*/
@@ -124,12 +123,11 @@ button {
 .modal-create {
   height: 100vh;
   width: 100%;
-  /* background-color: rgba(255, 228, 196, 0.503); */
   background-color: rgba(14, 10, 52, 0.644);
   position: absolute;
   top: 0;
   left: 0;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
 }
@@ -141,11 +139,35 @@ button {
   background-color: bisque;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
   align-items: center;
+  gap: 10px;
 }
 
+.NewAcc {
+  margin-top: 40px;
+}
 
-.modal-content > * {
-  border: solid red 1px;
+.Modal-buttons {
+  margin-top: 50px;
+}
+
+.form {
+  width: 80%;
+  margin-top: 20px;
+}
+
+.container-name {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  input {
+    width: 40%;
+    height: 30px;
+    outline: none;
+  }
+}
+
+.type-surname,
+.type-name {
+  width: 30%;
 }

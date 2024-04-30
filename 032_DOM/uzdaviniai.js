@@ -200,7 +200,7 @@ let ShapeRemove = () => {
      
       if (
         shapeDivsAll[shapeDivsAll.length - 1 - num].style.display == "inline" &&
-        newArr[num] == shapeDivsAll[shapeDivsAll.length - 1 - num].innerText
+        newArr[num] == shapeDivsAll[shapeDivsAll.length - 1 - num].innerText //meta errora nes neranda kazkurio
       ) {
         flag = true;
 

@@ -16,15 +16,33 @@
   </head>
   <body>
     <main>
-      <button class="create">Create new account</button>
-      <div class="modal-create">
+      <button class="create --show-btn">Create new account</button>
+      <div class="modal-create --modal">
         <div class="modal-content">
           <h2 class="NewAcc">New account</h2>
-          <div class="type-name">Type your name<input type="text" /></div>
-          <div class="type-surname">Type your surname<input type="text" /></div>
+          <div class="form">
+            <div class="container-name">
+              <div class="type-name">Type your name</div>
+              <input
+                class="modal-input modal-name"
+                name="AccName"
+                type="text"
+                placeholder="Name"
+              />
+            </div>
+            <div class="container-name">
+              <div class="type-surname">Type your surname</div>
+              <input
+                name="AccSurnName"
+                class="modal-input modal-surname"
+                type="text"
+                placeholder="Surname"
+              />
+            </div>
+          </div>
           <div class="Modal-buttons">
-            <button class="add clientbtn">Create account</button>
-            <button class="remove clientbtn">Cancel</button>
+            <button class="add clientbtn --submit">Create account</button>
+            <button class="remove clientbtn --close">Cancel</button>
           </div>
         </div>
       </div>
@@ -36,16 +54,17 @@
           <div class="sum">Total Sum</div>
         </div>
         <div class="clients-list">
-          <div class="info-line client">
+          <!-- <div class="info-line client">
             <div class="number">#1</div>
             <div class="name">Laurynas</div>
             <div class="surname">Stančiauskas</div>
             <div class="sum">3400,59 eur</div>
             <div class="btnContainer">
-              <button class="add clientbtn">Add funds</button>
-              <button class="remove clientbtn">Withdraw funds</button>
+              <button class="--add clientbtn">Add funds</button>
+              <button class="--add clientbtn">Withdraw funds</button>
+              <button class="--remove clientbtn">Delete Account</button>
             </div>
-          </div>
+          </div> -->
         </div>
         <div class="All-account-table"></div>
       </div>
