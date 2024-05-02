@@ -210,3 +210,21 @@ button {
     margin-top: 50px;
   }
 }
+
+/* Modalas Edit */
+
+.modal--edit {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(14, 10, 52, 0.644);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* display: none; */
+  h2 {
+    margin-top: 30px;
+  }
+}

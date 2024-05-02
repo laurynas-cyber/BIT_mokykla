@@ -17,8 +17,8 @@ window.addEventListener("load", (_) => {
   <div class="surname">{{Surname}}</div>
   <div class="sum">{{Total}}</div>
   <div class="btnContainer">
-    <button value="{{id}}" class="add clientbtn">Add funds</button>
-    <button value="{{id}}" class="add clientbtn">Withdraw funds</button>
+    <button value="{{id}}" class="add --add clientbtn">Add funds</button>
+    <button value="{{id}}" class="add --withdraw clientbtn">Withdraw funds</button>
     <button value="{{id}}" class="remove --delete clientbtn">Delete Account</button>
   </div>
 </div>
@@ -137,6 +137,15 @@ window.addEventListener("load", (_) => {
         showModal(deleteModal);
         prepareDeleteModal(parseInt(b.value));
         destroyId = parseInt(b.value);
+      });
+    });
+  };
+
+  const registerAdd = (_) => {
+    document.querySelectorAll(".--add").forEach((b) => {
+      b.addEventListener("click", (_) => {
+        showModal(AddModal); // padaryti modal.
+       
       });
     });
   };
