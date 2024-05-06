@@ -6,8 +6,11 @@ window.addEventListener("load", (_) => {
   const deleteModal = document.querySelector(".modal--delete");
   const destroybutton = deleteModal.querySelector(".--submit");
   const AddModal = document.querySelector(".modal--edit");
+  const MessageModal = document.querySelector(".modal--notAllow");
   const AddsumButton = AddModal.querySelector(".--addSum");
   const MinussumButton = AddModal.querySelector(".--WithdrawSum");
+  const EditModalSum = AddModal.querySelector(".--IdSum");
+  const Editinput = AddModal.querySelector("input");
   const LAST_ID = "AccLastSavedId";
   const ACC_LIST_LS = "AllAccList";
   let destroyId = 0;
@@ -34,8 +37,8 @@ window.addEventListener("load", (_) => {
       localStorage.setItem(LAST_ID, 1);
       return 1;
     }
-    localStorage.setItem(LAST_ID, parseInt(id) + 1);
-    return parseInt(id) + 1;
+    localStorage.setItem(LAST_ID, parseFloat(id) + 1);
+    return parseFloat(id) + 1;
   };
 
   const sortLocalHostData = (data) => {
@@ -97,6 +100,11 @@ window.addEventListener("load", (_) => {
     return data;
   };
 
+  const getSumbyId = (id) => {
+    const sum = read().find((p) => p.id == id).Sum;
+    return sum;
+  };
+
   const showModal = (modal) => (modal.style.display = "flex");
 
   const hideModal = (modal) => {
@@ -119,8 +127,8 @@ window.addEventListener("load", (_) => {
 
   const update = (id, value, bolean) => {
     const data = read().find((p) => p.id == id);
-    if (bolean == true) data.Sum = parseInt(data.Sum) + parseInt(value);
-    if (bolean == false) data.Sum = parseInt(data.Sum) - parseInt(value);
+    if (bolean == true) data.Sum = parseFloat(data.Sum) + parseFloat(value);
+    if (bolean == false) data.Sum = parseFloat(data.Sum) - parseFloat(value);
     updateData(updateId, data);
     hideModal(AddModal);
     showList();
@@ -150,18 +158,21 @@ window.addEventListener("load", (_) => {
   const prepareEditModal = (id, modal) => {
     const name = read().find((p) => p.id == id).AccName;
     const Surname = read().find((p) => p.id == id).AccSurnName;
-    const sum = read().find((p) => p.id == id).Sum;
+    const sum = getSumbyId(id);
     modal.querySelector(".client--name").innerText = name + " " + Surname;
-    modal.querySelector(".--IdSum").innerText = sum;
+    EditModalSum.innerText = sum;
+    EditModalSum.style.color = "black";
   };
   //events
 
   const registerDelete = (_) => {
     document.querySelectorAll(".--delete").forEach((b) => {
       b.addEventListener("click", (_) => {
-        showModal(deleteModal);
-        prepareDeleteModal(parseInt(b.value), deleteModal);
-        destroyId = parseInt(b.value);
+        prepareDeleteModal(parseFloat(b.value), deleteModal);
+        destroyId = parseFloat(b.value);
+        if (getSumbyId(destroyId) <= 0) {
+          showModal(MessageModal);
+        } else showModal(deleteModal);
       });
     });
   };
@@ -170,21 +181,49 @@ window.addEventListener("load", (_) => {
     document.querySelectorAll(".--add").forEach((b) => {
       b.addEventListener("click", (_) => {
         showModal(AddModal);
-        prepareEditModal(parseInt(b.value), AddModal);
+        prepareEditModal(parseFloat(b.value), AddModal);
         AddModal.querySelector(".--change").innerText = "add";
-        updateId = parseInt(b.value);
+        updateId = parseFloat(b.value);
         AddsumButton.style.display = "inline";
         MinussumButton.style.display = "none";
+
+        let num = EditModalSum.innerText;
+
+        Editinput.addEventListener("keyup", () => {
+          EditModalSum.style.color = "green";
+          EditModalSum.innerText = `+${
+            parseFloat(num) + parseFloat(Editinput.value)
+          }`;
+
+          if (EditModalSum.innerText == "+NaN") {
+            EditModalSum.innerText = num;
+            EditModalSum.style.color = "black";
+          }
+        });
       });
     });
     document.querySelectorAll(".--withdraw").forEach((b) => {
       b.addEventListener("click", (_) => {
         showModal(AddModal);
-        prepareEditModal(parseInt(b.value), AddModal);
+        prepareEditModal(parseFloat(b.value), AddModal);
         AddModal.querySelector(".--change").innerText = "withdraw";
-        updateId = parseInt(b.value);
+        updateId = parseFloat(b.value);
         AddsumButton.style.display = "none";
         MinussumButton.style.display = "inline";
+
+        let num = EditModalSum.innerText;
+
+        Editinput.addEventListener("keyup", () => {
+          EditModalSum.style.color = "red";
+          EditModalSum.innerText = `-${
+            parseFloat(num) - parseFloat(Editinput.value)
+          }`;
+
+          if (EditModalSum.innerText == "-NaN") {
+            EditModalSum.innerText = num;
+            EditModalSum.style.color = "black";
+          }
+        });
       });
     });
   };
@@ -197,7 +236,9 @@ window.addEventListener("load", (_) => {
 
   CreateBtn.addEventListener("click", (_) => showModal(FormModal));
 
-  destroybutton.addEventListener("click", (_) => destroy());
+  destroybutton.addEventListener("click", (_) => {
+    destroy();
+  });
 
   closeButtons.forEach((btn) => {
     btn.addEventListener("click", (_) => {
@@ -206,20 +247,35 @@ window.addEventListener("load", (_) => {
   });
 
   AddsumButton.addEventListener("click", () => {
-    const InputValue = AddModal.querySelector("input").value;
-    update(updateId, InputValue, true);
+    let flag = true;
+    if (Editinput.value == "") {
+      flag = false;
+    }
+    if (flag == true) {
+      const InputValue = Editinput.value;
+      update(updateId, InputValue, true);
+    }
   });
 
   MinussumButton.addEventListener("click", () => {
-    const InputValue = AddModal.querySelector("input").value;
-    update(updateId, InputValue, false);
+    let flag = true;
+
+    if (Editinput.value == "") {
+      flag = false;
+    }
+
+    if (getSumbyId(updateId) <= 0) {
+      showModal(MessageModal);
+      flag = false;
+    }
+    if (flag == true) {
+      console.log(flag, parseFloat(EditModalSum.innerText));
+      const InputValue = Editinput.value;
+      update(updateId, InputValue, false);
+    }
   });
+
   //mygtukai -----
-
-  // AddModal.querySelector("input").addEventListener("keyup", () => {
-  //   AddModal.querySelector(".--IdSum") = input.value;
-
-  // });
 
   showList();
 });
