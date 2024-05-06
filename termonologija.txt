@@ -25,3 +25,7 @@ Terminalas - programa kuri leidzia bendrauti su kita programa kuri neturi vartot
 
 webpackas - irankis front enderiam dideliem projaktam. atidalina koda i dvi dalis. i programuojama koda ir vykdoma koda.gilintis nereikia nes sudetingas. Konkurentas Vite
 Laravel mix - supaprastintas webpackas
+
+ssr - server site rending?
+
+client site rending server?

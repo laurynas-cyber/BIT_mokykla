@@ -216,5 +216,10 @@ window.addEventListener("load", (_) => {
   });
   //mygtukai -----
 
+  // AddModal.querySelector("input").addEventListener("keyup", () => {
+  //   AddModal.querySelector(".--IdSum") = input.value;
+
+  // });
+
   showList();
 });
