@@ -59,10 +59,16 @@
       </div>
       <div class="modal--edit --modal">
         <div class="card">
-          <h2><span class="client--name"></span><span>Account</span><span class="client--name"></span></h2>
-          <h2>Enter amount how much you want to add</h2>
+          <h2><span class="client--name"></span><span> Account</span></h2>
+          <p>Current ammount <span class="--IdSum"></span> eur</p>
+          <h2 class="message">
+            Enter amount how much you want to <span class="--change"></span>
+            <input type="text" name="money" />
+          </h2>
+
           <div class="buttons">
-            <button type="button" class="orange --submit">Add</button>
+            <button type="button" class="orange --addSum">Add</button>
+            <button type="button" class="orange --WithdrawSum">Withdraw</button>
             <button type="button" class="darkblue --close">Cancel</button>
           </div>
         </div>

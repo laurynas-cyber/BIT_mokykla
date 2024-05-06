@@ -5,6 +5,9 @@ window.addEventListener("load", (_) => {
   const storeButton = FormModal.querySelector(".--submit");
   const deleteModal = document.querySelector(".modal--delete");
   const destroybutton = deleteModal.querySelector(".--submit");
+  const AddModal = document.querySelector(".modal--edit");
+  const AddsumButton = AddModal.querySelector(".--addSum");
+  const MinussumButton = AddModal.querySelector(".--WithdrawSum");
   const LAST_ID = "AccLastSavedId";
   const ACC_LIST_LS = "AllAccList";
   let destroyId = 0;
@@ -15,7 +18,7 @@ window.addEventListener("load", (_) => {
   <div class="number">{{id}}</div>
   <div class="name">{{AccName}}</div>
   <div class="surname">{{Surname}}</div>
-  <div class="sum">{{Total}}</div>
+  <div class="sum">{{Total}} eur</div>
   <div class="btnContainer">
     <button value="{{id}}" class="add --add clientbtn">Add funds</button>
     <button value="{{id}}" class="add --withdraw clientbtn">Withdraw funds</button>
@@ -90,7 +93,7 @@ window.addEventListener("load", (_) => {
       data[inp.getAttribute("name")] = inp.value;
     });
     data.id = getId();
-    data.Sum = 0 + " eur";
+    data.Sum = 0;
     return data;
   };
 
@@ -109,6 +112,20 @@ window.addEventListener("load", (_) => {
     showList();
   };
 
+  const updateData = (id, data) => {
+    const updateData = read().map((p) => (p.id == id ? { ...data, id } : p));
+    write(updateData);
+  };
+
+  const update = (id, value, bolean) => {
+    const data = read().find((p) => p.id == id);
+    if (bolean == true) data.Sum = parseInt(data.Sum) + parseInt(value);
+    if (bolean == false) data.Sum = parseInt(data.Sum) - parseInt(value);
+    updateData(updateId, data);
+    hideModal(AddModal);
+    showList();
+  };
+
   const showList = (_) => {
     let accHtml = "";
     read().forEach((acc) => {
@@ -121,31 +138,53 @@ window.addEventListener("load", (_) => {
     });
     ClientList.innerHTML = accHtml;
     registerDelete();
+    registerEdit();
   };
 
-  const prepareDeleteModal = (id) => {
+  const prepareDeleteModal = (id, modal) => {
     const name = read().find((p) => p.id == id).AccName;
     const Surname = read().find((p) => p.id == id).AccSurnName;
-    deleteModal.querySelector(".client--name").innerText = name + " " + Surname;
+    modal.querySelector(".client--name").innerText = name + " " + Surname;
   };
 
+  const prepareEditModal = (id, modal) => {
+    const name = read().find((p) => p.id == id).AccName;
+    const Surname = read().find((p) => p.id == id).AccSurnName;
+    const sum = read().find((p) => p.id == id).Sum;
+    modal.querySelector(".client--name").innerText = name + " " + Surname;
+    modal.querySelector(".--IdSum").innerText = sum;
+  };
   //events
 
   const registerDelete = (_) => {
     document.querySelectorAll(".--delete").forEach((b) => {
       b.addEventListener("click", (_) => {
         showModal(deleteModal);
-        prepareDeleteModal(parseInt(b.value));
+        prepareDeleteModal(parseInt(b.value), deleteModal);
         destroyId = parseInt(b.value);
       });
     });
   };
 
-  const registerAdd = (_) => {
+  const registerEdit = (_) => {
     document.querySelectorAll(".--add").forEach((b) => {
       b.addEventListener("click", (_) => {
-        showModal(AddModal); // padaryti modal.
-       
+        showModal(AddModal);
+        prepareEditModal(parseInt(b.value), AddModal);
+        AddModal.querySelector(".--change").innerText = "add";
+        updateId = parseInt(b.value);
+        AddsumButton.style.display = "inline";
+        MinussumButton.style.display = "none";
+      });
+    });
+    document.querySelectorAll(".--withdraw").forEach((b) => {
+      b.addEventListener("click", (_) => {
+        showModal(AddModal);
+        prepareEditModal(parseInt(b.value), AddModal);
+        AddModal.querySelector(".--change").innerText = "withdraw";
+        updateId = parseInt(b.value);
+        AddsumButton.style.display = "none";
+        MinussumButton.style.display = "inline";
       });
     });
   };
@@ -166,6 +205,15 @@ window.addEventListener("load", (_) => {
     });
   });
 
+  AddsumButton.addEventListener("click", () => {
+    const InputValue = AddModal.querySelector("input").value;
+    update(updateId, InputValue, true);
+  });
+
+  MinussumButton.addEventListener("click", () => {
+    const InputValue = AddModal.querySelector("input").value;
+    update(updateId, InputValue, false);
+  });
   //mygtukai -----
 
   showList();
