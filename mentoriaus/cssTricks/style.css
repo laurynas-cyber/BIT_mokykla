@@ -1,0 +1,74 @@
+:root {
+  --brand-green: #00856f; /*kintamojo sukurimas*/
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  background-color: brown;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: 80px;
+  background: linear-gradient(90deg, rgb(11, 159, 26), #d5d5d5, orange);
+  background-clip: text; /*iskerpa teksta*/
+  color: transparent;
+}
+
+.container2 {
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(100, 72, 72);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  section {
+    width: 50%;
+    display: flex;
+
+    background-color: beige;
+    h2 {
+      writing-mode: vertical-lr;
+      padding: 2rem 5rem;
+    }
+    input {
+      writing-mode: vertical-lr;
+    }
+  }
+}
+
+.container3 img {
+  transform: scaleX(-1);
+}
+
+html {
+  scroll-behavior: smooth; /* scrolinimo metodas visam metodui arba navigaicijai.*/
+}
+
+.container4 {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--brand-green); /*kintamojo panaudojimas*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  width: 20rem;
+  height: 20rem;
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  div {
+    min-width: 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10rem;
+    scroll-snap-align: center;
+  }
+}

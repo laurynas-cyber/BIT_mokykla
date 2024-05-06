@@ -205,3 +205,12 @@ button {
     background-color: gray;
   }
 }
+
+html {
+  scroll-behavior: smooth; /* scrolinimo metodas visam metodui arba navigaicijai.*/
+}
+
+:root {
+  --brand-green: #00856f; /*kintamojo sukurimas*/
+}
+background-color: var(--brand-green); /*kintamojo panaudojimas*/
