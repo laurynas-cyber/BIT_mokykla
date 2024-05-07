@@ -1,0 +1,31 @@
+{
+  "name": "timer",
+  "version": "0.1.0",
+  "description": "Work timer",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "node app.js",
+    "start": "timer.cmd"
+  },
+  "keywords": [
+    "timer",
+    "js",
+    "pet",
+    "project",
+    "work",
+    "timer",
+    "node",
+    "json",
+    "file",
+    "db"
+  ],
+  "author": "Arvydas Kijakauskas",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "nodemon": "^3.1.0"
+  }
+}

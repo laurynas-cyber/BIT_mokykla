@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  font-size: 20px;
+}
+
+main {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+main .top {
+  height: 200px;
+  padding: 20px;
+  margin: 20px;
+  border-bottom: 3px solid gray;
+}
+main .content {
+  display: flex;
+}
+
+.one-animal {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.one-animal span {
+  color: skyblue;
+  font-size: 200px;
+}
+
+.sort {
+  margin: 5px;
+  cursor: pointer;
+}
+.sort:hover {
+  color: crimson;
+}

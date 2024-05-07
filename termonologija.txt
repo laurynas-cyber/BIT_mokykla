@@ -8,9 +8,6 @@ read turi ir show
 update turi  edit
 deletas turi is destroy
 
-modalo langas
-
-
 Serverio status kodas https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
 
 API - internetinis puslapis "masinom"?
@@ -26,6 +23,8 @@ Terminalas - programa kuri leidzia bendrauti su kita programa kuri neturi vartot
 webpackas - irankis front enderiam dideliem projaktam. atidalina koda i dvi dalis. i programuojama koda ir vykdoma koda.gilintis nereikia nes sudetingas. Konkurentas Vite
 Laravel mix - supaprastintas webpackas
 
-ssr - server site rending?
+ssr - server site rending
 
-client site rending server?
+client site rending server
+
+uuid - universalus unikalus identifikatorius, kurti id
