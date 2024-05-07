@@ -7,6 +7,7 @@ window.addEventListener("load", (_) => {
   const destroybutton = deleteModal.querySelector(".--submit");
   const AddModal = document.querySelector(".modal--edit");
   const MessageModal = document.querySelector(".modal--notAllow");
+  const OperationModal = document.querySelector(".modal--operation");
   const AddsumButton = AddModal.querySelector(".--addSum");
   const MinussumButton = AddModal.querySelector(".--WithdrawSum");
   const EditModalSum = AddModal.querySelector(".--IdSum");
@@ -215,11 +216,11 @@ window.addEventListener("load", (_) => {
 
         Editinput.addEventListener("keyup", () => {
           EditModalSum.style.color = "red";
-          EditModalSum.innerText = `-${
+          EditModalSum.innerText = `${
             parseFloat(num) - parseFloat(Editinput.value)
           }`;
 
-          if (EditModalSum.innerText == "-NaN") {
+          if (EditModalSum.innerText == "NaN") {
             EditModalSum.innerText = num;
             EditModalSum.style.color = "black";
           }
@@ -248,30 +249,35 @@ window.addEventListener("load", (_) => {
 
   AddsumButton.addEventListener("click", () => {
     let flag = true;
+    const InputValue = Editinput.value;
     if (Editinput.value == "") {
       flag = false;
     }
     if (flag == true) {
-      const InputValue = Editinput.value;
       update(updateId, InputValue, true);
+      // setTimeout(showModal(OperationModal), 1000);
+      setInterval(showModal(OperationModal), 1000);
     }
+    clearInterval(showModal(OperationModal));
   });
 
   MinussumButton.addEventListener("click", () => {
     let flag = true;
-
+    const InputValue = Editinput.value;
     if (Editinput.value == "") {
       flag = false;
     }
 
-    if (getSumbyId(updateId) <= 0) {
+    if (
+      getSumbyId(updateId) - parseFloat(Editinput.value) < 0 ||
+      getSumbyId(updateId) <= 0
+    ) {
       showModal(MessageModal);
       flag = false;
     }
     if (flag == true) {
-      console.log(flag, parseFloat(EditModalSum.innerText));
-      const InputValue = Editinput.value;
       update(updateId, InputValue, false);
+      // setTimeout((_) => showModal(OperationModal), 2000);
     }
   });
 

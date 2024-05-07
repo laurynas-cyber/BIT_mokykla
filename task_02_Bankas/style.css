@@ -264,3 +264,23 @@ button {
     margin-top: 30px;
   }
 }
+
+.modal--operation {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(14, 10, 52, 0.644);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  text-align: center;
+  .card {
+    height: 100px;
+  }
+  h2 {
+    margin-top: 40px;
+  }
+}
