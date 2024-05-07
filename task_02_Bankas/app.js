@@ -12,6 +12,7 @@ window.addEventListener("load", (_) => {
   const MinussumButton = AddModal.querySelector(".--WithdrawSum");
   const EditModalSum = AddModal.querySelector(".--IdSum");
   const Editinput = AddModal.querySelector("input");
+  let timerId;
   const LAST_ID = "AccLastSavedId";
   const ACC_LIST_LS = "AllAccList";
   let destroyId = 0;
@@ -135,6 +136,24 @@ window.addEventListener("load", (_) => {
     showList();
   };
 
+  const TotalNumInfoAcc = () => {
+    let accnum = 0;
+    let data = read();
+    data.forEach(() => {
+      accnum++;
+    });
+    return accnum;
+  };
+
+  const TotalSumInfoAcc = () => {
+    let accSum = 0;
+    let data = read();
+    data.forEach((a) => {
+      accSum += a.Sum;
+    });
+    return accSum;
+  };
+
   const showList = (_) => {
     let accHtml = "";
     read().forEach((acc) => {
@@ -146,6 +165,8 @@ window.addEventListener("load", (_) => {
       accHtml += temp;
     });
     ClientList.innerHTML = accHtml;
+    document.querySelector(".AccNumber").innerHTML = TotalNumInfoAcc();
+    document.querySelector(".AccSum").innerHTML = TotalSumInfoAcc();
     registerDelete();
     registerEdit();
   };
@@ -238,6 +259,8 @@ window.addEventListener("load", (_) => {
   CreateBtn.addEventListener("click", (_) => showModal(FormModal));
 
   destroybutton.addEventListener("click", (_) => {
+    setTimeout(showModal(OperationModal), 1000);
+    setTimeout(() => hideModal(OperationModal), 1200);
     destroy();
   });
 
@@ -250,16 +273,17 @@ window.addEventListener("load", (_) => {
   AddsumButton.addEventListener("click", () => {
     let flag = true;
     const InputValue = Editinput.value;
+
     if (Editinput.value == "") {
       flag = false;
     }
     if (flag == true) {
+      setTimeout(showModal(OperationModal), 1000);
+      setTimeout(() => hideModal(OperationModal), 1000);
       update(updateId, InputValue, true);
-      // setTimeout(showModal(OperationModal), 1000);
-      setInterval(showModal(OperationModal), 1000);
     }
-    clearInterval(showModal(OperationModal));
   });
+  // clearInterval(timerId);
 
   MinussumButton.addEventListener("click", () => {
     let flag = true;
@@ -276,8 +300,9 @@ window.addEventListener("load", (_) => {
       flag = false;
     }
     if (flag == true) {
+      setTimeout(showModal(OperationModal), 1000);
+      setTimeout(() => hideModal(OperationModal), 1000);
       update(updateId, InputValue, false);
-      // setTimeout((_) => showModal(OperationModal), 2000);
     }
   });
 

@@ -25,6 +25,30 @@ button {
   cursor: pointer;
 }
 
+.containerCreate {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .bank-info {
+    display: flex;
+    gap: 50px;
+    margin: 40px;
+    margin-right: 100px;
+    color: rgba(14, 10, 52, 0.644);
+    span {
+      font-weight: bold;
+    }
+  }
+  .logo {
+    font-size: 30px;
+    font-weight: 600;
+    background: linear-gradient(130deg, rgb(198, 72, 14), rgba(14, 10, 52));
+    background-clip: text; /*iskerpa teksta*/
+    color: transparent;
+  }
+}
+
 .content-container {
   height: max-content;
 }
