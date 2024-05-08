@@ -4,7 +4,8 @@ const obj = {
 };
 
 class Fox {
-  #age = ""; /* # reiskia privatus klases objekte naudojamas. Naudojimas dazniausiai kai vienas raso programuotojas o kitas naudoja, tam kad apsisaugoti*/
+  #age =
+    ""; /* # reiskia privatus klases objekte naudojamas. Naudojimas dazniausiai kai vienas raso programuotojas o kitas naudoja, tam kad apsisaugoti*/
   constructor(tail) {
     this.tail = tail;
     this.height = "long";
@@ -13,7 +14,7 @@ class Fox {
   }
 
   get niceColor() {
-    return "Fox color: " + this.color;
+    return "Fox color: " + this.color; //get naudojamas kaip metodas paansus kaip funkcija tik isviekciamas be skliaustu. taip pat get naudojamas gauti privatu kitnamaji
   }
 
   get age() {
@@ -43,3 +44,5 @@ obj2.age = 30;
 console.log(obj, obj2, obj3);
 console.log(obj2.niceColor);
 console.log(obj2.age);
+
+console.clear();

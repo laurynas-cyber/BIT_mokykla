@@ -23,7 +23,7 @@ app.post("/add-animal", (req, res) => {
 
   fs.writeFileSync("./data/animals.json", data);
 
-  res.redirect(302, "hhtp://localhost/");
+  res.redirect(302, "http://localhost/");
 });
 
 app.get("/show-animal/:uuid", (req, res) => {
