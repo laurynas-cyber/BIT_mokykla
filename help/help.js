@@ -359,3 +359,5 @@ A.pirmas = {};
 A.pirmas.antras = "valio";
 
 console.log(A.pirmas.antras, A.kitas?.pirmas); // su klaustuku tikrinam ar egzistuoja savybe
+
+#age = ""; /* # reiskia privatus klases objekte naudojamas. Naudojimas dazniausiai kai vienas raso programuotojas o kitas naudoja, tam kad apsisaugoti*/

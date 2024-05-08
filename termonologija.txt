@@ -28,3 +28,7 @@ ssr - server site rending
 client site rending server
 
 uuid - universalus unikalus identifikatorius, kurti id
+
+prototipinis programavimas - paprastas JS programavimas
+
+OOP - object orientuotas programavimas

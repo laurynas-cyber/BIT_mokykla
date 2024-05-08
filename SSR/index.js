@@ -23,9 +23,7 @@ app.post("/add-animal", (req, res) => {
 
   fs.writeFileSync("./data/animals.json", data);
 
-  res.json({
-    message: "OK",
-  });
+  res.redirect(302, "hhtp://localhost/");
 });
 
 app.get("/show-animal/:uuid", (req, res) => {
@@ -74,5 +72,5 @@ app.get("/", (req, res) => {
 });
 
 app.listen(port, (_) => {
-  console.log(`041 app listening on port ${port}`);
+  console.log(`SSR app listening on port ${port}`);
 });
