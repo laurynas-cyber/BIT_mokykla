@@ -152,19 +152,17 @@ button {
 
 /*Modalas Create*/
 
-.modal-create {
+.--modal {
+  position: fixed;
   min-height: 100vh;
   height: 100%;
   width: 100%;
   background-color: rgba(14, 10, 52, 0.644);
-  position: absolute;
   top: 0;
   left: 0;
   display: none;
   justify-content: center;
   align-items: center;
-  /* overflow: hidden;
-  box-sizing: border-box; */
 }
 
 .modal-content {
@@ -208,18 +206,6 @@ button {
 }
 
 /* Modalas Delete */
-.modal--delete {
-  height: 100%;
-  width: 100%;
-  background-color: rgba(14, 10, 52, 0.644);
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  display: none;
-}
 
 .card {
   border: solid 4px rgba(14, 10, 52);
@@ -238,16 +224,6 @@ button {
 /* Modalas Edit */
 
 .modal--edit {
-  height: 100%;
-  width: 100%;
-  background-color: rgba(14, 10, 52, 0.644);
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  display: none;
   .card {
     height: 300px;
   }
@@ -269,16 +245,6 @@ button {
 /*Modal message*/
 
 .modal--notAllow {
-  height: 100%;
-  width: 100%;
-  background-color: rgba(14, 10, 52, 0.644);
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  display: none;
   text-align: center;
   .card {
     height: 200px;
@@ -290,16 +256,6 @@ button {
 }
 
 .modal--operation {
-  height: 100%;
-  width: 100%;
-  background-color: rgba(14, 10, 52, 0.644);
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  display: none;
   text-align: center;
   .card {
     height: 100px;

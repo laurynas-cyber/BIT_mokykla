@@ -1,5 +1,11 @@
 // https://docs.google.com/document/d/1ptHMRiS6A_k3t67VV1JbuTyv5hfxoBLu1RucCJjTyl4/edit
 
+function rand(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 //1 uzdv
 
 class Kibiras1 {
@@ -109,7 +115,69 @@ console.clear();
 //8 uzdv
 
 class Stikline {
-    constructor(){
-        
+  constructor(t) {
+    this.turis = t;
+    this.kiekis = 0;
+  }
+
+  ipilti(kiekis) {
+    this.kiekis += kiekis;
+    if (this.turis < this.kiekis) {
+      this.kiekis = this.turis;
+      return this.kiekis;
     }
+  }
+  stiklinejeYra() {
+    return console.log(this.kiekis);
+  }
+  ispilti() {
+    return (this.kiekis = 0);
+  }
 }
+
+const naujaStikline = new Stikline(200);
+const naujaStikline2 = new Stikline(150);
+const naujaStikline3 = new Stikline(100);
+
+naujaStikline.ipilti(202);
+console.log(naujaStikline.turis, naujaStikline.kiekis);
+naujaStikline2.ipilti(naujaStikline.kiekis);
+naujaStikline2.stiklinejeYra();
+naujaStikline3.ipilti(naujaStikline2.kiekis);
+naujaStikline3.stiklinejeYra();
+naujaStikline3.ispilti();
+naujaStikline3.stiklinejeYra();
+
+console.clear();
+
+// 9 uzdv
+
+class Grybas {
+  constructor(valgomas, sukirmijes, svoris) {
+    this.valgomas = valgomas;
+    this.sukirmijes = sukirmijes;
+    this.svoris = svoris;
+  }
+}
+
+class Krepsys {
+  constructor() {
+    this.dydis = 500;
+    this.prikrauta = 0;
+  }
+
+  deti(grybas) {
+    if (grybas.valgomas == true && grybas.sukirmijes == false) {
+      this.prikrauta = this.prikrauta + grybas.svoris;
+    }
+  }
+}
+
+const krepsys = new Krepsys();
+
+do {
+  let grybas = new Grybas(!!rand(0, 1), !!rand(0, 1), rand(5, 45));
+
+  krepsys.deti(grybas);
+  console.log(krepsys, grybas.valgomas, grybas.sukirmijes);
+} while (krepsys.dydis > krepsys.prikrauta);
