@@ -6,81 +6,6 @@ function rand(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-//1uzdv
-class Kibiras1 {
-  constructor() {
-    this.akmenuKiekis = 0;
-  }
-
-  prideti1Akmeni() {
-    this.akmenuKiekis += 1;
-  }
-
-  pridetiDaugAkmenu(kiekis) {
-    this.akmenuKiekis += kiekis;
-  }
-  kiekPririnktaAkmenu() {
-    return console.log(this.akmenuKiekis);
-  }
-  ispilti() {
-    this.akmenuKiekis = 0;
-  }
-
-  perpilti() {
-    let rez = this.akmenuKiekis;
-    this.akmenuKiekis = 0;
-    return rez;
-  }
-}
-
-const naujasKibiras = new Kibiras1();
-
-naujasKibiras.prideti1Akmeni();
-naujasKibiras.prideti1Akmeni();
-naujasKibiras.pridetiDaugAkmenu(5);
-naujasKibiras.pridetiDaugAkmenu(3);
-
-naujasKibiras.kiekPririnktaAkmenu();
-// naujasKibiras.ispilti();
-console.log(naujasKibiras.perpilti());
-naujasKibiras.kiekPririnktaAkmenu();
-
-//3 uzdv
-
-class Troleibusas {
-  constructor() {
-    this.keleiviuSkaicius = 0;
-  }
-  ilipa(keleiviuSkaicius) {
-    this.keleiviuSkaicius += keleiviuSkaicius;
-  }
-
-  islipa(keleiviuSkaicius) {
-    let rez = this.keleiviuSkaicius - keleiviuSkaicius;
-    if (rez < 0) {
-      this.keleiviuSkaicius;
-    } else if (rez >= 0) {
-      this.keleiviuSkaicius = rez;
-    }
-  }
-
-  vaziuoja() {
-    return console.log(this.keleiviuSkaicius);
-  }
-}
-
-const troll = new Troleibusas();
-
-troll.ilipa(5);
-
-troll.islipa(1);
-troll.islipa(2);
-troll.ilipa(3);
-troll.islipa(4);
-troll.vaziuoja();
-
-console.clear();
-
 //8 uzdv
 
 class Stikline {
@@ -228,3 +153,151 @@ class Pinigine2 {
 }
 
 const newWallet2 = new Pinigine2();
+
+console.clear();
+
+//5uzdv
+
+class PirkiniuKrepselis {
+  constructor() {
+    this.turinys = new Map();
+  }
+  idetiSureli(kiekis) {
+    if (this.turinys.has("Surelis")) {
+      this.turinys.set("Surelis", this.turinys.get("Surelis") + kiekis);
+    } else this.turinys.set("Surelis", kiekis);
+  }
+
+  idetiPieno(kiekis) {
+    if (this.turinys.has("Pienas")) {
+      this.turinys.set("Pienas", this.turinys.get("Pienas") + kiekis);
+    } else this.turinys.set("Pienas", kiekis);
+  }
+
+  idetiDuonos(kiekis) {
+    if (this.turinys.has("Duona")) {
+      this.turinys.set("Duona", this.turinys.get("Duona") + kiekis);
+    } else this.turinys.set("Duona", kiekis);
+  }
+
+  krepselioTurinys() {
+    console.log(this.turinys);
+  }
+}
+
+const PirkMap = new PirkiniuKrepselis();
+
+PirkMap.idetiDuonos(2);
+PirkMap.idetiPieno(1);
+PirkMap.idetiSureli(6);
+PirkMap.idetiSureli(6);
+PirkMap.idetiPieno(1);
+PirkMap.idetiDuonos(2);
+PirkMap.krepselioTurinys();
+
+console.clear();
+
+//3 ir 4 uzdv
+
+class Troleibusas {
+  static VisiKeleiviai = 0;
+
+  static keleiviuSkaiciusVisuoseTroleibusuose() {
+    console.log(this.VisiKeleiviai);
+  }
+
+  static bendrasKeleiviuSkaicius(keleiviuSkaicius) {
+    this.VisiKeleiviai = this.VisiKeleiviai + keleiviuSkaicius;
+  }
+
+  constructor() {
+    this.keleiviuSkaicius = 0;
+  }
+  ilipa(keleiviuSkaicius) {
+    this.keleiviuSkaicius += keleiviuSkaicius;
+    this.constructor.bendrasKeleiviuSkaicius(keleiviuSkaicius);
+  }
+
+  islipa(keleiviuSkaicius) {
+    let rez = this.keleiviuSkaicius - keleiviuSkaicius;
+    if (rez < 0) {
+      this.constructor.bendrasKeleiviuSkaicius(-this.keleiviuSkaicius);
+      this.keleiviuSkaicius = 0;
+    } else if (rez >= 0) {
+      this.keleiviuSkaicius = rez;
+      this.constructor.bendrasKeleiviuSkaicius(-keleiviuSkaicius);
+    }
+  }
+
+  vaziuoja() {
+    return console.log(this.keleiviuSkaicius);
+  }
+}
+
+const troll = new Troleibusas();
+const troll2 = new Troleibusas();
+const troll3 = new Troleibusas();
+
+troll.ilipa(5);
+troll.islipa(1);
+
+troll2.ilipa(3);
+troll2.islipa(2);
+troll3.ilipa(2);
+troll3.islipa(4);
+troll.vaziuoja();
+Troleibusas.keleiviuSkaiciusVisuoseTroleibusuose();
+console.clear();
+
+//1uzdv
+class Kibiras1 {
+  static visasAkmenuKiekis = 0;
+  static akmenuSkaiciusVisuoseKibiruose() {
+    console.log(this.visasAkmenuKiekis);
+  }
+
+  constructor() {
+    this.akmenuKiekis = 0;
+  }
+
+  prideti1Akmeni() {
+    this.akmenuKiekis += 1;
+    this.constructor.visasAkmenuKiekis++;
+  }
+
+  pridetiDaugAkmenu(kiekis) {
+    this.akmenuKiekis += kiekis;
+    this.constructor.visasAkmenuKiekis += kiekis;
+  }
+  kiekPririnktaAkmenu() {
+    return console.log(this.akmenuKiekis);
+  }
+  ispilti() {
+    this.constructor.visasAkmenuKiekis -= this.akmenuKiekis;
+    this.akmenuKiekis = 0;
+  }
+
+  perpilti() {
+    let rez = this.akmenuKiekis;
+    this.akmenuKiekis = 0;
+    return rez;
+  }
+}
+
+const naujasKibiras = new Kibiras1();
+const naujasKibiras2 = new Kibiras1();
+const naujasKibiras3 = new Kibiras1();
+
+naujasKibiras.prideti1Akmeni();
+naujasKibiras.prideti1Akmeni();
+naujasKibiras.pridetiDaugAkmenu(5);
+naujasKibiras.pridetiDaugAkmenu(3);
+naujasKibiras.kiekPririnktaAkmenu();
+
+naujasKibiras2.prideti1Akmeni();
+naujasKibiras2.pridetiDaugAkmenu(5);
+naujasKibiras3.pridetiDaugAkmenu(3);
+naujasKibiras.ispilti();
+// console.log(naujasKibiras.perpilti());
+
+Kibiras1.akmenuSkaiciusVisuoseKibiruose();

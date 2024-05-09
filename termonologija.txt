@@ -32,3 +32,5 @@ uuid - universalus unikalus identifikatorius, kurti id
 prototipinis programavimas - paprastas JS programavimas
 
 OOP - object orientuotas programavimas
+
+statinis kintamasis arba metodas - apjungia visus tos klases objektus
