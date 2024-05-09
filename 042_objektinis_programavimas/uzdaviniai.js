@@ -6,8 +6,7 @@ function rand(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-//1 uzdv
-
+//1uzdv
 class Kibiras1 {
   constructor() {
     this.akmenuKiekis = 0;
@@ -23,6 +22,15 @@ class Kibiras1 {
   kiekPririnktaAkmenu() {
     return console.log(this.akmenuKiekis);
   }
+  ispilti() {
+    this.akmenuKiekis = 0;
+  }
+
+  perpilti() {
+    let rez = this.akmenuKiekis;
+    this.akmenuKiekis = 0;
+    return rez;
+  }
 }
 
 const naujasKibiras = new Kibiras1();
@@ -32,6 +40,9 @@ naujasKibiras.prideti1Akmeni();
 naujasKibiras.pridetiDaugAkmenu(5);
 naujasKibiras.pridetiDaugAkmenu(3);
 
+naujasKibiras.kiekPririnktaAkmenu();
+// naujasKibiras.ispilti();
+console.log(naujasKibiras.perpilti());
 naujasKibiras.kiekPririnktaAkmenu();
 
 //3 uzdv
@@ -68,48 +79,6 @@ troll.ilipa(3);
 troll.islipa(4);
 troll.vaziuoja();
 
-console.clear();
-//2 ir 6 uzd
-//2uzdv
-
-class Pinigine {
-  constructor() {
-    this.popieriniaiPinigai = 0;
-    this.metaliniaiPinigai = 0;
-    this.monetosQ = 0;
-    this.banknotaiQ = 0;
-  }
-
-  ideti(kiekis) {
-    if (kiekis < 2) {
-      this.metaliniaiPinigai += kiekis;
-      this.monetosQ++;
-    } else {
-      this.popieriniaiPinigai += kiekis;
-      this.banknotaiQ++;
-    }
-  }
-  skaiciuoti() {
-    return console.log(this.metaliniaiPinigai + this.popieriniaiPinigai);
-  }
-
-  monetos() {
-    return console.log(this.monetosQ);
-  }
-  banknotai() {
-    return console.log(this.banknotaiQ++);
-  }
-}
-
-const newWallet = new Pinigine();
-newWallet.ideti(1);
-newWallet.ideti(3);
-newWallet.skaiciuoti();
-newWallet.ideti(1);
-newWallet.ideti(1);
-newWallet.ideti(4);
-newWallet.monetos();
-newWallet.banknotai();
 console.clear();
 
 //8 uzdv
@@ -181,3 +150,81 @@ do {
   krepsys.deti(grybas);
   console.log(krepsys, grybas.valgomas, grybas.sukirmijes);
 } while (krepsys.dydis > krepsys.prikrauta);
+
+console.clear();
+//2 ir 6 uzd
+//2uzdv
+
+class Pinigine {
+  constructor() {
+    this.popieriniaiPinigai = 0;
+    this.metaliniaiPinigai = 0;
+    this.monetosQ = 0;
+    this.banknotaiQ = 0;
+  }
+
+  ideti(kiekis) {
+    if (kiekis <= 2) {
+      this.metaliniaiPinigai += kiekis;
+      this.monetosQ++;
+    } else {
+      this.popieriniaiPinigai += kiekis;
+      this.banknotaiQ++;
+    }
+  }
+  skaiciuoti() {
+    return console.log(this.metaliniaiPinigai + this.popieriniaiPinigai);
+  }
+
+  monetos() {
+    return console.log(this.monetosQ);
+  }
+  banknotai() {
+    return console.log(this.banknotaiQ++);
+  }
+}
+
+const newWallet = new Pinigine();
+newWallet.ideti(1);
+newWallet.ideti(3);
+newWallet.skaiciuoti();
+newWallet.ideti(1);
+newWallet.ideti(1);
+newWallet.ideti(4);
+newWallet.monetos();
+newWallet.banknotai();
+console.clear();
+// 6
+
+class Pinigine2 {
+  constructor() {
+    this.popieriniaiPinigai = [];
+    this.metaliniaiPinigai = [];
+  }
+
+  ideti(kiekis) {
+    if (kiekis <= 2) {
+      this.metaliniaiPinigai.push(kiekis);
+    } else {
+      this.popieriniaiPinigai.push(kiekis);
+    }
+  }
+  skaiciuoti() {
+    return console.log(
+      `Piniginej yra  ${this.banknotai()} + ${this.monetos()}`
+    );
+  }
+
+  monetos() {
+    const kiekis = this.metaliniaiPinigai.length;
+    const visosuma = this.metaliniaiPinigai.reduce((suma, m) => suma + m, 0);
+    return `Monetu kiekis ${kiekis}, o suma ${visosuma}`;
+  }
+  banknotai() {
+    const kiekis = this.popieriniaiPinigai.length;
+    const visosuma = this.popieriniaiPinigai.reduce((suma, m) => suma + m, 0);
+    return `Monetu kiekis ${kiekis}, o suma ${visosuma}`;
+  }
+}
+
+const newWallet2 = new Pinigine2();
