@@ -34,3 +34,6 @@ prototipinis programavimas - paprastas JS programavimas
 OOP - object orientuotas programavimas
 
 statinis kintamasis arba metodas - apjungia visus tos klases objektus
+
+objektiniame programavime svarbu parasyti taip kad reiketu kuo maziau naudoti if ciklu ir pan. parasyti taip kad butu galima tik panaudoti metodus ir maziau eiluciu
+

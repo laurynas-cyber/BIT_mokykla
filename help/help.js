@@ -400,3 +400,8 @@ class Fox {
     this.constructor.addAge(age);
   }
 }
+
+
+this.keleiviuSkaicius = max(0, this.keleiviuSkaicius - keleiviuSkaicius) // maksimali reiksme nuo nulio iki
+
+// objektiniame programavime svarbu parasyti taip kad reiketu kuo maziau naudoti if ciklu ir pan. parasyti taip kad butu galima tik panaudoti metodus ir maziau eiluciu

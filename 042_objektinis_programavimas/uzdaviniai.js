@@ -15,6 +15,7 @@ class Stikline {
   }
 
   ipilti(kiekis) {
+    // this.kiekis = min(this.turis, kiekis + this.kiekis); ///kitas variantas
     this.kiekis += kiekis;
     if (this.turis < this.kiekis) {
       this.kiekis = this.turis;
