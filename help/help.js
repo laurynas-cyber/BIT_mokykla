@@ -361,3 +361,42 @@ A.pirmas.antras = "valio";
 console.log(A.pirmas.antras, A.kitas?.pirmas); // su klaustuku tikrinam ar egzistuoja savybe
 
 #age = ""; /* # reiskia privatus klases objekte naudojamas. Naudojimas dazniausiai kai vienas raso programuotojas o kitas naudoja, tam kad apsisaugoti*/
+
+//style savybes jse
+const acc = document.querySelectorAll(".aciordion");
+
+for (let i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function () {
+    this.classList.toggle("active");
+    const desc = this.nextElementSibling; //sekantis einantis nextElementSibling
+
+    console.log();
+    if (desc.style.maxHeight) {
+      desc.style.maxHeight = null; // nustato i defoltine padeti. (default padetis csse)
+    } else {
+      desc.style.maxHeight = desc.scrollHeight + "px"; //scrollHeight - patikrina elemento auskti
+    }
+  });
+}
+
+//objektine klasse ir jo statiniai metodai
+class Fox {
+  static allAge = 0;
+  static allFoxes = 0;
+
+  static addAge(age) {
+    this.allAge += age; //statinis metodas priklauso klasej, todel nereikia construtokriaus. Statinis metodas arba kintamasis tiktai klasej priklauso
+  }
+
+  constructor(color) {
+    this.color = color;
+    this.age = 0;
+
+    this.constructor.allFoxes++; //skirta tiktai sitai klasei statinis kintamasis. galima rasyti Fox.allFoxes++;
+  }
+
+  foxAge(age) {
+    this.age = age;
+    this.constructor.addAge(age);
+  }
+}
