@@ -1,6 +1,10 @@
 spredas -- kopijavimas
 
+API - aplication programing interface. Internetinis puslapis programiniam kodui arba mašinoms. Serveriai pamokos nuo balandzio 25 iki geguzes 30d
+
 JSON java script objekt notation aprasymas. taisykliu rinkys kaip objekta paversti i stringa ir is stringo i objekt. jeigu to nedarysim gausim suplota objekta
+
+https://jsonplaceholder.typicode.com/ - puslapis mokymo tikslams. duoda koda kuri panaudojus grazina internetini puslapi masinoms.
 
 crud - create, read, update, delete //32paskaita
 create turi ir store termina
@@ -10,11 +14,10 @@ deletas turi is destroy
 
 Serverio status kodas https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
 
-API - internetinis puslapis "masinom"?
+Axios - biblioteka, jis padarytas ant fetch, bet gražesnis kodas https://axios-http.com/docs/intro
 
-Axios - ? https://axios-http.com/docs/intro
-
-Node - naršyklė. JS vykdymo aplinka
+Node - naršyklė. JS vykdymo aplinka.
+Node Instalas https://nodejs.org/en/download/current
 
 User, vizualinis interfaces - programa kuri yra matoma
 

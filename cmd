@@ -20,3 +20,4 @@ npm run dev                           -??
 
 npm i uuid                            -instalina uuid
 
+node -v node versija
