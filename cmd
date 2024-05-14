@@ -27,3 +27,7 @@ node -v node versija
 cd 005 --folderio parejimas
 
 cd .. --grizti atgal
+
+npm i boostrap 
+
+npm i popper.js - bootstrapui reikia
