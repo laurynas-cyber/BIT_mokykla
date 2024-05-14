@@ -1,8 +1,10 @@
-npm init -y                          -sukuria package json
+npm -v -npm bibliotininkas turejo buti suinstaliuotas su node
 
-npm i express                       -express instaliuoja
+npm init -y -sukuria package json - bibliotekitinko kortele. Uzsiregistravimo komanda. 
 
-npm i body-parser                   -body parser instaliuoja
+npm i express -express instaliuoja. Serverio programos instaliavimas i Node
+
+npm i body-parser -body parser instaliuoja
 
 npm i axios
 
@@ -12,12 +14,16 @@ npm i sass
 
 -webpacko instalas?
 
-npm start                             -startuoja serveri
+npm start -startuoja serveri
 
-npx mix                               -sumixina laravel??
+npx mix -sumixina laravel??
 
-npm run dev                           -??
+npm run dev -??
 
-npm i uuid                            -instalina uuid
+npm i uuid -instalina uuid
 
 node -v node versija
+
+cd 005 --folderio parejimas
+
+cd .. --grizti atgal

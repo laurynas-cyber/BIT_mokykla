@@ -1,9 +1,11 @@
 spredas -- kopijavimas
 
+Express js - Serverio programa  
+
 API - aplication programing interface. Internetinis puslapis programiniam kodui arba mašinoms. Serveriai pamokos nuo balandzio 25 iki geguzes 30d
+https://www.thecocktaildb.com/api.php - pabandymui
 
 JSON java script objekt notation aprasymas. taisykliu rinkys kaip objekta paversti i stringa ir is stringo i objekt. jeigu to nedarysim gausim suplota objekta
-
 https://jsonplaceholder.typicode.com/ - puslapis mokymo tikslams. duoda koda kuri panaudojus grazina internetini puslapi masinoms.
 
 crud - create, read, update, delete //32paskaita
@@ -16,7 +18,7 @@ Serverio status kodas https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
 
 Axios - biblioteka, jis padarytas ant fetch, bet gražesnis kodas https://axios-http.com/docs/intro
 
-Node - naršyklė. JS vykdymo aplinka.
+Node - naršyklė. JS vykdymo aplinka. run enviroment. narsykle reikalinga tam kad js kodas viektu. 
 Node Instalas https://nodejs.org/en/download/current
 
 User, vizualinis interfaces - programa kuri yra matoma
@@ -34,7 +36,9 @@ uuid - universalus unikalus identifikatorius, kurti id
 
 prototipinis programavimas - paprastas JS programavimas
 
-OOP - object orientuotas programavimas
+OOP - object orientuotas programavimas.
+https://khalilstemmler.com/articles/object-oriented/programming/4-principles/
+
 
 statinis kintamasis arba metodas - apjungia visus tos klases objektus
 
