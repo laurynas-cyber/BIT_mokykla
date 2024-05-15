@@ -33,3 +33,5 @@ npm i boostrap
 npm i popper.js - bootstrapui reikia
 
 npm i axios, body-parser, express, laravel-mix, nodemon, sass, uuid, bootstrap //i gitabasha rasyti be kablelio
+
+node index.js  -paleidzia serveri

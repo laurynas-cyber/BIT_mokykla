@@ -1,8 +1,10 @@
-const express = require("express"); //pareikalavimas is bibliotekos
+const express = require("express"); //pareikalavimas is bibliotekos kad is ten istrauktu express
 const app = express();
 const port = 80; //koki porta pasileisti
 app.use(express.static("public")); //registruojam statinius failus
-//Router
+
+
+//Router app.get puslapiai bebras, jonas ir pan
 
 app.get("/bebras", (req, res) => {
   const content = "<h1>labas Bebrai</h1>";
