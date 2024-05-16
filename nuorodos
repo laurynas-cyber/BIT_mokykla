@@ -24,4 +24,7 @@ arba Vite https://vitejs.dev/
 
 Serveriu statusai https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
 
+cookies https://expressjs.com/en/resources/middleware/cookie-parser.html
+https://expressjs.com/en/guide/using-middleware.html
+
 Git https://git-scm.com/downloads gitBash instalas
