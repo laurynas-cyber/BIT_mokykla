@@ -1,4 +1,5 @@
 const express = require("express");
+var md5 = require("md5");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const { v4: uuidv4 } = require("uuid");
@@ -16,6 +17,16 @@ const addMessage = (id, text, type) => {
   data = JSON.parse(data);
   data = data.map((s) =>
     s.id === id ? { id, d: { ...s.d, msg: { text, type } } } : s
+  );
+  data = JSON.stringify(data);
+  fs.writeFileSync("./data/sessions.json", data);
+};
+
+const loginUser = (id, user) => {
+  let data = fs.readFileSync("./data/sessions.json", "utf8");
+  data = JSON.parse(data);
+  data = data.map((s) =>
+    s.id === id ? { id, d: { ...s.d, user: user.email } } : s
   );
   data = JSON.stringify(data);
   fs.writeFileSync("./data/sessions.json", data);
@@ -66,8 +77,16 @@ app.use((req, res, next) => {
   }
   next();
 });
-
 app.get("/", (req, res) => {
+  let html = fs.readFileSync("./data/home.html", "utf8");
+  const nav = fs.readFileSync("./data/nav.html", "utf8");
+  html = html
+    .replace("{{NAV}}", nav)
+    .replace("{{MSG}}", showMessage(req.sessionsId));
+  res.send(html);
+});
+
+app.get("/colors", (req, res) => {
   // res.cookie("labas", "saldainis shokoladinas", { maxAge: 0 }); //cookie maxage galiojimo laikas. istrinant yra nustatyti laika 0
 
   let html = fs.readFileSync("./data/index.html", "utf8");
@@ -107,7 +126,7 @@ app.post("/store", (req, res) => {
   data.push({ id, color, shape });
   data = JSON.stringify(data);
   fs.writeFileSync("./data/colors.json", data);
-  res.redirect(302, "http://colors.test");
+  res.redirect(302, "http://colors.test/colors");
 
   addMessage(req.sessionsId, "New Color Added", "success");
 });
@@ -138,7 +157,7 @@ app.post("/destroy/:id", (req, res) => {
   data = JSON.stringify(data);
   fs.writeFileSync("./data/colors.json", data);
   addMessage(req.sessionsId, "New Color was edited", "danger");
-  res.redirect(302, "http://colors.test");
+  res.redirect(302, "http://colors.test/colors");
 });
 
 app.get("/edit/:id", (req, res) => {
@@ -196,7 +215,54 @@ app.post("/update/:id", (req, res) => {
   data = JSON.stringify(data);
   fs.writeFileSync("./data/colors.json", data);
   addMessage(req.sessionsId, "New Color was edited", "success");
-  res.redirect(302, "http://colors.test");
+  res.redirect(302, "http://colors.test/colors");
+});
+
+app.get("/register", (req, res) => {
+  let html = fs.readFileSync("./data/register.html", "utf8");
+  const nav = fs.readFileSync("./data/nav.html", "utf8");
+  html = html
+    .replace("{{NAV}}", nav)
+    .replace("{{MSG}}", showMessage(req.sessionsId));
+  res.send(html);
+});
+
+app.post("/register", (req, res) => {
+  const email = req.body.email;
+  const password = md5(req.body.password); //uzhesinta
+  const id = uuidv4();
+  let data = fs.readFileSync("./data/user.json", "utf8");
+  data = JSON.parse(data);
+  data.push({ id, email, password });
+  data = JSON.stringify(data);
+  fs.writeFileSync("./data/user.json", data);
+
+  addMessage(req.sessionsId, "You are registered", "success");
+  res.redirect(302, "http://colors.test/colors");
+});
+
+app.get("/login", (req, res) => {
+  let html = fs.readFileSync("./data/login.html", "utf8");
+  html = html.replace("{{MSG}}", showMessage(req.sessionsId));
+  res.send(html);
+});
+
+app.post("/login", (req, res) => {
+  const email = req.body.email;
+  const password = md5(req.body.password); //uzhesinta
+  const id = uuidv4();
+  let data = fs.readFileSync("./data/user.json", "utf8");
+  data = JSON.parse(data);
+  const user = data.find((u) => u.email === email && u.password === password);
+
+  if (user) {
+    addMessage(req.sessionsId, "You are logged in", "success");
+    res.redirect(302, "http://colors.test/");
+  } else {
+    loginUser(req.sessionsId, user);
+    addMessage(req.sessionsId, "Invalid password or email", "danger");
+    res.redirect(302, "http://colors.test/login");
+  }
 });
 
 app.listen(port, (_) => {
