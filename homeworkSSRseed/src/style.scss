@@ -1,0 +1,21 @@
+.form {
+  height: 97vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: antiquewhite;
+}
+
+a {
+  width: 90%;
+  height: 90%;
+  //   margin: 10px;
+  cursor: pointer;
+  background-color: rgb(38, 13, 55);
+  font-size: 150px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
