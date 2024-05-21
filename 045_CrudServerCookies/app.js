@@ -1,8 +1,8 @@
 const express = require("express");
-var md5 = require("md5");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const { v4: uuidv4 } = require("uuid");
+const md5 = require("md5");
 const app = express();
 const port = 80;
 
@@ -12,21 +12,23 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 const fs = require("node:fs");
 
+const addNav = (id, html) => {
+  let nav = fs.readFileSync("./data/nav.html", "utf8");
+  let userHtml;
+  if (!isLogged(id)) {
+    userHtml = fs.readFileSync("./data/navAnon.html", "utf8");
+  } else {
+    userHtml = fs.readFileSync("./data/navUser.html", "utf8");
+  }
+  nav = nav.replace("{{USER}}", userHtml);
+  return html.replace("{{NAV}}", nav);
+};
+
 const addMessage = (id, text, type) => {
   let data = fs.readFileSync("./data/sessions.json", "utf8");
   data = JSON.parse(data);
   data = data.map((s) =>
     s.id === id ? { id, d: { ...s.d, msg: { text, type } } } : s
-  );
-  data = JSON.stringify(data);
-  fs.writeFileSync("./data/sessions.json", data);
-};
-
-const loginUser = (id, user) => {
-  let data = fs.readFileSync("./data/sessions.json", "utf8");
-  data = JSON.parse(data);
-  data = data.map((s) =>
-    s.id === id ? { id, d: { ...s.d, user: user.email } } : s
   );
   data = JSON.stringify(data);
   fs.writeFileSync("./data/sessions.json", data);
@@ -44,10 +46,30 @@ const showMessage = (id) => {
   data = JSON.stringify(data);
   fs.writeFileSync("./data/sessions.json", data);
   return `
-      <div class="mt-3 ms-5 me-5 alert alert-${type}" role="alert">
-      ${text}
-      </div>
-      `;
+        <div class="mt-3 ms-5 me-5 alert alert-${type}" role="alert">
+        ${text}
+        </div>
+        `;
+};
+
+const loginUser = (id, user) => {
+  let data = fs.readFileSync("./data/sessions.json", "utf8");
+  data = JSON.parse(data);
+  data = data.map((s) =>
+    s.id === id ? { id, d: { ...s.d, user: user.email } } : s
+  );
+  data = JSON.stringify(data);
+  fs.writeFileSync("./data/sessions.json", data);
+};
+
+const isLogged = (id) => {
+  let data = fs.readFileSync("./data/sessions.json", "utf8");
+  data = JSON.parse(data);
+  const session = data.find((s) => s.id === id);
+  if (!session || !session.d?.user) {
+    return false;
+  }
+  return true;
 };
 
 app.use((req, res, next) => {
@@ -77,6 +99,7 @@ app.use((req, res, next) => {
   }
   next();
 });
+
 app.get("/", (req, res) => {
   let html = fs.readFileSync("./data/home.html", "utf8");
   const nav = fs.readFileSync("./data/nav.html", "utf8");
@@ -87,10 +110,11 @@ app.get("/", (req, res) => {
 });
 
 app.get("/colors", (req, res) => {
-  // res.cookie("labas", "saldainis shokoladinas", { maxAge: 0 }); //cookie maxage galiojimo laikas. istrinant yra nustatyti laika 0
+  if (!isLogged(req.sessionsId)) {
+    res.redirect(302, "http://colors.test/login").end();
+  }
 
   let html = fs.readFileSync("./data/index.html", "utf8");
-  const nav = fs.readFileSync("./data/nav.html", "utf8");
   const listItem = fs.readFileSync("./data/listItem.html", "utf8");
   let data = fs.readFileSync("./data/colors.json", "utf8");
   data = JSON.parse(data);
@@ -104,13 +128,17 @@ app.get("/colors", (req, res) => {
     listItems += liHtml;
   });
   html = html
-    .replace("{{NAV}}", nav)
     .replace("{{LI}}", listItems)
     .replace("{{MSG}}", showMessage(req.sessionsId));
+  html = addNav(req.sessionsId, html);
   res.send(html);
 });
 
 app.get("/create", (req, res) => {
+  if (!isLogged(req.sessionsId)) {
+    res.redirect(302, "http://colors.test/login").end();
+  }
+
   let html = fs.readFileSync("./data/create.html", "utf8");
   const nav = fs.readFileSync("./data/nav.html", "utf8");
   html = html.replace("{{NAV}}", nav);
@@ -118,6 +146,10 @@ app.get("/create", (req, res) => {
 });
 
 app.post("/store", (req, res) => {
+  if (!isLogged(req.sessionsId)) {
+    res.redirect(302, "http://colors.test/login").end();
+  }
+
   const color = req.body.color;
   const shape = parseInt(req.body.shape);
   const id = uuidv4();
@@ -126,12 +158,17 @@ app.post("/store", (req, res) => {
   data.push({ id, color, shape });
   data = JSON.stringify(data);
   fs.writeFileSync("./data/colors.json", data);
-  res.redirect(302, "http://colors.test/colors");
 
-  addMessage(req.sessionsId, "New Color Added", "success");
+  addMessage(req.sessionsId, "New color was added", "success");
+
+  res.redirect(302, "http://colors.test/colors");
 });
 
 app.get("/delete/:id", (req, res) => {
+  if (!isLogged(req.sessionsId)) {
+    res.redirect(302, "http://colors.test/login").end();
+  }
+
   let data = fs.readFileSync("./data/colors.json", "utf8");
   data = JSON.parse(data);
   const color = data.find((c) => c.id === req.params.id);
@@ -151,16 +188,26 @@ app.get("/delete/:id", (req, res) => {
 });
 
 app.post("/destroy/:id", (req, res) => {
+  if (!isLogged(req.sessionsId)) {
+    res.redirect(302, "http://colors.test/login").end();
+  }
+
   let data = fs.readFileSync("./data/colors.json", "utf8");
   data = JSON.parse(data);
   data = data.filter((c) => c.id !== req.params.id);
   data = JSON.stringify(data);
   fs.writeFileSync("./data/colors.json", data);
-  addMessage(req.sessionsId, "New Color was edited", "danger");
+
+  addMessage(req.sessionsId, "Color was deleted", "info");
+
   res.redirect(302, "http://colors.test/colors");
 });
 
 app.get("/edit/:id", (req, res) => {
+  if (!isLogged(req.sessionsId)) {
+    res.redirect(302, "http://colors.test/login").end();
+  }
+
   let data = fs.readFileSync("./data/colors.json", "utf8");
   data = JSON.parse(data);
   const color = data.find((c) => c.id === req.params.id);
@@ -186,27 +233,27 @@ app.get("/edit/:id", (req, res) => {
   }
 });
 
-app.get("/edit-csr/:id", (req, res) => {
-  let data = fs.readFileSync("./data/colors.json", "utf8");
-  data = JSON.parse(data);
-  const color = data.find((c) => c.id === req.params.id);
-  if (!color) {
-    let html = fs.readFileSync("./data/404.html", "utf8");
-    res.status(404).send(html);
-  } else {
-    let html = fs.readFileSync("./data/edit-csr.html", "utf8");
-    const nav = fs.readFileSync("./data/nav.html", "utf8");
-    html = html
-      .replace("{{NAV}}", nav)
-      .replace("{{ID}}", color.id)
-      .replace("{{SHAPE}}", color.shape)
-      .replaceAll("COLOR", color.color);
-    html = html.replace("JSSHAPE", color.shape);
-    res.send(html);
-  }
-});
+// app.get('/edit-csr/:id', (req, res) => {
+//     let data = fs.readFileSync('./data/colors.json', 'utf8');
+//     data = JSON.parse(data);
+//     const color = data.find(c => c.id === req.params.id);
+//     if (!color) {
+//         let html = fs.readFileSync('./data/404.html', 'utf8');
+//         res.status(404).send(html);
+//     } else {
+//         let html = fs.readFileSync('./data/edit-csr.html', 'utf8');
+//         const nav = fs.readFileSync('./data/nav.html', 'utf8');
+//         html = html.replace('{{NAV}}', nav).replace('{{ID}}', color.id).replace('{{SHAPE}}', color.shape).replaceAll('COLOR', color.color);
+//         html = html.replace('JSSHAPE', color.shape);
+//         res.send(html);
+//     }
+// });
 
 app.post("/update/:id", (req, res) => {
+  if (!isLogged(req.sessionsId)) {
+    res.redirect(302, "http://colors.test/login").end();
+  }
+
   const color = req.body.color;
   const shape = parseInt(req.body.shape);
   let data = fs.readFileSync("./data/colors.json", "utf8");
@@ -214,11 +261,17 @@ app.post("/update/:id", (req, res) => {
   data = data.map((c) => (c.id === req.params.id ? { ...c, color, shape } : c));
   data = JSON.stringify(data);
   fs.writeFileSync("./data/colors.json", data);
-  addMessage(req.sessionsId, "New Color was edited", "success");
+
+  addMessage(req.sessionsId, "New color was edited", "success");
+
   res.redirect(302, "http://colors.test/colors");
 });
 
 app.get("/register", (req, res) => {
+  if (isLogged(req.sessionsId)) {
+    res.redirect(302, "http://colors.test/").end();
+  }
+
   let html = fs.readFileSync("./data/register.html", "utf8");
   const nav = fs.readFileSync("./data/nav.html", "utf8");
   html = html
@@ -228,38 +281,51 @@ app.get("/register", (req, res) => {
 });
 
 app.post("/register", (req, res) => {
+  if (isLogged(req.sessionsId)) {
+    res.redirect(302, "http://colors.test/").end();
+  }
+
   const email = req.body.email;
-  const password = md5(req.body.password); //uzhesinta
+  const password = md5(req.body.password);
   const id = uuidv4();
-  let data = fs.readFileSync("./data/user.json", "utf8");
+  let data = fs.readFileSync("./data/users.json", "utf8");
   data = JSON.parse(data);
   data.push({ id, email, password });
   data = JSON.stringify(data);
-  fs.writeFileSync("./data/user.json", data);
+  fs.writeFileSync("./data/users.json", data);
 
-  addMessage(req.sessionsId, "You are registered", "success");
-  res.redirect(302, "http://colors.test/colors");
+  addMessage(req.sessionsId, "You are successfully registered", "success");
+
+  res.redirect(302, "http://colors.test");
 });
 
 app.get("/login", (req, res) => {
+  if (isLogged(req.sessionsId)) {
+    res.redirect(302, "http://colors.test/").end();
+  }
+
   let html = fs.readFileSync("./data/login.html", "utf8");
   html = html.replace("{{MSG}}", showMessage(req.sessionsId));
   res.send(html);
 });
 
 app.post("/login", (req, res) => {
+  if (isLogged(req.sessionsId)) {
+    res.redirect(302, "http://colors.test/").end();
+  }
+
   const email = req.body.email;
-  const password = md5(req.body.password); //uzhesinta
-  const id = uuidv4();
-  let data = fs.readFileSync("./data/user.json", "utf8");
+  const password = md5(req.body.password);
+  let data = fs.readFileSync("./data/users.json", "utf8");
   data = JSON.parse(data);
+
   const user = data.find((u) => u.email === email && u.password === password);
 
   if (user) {
-    addMessage(req.sessionsId, "You are logged in", "success");
-    res.redirect(302, "http://colors.test/");
-  } else {
     loginUser(req.sessionsId, user);
+    addMessage(req.sessionsId, "You are logged succesfully", "success");
+    res.redirect(302, "http://colors.test");
+  } else {
     addMessage(req.sessionsId, "Invalid password or email", "danger");
     res.redirect(302, "http://colors.test/login");
   }
