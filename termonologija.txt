@@ -46,4 +46,10 @@ objektiniame programavime svarbu parasyti taip kad reiketu kuo maziau naudoti if
 
 hash funkcijos - hash algoritmai kurti pakeisti slaptazodzius
 
-Middleware
+Middleware - cookiams?
+
+Mariadb realecine duomenu bazes - rysines duomenu bazes. visos realeacine duomenu bazes programuojamos sql kalba
+
+dokumentine duomenu rusis? -  Mongodb (js pasaulyje paplitusi) nosql duomenu baze
+
+SQL - structured query language
