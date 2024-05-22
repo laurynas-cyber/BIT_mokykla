@@ -14,16 +14,47 @@ app.get("/", (req, res) => {
   res.send(html);
 });
 
-// app.get("/seed", (req, res) => {
-//   let html = fs.readFileSync("./data/seed.html", "utf8");
-
-//   res.send(html);
-// });
-
 app.get("/seed", (req, res) => {
   let html = fs.readFileSync("./data/seed.html", "utf8");
   const listItem = fs.readFileSync("./data/listItem.html", "utf8");
   let data = fs.readFileSync("./data/animals.json", "utf8");
+  data = JSON.parse(data);
+  let listItems = "";
+  data.forEach((li) => {
+    let liHtml = listItem;
+    liHtml = liHtml
+      .replaceAll("{{NAME}}", li.name)
+      .replace("{{AGE}}", li.age)
+      .replace("{{SPECIES}}", li.species);
+    listItems += liHtml;
+  });
+  html = html.replace("{{LI}}", listItems);
+  res.send(html);
+});
+
+app.get("/create", (req, res) => {
+  let html = fs.readFileSync("./data/create.html", "utf8");
+
+  res.send(html);
+});
+
+app.post("/store", (req, res) => {
+  const name = req.body.name;
+  const age = parseInt(req.body.age);
+  const species = req.body.species;
+  let data = fs.readFileSync("./data/newanimals.json", "utf8");
+  data = JSON.parse(data);
+  data.push({ name: name, species: species, age: age });
+  data = JSON.stringify(data);
+  fs.writeFileSync("./data/newanimals.json", data);
+
+  res.redirect(302, "http://localhost/");
+});
+
+app.get("/list", (req, res) => {
+  let html = fs.readFileSync("./data/seed.html", "utf8");
+  const listItem = fs.readFileSync("./data/listItem.html", "utf8");
+  let data = fs.readFileSync("./data/newanimals.json", "utf8");
   data = JSON.parse(data);
   let listItems = "";
   data.forEach((li) => {
