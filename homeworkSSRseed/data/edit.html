@@ -4,25 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="http://localhost/style.css" />
-    <title>LOL</title>
+    <title>Edit</title>
   </head>
   <body>
     <div class="form">
-      <form action="http://localhost/store" method="post">
+      <form action="http://localhost/update/{{ID}}" method="post">
         <div class="m-3">
-          <label class="form-label">Animal Name</label>
+          <label class="form-label">Name: {{NAME}}</label>
           <input type="text" class="write" name="name" value="" />
         </div>
         <div class="m-3">
-          <label class="form-label">Species</label>
+          <label class="form-label">Species:{{SPECIES}}</label>
           <input type="text" class="write" name="species" value="" />
         </div>
         <div class="m-3">
-          <label class="form-label">Animal Age</label>
+          <label class="form-label">Age:{{AGE}}</label>
           <input type="text" class="write" name="age" value="" />
         </div>
-        <button type="submit" class="btn">Create Animal</button>
-        <a href="http://localhost/" class="btn">Cancel</a>
+        <button type="submit" class="btn">Edit Animal</button>
+        <a href="http://localhost/list" class="btn">Cancel</a>
       </form>
     </div>
   </body>

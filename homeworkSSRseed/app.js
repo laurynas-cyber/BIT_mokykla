@@ -68,7 +68,7 @@ app.get("/list", (req, res) => {
       .replaceAll("{{NAME}}", li.name)
       .replace("{{AGE}}", li.age)
       .replace("{{SPECIES}}", li.species)
-      .replace("{{ID}}", li.id);
+      .replaceAll("{{ID}}", li.id);
     listItems += liHtml;
   });
   html = html.replace("{{LI}}", listItems);
@@ -82,13 +82,44 @@ app.get("/destroy/:id", (req, res) => {
 
   let data = fs.readFileSync("./data/newanimals.json", "utf8");
   data = JSON.parse(data);
-  data = data.filter((c) => c.id !== req.params.id);
+  data = data.filter((a) => a.id !== req.params.id);
   data = JSON.stringify(data);
   fs.writeFileSync("./data/newanimals.json", data);
 
   // addMessage(req.sessionsId, "Color was deleted", "info");
 
   res.redirect(302, "http://localhost/list");
+});
+
+app.get("/edit/:id", (req, res) => {
+  let data = fs.readFileSync("./data/newanimals.json", "utf8");
+  data = JSON.parse(data);
+  const animal = data.find((a) => a.id === req.params.id);
+
+  let html = fs.readFileSync("./data/edit.html", "utf8");
+  html = html
+    .replace("{{NAME}}", animal.name)
+    .replace("{{AGE}}", animal.age)
+    .replace("{{SPECIES}}", animal.species);
+  res.send(html);
+  // }
+});
+
+app.post("/update/:id", (req, res) => {
+  const name = req.body.name;
+  const age = parseInt(req.body.age);
+  const species = req.body.species;
+  let data = fs.readFileSync("./data/newanimals.json", "utf8");
+  data = JSON.parse(data);
+  data = data.map((c) =>
+    c.id === req.params.id ? { ...c, name, age, species } : c
+  );
+  data = JSON.stringify(data);
+  fs.writeFileSync("./data/newanimals.json", data);
+
+  // addMessage(req.sessionsId, "New color was edited", "success");
+  res.redirect(data);
+  // res.redirect(302, "http://localhost/list");
 });
 
 app.listen(port, (_) => {
