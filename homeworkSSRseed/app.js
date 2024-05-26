@@ -4,13 +4,52 @@ const app = express();
 const port = 80;
 const cookieParser = require("cookie-parser");
 const { v4: uuidv4 } = require("uuid");
-const md5 = require("md5");
 
 app.use(cookieParser());
 app.use(express.static("public"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 const fs = require("node:fs");
+
+const addMessage = (id, text, color) => {
+  let data = fs.readFileSync("./data/sessions.json", "utf8");
+  data = JSON.parse(data);
+  data = data.map((s) =>
+    s.id === id ? { id, d: { ...s.d, msg: { text, color } } } : s
+  );
+  data = JSON.stringify(data);
+  fs.writeFileSync("./data/sessions.json", data);
+};
+
+
+
+app.use((req, res, next) => {
+  const id = req.cookies.ANIMALS || "";
+  let data = fs.readFileSync("./data/sessions.json", "utf8");
+  data = JSON.parse(data);
+  if (!id) {
+    const newId = uuidv4();
+    data.push({ id: newId, d: {} });
+    data = JSON.stringify(data);
+    fs.writeFileSync("./data/sessions.json", data);
+    res.cookie("ANIMALS", newId, { maxAge: 24 * 60 * 60 * 1000 });
+    req.sessionsId = newId;
+  } else {
+    let session = data.find((s) => s.id === id);
+    if (!session) {
+      const newId = uuidv4();
+      data.push({ id: newId, d: {} });
+      data = JSON.stringify(data);
+      fs.writeFileSync("./data/sessions.json", data);
+      res.cookie("ANIMALS", newId, { maxAge: 24 * 60 * 60 * 1000 });
+      req.sessionsId = newId;
+    } else {
+      req.sessionsId = id;
+      res.cookie("ANIMALS", id, { maxAge: 24 * 60 * 60 * 1000 });
+    }
+  }
+  next();
+});
 
 app.get("/", (req, res) => {
   let html = fs.readFileSync("./data/index.html", "utf8");
@@ -52,7 +91,7 @@ app.post("/store", (req, res) => {
   data.push({ id: id, name: name, species: species, age: age });
   data = JSON.stringify(data);
   fs.writeFileSync("./data/newanimals.json", data);
-
+  
   res.redirect(302, "http://localhost/create");
 });
 
@@ -99,27 +138,26 @@ app.get("/edit/:id", (req, res) => {
   let html = fs.readFileSync("./data/edit.html", "utf8");
   html = html
     .replace("{{NAME}}", animal.name)
+    .replace("{{ID}}", animal.id)
     .replace("{{AGE}}", animal.age)
     .replace("{{SPECIES}}", animal.species);
   res.send(html);
-  // }
 });
 
 app.post("/update/:id", (req, res) => {
   const name = req.body.name;
   const age = parseInt(req.body.age);
   const species = req.body.species;
+  const id = req.params.id;
   let data = fs.readFileSync("./data/newanimals.json", "utf8");
   data = JSON.parse(data);
   data = data.map((c) =>
-    c.id === req.params.id ? { ...c, name, age, species } : c
+    c.id === req.params.id ? { ...c, id, name, species, age } : c
   );
   data = JSON.stringify(data);
   fs.writeFileSync("./data/newanimals.json", data);
-
   // addMessage(req.sessionsId, "New color was edited", "success");
-  res.redirect(data);
-  // res.redirect(302, "http://localhost/list");
+  res.redirect(302, "http://localhost/list");
 });
 
 app.listen(port, (_) => {

@@ -1,14 +1,1 @@
-[
-  {
-    "id": "11f71d4e-2f83-4ad1-9ce2-5beb56708c91",
-    "name": "Lion",
-    "species": "Cet",
-    "age": 8
-  },
-  {
-    "id": "42564ee5-d53d-43db-b324-9769e6b5dfe7",
-    "name": "ee",
-    "species": "ee",
-    "age": 6
-  }
-]
+[{"id":"44b98b3e-0fc9-44ac-9675-f88c0a627938","name":"Lion","species":"King","age":5}]
