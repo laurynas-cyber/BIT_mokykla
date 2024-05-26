@@ -58,22 +58,19 @@ child.addEventListener("click", (event) => {
   child.style.backgroundColor = "yellow"; //evento bublinimas. nusidazys abu. reikia stabdyti bubblinima stopPropogation()
 });
 
-
-//regex panaudojimas 
+//regex panaudojimas
 const obj = {
-  smartAnimal32: 'Fox',
-  funnyAnimal88: 'Racoon',
-  bigAnimal105: 'Wolf'
-}
+  smartAnimal32: "Fox",
+  funnyAnimal88: "Racoon",
+  bigAnimal105: "Wolf",
+};
 
 const regex = /\d+/g;
 
-
 for (const a in obj) {
+  const found = a.match(regex);
 
-    const found = a.match(regex);
-
-    console.log(obj[a], found[0]);
+  console.log(obj[a], found[0]);
 }
 
 // <!-- https://regex101.com/ -->

@@ -46,7 +46,7 @@ objektiniame programavime svarbu parasyti taip kad reiketu kuo maziau naudoti if
 
 hash funkcijos - hash algoritmai kurti pakeisti slaptazodzius
 
-Middleware - cookiams?
+Middleware - cookiams sessions https://expressjs.com/en/guide/using-middleware.html
 
 Mariadb realecine duomenu bazes - rysines duomenu bazes. visos realeacine duomenu bazes programuojamos sql kalba
 

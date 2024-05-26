@@ -12,13 +12,15 @@ npm i laravel-mix
 
 npm i sass
 
+npm install cookie-parser // cookies
+
 -webpacko instalas?
 
 npm start -startuoja serveri
 
 npx mix -sumixina laravel??
 
-npm run dev -??
+npm run dev -kad nereiktu rasyti kiekviena karta.i js faila riekia i rasyti komanda kad veiktu
 
 npm i uuid -instalina uuid
 
