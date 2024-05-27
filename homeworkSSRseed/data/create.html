@@ -4,11 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="http://localhost/style.css" />
+    <script src="http://localhost/app.js"></script>
     <title>LOL</title>
   </head>
   <body>
     <div class="form">
       <form action="http://localhost/store" method="post">
+        {{MSG}}
         <div class="m-3">
           <label class="form-label">Animal Name</label>
           <input type="text" class="write" name="name" value="" />
@@ -22,7 +24,7 @@
           <input type="text" class="write" name="age" value="" />
         </div>
         <button type="submit" class="btn">Create Animal</button>
-        <a href="http://localhost/" class="btn">Cancel</a>
+        <a href="http://localhost/" class="btn">Back to menu</a>
       </form>
     </div>
   </body>

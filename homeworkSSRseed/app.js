@@ -21,7 +21,23 @@ const addMessage = (id, text, color) => {
   fs.writeFileSync("./data/sessions.json", data);
 };
 
-
+const showMessage = (id) => {
+  let data = fs.readFileSync("./data/sessions.json", "utf8");
+  data = JSON.parse(data);
+  const session = data.find((s) => s.id === id);
+  if (!session || !session.d?.msg) {
+    return "";
+  }
+  const { text, color } = session.d.msg;
+  delete session.d.msg;
+  data = JSON.stringify(data);
+  fs.writeFileSync("./data/sessions.json", data);
+  return `
+        <div class="alert ${color}" role="alert">
+        ${text}
+        </div>
+        `;
+};
 
 app.use((req, res, next) => {
   const id = req.cookies.ANIMALS || "";
@@ -77,7 +93,7 @@ app.get("/seed", (req, res) => {
 
 app.get("/create", (req, res) => {
   let html = fs.readFileSync("./data/create.html", "utf8");
-
+  html = html.replace("{{MSG}}", showMessage(req.sessionsId));
   res.send(html);
 });
 
@@ -86,12 +102,17 @@ app.post("/store", (req, res) => {
   const age = parseInt(req.body.age);
   const species = req.body.species;
   const id = uuidv4();
+  if (name.length < 3) {
+    addMessage(req.sessionsId, "Name is too short", "danger");
+
+    res.redirect(302, `http://localhost/create`).end();
+  }
   let data = fs.readFileSync("./data/newanimals.json", "utf8");
   data = JSON.parse(data);
   data.push({ id: id, name: name, species: species, age: age });
   data = JSON.stringify(data);
   fs.writeFileSync("./data/newanimals.json", data);
-  
+  addMessage(req.sessionsId, "New animal was added", "green");
   res.redirect(302, "http://localhost/create");
 });
 
@@ -110,7 +131,9 @@ app.get("/list", (req, res) => {
       .replaceAll("{{ID}}", li.id);
     listItems += liHtml;
   });
-  html = html.replace("{{LI}}", listItems);
+  html = html
+    .replace("{{LI}}", listItems)
+    .replace("{{MSG}}", showMessage(req.sessionsId));
   res.send(html);
 });
 
@@ -125,7 +148,7 @@ app.get("/destroy/:id", (req, res) => {
   data = JSON.stringify(data);
   fs.writeFileSync("./data/newanimals.json", data);
 
-  // addMessage(req.sessionsId, "Color was deleted", "info");
+  addMessage(req.sessionsId, "Animal was deleted", "delete");
 
   res.redirect(302, "http://localhost/list");
 });
@@ -140,7 +163,8 @@ app.get("/edit/:id", (req, res) => {
     .replace("{{NAME}}", animal.name)
     .replace("{{ID}}", animal.id)
     .replace("{{AGE}}", animal.age)
-    .replace("{{SPECIES}}", animal.species);
+    .replace("{{SPECIES}}", animal.species)
+    .replace("{{MSG}}", showMessage(req.sessionsId));
   res.send(html);
 });
 
@@ -149,6 +173,11 @@ app.post("/update/:id", (req, res) => {
   const age = parseInt(req.body.age);
   const species = req.body.species;
   const id = req.params.id;
+  if (name.length < 3) {
+    addMessage(req.sessionsId, "Name is too short", "danger");
+
+    res.redirect(302, `http://localhost/edit/${id}`).end();
+  }
   let data = fs.readFileSync("./data/newanimals.json", "utf8");
   data = JSON.parse(data);
   data = data.map((c) =>
@@ -156,7 +185,7 @@ app.post("/update/:id", (req, res) => {
   );
   data = JSON.stringify(data);
   fs.writeFileSync("./data/newanimals.json", data);
-  // addMessage(req.sessionsId, "New color was edited", "success");
+  addMessage(req.sessionsId, "Animal was edited", "edit");
   res.redirect(302, "http://localhost/list");
 });
 

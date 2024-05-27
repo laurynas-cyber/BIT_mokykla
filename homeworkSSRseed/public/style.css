@@ -108,3 +108,24 @@ form button[type=submit] {
   width: 100px;
   padding: 10px;
 }
+
+.alert {
+  color: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+.green {
+  background-color: rgb(24, 55, 13);
+}
+
+.delete {
+  background-color: rgb(78, 20, 20);
+}
+
+.edit {
+  background-color: rgb(112, 94, 28);
+}

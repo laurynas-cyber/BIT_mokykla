@@ -7,7 +7,13 @@
   \********************/
 /***/ (() => {
 
-
+window.addEventListener("load", function (_) {
+  if (document.querySelector(".alert")) {
+    setTimeout(function (_) {
+      document.querySelector(".alert").remove();
+    }, 2000);
+  }
+});
 
 /***/ }),
 

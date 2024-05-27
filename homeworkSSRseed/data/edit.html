@@ -4,11 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="http://localhost/style.css" />
+    <script src="http://localhost/app.js"></script>
     <title>Edit</title>
   </head>
   <body>
     <div class="form">
       <form action="http://localhost/update/{{ID}}" method="post">
+        {{MSG}}
         <div class="m-3">
           <label class="form-label">Name: {{NAME}}</label>
           <input type="text" class="write" name="name" value="" />
