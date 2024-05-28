@@ -53,3 +53,5 @@ Mariadb realecine duomenu bazes - rysines duomenu bazes. visos realeacine duomen
 dokumentine duomenu rusis? -  Mongodb (js pasaulyje paplitusi) nosql duomenu baze
 
 SQL - structured query language
+
+sanitization - automatiskai bloga vartotojo irasai automatiskai istaisom be vartotojo isikisimo. Validacija su vartotojo isikisimu. Pirmiau geriau sanitizuot o paskui validuoti
