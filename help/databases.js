@@ -14,3 +14,6 @@ WHERE id = ?
     res.redirect(302, "http://localhost:8080/");
   });
 });
+
+// databaze kai nuluzta xampp folderis -> mysql -> data delete viska -> ir tada is backup nukopijuoti i data
+
