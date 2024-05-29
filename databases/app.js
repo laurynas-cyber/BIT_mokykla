@@ -18,6 +18,64 @@ app.use(express.static("public"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.get("/book", (_, res) => {
+  let html = fs.readFileSync("./data/book.html", "utf8");
+  const listItem = fs.readFileSync("./data/listItem2.html", "utf8");
+
+  // SELECT ProductID, ProductName, CategoryName
+  // FROM Products
+  // INNER JOIN Categories ON Products.CategoryID = Categories.CategoryID;
+
+  const sql = `
+        SELECT c.id, c.name, p.number
+        FROM clients AS c
+        INNER JOIN phones AS p
+        ON c.id = p.client_id
+
+    `;
+
+  connection.query(sql, (err, rows) => {
+    if (err) throw err;
+
+    let listItems = "";
+    rows.forEach((client) => {
+      let liHtml = listItem;
+      liHtml = liHtml
+        .replace("{{ID}}", client.id)
+        .replace("{{NAME}}", client.name)
+        .replace("{{PHONE}}", client.number);
+      listItems += liHtml;
+    });
+    html = html.replace("{{LI}}", listItems);
+    res.send(html);
+  });
+});
+
+app.get("/stats", (_, res) => {
+  let html = fs.readFileSync("./data/stats.html", "utf8");
+
+  // SELECT MIN(Price)
+  // FROM Products;
+
+  const sql = `
+        SELECT MIN(height) AS min, MAX(height) AS max, COUNT(*) AS count, SUM(height) AS sum, AVG(height) AS avg
+        FROM trees
+    `;
+
+  connection.query(sql, (err, rows) => {
+    if (err) throw err;
+
+    html = html
+      .replace("{{MAX}}", rows[0].max)
+      .replace("{{MIN}}", rows[0].min)
+      .replace("{{SUM}}", rows[0].sum)
+      .replace("{{COUNT}}", rows[0].count)
+      .replace("{{AVG}}", rows[0].avg);
+
+    res.send(html);
+  });
+});
+
 app.get("/find", (req, res) => {
   let html = fs.readFileSync("./data/find.html", "utf8");
   const listItem = fs.readFileSync("./data/listItem.html", "utf8");
@@ -25,7 +83,7 @@ app.get("/find", (req, res) => {
   // SELECT column1, column2, ...
   // FROM table_name;
 
-  let s = req.query.s;
+  const s = req.query.s;
 
   const sql = `
         SELECT id, name, height, type
@@ -83,45 +141,28 @@ app.get("/", (_, res) => {
   });
 });
 
-app.get("/stats", (_, res) => {
-  let html = fs.readFileSync("./data/stats.html", "utf8");
-
-  //   SELECT MAX(Price)
-  // FROM Products;
-
-  const sql = `
-        SELECT MIN(height) AS min, MAX(height) AS max, COUNT(*) AS count, SUM(height) AS sum, AVG(height) AS avg
-        FROM trees
-    `;
-
-  connection.query(sql, (err, rows) => {
-    if (err) throw err;
-    console.log(rows);
-    res.send(html);
-  });
-});
-
 app.post("/plant", (req, res) => {
   let { name, height, type } = req.body;
 
-  //mini sanitization
-
+  // sanitization
   height = parseFloat(height);
   isNaN(height) && (height = 0);
-
-  !["lapuotis", "spygliuotis", "palme"].includes(type) && (type = "lapuotis");
-
+  !["lapuotis", "spygliuotis", "palmė"].includes(type) && (type = "lapuotis");
   !name && (name = "---");
 
   //  INSERT INTO table_name (column1, column2, column3, ...)
   //  VALUES (value1, value2, value3, ...);
 
-  const sql = `
-        INSERT INTO trees (name, height, type)
-        VALUES ( ?, ?, ? )
-    `;
+  // const sql = `
+  //     INSERT INTO trees (name, height, type)
+  //     VALUES ( '${name}', ${parseFloat(height)}, '${type}' )
+  // `;
 
-  connection.query(sql, [name, parseFloat(height), type], (err) => {
+  const sql = `
+    INSERT INTO trees (name, height, type)
+    VALUES ( ?, ?, ? )
+`;
+  connection.query(sql, [name, height, type], (err) => {
     if (err) throw err;
     res.redirect(302, "http://localhost:8080/");
   });
@@ -134,14 +175,13 @@ app.post("/cut", (req, res) => {
 
   // DELETE FROM trees WHERE id = 888 OR 1
 
-  //   const sql = `
-  //     DELETE FROM trees
-  //     WHERE id = ${id}
-  // `;
+  // const sql = `
+  // DELETE FROM trees
+  // WHERE id = ${id}
 
   const sql = `
-DELETE FROM trees
-WHERE id = ?
+    DELETE FROM trees
+    WHERE id = ?
 `;
   connection.query(sql, [id], (err) => {
     if (err) throw err;
@@ -152,15 +192,15 @@ WHERE id = ?
 app.post("/water", (req, res) => {
   const { id, height } = req.body;
 
-  //   UPDATE table_name
+  // UPDATE table_name
   // SET column1 = value1, column2 = value2, ...
   // WHERE condition;
-  const sql = `
-        UPDATE trees
-        SET height = ?
-        WHERE id = ?
-    `;
 
+  const sql = `
+    UPDATE trees
+    SET height = ?
+    WHERE id = ?
+`;
   connection.query(sql, [parseFloat(height), id], (err) => {
     if (err) throw err;
     res.redirect(302, "http://localhost:8080/");
