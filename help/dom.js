@@ -68,3 +68,5 @@ vz.addEventListener("click", (e) => {
 input.setAttribute("type", "checkbox"); //prideda atributa
 
 btn.closest(".--modal").style.display = "none"; //artimiausias esanti elementas --modal
+
+AllboardBlocks.forEach((block) => block.replaceWith(block.CloneNode(true))); //nuiima event listeneri
