@@ -56,6 +56,13 @@ SQL - structured query language
 
 sanitization - automatiskai bloga vartotojo irasai automatiskai istaisom be vartotojo isikisimo. Validacija su vartotojo isikisimu. Pirmiau geriau sanitizuot o paskui validuoti
 
+
+REACT
+
 Komponentas - funkcija kuri grazina html
 
 Props - komponento argumentas
+
+conditional rendiring component
+
+drilinimas - perdavima argumento per vaika anūkui

@@ -1,4 +1,4 @@
-import "./vat.css";
+import "./vat.scss";
 
 // export default function Vat(props) {
 //   console.log(props);
