@@ -57,11 +57,15 @@ SQL - structured query language
 sanitization - automatiskai bloga vartotojo irasai automatiskai istaisom be vartotojo isikisimo. Validacija su vartotojo isikisimu. Pirmiau geriau sanitizuot o paskui validuoti
 
 
+destruktinimas https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+
 REACT
 
 Komponentas - funkcija kuri grazina html
 
 Props - komponento argumentas
+
+state - 
 
 conditional rendiring component
 
