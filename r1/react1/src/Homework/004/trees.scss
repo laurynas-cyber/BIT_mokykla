@@ -1,0 +1,53 @@
+.greenContainer {
+  width: 800px;
+  height: 600px;
+  background-color: #8cc084;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  .bar {
+    background-color: #ecdcb0;
+    height: 400px;
+    width: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: flex-start;
+    gap: 10px;
+  }
+}
+
+.square {
+  width: 40px;
+  height: 40px;
+  background-color: grey;
+}
+
+.AntrasUzdv {
+  margin-top: 100px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.blcksq {
+  width: 150px;
+  height: 150px;
+  flex-wrap: wrap;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sq-3 {
+    width: 150px;
+    height: 150px;
+    flex-wrap: wrap;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

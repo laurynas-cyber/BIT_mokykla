@@ -119,3 +119,5 @@ export default function Vat({ productPrice, color, show }) {
       )
     )}
 </ul>
+
+const [sq, setSq] = useState([]); //modifikuojant naudojant state App( ) pasileidzia is naujo

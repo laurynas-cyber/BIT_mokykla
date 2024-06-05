@@ -1,111 +1,99 @@
 import "./App.css";
 import "./buttons.scss";
-import randomColor from "./funkcijos/randcolor";
+import "./Homework/004/trees.scss";
+import "./Homework/004/Blackbox";
 import { useRef, useState } from "react";
+import Blackbox from "./Homework/004/Blackbox";
+
+// https://docs.google.com/document/d/1VVhsR2wmo-I5_Ynk0wOswAlQacyaO6sC7YeM8uES34s/edit
+
 function App() {
-  const [count, setCount] = useState(100);
-  const [figure, setFigure] = useState("square");
-  const [sq, setSq] = useState([]); //modifikuojant naudojant state App( ) pasileidzia is naujo
+  const [tree, setTree] = useState([]);
+  const [uosis, setUosis] = useState([]);
+  const [berzas, setBerzas] = useState([]);
+  const [blcksq, setSq] = useState([]);
+  const [count, setCount] = useState(
+    localStorage.getItem("myH1") !== null ? localStorage.getItem("myH1") : 0
+  );
 
   const add1 = (_) => {
-    setCount((Oldcount) => Oldcount + 1);
-  };
-
-  const minus1 = (_) => {
-    setCount((Oldcount) => Oldcount - 1);
-  };
-  const reset = (_) => {
-    setCount(0);
-  };
-  const big = (_) => {
-    setCount((Oldcount) => Oldcount * Oldcount);
-  };
-
-  const changeFigure = (_) => {
-    setFigure((figure) => (figure === "square" ? "circle" : "square"));
+    setCount((Oldcount) => {
+      const CountCopy = parseInt(Oldcount) + 1;
+      localStorage.setItem("myH1", CountCopy);
+      return CountCopy;
+    });
   };
 
   const id = useRef(1);
-
-  const addsq = (_) => {
-    setSq((a) => [
-      ...a,
-      {
-        id: id.current++,
-        color: randomColor(),
-      },
-    ]);
-    // setSq(a => {
-    //     const aCopy = [...a];
-    //     aCopy.push(id.current++);
-    //     return aCopy;
-    // });
+  const addOak = (_) => {
+    setTree((t) => [...t, id.current++]);
   };
 
-  const removeSqEnd = (_) => {
-    setSq((a) => a.filter((s, i) => i !== a.length - 1));
+  const addB = (_) => {
+    setBerzas((t) => [...t, id.current++]);
+  };
+  const addU = (_) => {
+    setUosis((t) => [...t, id.current++]);
+  };
+  const addBlkSq = (_) => {
+    setSq((b) => [...b, id.current++]);
   };
 
-  const removeSqStart = (_) => {
-    setSq((a) => a.filter((s, i) => i !== 0));
-  };
   return (
     <div className="App">
       <header className="App-header">
-        <div
-          onClick={changeFigure}
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            cursor: "pointer",
-            width: "200px",
-            height: "200px",
-            transition: "all 0.5s",
-            backgroundColor: figure === "square" ? "skyblue" : "crimson",
-            borderRadius: figure === "square" ? null : "50%",
-          }}
-        >
-          <h1>{count}</h1>
+        <div class="AntrasUzdv">
+          <button className="red" onClick={addBlkSq}>
+            Prideti
+          </button>
+          <div className="sq-bin">
+            {blcksq.map((b) => (
+              <Blackbox key={b} />
+            ))}
+          </div>
+          <div className="sq-bin">
+            <span style={{ fontSize: "40px" }}>{count}</span>
+            <button className="green" onClick={add1}>
+              +
+            </button>
+          </div>
         </div>
-        <div className="sq-bin">
-          {sq.map((s) => (
-            <div
-              key={s.id}
-              className="sq"
-              style={{
-                backgroundColor: s.color + "66",
-                borderColor: s.color,
-              }}
-            >
-              {s.id}
+        <div className="greenContainer">
+          <div>
+            <h2>Ąžuolas</h2>
+            <div className="bar">
+              {tree.map((t) => (
+                <div key={t} className="square"></div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          <div>
+            <h2>Beržas</h2>
+            <div className="bar">
+              {berzas.map((t) => (
+                <div key={t} className="square"></div>
+              ))}
+            </div>
+          </div>
+          <div>
+            <h2>Uosis</h2>
+            <div className="bar">
+              {uosis.map((t) => (
+                <div key={t} className="square"></div>
+              ))}
+            </div>
+          </div>
         </div>
         <div className="buttons">
-          <button type="button" className="green" onClick={add1}>
-            {" "}
-            +1{" "}
+          <button className="green" onClick={addOak}>
+            Ąžuolas
           </button>
-          <button type="button" className="blue" onClick={minus1}>
-            -1
+          <button className="blue" onClick={addB}>
+            beržas
           </button>
-          <button type="button" className="red" onClick={reset}>
-            {" "}
-            0{" "}
-          </button>
-          <button type="button" className="yellow" onClick={big}>
-            {" "}
-            **{" "}
-          </button>
-          <button type="button" className="green" onClick={addsq}>
-            ADD
-          </button>
-          <button type="button" className="red" onClick={removeSqEnd}>
-            Remove Last
-          </button>
-          <button type="button" className="red" onClick={removeSqStart}>
-            Remove First
+          <button className="yellow" onClick={addU}>
+            uosis
           </button>
         </div>
       </header>
