@@ -1,86 +1,113 @@
 import "./App.css";
-import "./Homework/003/dogs.scss";
-import Dog from "./Homework/003/Dogs";
-
-// https://docs.google.com/document/d/1sMMk_ROxJsXIR3ZFuaPEu0OvrwztyYCjkz13ELKUaPs/edit
+import "./buttons.scss";
+import randomColor from "./funkcijos/randcolor";
+import { useRef, useState } from "react";
 function App() {
-  const dogs = ["šuo", "šunius", "Bobikas", "kudlius", "Šarikas", "avigalvis"];
+  const [count, setCount] = useState(100);
+  const [figure, setFigure] = useState("square");
+  const [sq, setSq] = useState([]); //modifikuojant naudojant state App( ) pasileidzia is naujo
 
+  const add1 = (_) => {
+    setCount((Oldcount) => Oldcount + 1);
+  };
+
+  const minus1 = (_) => {
+    setCount((Oldcount) => Oldcount - 1);
+  };
+  const reset = (_) => {
+    setCount(0);
+  };
+  const big = (_) => {
+    setCount((Oldcount) => Oldcount * Oldcount);
+  };
+
+  const changeFigure = (_) => {
+    setFigure((figure) => (figure === "square" ? "circle" : "square"));
+  };
+
+  const id = useRef(1);
+
+  const addsq = (_) => {
+    setSq((a) => [
+      ...a,
+      {
+        id: id.current++,
+        color: randomColor(),
+      },
+    ]);
+    // setSq(a => {
+    //     const aCopy = [...a];
+    //     aCopy.push(id.current++);
+    //     return aCopy;
+    // });
+  };
+
+  const removeSqEnd = (_) => {
+    setSq((a) => a.filter((s, i) => i !== a.length - 1));
+  };
+
+  const removeSqStart = (_) => {
+    setSq((a) => a.filter((s, i) => i !== 0));
+  };
   return (
     <div className="App">
       <header className="App-header">
-        <h3>5uzdv</h3>
-        <ul>
-          {dogs.map((d, i) =>
-            d.length > 6 ? (
-              <>
-                <div className="HW2container">
-                  <span>{d.length}.</span>
-                  <Dog key={i} dog={d} color={"#47A025"} />
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="HW2container">
-                  <span>{d.length}.</span>
-                  <Dog key={i} dog={d} color="#BA274A" />
-                </div>
-              </>
-            )
-          )}
-        </ul>
-        <ul>
-          {dogs
-            .filter((d) => d[0] !== d[0].toUpperCase())
-            .map((d, i) => (
-              <li className="sqr" key={i}>
-                {d}
-              </li>
-            ))}
-        </ul>
-        <h3>3uzdv</h3>
-        <ul>
-          {dogs.map((d, i) =>
-            i % 2 === 0 ? (
-              <>
-                <li className="sqr" key={i}>
-                  {d}
-                </li>
-              </>
-            ) : (
-              <>
-                <li className="ovl" key={i}>
-                  {d}
-                </li>
-              </>
-            )
-          )}
-        </ul>
-        <h3>2uzdv</h3>
-        <ol>
-          {dogs
-            .sort((a, b) => b.length - a.length)
-            .map((d, i) => (
-              <>
-                <div className="HW2container">
-                  <span>{i}.</span>
-                  <li className="ovl" key={i}>
-                    {d}
-                  </li>
-                </div>
-              </>
-            ))}
-        </ol>
-        <h3>1uzdv</h3>
-        <ul>
-          {dogs.map((d, i) => (
-            <>
-              <li className="sqr" key={i}>
-                {d}
-              </li>
-            </>
+        <div
+          onClick={changeFigure}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            cursor: "pointer",
+            width: "200px",
+            height: "200px",
+            transition: "all 0.5s",
+            backgroundColor: figure === "square" ? "skyblue" : "crimson",
+            borderRadius: figure === "square" ? null : "50%",
+          }}
+        >
+          <h1>{count}</h1>
+        </div>
+        <div className="sq-bin">
+          {sq.map((s) => (
+            <div
+              key={s.id}
+              className="sq"
+              style={{
+                backgroundColor: s.color + "66",
+                borderColor: s.color,
+              }}
+            >
+              {s.id}
+            </div>
           ))}
-        </ul>
+        </div>
+        <div className="buttons">
+          <button type="button" className="green" onClick={add1}>
+            {" "}
+            +1{" "}
+          </button>
+          <button type="button" className="blue" onClick={minus1}>
+            -1
+          </button>
+          <button type="button" className="red" onClick={reset}>
+            {" "}
+            0{" "}
+          </button>
+          <button type="button" className="yellow" onClick={big}>
+            {" "}
+            **{" "}
+          </button>
+          <button type="button" className="green" onClick={addsq}>
+            ADD
+          </button>
+          <button type="button" className="red" onClick={removeSqEnd}>
+            Remove Last
+          </button>
+          <button type="button" className="red" onClick={removeSqStart}>
+            Remove First
+          </button>
+        </div>
       </header>
     </div>
   );

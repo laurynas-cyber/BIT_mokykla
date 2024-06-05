@@ -91,7 +91,7 @@ export default function Vat({ productPrice, color, show }) {
   <ul>
   {fruits2.map((f) =>
     f.name !== "fig" ? (
-      <Fruit key={f.id} fruit={f} /> //naudojam Fruit komponanta kuriame yra li bet perduodam jam {f} propsa.
+      <Fruit key={f.id} fruit={f} /> //naudojam Fruit komponanta kuriame yra li bet perduodam jam {f} propsa. KEY TURI BUTI PIRMAS ELEMENTAS PO mapo!!
     ) : (
       <Fig key={f.id} fruit={f} /> //key yra privalumas ir turi buti unikalus
     )
