@@ -1,0 +1,58 @@
+.top {
+  width: 100%;
+  display: flex;
+  justify-content: right;
+  div {
+    background-color: red;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    margin-right: 220px;
+  }
+}
+
+.container {
+  margin-top: 80px;
+  width: 99%;
+  height: 80vh;
+  background-color: black;
+  border: solid 10px black;
+  border-radius: 10px;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 15% auto auto;
+  grid-template-rows: 20% auto auto;
+}
+
+.item {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.red {
+  background-color: red;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.white {
+  background-color: white;
+}
+
+/* .fixed {
+    height: 40%;
+} */
+
+/* .change {
+  grid-row: span 3;
+} */
+
+/* .change1 {
+  width: 100%;
+} */
