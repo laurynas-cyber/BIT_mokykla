@@ -2,53 +2,34 @@ import { useRef, useState } from "react";
 
 import "./App.css";
 import "./buttons.scss";
-import Buttons from "./Components/005/Buttons";
-import Counter from "./Components/005/Counter";
-import randomColor from "./funkcijos/randcolor";
-import SqButtons from "./Components/005/SqButtons";
-import Parent from "./Components/005/Parent";
-import Link from "./Components/005/Link";
-import SqBin from "./Components/005/SqBin";
+import "./Homework/005/style.scss";
+import CWfield from "./Homework/005/Cowsfield";
+import Shfield from "./Homework/005/Sheepfield";
+import rand from "./funkcijos/randnum";
+
 function App() {
-  const [counter, setCounter] = useState(50);
-  const [sq, setSq] = useState([]);
+  const [animal, setAnimal] = useState([]);
+  const randNumbString = rand(0, 9999999).toString().padStart(7, "0");
+  console.log(randNumbString);
+  console.log(rand(0, 9999999));
 
-  const id = useRef(1);
+  const id = useRef(rand(0, 100));
 
-  const addSq = (_) => {
-    setSq((a) => [
-      ...a,
-      {
-        id: id.current++,
-        color: randomColor(),
-        rotate: 0,
-      },
-    ]);
-  };
-
-  const rotateSq = (id) => {
-    setSq((a) =>
-      a.map((s) => (s.id === id ? { ...s, rotate: s.rotate + 15 } : s))
-    );
+  const addanimal = (_) => {
+    setAnimal((a) => [...a, id.current]);
   };
 
   return (
     <div className="App">
       <header className="App-header">
-        <Counter counter={counter} />
-        <Buttons setCounter={setCounter} />
-        <SqBin sq={sq} rotateSq={rotateSq} />
-        <SqButtons addSq={addSq} />
-        <Parent>
-          <h2>I'm here!</h2>
-        </Parent>
-        <Link to="https://google.com">
-          <div>
-            Go to GOOGLE<span>-----</span>
-          </div>
-          <div>Run to GOOGLE</div>
-          <div>Dont go to GOOGLE</div>
-        </Link>
+        <h1>Ganykla</h1>
+        <div className="ganyklaContainer">
+          <CWfield animal={animal}></CWfield>
+          <button type="button" className="red" onClick={addanimal}>
+            Go
+          </button>
+          <Shfield></Shfield>
+        </div>
       </header>
     </div>
   );
