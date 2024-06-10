@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import rand from "../../../funkcijos/randnum";
 import "./Homework/005/destytojo/ganykla.scss";
 // import "./Homework/005/ganykla.scss";
+// https://docs.google.com/document/d/1wMTC1i8dNZ5vLSgz-ouZECMufw1qALnX1j5ovP-QYxk/edit?usp=sharing
 
 import "./App.css";
 import "./buttons.scss";

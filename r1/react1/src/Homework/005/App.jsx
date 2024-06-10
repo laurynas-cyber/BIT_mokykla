@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+// https://docs.google.com/document/d/1wMTC1i8dNZ5vLSgz-ouZECMufw1qALnX1j5ovP-QYxk/edit?usp=sharing
 
 import "./App.css";
 import "./buttons.scss";
@@ -7,6 +8,8 @@ import CWfield from "./Homework/005/Cowsfield";
 import Shfield from "./Homework/005/Sheepfield";
 import rand from "./funkcijos/randnum";
 
+
+// Cia viskas nx blogai
 function App() {
   // const [Canimal, setCAnimal] = useState([]);
   const [Sanimal, setSAnimal] = useState([]);
