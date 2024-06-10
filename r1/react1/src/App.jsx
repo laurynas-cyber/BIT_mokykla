@@ -1,34 +1,60 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import "./App.css";
 import "./buttons.scss";
-import "./Homework/005/style.scss";
-import CWfield from "./Homework/005/Cowsfield";
-import Shfield from "./Homework/005/Sheepfield";
-import rand from "./funkcijos/randnum";
 
 function App() {
-  const [animal, setAnimal] = useState([]);
-  const randNumbString = rand(0, 9999999).toString().padStart(7, "0");
-  console.log(randNumbString);
-  console.log(rand(0, 9999999));
+  const [count1, setCount1] = useState(0);
+  const [count2, setCount2] = useState(0);
 
-  const id = useRef(rand(0, 100));
+  const greenLoaded = useRef(false);
 
-  const addanimal = (_) => {
-    setAnimal((a) => [...a, id.current]);
+//   console.log("OOUTSIDE USE EFFECT");
+  useEffect(
+    (_) => {
+      if (!greenLoaded.current) {
+        greenLoaded.current = true;
+        return;
+      }
+      console.log("Green", count1);
+    },
+    [count1]
+  );
+
+  useEffect(
+    (_) => {
+      console.log("Yellow");
+    },
+    [count2]
+  );
+
+  //   useEffect(
+  //     (_) => {
+  //       console.log("Yellow or green");
+  //     },
+  //     [count2, count1]
+  //   );
+
+  const clickGreen = (_) => {
+    setCount1((c) => c + 1);
+    console.log("Green", count1);
+  };
+
+  const clickyellow = (_) => {
+    setCount2((c) => c + 1);
   };
 
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Ganykla</h1>
-        <div className="ganyklaContainer">
-          <CWfield animal={animal}></CWfield>
-          <button type="button" className="red" onClick={addanimal}>
-            Go
+        <h1>Ues Effect</h1>
+        <div className="buttons">
+          <button type="button" className="green" onClick={clickGreen}>
+            {count1}
           </button>
-          <Shfield></Shfield>
+          <button type="button" className="yellow" onClick={clickyellow}>
+            {count2}
+          </button>
         </div>
       </header>
     </div>
