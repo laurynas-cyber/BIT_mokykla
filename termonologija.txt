@@ -30,6 +30,10 @@ Laravel mix - supaprastintas webpackas
 
 ssr - server site rending
 
+SPA - single side app
+
+SSG - Static Site Generation
+
 client site rending server
 
 uuid - universalus unikalus identifikatorius, kurti id

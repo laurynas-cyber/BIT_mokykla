@@ -1,6 +1,6 @@
 npm -v -npm bibliotininkas turejo buti suinstaliuotas su node
 
-npm init -y -sukuria package json - bibliotekitinko kortele. Uzsiregistravimo komanda. 
+npm init -y -sukuria package json - bibliotekitinko kortele. Uzsiregistravimo komanda.
 
 npm i express -express instaliuoja. Serverio programos instaliavimas i Node
 
@@ -30,7 +30,7 @@ cd 005 --folderio parejimas
 
 cd .. --grizti atgal
 
-npm i boostrap 
+npm i boostrap
 
 npm i popper.js - bootstrapui reikia
 
@@ -39,3 +39,5 @@ npm i axios body-parser express laravel-mix nodemon sass uuid bootstrap //i gita
 node index.js  -paleidzia serveri
 
 npm md5 - hasho instalas
+
+npm create vite@4.1.0 arba vite@latest- vite

@@ -7,16 +7,12 @@ import Circle from "./Homework/uzduotys/Circle.jsx";
 import rand from "./funkcijos/randnum.js";
 
 function App() {
-
-
-  console.log(CircleEl);
   return (
     <div className="App">
       <header className="App-header">
         <Circle></Circle>
         <Circle></Circle>
-        <Circle>
-        </Circle>
+        <Circle></Circle>
       </header>
     </div>
   );
