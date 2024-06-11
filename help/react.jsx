@@ -121,3 +121,11 @@ export default function Vat({ productPrice, color, show }) {
 </ul>
 
 const [sq, setSq] = useState([]); //modifikuojant naudojant state App( ) pasileidzia is naujo
+
+
+
+//Hooks taisykles
+
+// Only Call Hooks at the Top Level: you cannot call useState() in loops, conditions, nested functions, etc. On multiple useState() calls, the invocation order must be the same between renderings.
+// Only Call Hooks from React Functions: you must call useState() only inside the functional component or a custom hook.
+Kaip sukurti savo hooka https://legacy.reactjs.org/docs/hooks-custom.html

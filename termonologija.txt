@@ -70,3 +70,5 @@ state -
 conditional rendiring component
 
 drilinimas - perdavima argumento per vaika anūkui
+
+DOM - document object model

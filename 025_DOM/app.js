@@ -64,5 +64,6 @@ window.addEventListener("load", (_) => {
     k += "<li>" + num + "</li>";
   }
   random.innerHTML = k;
-});
 
+
+});

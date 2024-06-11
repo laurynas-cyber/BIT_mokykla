@@ -405,3 +405,31 @@ class Fox {
 this.keleiviuSkaicius = max(0, this.keleiviuSkaicius - keleiviuSkaicius) // maksimali reiksme nuo nulio iki
 
 // objektiniame programavime svarbu parasyti taip kad reiketu kuo maziau naudoti if ciklu ir pan. parasyti taip kad butu galima tik panaudoti metodus ir maziau eiluciu
+
+//destruktinimas
+
+const obj = { a: 1, b: { c: 2 } };
+const { a } = obj; // a is constant
+let {
+  b: { c: d },
+} = obj; // d is re-assignable. Binding pattern In binding patterns, the pattern starts with a declaration keyword (var, let, or const). Then, each individual property must either be bound to a variable or further destructured.
+console.log(d);
+
+const numbers = [];
+const obj2 = { a: 1, b: 2 };
+({ a: numbers[0], b: numbers[1] } = obj2); //assignment pattern In assignment patterns, the pattern does not start with a keyword. 
+console.log(numbers);
+
+
+function drawChart({
+  size = "big",
+  coords = { x: 0, y: 0 },
+  radius = 25,
+} = {}) {
+  console.log(size, coords, radius);
+}
+
+drawChart({
+  coords: { x: 18, y: 30 },
+  radius: 30,
+});
