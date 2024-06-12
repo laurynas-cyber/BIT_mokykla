@@ -1,77 +1,53 @@
-import { useRef, useState, useEffect } from "react";
-// https://docs.google.com/document/d/1m5Co9Lv-n7Mm3IXwsnhWmNaGvbRTImcpp52fCIjUHnk/edit
+import { useEffect, useRef, useState } from "react";
 
 import "./App.css";
 import "./buttons.scss";
-import "./Homework/ReactForms/style.css";
+import rand from "./funkcijos/randnum.js";
+import Sq from "./Homework/ReactForms/002/Sq.jsx";
 
 function App() {
-  const [catName, setCatName] = useState("");
-  const [catWeight, setWeight] = useState("");
-  const [catList, setList] = useState(null);
+  const [squareList, setSqList] = useState("");
+  const [squares, setSq] = useState([]);
 
-  useEffect((_) => {
-    setList(JSON.parse(localStorage.getItem("cats") ?? "[]"));
-  }, []);
+  function HandleSquareNum(e) {
+    // console.log(isNaN(parseInt(e.target.value)));
+    // if (isNaN(parseInt(e.target.value))) {
+    //   return;
+    // } else {
+    //   setSqList(e.target.value);
+    // }
 
-  useEffect(
-    (_) => {
-      if (catList === null) {
-        return;
-      }
-      localStorage.setItem("cats", JSON.stringify(catList));
-    },
-    [catList]
-  );
-
-  function handelCatName(e) {
-    setCatName(e.target.value);
+    if (parseInt(e.target.value) > 11) {
+      return;
+    }
+    setSqList(e.target.value);
   }
 
-  function updateList() {
-    setList((item) => [...item, { CatName: catName, CatWeight: catWeight }]);
+  function putSq() {
+    for (let i = 0; i < parseInt(squareList); i++) {
+      setSq((item) => [...item, { id: rand(100, 200) }]);
+    }
   }
 
-  function deleteList() {
-    setList([]);
-  }
+  console.log(squares);
 
   return (
     <div className="App">
       <header className="App-header">
-        <h1>002uzdv</h1>
-        <ul className="CatsCont">
-          {catList !== null ? (
-            catList
-              .toSorted((a, b) => b.CatWeight - a.CatWeight)
-              .map((item, i) => (
-                <li key={i}>
-                  <span>
-                    Name: <span className="nice">{item.CatName}</span>
-                  </span>
-                  <span>
-                    Weight: <span className="nice">{item.CatWeight}</span>
-                  </span>
-                </li>
-              ))
-          ) : (
-            <div>loading...</div>
-          )}
-        </ul>
-        <span>Cat name</span>
-        <input type="text" value={catName} onChange={handelCatName}></input>
-        <span>Cat weight</span>
-        <input
-          type="text"
-          value={catWeight}
-          onChange={(e) => setWeight(e.target.value)}
-        ></input>
-        <button type="button" className="blue" onClick={updateList}>
-          SetCat
-        </button>
-        <button type="button" className="red" onClick={deleteList}>
-          Reset
-        </button>
+        <h1>002</h1>
+        <div className="sq-bin">
+          {squares.map((s, i) => (
+            <div className="sq" key={i}>
+              {s.id}
+            </div>
+          ))}
+        </div>
+        <Sq
+          Sqlist={squareList}
+          sq={squares}
+          funk={HandleSquareNum}
+          clickFunk={putSq}
+        ></Sq>
       </header>
     </div>
   );
