@@ -9,7 +9,7 @@ import Shfield from "./Homework/005/Sheepfield";
 import rand from "./funkcijos/randnum";
 
 
-// Cia viskas nx blogai
+// Cia viskas blogai
 function App() {
   // const [Canimal, setCAnimal] = useState([]);
   const [Sanimal, setSAnimal] = useState([]);
