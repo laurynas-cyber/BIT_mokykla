@@ -1,0 +1,12 @@
+.CatsCont {
+  width: 80%;
+  height: 400px;
+  list-style: none;
+  span {
+    font-weight: 300;
+    margin-right: 10px;
+  }
+  .nice {
+    color: aqua;
+  }
+}

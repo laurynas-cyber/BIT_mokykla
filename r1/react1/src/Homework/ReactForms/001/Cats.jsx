@@ -23,7 +23,7 @@ function App() {
     },
     [catList]
   );
-
+  console.log(catList);
   function handelCatName(e) {
     setCatName(e.target.value);
   }
@@ -32,28 +32,22 @@ function App() {
     setList((item) => [...item, { CatName: catName, CatWeight: catWeight }]);
   }
 
-  function deleteList() {
-    setList([]);
-  }
-
   return (
     <div className="App">
       <header className="App-header">
         <h1>002uzdv</h1>
         <ul className="CatsCont">
           {catList !== null ? (
-            catList
-              .toSorted((a, b) => b.CatWeight - a.CatWeight)
-              .map((item, i) => (
-                <li key={i}>
-                  <span>
-                    Name: <span className="nice">{item.CatName}</span>
-                  </span>
-                  <span>
-                    Weight: <span className="nice">{item.CatWeight}</span>
-                  </span>
-                </li>
-              ))
+            catList.map((item) => (
+              <li key={item.CatName}>
+                <span>
+                  Name: <span className="nice">{item.CatName}</span>
+                </span>
+                <span>
+                  Weight: <span className="nice">{item.CatWeight}</span>
+                </span>
+              </li>
+            ))
           ) : (
             <div>loading...</div>
           )}
@@ -68,9 +62,6 @@ function App() {
         ></input>
         <button type="button" className="blue" onClick={updateList}>
           SetCat
-        </button>
-        <button type="button" className="red" onClick={deleteList}>
-          Reset
         </button>
       </header>
     </div>
