@@ -41,3 +41,5 @@ node index.js  -paleidzia serveri
 npm md5 - hasho instalas
 
 npm create vite@4.1.0 arba vite@latest- vite
+
+npx create-react folderioname

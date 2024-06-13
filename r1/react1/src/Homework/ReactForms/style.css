@@ -10,3 +10,16 @@
     color: aqua;
   }
 }
+
+fieldset {
+  height: 300px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.Square {
+  width: 100px;
+  height: 100px;
+  background-color: black;
+}
