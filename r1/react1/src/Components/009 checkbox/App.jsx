@@ -62,25 +62,6 @@ function App() {
     </svg>
   );
 
-  const rem = (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="469.404px"
-      height="469.404px"
-      viewBox="0 0 469.404 469.404"
-    >
-      <g>
-        <path
-          d="M310.4,235.083L459.88,85.527c12.545-12.546,12.545-32.972,0-45.671L429.433,9.409c-12.547-12.546-32.971-12.546-45.67,0
-      L234.282,158.967L85.642,10.327c-12.546-12.546-32.972-12.546-45.67,0L9.524,40.774c-12.546,12.546-12.546,32.972,0,45.671
-      l148.64,148.639L9.678,383.495c-12.546,12.546-12.546,32.971,0,45.67l30.447,30.447c12.546,12.546,32.972,12.546,45.67,0
-      l148.487-148.41l148.792,148.793c12.547,12.546,32.973,12.546,45.67,0l30.447-30.447c12.547-12.546,12.547-32.972,0-45.671
-      L310.4,235.083z"
-        />
-      </g>
-    </svg>
-  );
-
   const text2 = useRef();
 
   const [text1, setText1] = useState("");
@@ -109,8 +90,6 @@ function App() {
     setRadio((r) => (r === e.target.id ? "" : e.target.id));
   };
 
-  const [image, setImage] = useState(null);
-  const [imageName, setImageName] = useState("No Image");
   const animals = [
     { id: 1, name: "bebras" },
     { id: 2, name: "lape" },
@@ -146,59 +125,13 @@ function App() {
     setTexts((t) => ({ ...t, [e.target.name]: e.target.value }));
   };
 
-  const imageInput = useRef();
-
-  // reactas negali skaityti failu ne htmle jie yra read-only ir taip pat failu skaitymas vyksta asinchroniskai. Todel
-  const imageReader = (img) => {
-    return new Promise((resolve, reject) => {
-      //sukuriam eile
-      const reader = new FileReader(); //sukuriam failu readeri
-      reader.readAsDataURL(img); //skaitom faila ir laukiam
-      reader.onload = (_) => resolve(reader.result); // kai sulaukiam  grazinam rezultata
-      reader.onerror = (error) => reject; // jeigu negero nutinka tai rejectinam
-    });
-  };
-
-  const handleImage = (e) => {
-    imageReader(e.target.files[0])
-      .then((res) => {
-        setImage(res);
-        setImageName(imageInput.current.value.replace("C:\\fakepath\\", ""));
-      })
-
-      .catch((_) => {
-        setImage(null);
-        setImageName("No image");
-      });
-  };
-
-  const ClearImage = (_) => {
-    imageInput.current.value = null;
-    setImage(null);
-    setImageName("No image");
-  };
-
   return (
     <div className="App">
       <header className="App-header" style={{ backgroundColor: color }}>
         <h1 style={{ fontSize: range + "px" }}>{h1}</h1>
 
-        <fieldset>
-          <legend> File</legend>
-          <input type="file" id="F" ref={imageInput} onChange={handleImage} />
-          <label htmlFor="F">Add file: {imageName}</label>
-          <div className="up-img">
-            {image ? (
-              <>
-                <img src={image} alt="uploaded"></img>
-                <span className="cb-svg remove" onClick={ClearImage}>
-                  {rem}
-                </span>
-              </>
-            ) : null}
-          </div>
-        </fieldset>
-
+        <div className="cb-svg">{rbc}</div>
+        <div className="cb-svg">{rbu}</div>
         <fieldset>
           <legend> CheckBox</legend>
 

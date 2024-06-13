@@ -135,3 +135,14 @@ const [sq, setSq] = useState([]); //modifikuojant naudojant state App( ) pasilei
 // Only Call Hooks from React Functions: you must call useState() only inside the functional component or a custom hook.
 Kaip sukurti savo hooka https://legacy.reactjs.org/docs/hooks-custom.html
 
+const imageInput = useRef();
+
+// reactas negali skaityti failu ne htmle jie yra read-only ir taip pat failu skaitymas vyksta asinchroniskai. Todel
+const imageReader = (img) => { 
+  return new Promise((resolve, reject) => {//sukuriam eile
+    const reader = new FileReader(); //sukuriam failu readeri
+    reader.readAsDataURL(img);//skaitom faila ir laukiam
+    reader.onload = (_) => resolve(reader.result); // kai sulaukiam  grazinam rezultata
+    reader.onerror = (error) => reject; // jeigu negero nutinka tai rejectinam
+  });
+};
