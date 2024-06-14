@@ -42,6 +42,8 @@ function App() {
     // });
   };
 
+  console.log(id);
+
   const removeSqEnd = (_) => {
     setSq((a) => a.filter((s, i) => i !== a.length - 1));
   };

@@ -1,0 +1,58 @@
+.CyclesContainer {
+  border: #8c93a8 solid 2px;
+  width: 80%;
+  height: 600px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  flex-direction: column;
+  .cycle {
+    font-size: 20px;
+    margin-top: 15px;
+    height: 80px;
+    width: 90%;
+    border-radius: 15px;
+    background-color: #8c93a8;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: #042a2b;
+  }
+}
+
+input[type="checkbox"] {
+  display: flex;
+}
+
+.modalCont {
+  background-color: #042a2bcc;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  .editModal {
+    width: 50%;
+    height: 80%;
+    background-color: #8c93a8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    .editRow {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+      }
+    }
+  }
+}

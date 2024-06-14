@@ -43,3 +43,10 @@ npm md5 - hasho instalas
 npm create vite@4.1.0 arba vite@latest- vite
 
 npx create-react folderioname
+
+VC symbols 
+windows key + .
+OR
+windows key + ;
+for Mac
+CTRL + CMD + Space
