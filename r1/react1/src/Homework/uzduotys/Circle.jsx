@@ -1,8 +1,13 @@
 import "./style.scss";
 
-
-function Circle() {
-  return <div className="circle"></div>;
+function Circle({ circle }) {
+  return (
+    <div
+      className="circle"
+      style={{ backgroundColor: "red" }}
+      ref={circle}
+    ></div>
+  );
 }
 
 export default Circle;
