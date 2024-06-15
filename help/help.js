@@ -433,3 +433,11 @@ drawChart({
   coords: { x: 18, y: 30 },
   radius: 30,
 });
+
+
+//sorty by date
+const date = new Date();
+
+Dates = [date, date,date ] //supushinti skirtinga datas
+
+Dates.sort((a, b) => Date.parse(a) - Date.parse(b));
