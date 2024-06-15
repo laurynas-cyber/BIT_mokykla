@@ -5,6 +5,7 @@ import "./App.css";
 import "./buttons.scss";
 import "./Homework/Kolt/style.css";
 import rand from "./funkcijos/randnum";
+import img from "./Homework/Kolt/Colt.svg.png";
 
 function App() {
   const [cycles, setCycle] = useState(null);
@@ -177,6 +178,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <div className="motto">
+          Fast as <img src={img} alt="" /> Colt
+        </div>
         <div
           style={{
             width: "40%",

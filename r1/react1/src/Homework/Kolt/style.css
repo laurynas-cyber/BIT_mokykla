@@ -57,3 +57,17 @@ input[type="checkbox"] {
     }
   }
 }
+
+.motto {
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+  height: 600px;
+  position: absolute;
+  left: 10px;
+  img {
+    transform: rotate(90deg) scaleX(-1);
+    margin-right: 30px;
+    width: 100px;
+    height: auto;
+  }
+}
