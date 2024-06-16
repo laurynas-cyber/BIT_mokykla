@@ -44,6 +44,8 @@ npm create vite@4.1.0 arba vite@latest- vite
 
 npx create-react folderioname
 
+npm install // install package jason when vite is installed
+
 VC symbols 
 windows key + .
 OR
