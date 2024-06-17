@@ -146,3 +146,8 @@ const imageReader = (img) => {
     reader.onerror = (error) => reject; // jeigu negero nutinka tai rejectinam
   });
 };
+
+const handleTexts = (e) => {
+  setTexts((t) => ({ ...t, [e.target.name]: e.target.value })); // objekto propertis owerwritena
+  console.log(texts); // kodel console.log veluoja. Reikia naudoti useEfekta
+};

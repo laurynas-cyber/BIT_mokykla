@@ -2,7 +2,6 @@
   --CordyBlue: #92bcea;
   --text: #d1ccdc;
   --red: #a31621;
-  --eventBackground: #30343c;
 }
 
 body {
@@ -20,8 +19,8 @@ body {
   font-size: calc(10px + 2vmin);
   color: white;
   position: relative;
-  transform: scale(2.5);
-  animation-name: lol;
+  // transform: scale(2.5);
+  // animation-name: lol;
   animation-duration: 1s;
   animation-delay: 8.5s;
   animation-timing-function: ease;
@@ -94,11 +93,8 @@ body {
     height: 75px;
     border-radius: 50%;
     border: 2px solid rgba(128, 128, 128, 0.222);
-    // background-color: var(--eventBackground);
-    // background-color: color-mix(in srgb, #30343c, transparent 80%);
+    background-color: #282c3458;
   }
-
-
 
   100% {
     color: var(--text);
@@ -106,8 +102,7 @@ body {
     height: 100px;
     border-radius: 50%;
     border: 2px solid rgba(128, 128, 128, 0.555);
-    // background-color: var(--eventBackground);
-    // background-color: color-mix(in srgb, #30343c, transparent 20%);
+    background-color: #33373d;
   }
 }
 
@@ -119,7 +114,7 @@ body {
   animation-fill-mode: forwards;
   animation-iteration-count: 1;
   border: 2px solid rgba(128, 128, 128, 0.555);
-//   background-color: color-mix(in srgb, #30343c, transparent 20%);
+  background-color: #33373d;
   width: 100px;
   height: 100px;
 }
@@ -131,4 +126,12 @@ body {
   100% {
     left: 700px;
   }
+}
+
+.Test {
+  background-color: #a31621;
+  width: 100px;
+  height: 100px;
+
+  left: 100px;
 }

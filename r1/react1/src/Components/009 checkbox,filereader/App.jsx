@@ -144,6 +144,7 @@ function App() {
 
   const handleTexts = (e) => {
     setTexts((t) => ({ ...t, [e.target.name]: e.target.value }));
+    console.log(texts); // kodel veluoja console.log
   };
 
   const imageInput = useRef();
@@ -200,29 +201,7 @@ function App() {
         </fieldset>
 
         <fieldset>
-          <legend> CheckBox</legend>
-
-          <div className="cb">
-            <input type="checkbox" id="A" checked={cb.A} onChange={HandleCb} />
-            <span className="cb">A</span>
-            <label className="cb-svg" htmlFor="A">
-              {cb.A ? cbc : cbu}
-            </label>
-          </div>
-          <div className="cb">
-            <input type="checkbox" id="B" checked={cb.B} onChange={HandleCb} />
-            <span className="cb">B</span>
-            <label className="cb-svg" htmlFor="B">
-              {cb.B ? cbc : cbu}
-            </label>
-          </div>
-          <div className="cb">
-            <input type="checkbox" id="C" checked={cb.C} onChange={HandleCb} />
-            <span className="cb">C</span>
-            <label className="cb-svg" htmlFor="C">
-              {cb.C ? cbc : cbu}
-            </label>
-          </div>
+       
           <div className="cb">
             <input type="checkbox" id="D" checked={cb.D} onChange={HandleCb} />
             <span className="cb">D</span>

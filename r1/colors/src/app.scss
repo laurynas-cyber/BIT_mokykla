@@ -1,0 +1,43 @@
+@import "bootstrap/scss/bootstrap";
+@import "./Styles/buttons.scss";
+
+.modal {
+  display: block;
+  background-color: #042a2ba8;
+}
+
+.cb-bin {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  svg {
+    fill: black;
+    width: 24px;
+    height: 24px;
+  }
+
+  label {
+    height: 30px;
+    cursor: pointer;
+  }
+
+  .cb {
+    display: flex;
+    gap: 7px;
+    align-items: center;
+    height: 24px;
+    padding: 3px 0;
+
+    span {
+      line-height: 24px;
+      font-size: 24px;
+      padding-right: 10px;
+      user-select: none;
+    }
+  }
+}
