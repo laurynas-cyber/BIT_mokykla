@@ -4,7 +4,7 @@ const read = (key) => {
   const data = localStorage.getItem(key);
   if (null === data) {
     return [];
-  } else JSON.parse(data);
+  } else return JSON.parse(data);
 };
 
 const write = (key, data) => {
@@ -13,6 +13,7 @@ const write = (key, data) => {
 
 export const lsCreate = (key, data) => {
   const ls = read(key);
+  console.log(ls);
   ls.push({ ...data, id: uuid4() });
   write(key, ls);
 };
@@ -33,11 +34,11 @@ export const lsEdit = (key, data, id) => {
   );
 };
 
-export const lsRead = key => {
-    return read(key);
-}
+export const lsRead = (key) => {
+  return read(key);
+};
 
-export const show = (key, id ) => {
-    const ls = read(key);
-    return ls.find(d => d.id === id)
-}
+export const show = (key, id) => {
+  const ls = read(key);
+  return ls.find((d) => d.id === id);
+};

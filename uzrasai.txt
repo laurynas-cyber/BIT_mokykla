@@ -1,0 +1,3 @@
+ID turi buti generuojamas serveryje
+
+UseEfekte i stebetojo vieta rasyti SetFunkcijos yra apsaugotos, bet su paciu statu reikietu atsargiai nes gali uzsiciklinti

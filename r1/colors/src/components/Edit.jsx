@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Create({ create, setStore, setCreate }) {
+function Edit({ edit, setUpdate, setEdit }) {
   const rbc = (
     <svg
       height="97.75"
@@ -32,22 +32,23 @@ function Create({ create, setStore, setCreate }) {
     </svg>
   );
 
-  const [shape, setShape] = useState(create.shape);
-  const [color, setColor] = useState(create.color);
-  const [range, setRange] = useState(create.range);
+  const [shape, setShape] = useState(edit.shape);
+  const [color, setColor] = useState(edit.color);
+  const [range, setRange] = useState(edit.range);
 
   const handleShape = (e) => {
     // setShape((r) => (r === e.target.id ? "" : e.target.id));
     setShape(e.target.id);
   };
 
-  const save = (_) => {
-    setStore({
+  const handleEdit = (_) => {
+    setUpdate({
+      ...edit,
       shape,
       color,
       range,
     });
-    setCreate(null);
+    setEdit(null);
   };
   return (
     <div className="modal">
@@ -58,7 +59,7 @@ function Create({ create, setStore, setCreate }) {
             <button
               type="button"
               className="btn-close"
-              onClick={(_) => setCreate(null)}
+              onClick={(_) => setEdit(null)}
             ></button>
           </div>
 
@@ -143,13 +144,13 @@ function Create({ create, setStore, setCreate }) {
             </div>
           </div>
           <div className="modal-footer">
-            <button type="button" className="green" onClick={save}>
-              Save changes
+            <button type="button" className="green" onClick={handleEdit}>
+              Save
             </button>
             <button
               type="button"
               className="red"
-              onClick={(_) => setCreate(null)}
+              onClick={(_) => setEdit(null)}
             >
               Close
             </button>
@@ -160,4 +161,4 @@ function Create({ create, setStore, setCreate }) {
   );
 }
 
-export default Create;
+export default Edit;
