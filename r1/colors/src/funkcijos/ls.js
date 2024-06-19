@@ -13,12 +13,14 @@ const write = (key, data) => {
 
 export const lsCreate = (key, data) => {
   const ls = read(key);
-  console.log(ls);
-  ls.push({ ...data, id: uuid4() });
+  const id = uuid4();
+  ls.push({ ...data, id });
   write(key, ls);
+  return id;
 };
 
 export const lsDelete = (key, id) => {
+  
   const ls = read(key);
   write(
     key,

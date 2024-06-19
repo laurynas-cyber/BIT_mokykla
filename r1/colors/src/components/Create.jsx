@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Create({ create, setStore, setCreate }) {
+function Create({ create, setStore, setCreate, addMessage }) {
   const rbc = (
     <svg
       height="97.75"
@@ -35,13 +35,32 @@ function Create({ create, setStore, setCreate }) {
   const [shape, setShape] = useState(create.shape);
   const [color, setColor] = useState(create.color);
   const [range, setRange] = useState(create.range);
+  const [errors, setErrors] = useState([]);
 
   const handleShape = (e) => {
-    // setShape((r) => (r === e.target.id ? "" : e.target.id));
     setShape(e.target.id);
   };
 
-  const save = (_) => {
+  const handleCreate = (_) => {
+    setErrors([]);
+    let hasError = false;
+    if (!shape) {
+      addMessage({
+        title: "Error",
+        type: "error",
+        text: "Please select color shape",
+      });
+      hasError = true;
+      setErrors((e) => [...e, "shape"]);
+    }
+    if (range > 8) {
+      addMessage({ title: "Error", type: "error", text: "Max range is 8" });
+      hasError = true;
+      setErrors((e) => [...e, "range"]);
+    }
+    if (hasError) {
+      return;
+    }
     setStore({
       shape,
       color,
@@ -49,47 +68,63 @@ function Create({ create, setStore, setCreate }) {
     });
     setCreate(null);
   };
+
   return (
     <div className="modal">
       <div className="modal-dialog modal-dialog-centered">
         <div className="modal-content">
           <div className="modal-header">
-            <h5 className="modal-title">Add new Color</h5>
+            <h5 className="modal-title">Add new color</h5>
             <button
               type="button"
               className="btn-close"
               onClick={(_) => setCreate(null)}
             ></button>
           </div>
-
           <div className="modal-body">
             <div className="m-2">
-              <div style={{ display: "flex", justifyContent: "space-between" }}>
-                <label className="form-label">How many?</label>
-                <span>{range}</span>
-              </div>
-
+              <label
+                className={
+                  "form-label" + (errors.includes("color") ? " error" : "")
+                }
+              >
+                Choose your color
+              </label>
+              <input
+                type="color"
+                className="form-control form-control-color"
+                onChange={(e) => setColor(e.target.value)}
+                value={color}
+                title="Choose your color"
+              />
+            </div>
+            <div className="m-2">
+              <label
+                className={
+                  "form-label flex-space" +
+                  (errors.includes("range") ? " error" : "")
+                }
+              >
+                <span>How many?</span> <b>{range}</b>
+              </label>
               <input
                 type="range"
                 className="form-range"
                 min={1}
                 max={10}
+                step={1}
                 value={range}
                 onChange={(e) => setRange(+e.target.value)}
               />
             </div>
             <div className="m-2">
-              <label className="form-label">Choose your color</label>
-              <input
-                type="color"
-                className="form-control form-control-color"
-                value={color}
-                title="Choose your color"
-                onChange={(e) => setColor(e.target.value)}
-              />
-            </div>
-            <div className="m-2">
-              <label className="form-label">Shape</label>
+              <label
+                className={
+                  "form-label" + (errors.includes("shape") ? " error" : "")
+                }
+              >
+                Shape
+              </label>
               <div className="cb-bin">
                 <div className="cb">
                   <input
@@ -143,8 +178,8 @@ function Create({ create, setStore, setCreate }) {
             </div>
           </div>
           <div className="modal-footer">
-            <button type="button" className="green" onClick={save}>
-              Save changes
+            <button type="button" className="green" onClick={handleCreate}>
+              Add
             </button>
             <button
               type="button"

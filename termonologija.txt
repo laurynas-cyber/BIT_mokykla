@@ -5,6 +5,8 @@ Express js - Serverio programa
 API - aplication programing interface. Internetinis puslapis programiniam kodui arba mašinoms. Serveriai pamokos nuo balandzio 25 iki geguzes 30d
 https://www.thecocktaildb.com/api.php - pabandymui
 
+API REST - API suteikti programai priemima prie kitos programos REST yra architektura sukurianti taisykles 
+
 JSON java script objekt notation aprasymas. taisykliu rinkys kaip objekta paversti i stringa ir is stringo i objekt. jeigu to nedarysim gausim suplota objekta
 https://jsonplaceholder.typicode.com/ - puslapis mokymo tikslams. duoda koda kuri panaudojus grazina internetini puslapi masinoms.
 
@@ -76,3 +78,4 @@ conditional rendiring component
 drilinimas - perdavima argumento per vaika anūkui
 
 DOM - document object model
+

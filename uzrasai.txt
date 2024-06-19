@@ -1,3 +1,9 @@
 ID turi buti generuojamas serveryje
 
 UseEfekte i stebetojo vieta rasyti SetFunkcijos yra apsaugotos, bet su paciu statu reikietu atsargiai nes gali uzsiciklinti
+
+Statless neturi konteksto -is API REST
+
+axios kreipimasis i interneta
+
+useCallback neleidzia uzsiciklinti funkcijai naudojamai UseEffekte

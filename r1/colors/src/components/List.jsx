@@ -13,7 +13,7 @@ function List({ colors, setRemove, setEdit }) {
         <li key={c.id} className="list-group-item">
           <div className="color-line">
             <div className="content">
-              <span>{c.id} </span>
+              <span className="title">{c.title ?? "no title"} </span>
               <div className="colors">
                 {Array(c.range)
                   .fill()
