@@ -1,74 +1,69 @@
-import { useState } from "react";
-import C from "./Components/013/C";
+import { useEffect, useRef, useState } from "react";
+
 import "./App.css";
 import "./buttons.scss";
-import colors from "./buttons.module.scss";
-import { createContext } from "react";
-import D from "./Components/013/D";
-import Data from "./Components/013/Data";
-import E from "./Components/013/E";
-
-export const ButtonContext = createContext(); //sukuriam konteksta
-export const RangeContext = createContext();
-export const ColorContext = createContext();
+import "./Homework/FilmuCrud/style.scss";
+import * as storage from "./Homework/FilmuCrud/ls";
+import CatModal from "./Homework/FilmuCrud/CatModal";
+import Buttons from "./Homework/FilmuCrud/Buttons";
+import Toast from "./Homework/FilmuCrud/Toast";
+import { toast } from "react-toastify";
 
 function App() {
-  const [greenCount, setGreenCount] = useState(0);
+  const [page, setPage] = useState("categories");
+  const [showModal, setShowModal] = useState(false);
+  const [data, setData] = useState(null);
 
-  const [yellowCount, setYellowCount] = useState(0);
+  useEffect(
+    (_) => {
+      if (data === null) {
+        return;
+      }
 
-  const [range, setRange] = useState(1);
-
-  return (
-    <div className="App">
-      <header className="App-header">
-        <Data>
-          <E />
-        </Data>
-
-        <h1>Context plus: {range}</h1>
-
-        <input
-          type="range"
-          min={1}
-          max={5}
-          step={1}
-          value={range}
-          onChange={(e) => setRange(parseInt(e.target.value))}
-        ></input>
-
-        <h2 style={{ color: colors.green }}>{greenCount}</h2>
-        <h2 style={{ color: colors.yellow }}>{yellowCount}</h2>
-        <div className="buttons">
-          <RangeContext.Provider value={range}>
-            <ButtonContext.Provider
-              value={{
-                color: "green",
-                counter: setGreenCount,
-              }}
-            >
-              <C />
-            </ButtonContext.Provider>
-            <ButtonContext.Provider
-              value={{
-                color: "yellow",
-                counter: setYellowCount,
-              }}
-            >
-              <C />
-            </ButtonContext.Provider>
-          </RangeContext.Provider>
-
-          <ColorContext.Provider value="skyblue">
-            <ColorContext.Provider value="crimson">
-              <D nr={2} />
-            </ColorContext.Provider>
-            <D nr={1} />
-          </ColorContext.Provider>
-        </div>
-      </header>
-    </div>
+      if (!!storage.show("categories", data.id)) {
+        setShowModal(true);
+        return;
+      }
+      toast.success("Category added successfully");
+      storage.lsCreate("categories", data, data.id);
+    },
+    [data]
   );
+
+  if (page === "categories") {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <Buttons setPage={setPage} />
+          {showModal ? (
+            <CatModal setShowModal={setShowModal} setData={setData} />
+          ) : null}
+
+          <h1 className="UAY">Categories</h1>
+          <div className="Container">
+            <button
+              onClick={(_) => setShowModal(true)}
+              type="button"
+              className="blue"
+            >
+              Add Category
+            </button>
+          </div>
+        </header>
+      </div>
+    );
+  }
+
+  if (page === "movies") {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <Buttons setPage={setPage} />
+          <h1>Movies</h1>
+        </header>
+      </div>
+    );
+  }
 }
 
 export default App;

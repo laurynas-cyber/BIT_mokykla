@@ -1,0 +1,34 @@
+@import "../../buttons.module.scss";
+
+.UAY {
+  color: #f9c846;
+}
+
+.UAB {
+  color: #2191fb;
+}
+
+.Container {
+  border: 1px solid $b3;
+  height: 400px;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.backgroundModal {
+  height: 100vh;
+  width: 100%;
+  background-color: #2192fb6d;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .addCat {
+    background-color: #f9c946;
+    width: 400px;
+    height: 400px;
+  }
+}
