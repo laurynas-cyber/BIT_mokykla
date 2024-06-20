@@ -18,6 +18,7 @@ const dv = {
 const KEY = "colors";
 
 export default function App() {
+  const [route, setRoute] = useState("landing");
   const [colors, setColor] = useState(null);
   const [refresh, setRefresh] = useState(Date.now());
   const [create, setCreate] = useState(null);
@@ -125,38 +126,65 @@ export default function App() {
     [update, getTitle, addMessage]
   );
 
-  return (
-    <>
-      <div className="container">
-        <div className="row">
-          <div className="col">
-            <div className="buttons">
-              <button
-                type="button"
-                className="blue"
-                onClick={(_) => setCreate(dv)}
-              >
-                Add new color
-              </button>
-            </div>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col">
-            <List colors={colors} setRemove={setRemove} setEdit={setEdit} />
+  if (route === "landing") {
+    return (
+      <div className="landing">
+        <div className="bin">
+          <h1> Landing Page</h1>
+          <div className="link" onClick={(_) => setRoute("colors")}>
+            go to colors
           </div>
         </div>
       </div>
-      {create !== null && (
-        <Create setCreate={setCreate} create={create} setStore={setStore} addMessage={addMessage} />
-      )}
-      {remove !== null && (
-        <Delete setRemove={setRemove} remove={remove} setDestroy={setDestroy} />
-      )}
-      {edit !== null && (
-        <Edit setEdit={setEdit} edit={edit} setUpdate={setUpdate} />
-      )}
-      <Messages msg={msg} remMessage={remMessage} />
-    </>
-  );
+    );
+  }
+
+  if (route === "colors") {
+    return (
+      <>
+        <div className="container">
+          <div className="row">
+            <div className="col">
+              <div className="buttons">
+                <button
+                  type="button"
+                  className="blue"
+                  onClick={(_) => setCreate(dv)}
+                >
+                  Add new color
+                </button>
+                <button className="white" onClick={(_) => setRoute("landing")}>
+                  Back to landing
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col">
+              <List colors={colors} setRemove={setRemove} setEdit={setEdit} />
+            </div>
+          </div>
+        </div>
+        {create !== null && (
+          <Create
+            setCreate={setCreate}
+            create={create}
+            setStore={setStore}
+            addMessage={addMessage}
+          />
+        )}
+        {remove !== null && (
+          <Delete
+            setRemove={setRemove}
+            remove={remove}
+            setDestroy={setDestroy}
+          />
+        )}
+        {edit !== null && (
+          <Edit setEdit={setEdit} edit={edit} setUpdate={setUpdate} />
+        )}
+        <Messages msg={msg} remMessage={remMessage} />
+      </>
+    );
+  }
 }

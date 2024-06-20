@@ -151,3 +151,22 @@ const handleTexts = (e) => {
   setTexts((t) => ({ ...t, [e.target.name]: e.target.value })); // objekto propertis owerwritena
   console.log(texts); // kodel console.log veluoja. Reikia naudoti useEfekta
 };
+
+const ButtonContext = createContext(); //sukuriam konteksta
+
+<ButtonContext.Provider value="red">
+<C />
+</ButtonContext.Provider>
+
+import { useContext } from "react";
+import { ButtonContext } from "../../App";
+
+function A() {
+  const color = useContext(ButtonContext);
+
+  return <button type="button">Button</button>;
+}
+
+export default A;
+
+//conteksto pabaiga. negalima siuti i
