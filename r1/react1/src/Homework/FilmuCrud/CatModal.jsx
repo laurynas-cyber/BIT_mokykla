@@ -13,6 +13,8 @@ function CatModal({ setShowModal, setData }) {
     { id: 4, name: "Animation" },
     { id: 5, name: "Horror" },
     { id: 6, name: "Documentary" },
+    { id: 7, name: "Anime" },
+    { id: 8, name: "Series" },
   ];
 
   const handleData = (e) => {

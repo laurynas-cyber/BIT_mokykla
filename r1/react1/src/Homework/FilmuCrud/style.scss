@@ -13,9 +13,22 @@
   height: 400px;
   width: 50%;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
   flex-wrap: wrap;
+  gap: 20px;
+}
+
+.m {
+  width: 80%;
+  .moviebin {
+    gap: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .backgroundModal {
@@ -30,5 +43,8 @@
     background-color: #f9c946;
     width: 400px;
     height: 400px;
+  }
+  span {
+    color: #2191fb;
   }
 }
