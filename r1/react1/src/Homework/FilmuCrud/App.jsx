@@ -57,10 +57,10 @@ function App() {
     [Moviedata]
   );
 
-  // function Category(id) {
-  //   let one = catList.find((c) => parseInt(c.id) === parseInt(id));
-  //   return one;
-  // }
+  function category(id) {
+    let one = catList.find((c) => parseInt(c.id) === parseInt(id));
+    return one.name;
+  }
 
   const Delete = (e) => {
     let movie = movieList.filter((c) => c.id === +e.target.value);
@@ -131,7 +131,7 @@ function App() {
                   style={{ color: i % 2 ? "#f9c846" : "#2191fb" }}
                 >
                   Movie name:{m.name}, Year: {m.year}, Categorie:
-                  {m.categorie} Rating: {m.rating}
+                  {category(m.categorie)} Rating: {m.rating}
                   <button
                     className="yellow"
                     onClick={(_) => console.log(movieList, catList)}

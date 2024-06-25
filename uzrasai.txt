@@ -7,3 +7,9 @@ Statless neturi konteksto -is API REST
 axios kreipimasis i interneta
 
 useCallback neleidzia uzsiciklinti funkcijai naudojamai UseEffekte
+
+Componentus geriau daryti jeigu yra kazkokie skaiciaviami arba reikalingas atvaizdavimas
+
+sub komponentas, HOC/HOF
+
+HOC - high order component/funkction, aukstesnio lygio funkcija
