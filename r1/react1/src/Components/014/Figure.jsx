@@ -1,7 +1,7 @@
-import React from "react";
+const WidthColor = (Component) => (color) => <Component color={color} />; //hof 014/015 pamoka
 
 function Figure({ children, color }) {
-  return <div>{children}</div>;
+  return <>{WidthColor(children.type)({ color })}</>;
 }
 
 export default Figure;

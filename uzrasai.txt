@@ -13,3 +13,5 @@ Componentus geriau daryti jeigu yra kazkokie skaiciaviami arba reikalingas atvai
 sub komponentas, HOC/HOF
 
 HOC - high order component/funkction, aukstesnio lygio funkcija
+
+custom hookas negrazina nieko is html bet jie yra reacto dalis

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import C from "./Components/013/C";
 import "./App.css";
 import "./buttons.scss";

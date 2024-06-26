@@ -170,3 +170,15 @@ function A() {
 export default A;
 
 //conteksto pabaiga. negalima siuti i
+
+const WidthColor = (Component) => (color) => <Component color={color} />; //hof 014/015 pamoka
+
+function Figure({ children, color }) {
+  return <>{WidthColor(children.type)({ color })}</>;
+}
+
+export default Figure;
+
+export default function countReducer(state, action) {
+  //reduceris visada gauna state ir action metoda(objekta) kitaip nebuna
+}
