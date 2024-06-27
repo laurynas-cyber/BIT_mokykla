@@ -42,7 +42,7 @@ npm md5 - hasho instalas
 
 npm create vite@4.1.0 arba vite@latest- vite
 
-npx create-react folderioname
+npx create-react-app-(name) folderioname
 
 npm install // install package jason when vite is installed
 

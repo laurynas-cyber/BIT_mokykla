@@ -1,0 +1,17 @@
+{
+  "name": "color-server",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node --watch app.js"
+  },
+  "keywords": [],
+  "author": "Pastel Wizard",
+  "license": "ISC",
+  "description": "Big and Small color server",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+    "mysql": "^2.18.1"
+  }
+}
