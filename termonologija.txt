@@ -80,3 +80,5 @@ drilinimas - perdavima argumento per vaika anūkui
 DOM - document object model
 
 HOC - high order Component
+
+CORS policy

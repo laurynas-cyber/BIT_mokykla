@@ -1,6 +1,7 @@
 import Create from "./components/Create";
 import { Data } from "./Contexts/DataContext";
 import "./app.scss";
+import CreateButtons from "./components/CreateButtons";
 
 export default function App() {
   return (
@@ -8,11 +9,7 @@ export default function App() {
       <div className="container">
         <div className="row">
           <div className="col">
-            <div className="buttons">
-              <button type="button" className="blue">
-                Add new color
-              </button>
-            </div>
+            <CreateButtons />
           </div>
         </div>
         <div className="row">

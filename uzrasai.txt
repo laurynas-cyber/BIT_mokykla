@@ -15,3 +15,5 @@ sub komponentas, HOC/HOF
 HOC - high order component/funkction, aukstesnio lygio funkcija
 
 custom hookas negrazina nieko is html bet jie yra reacto dalis
+
+jeigu JS isvieno serverio siunčia į kitą serverį reikia CORSO

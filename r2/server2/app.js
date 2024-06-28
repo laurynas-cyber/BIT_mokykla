@@ -1,9 +1,12 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-// const fs = require("node:fs");
+const cors = require("cors");
+// const fs = require('node:fs');
 const mysql = require("mysql");
 const app = express();
 const port = 3001;
+
+app.use(cors());
 
 const connection = mysql.createConnection({
   host: "localhost",
@@ -22,8 +25,26 @@ app.get("/", (_, res) => {
   res.send("Colors Server");
 });
 
-app.listen(port, (_) => {
-  console.log(`Colors server app listening on port ${port}`);
+app.post("/colors", (req, res) => {
+  let { color, range, shape } = req.body;
+
+  // sanitization
+  range = Math.min(parseInt(range), 10);
+  isNaN(range) && (range = 1);
+  !["square", "circle", "rounded", "triangle"].includes(shape) &&
+    (shape = "square");
+  !/^#[0-9A-F]{6}$/i.test(color) && (color = "#cccccc");
+
+  const sql = `
+    INSERT INTO colors (color, amount, shape)
+    VALUES ( ?, ?, ? )
+`;
+  connection.query(sql, [color, range, shape], (err) => {
+    if (err) throw err;
+    res.send("OK");
+  });
 });
-//queary kintamieji kaip
-//params ka atvaizduoti
+
+app.listen(port, (_) => {
+  console.log(`Colors Server app listening on port ${port}`);
+});
