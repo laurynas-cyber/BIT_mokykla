@@ -1,4 +1,9 @@
-function List({ colors, setRemove, setEdit }) {
+import { useContext } from "react";
+import { DataContext } from "../Contexts/DataContext";
+
+function List() {
+  const { colors } = useContext(DataContext);
+
   if (null === colors) {
     return (
       <ul className="list-group list-group-flush">
@@ -35,18 +40,10 @@ function List({ colors, setRemove, setEdit }) {
               </div>
             </div>
             <div className="buttons">
-              <button
-                type="button"
-                className="green"
-                onClick={(_) => setEdit(c)}
-              >
+              <button type="button" className="green">
                 Edit
               </button>
-              <button
-                type="button"
-                className="red"
-                onClick={(_) => setRemove(c)}
-              >
+              <button type="button" className="red">
                 Delete
               </button>
             </div>

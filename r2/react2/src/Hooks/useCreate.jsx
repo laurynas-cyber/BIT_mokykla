@@ -2,13 +2,12 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 const useCreate = (serverUrl) => {
-  //custom hookas
   const [create, setCreate] = useState(null);
   const [store, setStore] = useState(null);
 
   useEffect(
     (_) => {
-      if (store === null) {
+      if (null === store) {
         return;
       }
       axios
@@ -16,8 +15,8 @@ const useCreate = (serverUrl) => {
         .then((res) => {
           console.log(res);
         })
-        .catch((err) => {
-          console.log(err);
+        .catch((error) => {
+          console.log(error);
         });
       setStore(null);
     },

@@ -182,3 +182,6 @@ export default Figure;
 export default function countReducer(state, action) {
   //reduceris visada gauna state ir action metoda(objekta) kitaip nebuna
 }
+
+
+structuredClone(state) // nukopijuoja state
