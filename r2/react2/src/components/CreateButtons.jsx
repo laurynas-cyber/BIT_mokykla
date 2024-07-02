@@ -1,8 +1,7 @@
-import React from "react";
-import { DataContext } from "../Contexts/DataContext";
 import { useContext } from "react";
+import { DataContext } from "../Contexts/DataContext";
 
-function CreateButtons() {
+export default function CreateButton() {
   const { setCreate, dv } = useContext(DataContext);
 
   return (
@@ -13,5 +12,3 @@ function CreateButtons() {
     </div>
   );
 }
-
-export default CreateButtons;

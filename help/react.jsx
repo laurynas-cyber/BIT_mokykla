@@ -185,3 +185,10 @@ export default function countReducer(state, action) {
 
 
 structuredClone(state) // nukopijuoja state
+
+connection.query(sql, (err, result) => {
+  if (err) throw err;
+
+  res.json({ success: true, id: result.insertId }); //insertId my sql budas
+});
+});

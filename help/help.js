@@ -441,3 +441,10 @@ const date = new Date();
 Dates = [date, date,date ] //supushinti skirtinga datas
 
 Dates.sort((a, b) => Date.parse(a) - Date.parse(b));
+
+connection.query(sql, (err, result) => {
+  if (err) throw err;
+
+  res.json({ success: true, id: result.insertId }); //insertId my sql budas
+});
+});

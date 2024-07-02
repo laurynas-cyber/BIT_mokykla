@@ -1,9 +1,9 @@
-import { useState, useContext } from "react";
+import { useContext, useState } from "react";
 import { rbc, rbu } from "../Styles/svg";
 import { DataContext } from "../Contexts/DataContext";
 
-function Create() {
-  const { create, setCreate, setStore } = useContext(DataContext);
+export default function Create() {
+  const { create, setStore, setCreate } = useContext(DataContext);
 
   const [shape, setShape] = useState(create.shape);
   const [color, setColor] = useState(create.color);
@@ -18,16 +18,12 @@ function Create() {
     setErrors([]);
     let hasError = false;
     if (!shape) {
-      // addMessage({
-      //   title: "Error",
-      //   type: "error",
-      //   text: "Please select color shape",
-      // });
+      // addMessage({title: 'Error', type: 'error', text: 'Please select color shape'});
       hasError = true;
       setErrors((e) => [...e, "shape"]);
     }
     if (range > 8) {
-      // addMessage({ title: "Error", type: "error", text: "Max range is 8" });
+      // addMessage({title: 'Error', type: 'error', text: 'Max range is 8'});
       hasError = true;
       setErrors((e) => [...e, "range"]);
     }
@@ -167,5 +163,3 @@ function Create() {
     </div>
   );
 }
-
-export default Create;

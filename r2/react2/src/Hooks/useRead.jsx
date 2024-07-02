@@ -4,22 +4,20 @@ import colorsReducer from "../Reducers/ColorsReducer";
 import { read } from "../Actions/ColorsActions";
 
 const useRead = (serverUrl) => {
-  const [colors, dispatchColors] = useReducer(colorsReducer, null);
+  const [colors, dispachColors] = useReducer(colorsReducer, null);
 
   useEffect((_) => {
     axios
-      .get(`${serverUrl}colors`, colors)
+      .get(`${serverUrl}colors`)
       .then((res) => {
-        console.log(res);
-        dispatchColors(read(res.data));
+        dispachColors(read(res.data));
       })
       .catch((error) => {
         console.log(error);
       });
-    // setStore(null);
   }, []);
 
-  return { colors };
+  return { colors, dispachColors };
 };
 
 export default useRead;

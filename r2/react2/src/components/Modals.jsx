@@ -1,15 +1,19 @@
 import { useContext } from "react";
-import Create from "./Create";
 import { DataContext } from "../Contexts/DataContext";
+import Create from "./Create";
 
-function Modals() {
-  const { create } = useContext(DataContext);
+export default function Modals() {
 
-  if (create) {
-    return <Create />;
-  }
+const { create } = useContext(DataContext);
 
-  return null;
+
+    if (create) {
+        return <Create />
+    }
+
+
+    return null;
+
+
+
 }
-
-export default Modals;
