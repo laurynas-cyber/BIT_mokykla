@@ -192,3 +192,21 @@ connection.query(sql, (err, result) => {
   res.json({ success: true, id: result.insertId }); //insertId my sql budas
 });
 });
+
+
+const [count, setCount ] = useState (( ) => { // useState numeris pasileis tik pirma karta kai rerendirins, taip galima sumazinti sumazins naudojimo resursus. Tai galioja ypac jeigu naudoji funkcijos komponenta
+
+  return 4
+})
+
+useEffecte(_ => {
+  window.addEventListener("ressize", handleResize)
+
+  return () => {
+    window.removeEventListener("resize", handleResize) // kad nesuletintu appso reiketu nuiimti evenlistenerius, nes jie prisideda kiekviena karta. Effekte pirma pasileidzia return tada visa kita
+  }
+}, [])
+
+useMemo // prisimena kitnamaji ir renderinimo metu nenaudoja jo kodo jeigu jis nepasikete, taip musu aplikacija gali veikti greiciau
+
+useRef // geriausia naudoti tada kai useEffekte negautum uzsiciklinimo nes useRef nerenderina. Ir tada kai reikia pasizymeti html elementa. Taip pat gerai saugaoti pries tai buvusi useState reiksme

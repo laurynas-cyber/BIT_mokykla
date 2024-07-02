@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { DataContext } from "../Contexts/DataContext";
 
-function Edit({ edit, setUpdate, setEdit }) {
+function Edit() {
+  const { edit, setUpdate, setEdit } = useContext(DataContext);
   const rbc = (
     <svg
       height="97.75"

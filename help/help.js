@@ -448,3 +448,5 @@ connection.query(sql, (err, result) => {
   res.json({ success: true, id: result.insertId }); //insertId my sql budas
 });
 });
+
+s = s.filter((c) => !c?.hasOwnProperties && c.hide !== true); //hasOwnProperties iesko ar yra propertis tokiu pavadinimus
