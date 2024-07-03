@@ -158,7 +158,7 @@ const ButtonContext = createContext(); //sukuriam konteksta
 <C />
 </ButtonContext.Provider>
 
-import { useContext } from "react";
+import { useContext, useDebugValue } from "react";
 import { ButtonContext } from "../../App";
 
 function A() {
@@ -208,5 +208,19 @@ useEffecte(_ => {
 }, [])
 
 useMemo // prisimena kitnamaji ir renderinimo metu nenaudoja jo kodo jeigu jis nepasikete, taip musu aplikacija gali veikti greiciau
-
+useCallBack // renderinimo metu nenaudoja kodo jeigu nepasikeite, taip pat galima isvengti uzsiciklinimo. 
 useRef // geriausia naudoti tada kai useEffekte negautum uzsiciklinimo nes useRef nerenderina. Ir tada kai reikia pasizymeti html elementa. Taip pat gerai saugaoti pries tai buvusi useState reiksme
+useLayoutEffect // panasus i useEffekta tiktai jis ivykdo koda pries rerendinima , todel ji gerai naudoti vizualams keisti
+useTransition //. Transition nustato kuri kodas(ar funkcija) yra prioritetas , o kuri ne taip. Rekomenduojama naudoti tik tada  kai leta aplikacija
+useDeferredValue // panasiai kaip transition. jis laukia kol baigsi taipinti ir tik tada procesins. sita hooka naudoti ant low priority reiksmiu
+useDebugValue // taip pat gerai naudoti sueltejusiai aplikacijai. Veikia tik ant custom hooko???
+useId // duoda random nauja ID
+
+dėl indeksavimo(google paieška) vietose reacto nenaudoja.Taip pat SEO. Ir viešose vietose nenaudoja. del gero indeksavimo geriau naudoti fronte react backe php arba kita kalba
+
+React gerai kai yra logginai. PHP greai draugauja su react
+
+Front end tai kas vyksta narsyklej , back end - kas vyksta serveryje
+Front offisas - viesai matoma ir skirta vartotojui geriau nenaudoti Reacta , back offisas - kuri skirta valdymui. Geriau naudoti REact
+
+Framwork Next, Intertia, 

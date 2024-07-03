@@ -72,3 +72,5 @@ btn.closest(".--modal").style.display = "none"; //artimiausias esanti elementas 
 AllboardBlocks.forEach((block) => block.replaceWith(block.CloneNode(true))); //nuiima event listeneri
 
 window.getComputedStyle(e.target).getPropertyValue("background-color") // paiimti elemento style
+
+getBoundingClientRect() // grazina elemento esama posicija

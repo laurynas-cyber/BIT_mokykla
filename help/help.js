@@ -450,3 +450,5 @@ connection.query(sql, (err, result) => {
 });
 
 s = s.filter((c) => !c?.hasOwnProperties && c.hide !== true); //hasOwnProperties iesko ar yra propertis tokiu pavadinimus
+
+instanceof Function // instanceof patikrina ar yra jis funkcija
