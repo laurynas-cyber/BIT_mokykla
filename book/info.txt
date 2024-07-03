@@ -1,0 +1,6 @@
+dėl indeksavimo(google paieška) vietose reacto nenaudoja, nes kad atidaryti reakto puslapi reikia ivykdyti reacto koda, bet naudoti ne "viesoje" vietoje yra gerai pvz loggine.SSR yra gerai indeskavimui. Ir viešose vietose nenaudoja. del gero indeksavimo geriau naudoti fronte react backe php arba kita kalba
+React gerai kai yra logginai. PHP greai draugauja su react
+Front end tai kas vyksta narsyklej , back end - kas vyksta serveryje
+Front offisas - viesai matoma ir skirta vartotojui geriau nenaudoti Reacta , back offisas - kuri skirta valdymui. Geriau naudoti REact
+
+Routams geriau naudoti frameworkus ne React

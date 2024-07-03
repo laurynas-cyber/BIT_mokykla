@@ -1,0 +1,87 @@
+body {
+  background-color: rgb(45, 45, 45);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+
+  .BannerText {
+
+    z-index: 2;
+    color: white;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+    gap: 20px;
+    h1 {
+      font-size: 50px;
+      font-weight: 700;
+    }
+    span {
+      font-size: 30px;
+    }
+    .bigerText {
+      font-size: 40px;
+    }
+  }
+
+  .TopbannerContainer {
+    z-index: 2;
+    margin-top: 20px;
+    height: auto;
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo {
+      width: 200px;
+      height: auto;
+      z-index: 2;
+    }
+    .SetCont {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      gap: 50px;
+      button {
+        background-color: rgb(229, 9, 20);
+        color: white;
+        padding: 10px 15px;
+        border-radius: 4px;
+        border: none;
+      }
+      select {
+        padding: 10px 20px;
+        background-color: rgba(45, 45, 45, 0.611);
+        color: white;
+        border-radius: 4px;
+        option {
+          color: black;
+          background-color: white;
+        }
+      }
+    }
+  }
+  .backgroundImg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    filter: brightness(0.5);
+    background-position: 50% 60%;
+
+    background-repeat: "no-repeat";
+  }
+}

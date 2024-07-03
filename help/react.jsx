@@ -216,11 +216,5 @@ useDeferredValue // panasiai kaip transition. jis laukia kol baigsi taipinti ir 
 useDebugValue // taip pat gerai naudoti sueltejusiai aplikacijai. Veikia tik ant custom hooko???
 useId // duoda random nauja ID
 
-dėl indeksavimo(google paieška) vietose reacto nenaudoja.Taip pat SEO. Ir viešose vietose nenaudoja. del gero indeksavimo geriau naudoti fronte react backe php arba kita kalba
 
-React gerai kai yra logginai. PHP greai draugauja su react
 
-Front end tai kas vyksta narsyklej , back end - kas vyksta serveryje
-Front offisas - viesai matoma ir skirta vartotojui geriau nenaudoti Reacta , back offisas - kuri skirta valdymui. Geriau naudoti REact
-
-Framwork Next, Intertia, 

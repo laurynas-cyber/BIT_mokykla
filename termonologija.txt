@@ -82,3 +82,5 @@ DOM - document object model
 HOC - high order Component
 
 CORS policy
+
+SEP - search optimization
