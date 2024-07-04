@@ -5,7 +5,6 @@ for (let i = 0; i < acc.length; i++) {
     this.classList.toggle("active");
     const desc = this.nextElementSibling; //sekantis einantis nextElementSibling
 
-    console.log();
     if (desc.style.maxHeight) {
       desc.style.maxHeight = null; // nustato i defoltine padeti. (default padetis csse)
     } else {
@@ -14,4 +13,4 @@ for (let i = 0; i < acc.length; i++) {
   });
 }
 
-// console.log("lol");
+

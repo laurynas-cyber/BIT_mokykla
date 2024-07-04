@@ -1,25 +1,24 @@
-import { useContext, useEffect } from "react";
+import { useContext} from "react";
 import { MainContext } from "../Contexts/MainBody";
 
 function Section() {
-  const { img, h, text, isReverse, setReverse } = useContext(MainContext);
-
-// //   setReverse(!isReverse);
-//     useEffect((_) => {
-//       setReverse(!isReverse);
-//     }, []);
-
-//     console.log(isReverse);
+  const { i, img, h, text } = useContext(MainContext);
 
   return (
-    <section style={{ flexDirection: isReverse ? "row-reverse" : "row" }}>
-      <div className="SectiontextBox">
+    <section style={{ flexDirection: i % 2 ? "row-reverse" : "row" }}>
+      <div
+        className="SectiontextBox"
+        style={{ alignItems: i % 2 ? null : "flex-end" }}
+      >
         <div className="textWidth">
           <h2>{h}</h2>
           <span>{text}</span>
         </div>
       </div>
-      <div className="ImgCont">
+      <div
+        className="ImgCont"
+        style={{ justifyContent: i % 2 ? "flex-end" : null }}
+      >
         <img alt="" src={img} />
       </div>
     </section>
