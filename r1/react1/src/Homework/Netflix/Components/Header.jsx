@@ -1,13 +1,25 @@
+import { useRef, useEffect } from "react";
 import backgroundImg from "../assets/Netfliximg.jpg";
 import logo from "../assets/R.png";
+import Email from "./Email";
 
 function Header() {
+  const item = useRef();
+
+  useEffect((_) => {
+    item.current.focus();
+  }, []);
+
+  function handleFocus() {
+    item.current.focus();
+  }
+
   return (
     <header>
       <div className="TopbannerContainer">
         <img alt="" className="logo" src={logo}></img>
         <div className="SetCont">
-          <select>
+          <select ref={item} onClick={handleFocus}>
             <option style={{ color: "black" }}>English</option>
             <option>Ruski</option>
           </select>
@@ -25,6 +37,7 @@ function Header() {
         <span>
           Ready to watch? Enter your email to create or restart your membership.
         </span>
+        <Email />
       </div>
     </header>
   );
