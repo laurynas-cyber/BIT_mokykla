@@ -1,28 +1,15 @@
-import { useRef, useEffect } from "react";
 import backgroundImg from "../assets/Netfliximg.jpg";
 import logo from "../assets/R.png";
 import Email from "./Email";
+import LanguageInput from "./LanguageInput";
 
 function Header() {
-  const item = useRef();
-
-  useEffect((_) => {
-    item.current.focus();
-  }, []);
-
-  function handleFocus() {
-    item.current.focus();
-  }
-
   return (
     <header>
       <div className="TopbannerContainer">
         <img alt="" className="logo" src={logo}></img>
         <div className="SetCont">
-          <select ref={item} onClick={handleFocus}>
-            <option style={{ color: "black" }}>English</option>
-            <option>Ruski</option>
-          </select>
+          <LanguageInput />
           <button type="button">Sign In</button>
         </div>
       </div>

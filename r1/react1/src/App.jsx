@@ -4,6 +4,7 @@ import { MainContext, MainBody } from "./Homework/Netflix/Contexts/MainBody"; //
 import "./Homework/Netflix/style.scss";
 import { sectionText } from "./Homework/Netflix/Data/SectionText";
 import FAQ from "./Homework/Netflix/Components/FAQ";
+import Footer from "./Homework/Netflix/Components/Footer";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           </MainContext.Provider>
         ))}
         <FAQ />
+        <Footer />
       </MainBody>
     </>
   );
