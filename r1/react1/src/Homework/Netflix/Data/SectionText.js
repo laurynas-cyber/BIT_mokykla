@@ -26,7 +26,7 @@ export const sectionText = [
   },
 ];
 
-export const sectionFaq = [
+export let sectionFaq = [
   {
     question: "What is Netflix?",
     answer:
@@ -65,7 +65,6 @@ export const sectionFaq = [
   },
   {
     question: "Why I am seeing this language?",
-    answer:
-      "Your browser preferences determine the language shown here.",
+    answer: "Your browser preferences determine the language shown here.",
   },
 ];

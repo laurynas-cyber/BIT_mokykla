@@ -217,4 +217,10 @@ useDebugValue // taip pat gerai naudoti sueltejusiai aplikacijai. Veikia tik ant
 useId // duoda random nauja ID
 
 
-
+<button
+type="button"
+className="moveButton"
+onClick={() => moveTaskUp(i)} //ideti i dar viena funkcija tada kai pessinam propsus ar argumentus
+>
+👆
+</button>
