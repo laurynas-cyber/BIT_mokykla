@@ -56,3 +56,5 @@ OR
 windows key + ;
 for Mac
 CTRL + CMD + Space
+
+node db.js - paleidzia databaze
