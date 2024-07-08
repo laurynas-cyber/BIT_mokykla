@@ -1,21 +1,25 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 
 function LanguageInput() {
   const item = useRef();
+  const [focus, setFocus] = useState(false);
 
-  useEffect((_) => {
-    item.current.focus();
-  }, []);
+  // useEffect((_) => {
+  //   item.current.focus();
+  // }, []);
 
   function handleFocus(e) {
+    setFocus(true);
     // item.current.focus();
-    // e.target.autofocus = true;
-    // console.log(e);
+    // e.target.focus();
+
+    console.log(e.target);
   }
 
   return (
     <select
       className="languageSelect"
+      autoFocus="true"
       ref={item}
       onClick={(e) => handleFocus(e)}
     >

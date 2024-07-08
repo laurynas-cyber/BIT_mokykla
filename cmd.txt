@@ -30,6 +30,10 @@ cd 005 --folderio parejimas
 
 cd .. --grizti atgal
 
+mkdir src/routes - sukuria folderi
+
+touch src/routes/root.jsx - sukuria faila
+
 npm i boostrap
 
 npm i popper.js - bootstrapui reikia

@@ -134,6 +134,9 @@ header {
   background-color: rgba(45, 45, 45, 0.611);
   color: white;
   border-radius: 4px;
+  &:focus {
+    border: solid 1px white;
+  }
   option {
     color: black;
     background-color: white;
