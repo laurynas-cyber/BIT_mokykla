@@ -64,3 +64,5 @@ https://reactrouter.com/en/main - react dom router
 https://expressjs.com/en/resources/middleware/cors.html - express Cors instalas - 
 
 https://www.freecodecamp.org/news/how-to-hash-passwords-with-bcrypt-in-nodejs/ - bcrypt slaptazodziams dabar naudojamas. md5 per senas
+
+https://developer.mozilla.org/en-US/docs/Web/API/Window/hashchange_event window.hashas

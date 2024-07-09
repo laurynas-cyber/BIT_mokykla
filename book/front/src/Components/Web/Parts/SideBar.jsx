@@ -30,7 +30,7 @@ function SideBar() {
           </header>
           <div className="mini-posts">
             <article>
-              <a href="#" className="image">
+              <a href="/#" className="image">
                 <img src="images/pic07.jpg" alt="" />
               </a>
               <p>
@@ -39,7 +39,7 @@ function SideBar() {
               </p>
             </article>
             <article>
-              <a href="#" className="image">
+              <a href="/#" className="image">
                 <img src="images/pic08.jpg" alt="" />
               </a>
               <p>
@@ -48,7 +48,7 @@ function SideBar() {
               </p>
             </article>
             <article>
-              <a href="#" className="image">
+              <a href="/#" className="image">
                 <img src="images/pic09.jpg" alt="" />
               </a>
               <p>
@@ -59,7 +59,7 @@ function SideBar() {
           </div>
           <ul className="actions">
             <li>
-              <a href="#" className="button">
+              <a href="/#" className="button">
                 More
               </a>
             </li>
@@ -79,7 +79,7 @@ function SideBar() {
           </p>
           <ul className="contact">
             <li className="icon solid fa-envelope">
-              <a href="#">information@untitled.tld</a>
+              <a href="/#">information@untitled.tld</a>
             </li>
             <li className="icon solid fa-phone">(000) 000-0000</li>
             <li className="icon solid fa-home">
@@ -93,13 +93,14 @@ function SideBar() {
         {/* <!-- Footer --> */}
         <Footer />
       </div>
-      <a
+      <span
+        href="/#"
         className="toggle"
         style={{ cursor: "pointer" }}
         onClick={toogleSideBar}
       >
         Toggle
-      </a>
+      </span>
     </div>
   );
 }

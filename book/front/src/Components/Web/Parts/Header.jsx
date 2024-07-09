@@ -1,3 +1,5 @@
+import * as l from "../../../Constants/urls";
+
 function Header() {
   return (
     <header id="header">
@@ -6,12 +8,12 @@ function Header() {
       </a>
       <ul className="icons">
         <li>
-          <a href="/#login">
+          <a href={l.SITE_LOGIN}>
             <span className="label">Prisijungti</span>
           </a>
         </li>
         <li>
-          <a href="/#register">
+          <a href={l.SITE_REGISTER}>
             <span className="label">Registruoti</span>
           </a>
         </li>

@@ -4,6 +4,7 @@ import Home from "../Components/Web/Home";
 import Web from "../Components/Web/Parts/Layout";
 import Register from "../Components/Common/Register";
 import Login from "../Components/Common/Login";
+import * as l from "../Constants/urls";
 
 const RouterContext = createContext([]); //skliaustuose pradine reiksme jeigu pradetu rekti, kad kazkas netinka
 
@@ -62,7 +63,7 @@ const Router = (_) => {
   const routes = [
     { path: "", pc: 0, component: null },
     {
-      path: "#",
+      path: l.SITE_HOME,
       pc: 0,
       component: (
         <Web>
@@ -89,12 +90,12 @@ const Router = (_) => {
       ),
     },
     {
-      path: "#register",
+      path: l.SITE_REGISTER,
       pc: 0,
       component: <Register />,
     },
     {
-      path: "#login",
+      path: l.SITE_LOGIN,
       pc: 0,
       component: <Login />,
     },

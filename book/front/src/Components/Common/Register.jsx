@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import useServerPost from "../../Hooks/useServerPost";
-import { REDIRECT_AFTER_REGISTER } from "../../Constants/urls";
+import * as l from "../../Constants/urls";
 
 export default function Register() {
   const defaultValues = {
@@ -10,17 +10,20 @@ export default function Register() {
     psw2: "",
   };
 
-  const { doAction, response } = useServerPost("register");
+  const { doAction, response } = useServerPost(l.SERVER_REGISTER);
 
   const [form, setForm] = useState(defaultValues);
+  const [buttonDisabled, setButtonDisabled] = useState(false);
 
   useEffect(
     (_) => {
       if (null === response) {
         return;
       }
-
-      window.location.hash = REDIRECT_AFTER_REGISTER;
+      setButtonDisabled(false); //disable button tam kad neprispaudinetu useris.
+      if (response.type === "success") {
+        window.location.hash = l.REDIRECT_AFTER_REGISTER;
+      }
     },
     [response]
   );
@@ -30,6 +33,7 @@ export default function Register() {
   };
 
   const handleSubmit = () => {
+    setButtonDisabled(true);
     //TODO validations
     doAction({
       name: form.name,
@@ -100,6 +104,7 @@ export default function Register() {
                               type="button"
                               value="Registruotis"
                               className="primary"
+                              disabled={buttonDisabled}
                             />
                           </li>
                         </ul>
@@ -107,10 +112,10 @@ export default function Register() {
                       <div className="col-12">
                         <ul className="actions">
                           <li>
-                            <a href="/#">Grįžti į pradinį</a>
+                            <a href={"/" + l.SITE_HOME}>Grįžti į pradinį</a>
                           </li>
                           <li>
-                            <a href="/#login">Prisijungti</a>
+                            <a href={"/" + l.SITE_LOGIN}>Prisijungti</a>
                           </li>
                         </ul>
                       </div>
