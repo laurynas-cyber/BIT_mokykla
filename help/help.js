@@ -452,3 +452,9 @@ connection.query(sql, (err, result) => {
 s = s.filter((c) => !c?.hasOwnProperties && c.hide !== true); //hasOwnProperties iesko ar yra propertis tokiu pavadinimus
 
 instanceof Function // instanceof patikrina ar yra jis funkcija
+
+
+if (Object.keys(errorsBag).length === 0) {
+  setErrors({});
+  return true;
+} //tikrinam kokie yra key yra tam objekte. taip galima tikrinti ar jis tuscias ar ne. gerai naudoti validacijai

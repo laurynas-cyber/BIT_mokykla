@@ -24,7 +24,15 @@ function Messages({ children }) {
   const messageError = useCallback((error) => {
     if (!error.response) {
       addMessage({ type: "error", title: "Server error", text: error.message });
+    } else {
+      addMessage({
+        type: "error",
+        title: "Server error " + error.response.status,
+        text: error.response.data.message,
+      }); // react 024 pamoka
     }
+
+    console.log(error);
   }, []);
   return (
     <MessagesContext.Provider

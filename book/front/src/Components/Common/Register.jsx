@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 import useServerPost from "../../Hooks/useServerPost";
 import * as l from "../../Constants/urls";
+import useRegister from "../../Validations/useRegister";
+import Input from "../Forms/Input";
 
 export default function Register() {
-  const defaultValues = {
-    name: "",
-    email: "",
-    psw: "",
-    psw2: "",
-  };
+  const defaultValues = { name: "", email: "", psw: "", psw2: "" };
+
+  const { errors, validate } = useRegister();
 
   const { doAction, response } = useServerPost(l.SERVER_REGISTER);
 
@@ -20,9 +19,11 @@ export default function Register() {
       if (null === response) {
         return;
       }
-      setButtonDisabled(false); //disable button tam kad neprispaudinetu useris.
+      setButtonDisabled(false);
       if (response.type === "success") {
         window.location.hash = l.REDIRECT_AFTER_REGISTER;
+      } else {
+        console.log(response.data.response.data.errors);
       }
     },
     [response]
@@ -32,13 +33,18 @@ export default function Register() {
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (_) => {
+    // TODO validations
+
+    if (!validate(form)) {
+      return;
+    }
+
     setButtonDisabled(true);
-    //TODO validations
     doAction({
       name: form.name,
       email: form.email,
-      psw: form.psw,
+      password: form.psw,
     });
   };
 
@@ -47,7 +53,7 @@ export default function Register() {
       <div id="main">
         <div className="inner">
           <header id="header">
-            <h3>Registruotis</h3>
+            <h2>Registruotis</h2>
           </header>
           <section>
             <header className="main">
@@ -55,9 +61,9 @@ export default function Register() {
                 <div className="col-6 col-8-large col-10-medium col-12-small">
                   <form>
                     <div className="row gtr-uniform">
-                      <div className="col-12"></div>
                       <div className="col-6 col-12-xsmall">
-                        <input
+                        <Input
+                          errors={errors}
                           onChange={handleForm}
                           value={form.name}
                           type="text"
@@ -67,7 +73,8 @@ export default function Register() {
                         />
                       </div>
                       <div className="col-6 col-12-xsmall">
-                        <input
+                        <Input
+                          errors={errors}
                           onChange={handleForm}
                           value={form.email}
                           type="email"
@@ -77,7 +84,8 @@ export default function Register() {
                         />
                       </div>
                       <div className="col-6 col-12-xsmall">
-                        <input
+                        <Input
+                          errors={errors}
                           onChange={handleForm}
                           value={form.psw}
                           type="password"
@@ -87,7 +95,8 @@ export default function Register() {
                         />
                       </div>
                       <div className="col-6 col-12-xsmall">
-                        <input
+                        <Input
+                          errors={errors}
                           onChange={handleForm}
                           value={form.psw2}
                           type="password"
@@ -100,11 +109,11 @@ export default function Register() {
                         <ul className="actions">
                           <li>
                             <input
+                              disabled={buttonDisabled}
                               onClick={handleSubmit}
                               type="button"
                               value="Registruotis"
                               className="primary"
-                              disabled={buttonDisabled}
                             />
                           </li>
                         </ul>
@@ -115,7 +124,7 @@ export default function Register() {
                             <a href={"/" + l.SITE_HOME}>Grįžti į pradinį</a>
                           </li>
                           <li>
-                            <a href={"/" + l.SITE_LOGIN}>Prisijungti</a>
+                            <a href={l.SITE_LOGIN}>Prisijungti</a>
                           </li>
                         </ul>
                       </div>
