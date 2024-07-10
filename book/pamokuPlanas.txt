@@ -4,5 +4,5 @@ react 021 - html
 
 react 022 - databse/ create tool
 
-react 023 - Zinuciu kurimas
+react 023 - Zinuciu kurimas Messages
 

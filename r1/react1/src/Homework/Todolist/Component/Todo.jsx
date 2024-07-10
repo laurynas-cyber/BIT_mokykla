@@ -9,15 +9,38 @@ function Todo() {
   }
 
   function addTask() {
-    settaskList((t) => [...t, newTask]);
-    console.log(taskList);
+    if (newTask.trim() !== "") {
+      settaskList((t) => [...t, newTask]);
+      setnewTask("");
+    }
   }
 
-  function deleteTask(index) {}
+  function deleteTask(index) {
+    const updatedTask = taskList.filter((el, i) => i !== index);
+    settaskList(updatedTask);
+  }
 
-  function moveTaskUp(index) {}
+  function moveTaskUp(index) {
+    if (index > 0) {
+      const allTasks = [...taskList];
+      [allTasks[index], allTasks[index - 1]] = [
+        allTasks[index - 1],
+        allTasks[index],
+      ];
+      settaskList(allTasks);
+    }
+  }
 
-  function moveTaskDown(index) {}
+  function moveTaskDown(index) {
+    if (index < taskList.length - 1) {
+      const allTasks = [...taskList];
+      [allTasks[index], allTasks[index + 1]] = [
+        allTasks[index + 1],
+        allTasks[index],
+      ];
+      settaskList(allTasks);
+    }
+  }
   return (
     <div className="to-do-list">
       <h1>To-do-list</h1>
