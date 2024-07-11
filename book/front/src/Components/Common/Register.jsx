@@ -7,26 +7,28 @@ import Input from "../Forms/Input";
 export default function Register() {
   const defaultValues = { name: "", email: "", psw: "", psw2: "" };
 
-  const { errors, validate } = useRegister();
+  const { errors, validate, setServerErrors } = useRegister();
 
-  const { doAction, response } = useServerPost(l.SERVER_REGISTER);
+  const { doAction, serverResponse } = useServerPost(l.SERVER_REGISTER);
 
   const [form, setForm] = useState(defaultValues);
   const [buttonDisabled, setButtonDisabled] = useState(false);
 
   useEffect(
     (_) => {
-      if (null === response) {
+      if (null === serverResponse) {
         return;
       }
       setButtonDisabled(false);
-      if (response.type === "success") {
+      if (serverResponse.type === "success") {
         window.location.hash = l.REDIRECT_AFTER_REGISTER;
       } else {
-        console.log(response.data.response.data.errors);
+        if (serverResponse.serverData?.response?.data?.errorsBag) {
+          setServerErrors(serverResponse.serverData.response.data.errorsBag);
+        }
       }
     },
-    [response]
+    [serverResponse]
   );
 
   const handleForm = (e) => {

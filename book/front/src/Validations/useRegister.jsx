@@ -3,6 +3,10 @@ import { useState } from "react";
 function useRegister() {
   const [errors, setErrors] = useState({});
 
+  const setServerErrors = (err) => {
+    setErrors(err);
+  };
+
   const validate = (form) => {
     const errorsBag = {};
     if (form.name.length <= 3) {
@@ -18,9 +22,13 @@ function useRegister() {
     } else if (!/[0-9]/.test(form.psw)) {
       errorsBag.psw = "Slaptažodis turi turėti bent vieną skaitmenį";
     } else if (!/[a-z]/.test(form.psw)) {
-      errorsBag.psw = "Slaptažodis turi turėti bent vieną mažąją raidę";
+      errorsBag.psw = "Slaptažodis turi turėti bent vieną mažają raidę";
     } else if (!/[A-Z]/.test(form.psw)) {
-      errorsBag.psw = "Slaptažodis turi turėti bent vieną didžiąją raidę";
+      errorsBag.psw = "Slaptažodis turi turėti bent vieną didžiają raidę";
+    }
+
+    if (form.psw !== form.psw2 && !errorsBag.psw) {
+      errorsBag.psw2 = "Slaptažodžiai nesutampa";
     }
 
     return true; // laikinai
@@ -38,7 +46,7 @@ function useRegister() {
     return false;
   };
 
-  return { errors, validate };
+  return { errors, validate, setServerErrors };
 }
 
 export default useRegister;

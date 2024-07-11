@@ -29,14 +29,20 @@ function Messages({ children }) {
         type: "error",
         title: "Server error " + error.response.status,
         text: error.response.data.message,
-      }); // react 024 pamoka
+      });
     }
+  }, []);
 
-    console.log(error);
+  const messageSuccess = useCallback((res) => {
+    addMessage({
+      type: res.data.message.type,
+      title: res.data.message.title,
+      text: res.data.message.text,
+    });
   }, []);
   return (
     <MessagesContext.Provider
-      value={{ remMessage, addMessage, msg, messageError }}
+      value={{ remMessage, addMessage, msg, messageError, messageSuccess }}
     >
       {children}
     </MessagesContext.Provider>
