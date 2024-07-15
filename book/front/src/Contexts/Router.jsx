@@ -96,6 +96,7 @@ const Router = (_) => {
     {
       path: l.SITE_DASHBORD,
       pc: 0,
+      p1: "dashbord",
       component: (
         <Admin>
           <Dashbord />
@@ -104,7 +105,8 @@ const Router = (_) => {
     },
     {
       path: l.USERS_LIST,
-      pc: 0,
+      pc: 1,
+      p1: "users",
       component: (
         <Admin>
           <UsersList />
@@ -123,9 +125,22 @@ const Router = (_) => {
     },
   ]; // pc parametru skaicius
 
-  const routeComponent = routes.find(
-    (r) => r.path === route && r.pc === params.length
-  )?.component ?? <Page404 />;
+  const findRoute = (_) => {
+    return routes.find((r) => {
+      const realPath = r.path.split("/");
+      if (realPath.length === 1) {
+        return realPath[0] === route && r.pc === params.length;
+      }
+      if (realPath.length === 2) {
+        return (
+          realPath[0] === route && r.pc === params.length && r.p1 === params[0]
+        );
+      }
+      return false;
+    });
+  };
+
+  const routeComponent = findRoute()?.component ?? <Page404 />;
 
   return (
     <RouterContext.Provider value={params}>

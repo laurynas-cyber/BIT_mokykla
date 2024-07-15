@@ -1,7 +1,7 @@
 function Footer() {
   return (
     <footer id="footer">
-      <p className="copyright">Raudonoji knyga Admin Panel v.0.2</p>
+      <p className="copyright">Administravimo programa v.0.2</p>
     </footer>
   );
 }

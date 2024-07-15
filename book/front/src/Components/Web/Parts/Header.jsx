@@ -18,6 +18,11 @@ function Header() {
           </a>
         </li>
         <li>
+          <a href={l.SITE_DASHBORD}>
+            <span className="label">Laikinas ADMIN</span>
+          </a>
+        </li>
+        <li>
           <a href="#" className="icon fa-user"></a>
         </li>
       </ul>

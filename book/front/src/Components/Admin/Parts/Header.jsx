@@ -4,12 +4,12 @@ function Header() {
   return (
     <header id="header">
       <a href="index.html" className="logo">
-        <strong>Admin</strong> by HTML5 UP
+        <strong>Administravimas</strong> by HTML5 UP
       </a>
       <ul className="icons">
         <li>
           <a href={l.SITE_LOGIN}>
-            <span className="label">Logout</span>
+            <span className="label">Atsijungti</span>
           </a>
         </li>
       </ul>
