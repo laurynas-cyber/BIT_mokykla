@@ -10,5 +10,5 @@ react 024 - formos validacija, serverio startas validacijos zinuciu rodymas
 
 react 025 - pakartojima zinuciu ir serverio siuntimas, zinutes, vartotojo idejima i databaze, naujo admino routo sukurimas
 
-react 026 - routerio perdarymas admino params, vartotoju atsisiuntimas is duonbazes ir ju pavaizdavimas
+react 026 - routerio perdarymas admino params, vartotoju atsisiuntimas is duonbazes ir ju pavaizdavimas, modalu kontekstas
 
