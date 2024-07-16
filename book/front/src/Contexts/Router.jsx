@@ -32,6 +32,7 @@ const Zebras = (_) => {
     </div>
   );
 };
+
 const Router = (_) => {
   const [route, setRoute] = useState("");
   const [params, setParams] = useState([]);
@@ -39,7 +40,6 @@ const Router = (_) => {
   const handleHashChange = useCallback(
     (_) => {
       const hash = window.location.hash.split("/");
-      console.log(hash);
       hash[0] || (hash[0] = "#");
       setRoute(hash.shift());
       setParams(hash);
@@ -49,15 +49,11 @@ const Router = (_) => {
 
   useEffect(
     (_) => {
-      const hash = window.location.hash.split("/"); //nuskaitom hasho eilute
-
-      hash[0] || (hash[0] = "#"); //kai pirma kart uzlaudima mes neturim hasho
-      setRoute(hash.shift()); //isimam pirma elementa is masyvo, tam kad liktu tiktai parametrai
-
-      setParams(hash); // idedam i parametrus
-
-      window.addEventListener("hashchange", handleHashChange); //event listeneri kai pasikeis hasshas # pasileis funkcija
-
+      const hash = window.location.hash.split("/");
+      hash[0] || (hash[0] = "#");
+      setRoute(hash.shift());
+      setParams(hash);
+      window.addEventListener("hashchange", handleHashChange);
       return (_) => window.removeEventListener("hashchange", handleHashChange);
     },
     [handleHashChange]
@@ -95,7 +91,7 @@ const Router = (_) => {
 
     {
       path: l.SITE_DASHBORD,
-      pc: 0,
+      pc: 1,
       p1: "dashbord",
       component: (
         <Admin>
@@ -113,17 +109,10 @@ const Router = (_) => {
         </Admin>
       ),
     },
-    {
-      path: l.SITE_REGISTER,
-      pc: 0,
-      component: <Register />,
-    },
-    {
-      path: l.SITE_LOGIN,
-      pc: 0,
-      component: <Login />,
-    },
-  ]; // pc parametru skaicius
+
+    { path: l.SITE_REGISTER, pc: 0, component: <Register /> },
+    { path: l.SITE_LOGIN, pc: 0, component: <Login /> },
+  ];
 
   const findRoute = (_) => {
     return routes.find((r) => {

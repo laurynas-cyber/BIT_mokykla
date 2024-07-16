@@ -26,7 +26,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get("/admin/users", (_, res) => {
-  const sql = `SELECT * from users`;
+  const sql = `
+        SELECT *
+        FROM users`;
 
   connection.query(sql, (err, rows) => {
     if (err) throw err;
@@ -37,6 +39,31 @@ app.get("/admin/users", (_, res) => {
       .end();
   });
 });
+
+app.delete("/admin/delete/user/:id", (req, res) => {
+  const { id } = req.params;
+
+  const sql = `
+        DELETE 
+        FROM users 
+        WHERE id = ? AND role != 'admin'
+        `;
+
+  connection.query(sql, [id], (err, result) => {
+    if (err) throw err;
+    const deleted = result.affectedRows;
+    res
+      .json({
+        message: {
+          type: "success",
+          title: "Vartotojai",
+          text: `Vartotojas sėkmingai ištrintas`,
+        },
+      })
+      .end();
+  });
+});
+
 app.post("/register", (req, res) => {
   const { name, email, password } = req.body;
 

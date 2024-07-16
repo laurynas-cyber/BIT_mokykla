@@ -1,27 +1,51 @@
 import useServerGet from "../../Hooks/useServerGet";
 import * as l from "../../Constants/urls";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import useServerDelete from "../../Hooks/useServerDelete";
+import { ModalContext } from "../../Contexts/Modals";
 
-function UsersList() {
-  const { doAction, serverResponse } = useServerGet(l.SERVER_GET_USERS);
-
+export default function UsersList() {
+  const { doAction: doGet, serverResponse: serverGetResponse } = useServerGet(
+    l.SERVER_GET_USERS
+  );
+  const { doAction: doDelete, serverResponse: serverDeleteResponse } =
+    useServerDelete(l.SERVER_DELETE_USER);
+  const { setDeleteModal } = useContext(ModalContext);
   const [users, setUsers] = useState(null);
+
+  const hideUser = (user) => {
+    setUsers((u) =>
+      u.map((u) => (u.id === user.id ? { ...u, hidden: true } : u))
+    );
+  };
 
   useEffect(
     (_) => {
-      doAction();
+      doGet();
     },
-    [doAction]
+    [doGet]
   );
 
   useEffect(
     (_) => {
-      if (serverResponse === null) {
+      if (null === serverGetResponse) {
         return;
       }
-      setUsers(serverResponse.serverData.users ?? null);
+      setUsers(serverGetResponse.serverData.users ?? null);
     },
-    [serverResponse]
+    [serverGetResponse]
+  );
+
+  useEffect(
+    (_) => {
+      if (null === serverDeleteResponse) {
+        return;
+      }
+
+      console.log(serverDeleteResponse);
+      // setUsers(serverDeleteResponse.serverData.users ?? null)
+    },
+    [serverDeleteResponse]
   );
 
   return (
@@ -34,7 +58,7 @@ function UsersList() {
         </div>
       </section>
       <section>
-        {users === null && <h2>Palaukite,siunčiame vartotojų sąrašą</h2>}
+        {users === null && <h2>Palaukite, siunčiamas vartotojų sąrašą</h2>}
         {users !== null && (
           <div className="table-wrapper">
             <table className="alt">
@@ -47,36 +71,47 @@ function UsersList() {
                 </tr>
               </thead>
               <tbody>
-                {users.map((u) => (
-                  <tr key={u.id}>
-                    <td>{u.name}</td>
-                    <td>{u.email}</td>
-                    <td>{u.role}</td>
-                    <td className="two">
-                      <ul className="actions special">
-                        <li>
-                          <input
-                            type="button"
-                            value="redaguoti"
-                            className="small"
-                          />
-                        </li>
-                        <li>
-                          <input
-                            type="button"
-                            value="ištrinti"
-                            className="small"
-                          />
-                        </li>
-                      </ul>
-                    </td>
-                  </tr>
-                ))}
+                {users.map((u) =>
+                  u.hidden ? null : (
+                    <tr key={u.id}>
+                      <td>{u.name}</td>
+                      <td>{u.email}</td>
+                      <td>{u.role}</td>
+                      <td className="two">
+                        <ul className="actions special">
+                          <li>
+                            <input
+                              type="button"
+                              value="redaguoti"
+                              className="small"
+                            />
+                          </li>
+                          <li>
+                            <input
+                              onClick={(_) =>
+                                setDeleteModal({
+                                  data: u,
+                                  doDelete,
+                                  hideData: hideUser,
+                                })
+                              }
+                              type="button"
+                              value="ištrinti"
+                              className="small"
+                            />
+                          </li>
+                        </ul>
+                      </td>
+                    </tr>
+                  )
+                )}
               </tbody>
               <tfoot>
                 <tr>
                   <td colSpan="2"></td>
-                  <td>Viso vartotojų:{users.length}</td>
+                  <td>
+                    Viso vartototojų: {users.filter((u) => !u.hidden).length}
+                  </td>
                 </tr>
               </tfoot>
             </table>
@@ -86,5 +121,3 @@ function UsersList() {
     </>
   );
 }
-
-export default UsersList;
