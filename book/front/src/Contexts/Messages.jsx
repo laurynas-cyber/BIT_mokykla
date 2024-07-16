@@ -23,17 +23,23 @@ function Messages({ children }) {
 
   const messageError = useCallback(
     (error) => {
-      if (!error.response) {
+      if (!error.response) { // jeigu negaunam responso
         addMessage({
           type: "error",
           title: "Server error",
           text: error.message,
         });
-      } else {
-        addMessage({
+      } else if (!error.response.data.message?.title) { // jeigu server errroras
+        addMessage({ 
           type: "error",
           title: "Server error " + error.response.status,
           text: error.response.data.message,
+        });
+      } else { // jeigu norim viska rodyti
+        addMessage({
+          type: error.response.data.message.type,
+          title: error.response.data.message.title,
+          text: error.response.data.message.text,
         });
       }
     },

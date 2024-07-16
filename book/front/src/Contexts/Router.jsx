@@ -8,6 +8,7 @@ import Login from "../Components/Common/Login";
 import * as l from "../Constants/urls";
 import Dashbord from "../Components/Admin/Dashbord";
 import UsersList from "../Components/Admin/UsersList";
+import UserEdit from "../Components/Admin/UserEdit";
 
 const RouterContext = createContext([]); //skliaustuose pradine reiksme jeigu pradetu rekti, kad kazkas netinka
 
@@ -109,6 +110,16 @@ const Router = (_) => {
         </Admin>
       ),
     },
+    {
+      path: l.USER_EDIT,
+      pc: 2,
+      p1: "user-edit",
+      component: (
+        <Admin>
+          <UserEdit/>
+        </Admin>
+      ),
+    },
 
     { path: l.SITE_REGISTER, pc: 0, component: <Register /> },
     { path: l.SITE_LOGIN, pc: 0, component: <Login /> },
@@ -132,7 +143,7 @@ const Router = (_) => {
   const routeComponent = findRoute()?.component ?? <Page404 />;
 
   return (
-    <RouterContext.Provider value={params}>
+    <RouterContext.Provider value={{params}}>
       {routeComponent}
     </RouterContext.Provider>
   );

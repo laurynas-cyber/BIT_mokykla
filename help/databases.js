@@ -17,3 +17,4 @@ WHERE id = ?
 
 // databaze kai nuluzta xampp folderis -> mysql -> data delete viska -> ir tada is backup nukopijuoti i data
 
+const deleted = result.affectedRows; // patikrinta efektintas eilutes. jeigu neefektina grazina 0

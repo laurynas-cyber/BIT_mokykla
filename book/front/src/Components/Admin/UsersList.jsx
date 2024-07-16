@@ -1,6 +1,6 @@
 import useServerGet from "../../Hooks/useServerGet";
 import * as l from "../../Constants/urls";
-import { useContext, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import useServerDelete from "../../Hooks/useServerDelete";
 import { ModalContext } from "../../Contexts/Modals";
 
@@ -18,6 +18,19 @@ export default function UsersList() {
       u.map((u) => (u.id === user.id ? { ...u, hidden: true } : u))
     );
   };
+
+  const showUser = useCallback((_) => {
+    setUsers((u) =>
+      u.map((u) => {
+        delete u.hidden;
+        return u;
+      })
+    );
+  }, []);
+
+  const removeHidden = useCallback((_) => {
+    setUsers((u) => u.filter((u) => !u.hidden));
+  }, []);
 
   useEffect(
     (_) => {
@@ -41,11 +54,15 @@ export default function UsersList() {
       if (null === serverDeleteResponse) {
         return;
       }
-
+      if (serverDeleteResponse.type === "error") {
+        showUser();
+      } else {
+        removeHidden();
+      }
       console.log(serverDeleteResponse);
       // setUsers(serverDeleteResponse.serverData.users ?? null)
     },
-    [serverDeleteResponse]
+    [serverDeleteResponse, removeHidden, showUser]
   );
 
   return (
@@ -80,11 +97,14 @@ export default function UsersList() {
                       <td className="two">
                         <ul className="actions special">
                           <li>
-                            <input
+                            <a
+                              href={l.USER_EDIT + "/" + u.id}
                               type="button"
                               value="redaguoti"
                               className="small"
-                            />
+                            >
+                              Redaguoti
+                            </a>
                           </li>
                           <li>
                             <input
