@@ -12,4 +12,7 @@ react 025 - pakartojima zinuciu ir serverio siuntimas, zinutes, vartotojo idejim
 
 react 026 - routerio perdarymas admino params, vartotoju atsisiuntimas is duonbazes ir ju pavaizdavimas, modalu kontekstas
 
-react 027 - vartotojo trinimas
+react 027 - vartotojo trinimas, trinimo modalas, edit pradzia su paramssais
+
+react 028 - 
+

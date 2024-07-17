@@ -75,7 +75,7 @@ export default function UsersList() {
         </div>
       </section>
       <section>
-        {users === null && <h2>Palaukite, siunčiamas vartotojų sąrašą</h2>}
+        {users === null && <h2>Palaukite, siunčiamas vartotojų sąrašas</h2>}
         {users !== null && (
           <div className="table-wrapper">
             <table className="alt">
@@ -101,7 +101,7 @@ export default function UsersList() {
                               href={l.USER_EDIT + "/" + u.id}
                               type="button"
                               value="redaguoti"
-                              className="small"
+                              className="button small"
                             >
                               Redaguoti
                             </a>

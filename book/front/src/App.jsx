@@ -4,15 +4,20 @@ import { Router } from "./Contexts/Router";
 import "./Style/main.scss";
 import DeleteModal from "./Components/Common/DeleteModal";
 import Modals from "./Contexts/Modals";
+import Loader from "./Contexts/Loader";
+import LoaderContainer from "./Components/Common/LoaderContainer";
 
 function App() {
   return (
     <Messages>
-      <Modals>
-        <Msg></Msg>
-        <DeleteModal />
-        <Router />
-      </Modals>
+      <Loader>
+        <Modals>
+          <Msg></Msg>
+          <DeleteModal />
+          <LoaderContainer />
+          <Router />
+        </Modals>
+      </Loader>
     </Messages>
   );
 }
