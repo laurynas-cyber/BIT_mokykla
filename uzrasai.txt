@@ -28,3 +28,6 @@ Front offisas - viesai matoma ir skirta vartotojui geriau nenaudoti Reacta , bac
 i bendra sql lentele idejus sesija jungiantis per du devicus nuo antro atjungti. idejus cookies i atskira vartotojo lentele tai gales jungtis per abu devicus\
 
 button disabled butinas kai darom ir siunciam duomenis
+
+https://www.fortinet.com/resources/cyberglossary/types-of-cyber-attacks - kibernetines attakos. httpOnly: true reikia daryti sesijos cookie 
+XSS fronto ataka
