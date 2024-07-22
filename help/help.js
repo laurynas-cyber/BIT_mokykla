@@ -458,3 +458,12 @@ if (Object.keys(errorsBag).length === 0) {
   setErrors({});
   return true;
 } //tikrinam kokie yra key yra tam objekte. taip galima tikrinti ar jis tuscias ar ne. gerai naudoti validacijai
+
+{ withCredentials: true } // reiskia siusk cookius 
+
+app.use(
+  cors({
+    origin: "http://localhost:3000", // sukokiu serveriu bus galima keistis cookies
+    credentials: true, // kad leistu siusti cookius
+  })
+);
