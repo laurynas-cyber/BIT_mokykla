@@ -8,14 +8,14 @@ function Auth({ children }) {
     return user ? JSON.parse(user) : null;
   });
 
-  const addUser = useCallback((user) => {
-    setUser(user);
-    localStorage.setItem("bookUser", JSON.stringify(user));
-  }, []);
-
   const removeUser = useCallback((_) => {
     setUser(null);
     localStorage.removeItem("bookUser");
+  }, []);
+
+  const addUser = useCallback((user) => {
+    setUser(user);
+    localStorage.setItem("bookUser", JSON.stringify(user));
   }, []);
 
   return (

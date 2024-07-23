@@ -467,3 +467,10 @@ app.use(
     credentials: true, // kad leistu siusti cookius
   })
 );
+
+res.cookie("recovery-session", session, {
+  maxAge: 1000 * 60 * 60 * 24,
+  httpOnly: true,
+}); //http only fronte nebus prieinamas cookis su js
+
+res.clearCookie('book-session'); //cokie istrinimas

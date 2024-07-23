@@ -14,9 +14,9 @@ const useServerPost = (url) => {
 
   const { setShow } = useContext(LoaderContext);
 
-  const doAction = (data) => {
+  const doAction = (data = {}) => {
     axios
-      .post(`${l.SERVER_URL}${url}`, data, { withCredentials: true }) // reiskia siusk cookius 
+      .post(`${l.SERVER_URL}${url}`, data, { withCredentials: true }) // reiskia siusk cookius
       .then((res) => {
         messageSuccess(res);
         setResponse({

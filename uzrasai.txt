@@ -31,3 +31,9 @@ button disabled butinas kai darom ir siunciam duomenis
 
 https://www.fortinet.com/resources/cyberglossary/types-of-cyber-attacks - kibernetines attakos. httpOnly: true reikia daryti sesijos cookie 
 XSS fronto ataka
+
+Middleware - galima sakyti yra back endo dalies res ir req apdorojimas pries jiems patenkant i routus(metodus). Taip pat middleware gali buti skirtas atskirai grupei pvz useriams 
+
+Sutartis prideti priedas ir priede specifikacija kurioje parasyta kas turi buti padaryti punktai.
+Specifikacijos bet kokie pakeitimai reiskias koreguojam galutine kaina
+Keiciant reikia priedo kuriame parasyta uz kokias papildomas specifikacijos uz tam tikra suma

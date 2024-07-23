@@ -50,6 +50,7 @@ const checkSession = (req, _, next) => {
       return next();
     }
     req.user = rows[0];
+    console.log(rows[0]);
     next();
   });
 };
@@ -256,6 +257,46 @@ app.put("/admin/update/user/:id", (req, res) => {
         }
       );
     }
+  }, 1500);
+});
+
+app.post("/logout", (req, res) => {
+  setTimeout((_) => {
+    const session = req.cookies["book-session"];
+
+    const sql = `
+          UPDATE users
+          SET session = NULL
+          WHERE session = ?
+      `;
+
+    connection.query(sql, [session], (err, result) => {
+      if (err) throw err;
+      const logged = result.affectedRows;
+      if (!logged) {
+        res
+          .status(401)
+          .json({
+            message: {
+              type: "error",
+              title: "Atsijungimas nepavyko",
+              text: `Neteisingi prisijungimo duomenys`,
+            },
+          })
+          .end();
+        return;
+      }
+      res.clearCookie("book-session"); //cokie istrinimas
+      res
+        .json({
+          message: {
+            type: "success",
+            title: `Atsijungta`,
+            text: `Jūs sėkmingai atsijungėte`,
+          },
+        })
+        .end();
+    });
   }, 1500);
 });
 
