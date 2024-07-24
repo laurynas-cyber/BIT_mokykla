@@ -30,27 +30,35 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+const maintenance = (req, res, next) => {
+  res
+    .status(503)
+    .json({
+      message: {
+        type: "error",
+        title: "Techniniai darbai",
+        text: `Atsiprašome, bet šiuo metu vykdomi techniniai darbai`,
+      },
+    })
+    .end();
+};
+
 const checkSession = (req, _, next) => {
   const session = req.cookies["book-session"];
-
   if (!session) {
     return next();
   }
   const sql = `
-      SELECT id, name, email, role 
-      FROM users
-      WHERE session = ?
-  `;
+        SELECT id, name, email, role 
+        FROM users
+        WHERE session = ?
+    `;
   connection.query(sql, [session], (err, rows) => {
     if (err) throw err;
-
-    console.log(session, rows);
-
     if (!rows.length) {
       return next();
     }
     req.user = rows[0];
-    console.log(rows[0]);
     next();
   });
 };
@@ -87,13 +95,36 @@ const checkUserIsAuthorized = (req, res, roles) => {
   return true;
 };
 
+// app.use(maintenance);
+
 app.use(checkSession);
 
-app.get("/admin/users", (_, res) => {
+app.get("/web/content", (req, res) => {
   setTimeout((_) => {
     const sql = `
-      SELECT *
-      FROM users`;
+        SELECT *
+        FROM options`;
+
+    connection.query(sql, (err, rows) => {
+      if (err) throw err;
+      res
+        .json({
+          content: rows,
+        })
+        .end();
+    });
+  }, 1500);
+});
+
+app.get("/admin/users", (req, res) => {
+  setTimeout((_) => {
+    if (!checkUserIsAuthorized(req, res, ["admin"])) {
+      return;
+    }
+
+    const sql = `
+        SELECT *
+        FROM users`;
 
     connection.query(sql, (err, rows) => {
       if (err) throw err;
@@ -111,10 +142,10 @@ app.delete("/admin/delete/user/:id", (req, res) => {
     const { id } = req.params;
 
     const sql = `
-      DELETE 
-      FROM users 
-      WHERE id = ? AND role != 'admin'
-      `;
+        DELETE 
+        FROM users 
+        WHERE id = ? AND role != 'admin'
+        `;
 
     connection.query(sql, [id], (err, result) => {
       if (err) throw err;
@@ -153,10 +184,10 @@ app.get("/admin/edit/user/:id", (req, res) => {
 
     const { id } = req.params;
     const sql = `
-      SELECT id, name, email, role
-      FROM users
-      WHERE id = ?
-      `;
+        SELECT id, name, email, role
+        FROM users
+        WHERE id = ?
+        `;
     connection.query(sql, [id], (err, rows) => {
       if (err) throw err;
       if (!rows.length) {
@@ -188,10 +219,10 @@ app.put("/admin/update/user/:id", (req, res) => {
 
     if (!password) {
       const sql = `
-          UPDATE users
-          SET name = ?, email = ?, role = ?
-          WHERE id = ?
-          `;
+            UPDATE users
+            SET name = ?, email = ?, role = ?
+            WHERE id = ?
+            `;
 
       connection.query(sql, [name, email, role, id], (err, result) => {
         if (err) throw err;
@@ -221,10 +252,10 @@ app.put("/admin/update/user/:id", (req, res) => {
       });
     } else {
       const sql = `
-              UPDATE users
-              SET name = ?, email = ?, role = ?, password = ?
-              WHERE id = ?
-              `;
+                UPDATE users
+                SET name = ?, email = ?, role = ?, password = ?
+                WHERE id = ?
+                `;
 
       connection.query(
         sql,
@@ -260,56 +291,16 @@ app.put("/admin/update/user/:id", (req, res) => {
   }, 1500);
 });
 
-app.post("/logout", (req, res) => {
-  setTimeout((_) => {
-    const session = req.cookies["book-session"];
-
-    const sql = `
-          UPDATE users
-          SET session = NULL
-          WHERE session = ?
-      `;
-
-    connection.query(sql, [session], (err, result) => {
-      if (err) throw err;
-      const logged = result.affectedRows;
-      if (!logged) {
-        res
-          .status(401)
-          .json({
-            message: {
-              type: "error",
-              title: "Atsijungimas nepavyko",
-              text: `Neteisingi prisijungimo duomenys`,
-            },
-          })
-          .end();
-        return;
-      }
-      res.clearCookie("book-session"); //cokie istrinimas
-      res
-        .json({
-          message: {
-            type: "success",
-            title: `Atsijungta`,
-            text: `Jūs sėkmingai atsijungėte`,
-          },
-        })
-        .end();
-    });
-  }, 1500);
-});
-
 app.post("/login", (req, res) => {
   setTimeout((_) => {
     const { email, password } = req.body;
     const session = md5(uuidv4());
 
     const sql = `
-          UPDATE users
-          SET session = ?
-          WHERE email = ? AND password = ?
-      `;
+            UPDATE users
+            SET session = ?
+            WHERE email = ? AND password = ?
+        `;
 
     connection.query(sql, [session, email, md5(password)], (err, result) => {
       if (err) throw err;
@@ -328,10 +319,10 @@ app.post("/login", (req, res) => {
         return;
       }
       const sql = `
-          SELECT id, name, email, role
-          FROM users
-          WHERE email = ? AND password = ?
-      `;
+            SELECT id, name, email, role
+            FROM users
+            WHERE email = ? AND password = ?
+        `;
       connection.query(sql, [email, md5(password)], (err, rows) => {
         if (err) throw err;
         res.cookie("book-session", session, {
@@ -350,6 +341,46 @@ app.post("/login", (req, res) => {
           })
           .end();
       });
+    });
+  }, 1500);
+});
+
+app.post("/logout", (req, res) => {
+  setTimeout((_) => {
+    const session = req.cookies["book-session"];
+
+    const sql = `
+                UPDATE users
+                SET session = NULL
+                WHERE session = ?
+            `;
+
+    connection.query(sql, [session], (err, result) => {
+      if (err) throw err;
+      const logged = result.affectedRows;
+      if (!logged) {
+        res
+          .status(401)
+          .json({
+            message: {
+              type: "error",
+              title: "Atsijungimas nepavyko",
+              text: `Neteisingi prisijungimo duomenys`,
+            },
+          })
+          .end();
+        return;
+      }
+      res.clearCookie("book-session");
+      res
+        .json({
+          message: {
+            type: "success",
+            title: `Atsijungta`,
+            text: `Jūs sėkmingai atsijungėte`,
+          },
+        })
+        .end();
     });
   }, 1500);
 });
@@ -386,9 +417,9 @@ app.post("/register", (req, res) => {
         .end();
     } else {
       const sql = `
-          INSERT INTO users (name, email, password)
-          VALUES ( ?, ?, ? )
-          `;
+            INSERT INTO users (name, email, password)
+            VALUES ( ?, ?, ? )
+            `;
       connection.query(sql, [name, email, md5(password)], (err) => {
         if (err) throw err;
         res

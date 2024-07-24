@@ -214,3 +214,13 @@ html {
   --brand-green: #00856f; /*kintamojo sukurimas*/
 }
 background-color: var(--brand-green); /*kintamojo panaudojimas*/
+
+.SliderCont {
+
+  width: 100%;
+  aspect-ratio: 10 / 6; /*leidzia koreaguoti auksti, gerai su nuotraukom */
+}
+
+.img-slider-btn {
+  all: unset; /*nuiima visus stylsus */ 
+}

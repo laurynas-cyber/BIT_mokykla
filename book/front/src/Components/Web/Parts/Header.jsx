@@ -2,13 +2,20 @@ import * as l from "../../../Constants/urls";
 import Logout from "../../Common/Logout";
 import Gate from "../../Common/Gate";
 
-function Header() {
+export default function Header() {
   return (
     <header id="header">
       <a href="index.html" className="logo">
-        <strong>Raudonoji knyga</strong> by HTML5 UP
+        <strong>Raudonoji</strong> Knyga
       </a>
       <ul className="icons">
+        <Gate status="role" role={["admin", "user"]}>
+          <li>
+            <a href={l.SITE_DASHBORD}>
+              <span className="label">Administravimas</span>
+            </a>
+          </li>
+        </Gate>
         <Gate status="logged">
           <li>
             <Logout />
@@ -26,16 +33,7 @@ function Header() {
             </a>
           </li>
         </Gate>
-        <Gate status="role" role={["admin"]}>
-          <li>
-            <a href={l.SITE_DASHBORD}>
-              <span className="label">Administravimas</span>
-            </a>
-          </li>
-        </Gate>
       </ul>
     </header>
   );
 }
-
-export default Header;

@@ -1,22 +1,51 @@
-
-
+import { useEffect, useState } from "react";
 import Header from "./Header";
 import SideBar from "./SideBar";
+import useServerGet from "../../../Hooks/useServerGet";
+import * as l from "../../../Constants/urls";
 
-function Layout({children}) {
+function Layout({ children }) {
+  const { doAction: doGet, serverResponse: serverGetResponse } = useServerGet(
+    l.GET_WEB_CONTENT
+  );
+  const [webContent, setWebContent] = useState(null);
+
+  useEffect(
+    (_) => {
+      doGet();
+    },
+    [doGet]
+  );
+
+  useEffect(
+    (_) => {
+      if (null === serverGetResponse) {
+        return;
+      }
+
+      if (serverGetResponse.type === "success") {
+        setWebContent(
+          serverGetResponse.serverData.content.map((c) => ({
+            ...c,
+            value: JSON.parse(c.value),
+          }))
+        );
+      }
+    },
+    [serverGetResponse]
+  );
+
   return (
-    // <!-- Wrapper -->
     <div id="wrapper">
-      {/* <!-- Main --> */}
       <div id="main">
         <div className="inner">
-          <Header />
-          {/* <!-- Banner --> */}
-         {children}
+          <Header webContent={webContent} />
+
+          {children}
         </div>
       </div>
 
-      <SideBar />
+      <SideBar webContent={webContent} />
     </div>
   );
 }

@@ -31,7 +31,7 @@ function useRegister() {
       errorsBag.psw2 = "Slaptažodžiai nesutampa";
     }
 
-    return true; // laikinai
+    // return true; // laikinai
 
     if (form.psw !== form.psw2 && !errorsBag.psw) {
       errorsBag.psw2 = "Slaptažodiai nesutampa";

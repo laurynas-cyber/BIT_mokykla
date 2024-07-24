@@ -9,8 +9,9 @@ import * as l from "../Constants/urls";
 import Dashbord from "../Components/Admin/Dashbord";
 import UsersList from "../Components/Admin/UsersList";
 import UserEdit from "../Components/Admin/UserEdit";
+import RouteGate from "../Components/Common/RouteGate";
 
-const RouterContext = createContext([]); //skliaustuose pradine reiksme jeigu pradetu rekti, kad kazkas netinka
+const RouterContext = createContext([]);
 
 const Bebras = (_) => {
   return (
@@ -37,9 +38,11 @@ const Zebras = (_) => {
 const Router = (_) => {
   const [route, setRoute] = useState("");
   const [params, setParams] = useState([]);
+  const [prevPageLink, setPrevPageLink] = useState(["", ""]);
 
   const handleHashChange = useCallback(
     (_) => {
+      setPrevPageLink((p) => [p[1], window.location.hash]);
       const hash = window.location.hash.split("/");
       hash[0] || (hash[0] = "#");
       setRoute(hash.shift());
@@ -50,6 +53,7 @@ const Router = (_) => {
 
   useEffect(
     (_) => {
+      setPrevPageLink((p) => [p[1], window.location.hash]);
       const hash = window.location.hash.split("/");
       hash[0] || (hash[0] = "#");
       setRoute(hash.shift());
@@ -95,9 +99,11 @@ const Router = (_) => {
       pc: 1,
       p1: "dashbord",
       component: (
-        <Admin>
-          <Dashbord />
-        </Admin>
+        <RouteGate role={["admin"]}>
+          <Admin>
+            <Dashbord />
+          </Admin>
+        </RouteGate>
       ),
     },
     {
@@ -105,9 +111,11 @@ const Router = (_) => {
       pc: 1,
       p1: "users",
       component: (
-        <Admin>
-          <UsersList />
-        </Admin>
+        <RouteGate role={["admin"]}>
+          <Admin>
+            <UsersList />
+          </Admin>
+        </RouteGate>
       ),
     },
     {
@@ -115,9 +123,11 @@ const Router = (_) => {
       pc: 2,
       p1: "user-edit",
       component: (
-        <Admin>
-          <UserEdit/>
-        </Admin>
+        <RouteGate role={["admin"]}>
+          <Admin>
+            <UserEdit />
+          </Admin>
+        </RouteGate>
       ),
     },
 
@@ -143,7 +153,12 @@ const Router = (_) => {
   const routeComponent = findRoute()?.component ?? <Page404 />;
 
   return (
-    <RouterContext.Provider value={{params}}>
+    <RouterContext.Provider
+      value={{
+        params,
+        prevPageLink,
+      }}
+    >
       {routeComponent}
     </RouterContext.Provider>
   );

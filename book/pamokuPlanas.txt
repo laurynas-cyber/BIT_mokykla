@@ -20,4 +20,4 @@ react 028 - User Editas, Put metodas
 
 030 - prisijungimas, middleware, autorizacija, 
 
-031 - 
+031 - Gates, logout, prisijungus ar neprisijungus apsauga kad nepatektu i kitus puslapius

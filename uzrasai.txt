@@ -37,3 +37,5 @@ Middleware - galima sakyti yra back endo dalies res ir req apdorojimas pries jie
 Sutartis prideti priedas ir priede specifikacija kurioje parasyta kas turi buti padaryti punktai.
 Specifikacijos bet kokie pakeitimai reiskias koreguojam galutine kaina
 Keiciant reikia priedo kuriame parasyta uz kokias papildomas specifikacijos uz tam tikra suma
+
+jeigu uzlusta duombaze tai xammp -> mysql -> data viska istrinti is jo ir i ji ideti is backup folderio

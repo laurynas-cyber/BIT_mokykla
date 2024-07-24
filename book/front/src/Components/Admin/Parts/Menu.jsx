@@ -8,10 +8,10 @@ function Menu() {
       </header>
       <ul>
         <li>
-          <a href={l.SITE_DASHBORD}>Dashbordas</a>
+          <a href={"/" + l.SITE_DASHBORD}>Dashbordas</a>
         </li>
         <li>
-          <a href={l.USERS_LIST}>Vartotojai</a>
+          <a href={"/" + l.USERS_LIST}>Vartotojai</a>
         </li>
       </ul>
     </nav>
