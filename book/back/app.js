@@ -99,6 +99,21 @@ const checkUserIsAuthorized = (req, res, roles) => {
 
 app.use(checkSession);
 
+app.get("/web/types", (req, res) => {
+  setTimeout((_) => {
+    const sql = `SELECT * FROM types`;
+
+    connection.query(sql, (err, rows) => {
+      if (err) throw err;
+      res
+        .json({
+          types: rows,
+        })
+        .end();
+    });
+  }, 1500);
+});
+
 app.get("/web/content", (req, res) => {
   setTimeout((_) => {
     const sql = `
@@ -110,6 +125,54 @@ app.get("/web/content", (req, res) => {
       res
         .json({
           content: rows,
+        })
+        .end();
+    });
+  }, 1500);
+});
+
+app.get("/admin/edit/contacts", (req, res) => {
+  setTimeout((_) => {
+    const sql = `
+        SELECT value
+        FROM options
+        WHERE name = 'contacts'
+        `;
+
+    connection.query(sql, (err, rows) => {
+      if (err) throw err;
+      res
+        .json({
+          contacts: rows[0],
+        })
+        .end();
+    });
+  }, 1500);
+});
+
+app.put("/admin/update/contacts", (req, res) => {
+  setTimeout((_) => {
+    const { title, email, about, phone, address } = req.body;
+
+    //TODO: Validation
+
+    const value = JSON.stringify({ title, email, about, phone, address });
+
+    const sql = `
+              UPDATE options
+              SET value = ?
+              WHERE name = 'contacts'
+              `;
+
+    connection.query(sql, [value], (err) => {
+      if (err) throw err;
+      res
+        .json({
+          message: {
+            type: "success",
+            title: "Kontaktai",
+            text: `Kontaktai sėkmingai atnaujinti`,
+          },
         })
         .end();
     });

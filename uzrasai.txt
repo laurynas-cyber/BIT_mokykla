@@ -39,3 +39,9 @@ Specifikacijos bet kokie pakeitimai reiskias koreguojam galutine kaina
 Keiciant reikia priedo kuriame parasyta uz kokias papildomas specifikacijos uz tam tikra suma
 
 jeigu uzlusta duombaze tai xammp -> mysql -> data viska istrinti is jo ir i ji ideti is backup folderio
+
+PostGreSql geriausia duombaze https://www.postgresql.org/
+
+MongoDb - nosql duomenu baze
+
+backEnde su javascriptu hostinti bus brangu ir sunku rasti tiekeja, su PHP lengviau ir pigiau

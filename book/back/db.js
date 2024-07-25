@@ -46,6 +46,30 @@ const createOptionsTable = (_) => {
   });
 };
 
+const createTypesTable = (_) => {
+  const sql = `
+      CREATE TABLE IF NOT EXISTS types (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      title VARCHAR(100),
+      description TEXT,
+      icon VARCHAR(100)
+  )`;
+
+  connection.query(sql, function (err) {
+    if (err) throw err;
+    console.log("Types table created");
+  });
+};
+
+const dropTypesTable = (_) => {
+  const sql = "DROP TABLE IF EXISTS types";
+
+  connection.query(sql, function (err) {
+    if (err) throw err;
+    console.log("Types table dropped");
+  });
+};
+
 const dropUsersTable = (_) => {
   const sql = "DROP TABLE IF EXISTS users";
 
@@ -102,12 +126,30 @@ const seedOptionsTable = (_) => {
   });
 };
 
+const seedTypesTable = (_) => {
+  const sql = `
+        INSERT INTO types
+        (title, description, icon)
+        VALUES
+        ('Bebrai upinis', 'Lietuvoje bebrai nuo seno gyveno Nemuno baseine. Jų liekanų randama piliakalniuose, durpynuose. Bebrai šalyje buvo intensyviai medžiojami dėl mėsos (ypač uodegos), kailio ir sruoglių. 1555 m. švedų kronikininko Olaus Magnuso „Šiaurės tautų istorijoje“ rašoma, kad Lietuva buvusi pagrindinė bebrų kailių tiekėja Europoje. 1529 m. bebrų medžioklė buvo nustatyta Pirmajame Lietuvos statute: bebravietėse uždrausta lankytis pašaliniams', 'fa-gem'),
+        ('Barsukas urvinis', 'Filmas skirtas žiūrėjimui', 'fa-paper-plane'),
+        ('Briedis miškinis', 'Muzika skirta klausymuisi', 'fa-rocket')
+    `;
+  connection.query(sql, function (err) {
+    if (err) throw err;
+    console.log("Types table seeded");
+  });
+};
+
 dropUsersTable();
 dropOptionsTable();
+dropTypesTable();
 createUsersTable();
 createOptionsTable();
+createTypesTable();
 seedUsersTable();
 seedOptionsTable();
+seedTypesTable();
 
 connection.end(function (err) {
   if (err) throw err;

@@ -21,3 +21,11 @@ react 028 - User Editas, Put metodas
 030 - prisijungimas, middleware, autorizacija, 
 
 031 - Gates, logout, prisijungus ar neprisijungus apsauga kad nepatektu i kitus puslapius
+
+032 -  autorizacija RouteGate for admin, nauja duonbazes lentele contaktams,
+
+033 - kontaktu editas per admina, apie php front ir end, 
+
+arvydas.kijakuskas@gmail.com
+
+

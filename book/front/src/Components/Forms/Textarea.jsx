@@ -1,4 +1,4 @@
-export default function Input({
+export default function Textarea({
   label = null,
   onChange,
   value,
@@ -14,7 +14,7 @@ export default function Input({
         <span className={errors[name] ? "show" : ""}>{errors[name] ?? ""}</span>
       </div>
       {label && <label htmlFor={name}>{label}</label>}
-      <input
+      <textarea
         className={errors[name] ? "error" : ""}
         onChange={onChange}
         value={value}

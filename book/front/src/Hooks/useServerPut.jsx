@@ -13,8 +13,10 @@ const useServerPut = (url) => {
   const { removeUser } = useContext(AuthContext);
   const { prevPageLink } = useContext(RouterContext);
   const doAction = (data) => {
+    const param = data.id ? `/${data.id}` : "";
+
     axios
-      .put(`${l.SERVER_URL}${url}/${data.id}`, data, { withCredentials: true })
+      .put(`${l.SERVER_URL}${url}/${param}`, data, { withCredentials: true })
       .then((res) => {
         messageSuccess(res);
         setResponse({
