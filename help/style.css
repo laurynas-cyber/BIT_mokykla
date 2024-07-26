@@ -216,11 +216,56 @@ html {
 background-color: var(--brand-green); /*kintamojo panaudojimas*/
 
 .SliderCont {
-
   width: 100%;
   aspect-ratio: 10 / 6; /*leidzia koreaguoti auksti, gerai su nuotraukom */
 }
 
 .img-slider-btn {
-  all: unset; /*nuiima visus stylsus */ 
+  all: unset; /*nuiima visus stylsus */
+}
+
+.img-slide-dot-btn > * {
+  stroke: $orange; /* nzn ka daro*/
+  fill: $emerald; /* gerai naudoti icono */
+  height: 100%;
+  width: 100%;
+}
+
+.IndexSlideBubbles {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 50%; /*su left ir translate galima padaryti per vidury, bet reikia -50% */
+  translate: -50%;
+  display: flex;
+  gap: 0.25rem;
+}
+
+@keyframes squish {
+  50% {
+    scale: 1.4 0.6; /*scale gali buti i ilgi ir ploti */
+  }
+}
+
+.img-slide-dot-btn:focus-visible {
+  /*focus-visible jeigu keybordu TAB naudoji focuso metu suveikia css properciai */
+  scale: 1.2;
+  outline: auto;
+}
+
+html {
+  scroll-behavior: smooth; /*scrolinimas page */
+}
+
+@font-face {
+  font-family: "Nice Font"; /*pacio tavo pavadinimas */
+  src: url(./MetalMania.ttf); /*importinti failai */
+}
+
+backface-visibility: hidden; /*elemento antros puses permatamumas */
+
+.card {
+  height: 30rem;
+  width: 20rem;
+  position: relative;
+  perspective: 150rem; /* kuo didesnis tuo mazesnis vaizdas, cool stuff su 3D kai vartosi kas nors */
 }
