@@ -26,7 +26,7 @@ app.use(
 );
 
 app.use(cookieParser());
-// app.use(express.static('public'));
+app.use(express.static("public"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -98,6 +98,20 @@ const checkUserIsAuthorized = (req, res, roles) => {
 // app.use(maintenance);
 
 app.use(checkSession);
+
+app.get("/web/posts", (req, res) => {
+  setTimeout((_) => {
+    const sql = `SELECT * FROM posts`;
+    connection.query(sql, (err, rows) => {
+      if (err) throw err;
+      res
+        .json({
+          posts: rows,
+        })
+        .end();
+    });
+  }, 500);
+});
 
 app.get("/web/types", (req, res) => {
   setTimeout((_) => {
@@ -172,6 +186,98 @@ app.put("/admin/update/contacts", (req, res) => {
             type: "success",
             title: "Kontaktai",
             text: `Kontaktai sėkmingai atnaujinti`,
+          },
+        })
+        .end();
+    });
+  }, 1500);
+});
+
+app.get("/admin/posts", (req, res) => {
+  setTimeout((_) => {
+    if (!checkUserIsAuthorized(req, res, ["admin"])) {
+      return;
+    }
+    const sql = `
+      SELECT id, title, preview, photo, is_top
+      FROM posts`;
+
+    connection.query(sql, (err, rows) => {
+      if (err) throw err;
+      res
+        .json({
+          posts: rows,
+        })
+        .end();
+    });
+  }, 1500);
+});
+
+app.get("/admin/edit/post/:id", (req, res) => {
+  setTimeout((_) => {
+    if (!checkUserIsAuthorized(req, res, ["admin"])) {
+      return;
+    }
+    const { id } = req.params;
+    const sql = `
+      SELECT *
+      FROM posts
+      WHERE id = ?
+      `;
+    connection.query(sql, [id], (err, rows) => {
+      if (err) throw err;
+      if (!rows.length) {
+        res
+          .status(404)
+          .json({
+            message: {
+              type: "info",
+              title: "Straipsniai",
+              text: `Straipsnis nerastas`,
+            },
+          })
+          .end();
+        return;
+      }
+      res
+        .json({
+          post: rows[0],
+        })
+        .end();
+    });
+  }, 1500);
+});
+
+app.delete("/admin/delete/post/:id", (req, res) => {
+  setTimeout((_) => {
+    const { id } = req.params;
+    const sql = `
+      DELETE
+      FROM posts
+      WHERE id = ? AND is_top = 0
+      `;
+    connection.query(sql, [id], (err, result) => {
+      if (err) throw err;
+      const deleted = result.affectedRows;
+      if (!deleted) {
+        res
+          .status(422)
+          .json({
+            message: {
+              type: "info",
+              title: "Straipsniai",
+              text: `Straipsnis yra priskirtas kaip viršutinis ir negali būti ištrintas arba straipsnis neegzistuoja`,
+            },
+          })
+          .end();
+        return;
+      }
+      res
+        .json({
+          message: {
+            type: "success",
+            title: "Straipsniai",
+            text: `Straipsnis sėkmingai ištrintas`,
           },
         })
         .end();

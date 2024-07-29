@@ -45,3 +45,5 @@ PostGreSql geriausia duombaze https://www.postgresql.org/
 MongoDb - nosql duomenu baze
 
 backEnde su javascriptu hostinti bus brangu ir sunku rasti tiekeja, su PHP lengviau ir pigiau
+
+wireframe - desiganeriam web puslapiu prototipai. galima per FIGMA, ADOBE XD, SKETCH pasidaryti

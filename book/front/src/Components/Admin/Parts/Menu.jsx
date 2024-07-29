@@ -16,6 +16,9 @@ function Menu() {
         <li>
           <a href={"/" + l.EDIT_CONTACTS}>Kontaktų redagavimas</a>
         </li>
+        <li>
+          <a href={"/" + l.POSTS_LIST}>Straipsniai</a>
+        </li>
       </ul>
     </nav>
   );

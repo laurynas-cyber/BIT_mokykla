@@ -71,7 +71,9 @@ Komponentas - funkcija kuri grazina html
 
 Props - komponento argumentas
 
-state - 
+UI - user interface
+
+UX - user expierence
 
 conditional rendiring component
 
@@ -84,3 +86,7 @@ HOC - high order Component
 CORS policy
 
 SEP - search optimization
+
+wireframe - desiganeriam web puslapiu prototipai. galima per FIGMA, ADOBE XD, SKETCH pasidaryti
+
+rpa - robotiniu procesu automatizavimas
