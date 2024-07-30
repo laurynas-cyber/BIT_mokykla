@@ -69,3 +69,34 @@ sc_div.addEventListener("click", function () {
   compLabel_div.style.backgroundColor = "red";
   game("s");
 });
+
+
+//Imgreaderis parvertina ji bianrini ir talpina i serverio public folderi duoda failui varda
+
+
+const writeImage = (imageBase64) => {
+  if (!imageBase64) {
+    return null;
+  }
+  let type;
+  let image;
+  if (imageBase64.indexOf("data:image/png;base64,") === 0) {
+    type = "png";
+    image = Buffer.from(
+      imageBase64.replace(/^data:image\/png;base64,/, ""),
+      "base64"
+    ); // Buffer pavercia faila i bianrini data
+  } else if (imageBase64.indexOf("data:image/jpeg;base64,") === 0) {
+    type = "jpg";
+    image = Buffer.from(
+      imageBase64.replace(/^data:image\/jpeg;base64,/, ""),
+      "base64"
+    );
+  } else {
+    res.status(500).send("Bad image format");
+    return;
+  }
+  const filename = md5(uuidv4()) + "." + type; //md uuida darom tam kam nesidubliuodu pavadinimai ir neowerritintu failo
+  fs.writeFileSync("public/images/" + filename, image);
+  return filename;
+};

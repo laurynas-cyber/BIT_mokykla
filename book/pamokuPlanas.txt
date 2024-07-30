@@ -26,6 +26,10 @@ react 028 - User Editas, Put metodas
 
 033 - kontaktu editas per admina, apie php front ir end, 
 
+034 - posts, posts edit, posts lists
+
+035- nuotruaku ikelimas i duombaze
+
 arvydas.kijakuskas@gmail.com
 
 

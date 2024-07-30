@@ -1,42 +1,24 @@
 import { useContext, useEffect, useState, useRef } from "react";
-import { RouterContext } from "../../Contexts/Router";
-import useServerGet from "../../Hooks/useServerGet";
-import useServerPut from "../../Hooks/useServerPut";
+import useServerPost from "../../Hooks/useServerPost";
 import * as l from "../../Constants/urls";
 import Input from "../Forms/Input";
+import Image from "../Forms/Image";
 import Textarea from "../Forms/Textarea";
 import { LoaderContext } from "../../Contexts/Loader";
-import Image from "../Forms/Image";
 import { rem } from "../../Constants/icons";
 
-export default function PostEdit() {
-  const { params } = useContext(RouterContext);
-  const { doAction: doGet, serverResponse: serverGetResponse } = useServerGet(
-    l.SERVER_EDIT_POST
+export default function PostCreate() {
+  const { doAction: doPut, serverResponse: serverPutResponse } = useServerPost(
+    l.SERVER_STORE_POST
   );
-  const { doAction: doPut, serverResponse: serverPutResponse } = useServerPut(
-    l.SERVER_UPDATE_POST
-  );
-  const [post, setPost] = useState(null);
+  const [post, setPost] = useState({
+    title: "",
+    preview: "",
+    content: "",
+    photo: null,
+  });
   const { setShow } = useContext(LoaderContext);
-  const [imageName, setImageName] = useState("No image");
-
-  useEffect(
-    (_) => {
-      doGet("/" + params[1]);
-    },
-    [doGet, params]
-  );
-
-  useEffect(
-    (_) => {
-      if (null === serverGetResponse) {
-        return;
-      }
-      setPost(serverGetResponse.serverData.post ?? null);
-    },
-    [serverGetResponse]
-  );
+  const [imageName, setImageName] = useState("Nuotrauka nepasirinkta");
 
   useEffect(
     (_) => {
@@ -73,14 +55,14 @@ export default function PostEdit() {
       })
       .catch((_) => {
         setPost((p) => ({ ...p, photo: null }));
-        setImageName("No image");
+        setImageName("Nuotrauka nepasirinkta");
       });
   };
 
   const clearImage = (_) => {
     imageInput.current.value = null;
     setPost((p) => ({ ...p, photo: null }));
-    setImageName("No image");
+    setImageName("Nuotrauka nepasirinkta");
   };
 
   const submit = (_) => {
@@ -94,7 +76,7 @@ export default function PostEdit() {
       <section id="banner">
         <div className="content">
           <header>
-            <h1>Straipsnio Redagavimas</h1>
+            <h1>Naujas straipsnis</h1>
           </header>
         </div>
       </section>
@@ -111,6 +93,7 @@ export default function PostEdit() {
                       value={post.title}
                       type="text"
                       name="title"
+                      label="Pavadinimas"
                     />
                   </div>
                   <div className="col-12">
@@ -119,6 +102,7 @@ export default function PostEdit() {
                       value={post.preview}
                       type="text"
                       name="preview"
+                      label="Trumpai"
                     />
                   </div>
                   <div className="col-12">
@@ -127,6 +111,7 @@ export default function PostEdit() {
                       value={post.content}
                       type="text"
                       name="content"
+                      label="Straipsnio tekstas"
                     />
                   </div>
                   <div className="col-12">

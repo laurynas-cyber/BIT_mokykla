@@ -19,6 +19,9 @@ function Menu() {
         <li>
           <a href={"/" + l.POSTS_LIST}>Straipsniai</a>
         </li>
+        <li>
+          <a href={"/" + l.POST_ADD}>Naujas Straipsnis</a>
+        </li>
       </ul>
     </nav>
   );

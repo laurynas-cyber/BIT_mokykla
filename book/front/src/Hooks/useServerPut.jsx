@@ -16,7 +16,7 @@ const useServerPut = (url) => {
     const param = data.id ? `/${data.id}` : "";
 
     axios
-      .put(`${l.SERVER_URL}${url}/${param}`, data, { withCredentials: true })
+      .put(`${l.SERVER_URL}${url}${param}`, data, { withCredentials: true })
       .then((res) => {
         messageSuccess(res);
         setResponse({

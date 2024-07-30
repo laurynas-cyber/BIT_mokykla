@@ -13,6 +13,7 @@ import EditContacts from "../Components/Admin/EditContacts";
 import RouteGate from "../Components/Common/RouteGate";
 import PostsList from "../Components/Admin/PostsList";
 import PostEdit from "../Components/Admin/PostEdit";
+import PostCreate from "../Components/Admin/PostCreate";
 
 const RouterContext = createContext([]);
 
@@ -165,6 +166,18 @@ const Router = (_) => {
         <RouteGate role={["admin"]}>
           <Admin>
             <PostEdit />
+          </Admin>
+        </RouteGate>
+      ),
+    },
+    {
+      path: l.POST_ADD,
+      pc: 1,
+      p1: "post-add",
+      component: (
+        <RouteGate role={["admin"]}>
+          <Admin>
+            <PostCreate />
           </Admin>
         </RouteGate>
       ),
