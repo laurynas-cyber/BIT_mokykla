@@ -60,7 +60,10 @@ export default function Home() {
               <p>{topPost.preview}</p>
               <ul className="actions">
                 <li>
-                  <a href="#" className="button big">
+                  <a
+                    href={l.SITE_POST + "/" + topPost.id}
+                    className="button big"
+                  >
                     Skaityti daugiau
                   </a>
                 </li>
@@ -114,7 +117,7 @@ export default function Home() {
           ) : (
             allPosts.map((p) => (
               <article key={p.id}>
-                <a href="#" className="image">
+                <a href={l.SITE_POST + "/" + p.id} className="image">
                   {p.photo === null ? (
                     <img
                       src={l.SERVER_IMAGES_URL + "no-image.png"}
@@ -128,7 +131,7 @@ export default function Home() {
                 <p>{p.preview}</p>
                 <ul className="actions">
                   <li>
-                    <a href="#" className="button">
+                    <a href={l.SITE_POST + "/" + p.id} className="button">
                       Daugiau
                     </a>
                   </li>

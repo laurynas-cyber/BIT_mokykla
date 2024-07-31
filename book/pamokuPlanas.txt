@@ -28,7 +28,9 @@ react 028 - User Editas, Put metodas
 
 034 - posts, posts edit, posts lists
 
-035- nuotruaku ikelimas i duombaze
+035- nuotrauku ikelimas i duombaze, trinimas, redagavimas, naujo posto kurimas
+
+036 - 
 
 arvydas.kijakuskas@gmail.com
 

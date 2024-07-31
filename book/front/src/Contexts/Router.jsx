@@ -14,6 +14,7 @@ import RouteGate from "../Components/Common/RouteGate";
 import PostsList from "../Components/Admin/PostsList";
 import PostEdit from "../Components/Admin/PostEdit";
 import PostCreate from "../Components/Admin/PostCreate";
+import Post from "../Components/Web/Post";
 
 const RouterContext = createContext([]);
 
@@ -76,6 +77,15 @@ const Router = (_) => {
       component: (
         <Web>
           <Home />
+        </Web>
+      ),
+    },
+    {
+      path: l.SITE_POST,
+      pc: 1,
+      component: (
+        <Web>
+          <Post />
         </Web>
       ),
     },

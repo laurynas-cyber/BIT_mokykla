@@ -49,3 +49,10 @@ backEnde su javascriptu hostinti bus brangu ir sunku rasti tiekeja, su PHP lengv
 wireframe - desiganeriam web puslapiu prototipai. galima per FIGMA, ADOBE XD, SKETCH pasidaryti
 
 jsonas netalpina binario failo.
+
+goLang - backui, vietoj js
+
+MDN - MDN tutorials https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Tutorial_local_library_website
+
+jeigu daryti paieska visame turinyje geriau daryti per duombaze. 
+Yra piesku frammeworku https://www.algolia.com/developers/?utm_source=laravel.com&utm_medium=referral&utm_content=powered_by&utm_campaign=docsearch

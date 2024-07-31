@@ -90,3 +90,7 @@ SEP - search optimization
 wireframe - desiganeriam web puslapiu prototipai. galima per FIGMA, ADOBE XD, SKETCH pasidaryti
 
 rpa - robotiniu procesu automatizavimas
+
+dettach - dejimas i "seksliu deze" attach - grazinimas dez  CRUD tai confirm ar decline posta pvz
+
+taxonomija - bendresnis apibrezimas apie kategorijas

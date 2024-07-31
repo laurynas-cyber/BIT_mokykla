@@ -18,3 +18,5 @@ WHERE id = ?
 // databaze kai nuluzta xampp folderis -> mysql -> data delete viska -> ir tada is backup nukopijuoti i data
 
 const deleted = result.affectedRows; // patikrinta efektintas eilutes. jeigu neefektina grazina 0
+
+const sql = `UPDATE posts SET is_top = CASE WHEN id = ? THEN 1 ELSE 0 END`; // CASE ggerai mazom duombazem , nes jis pereina per visas eilutes

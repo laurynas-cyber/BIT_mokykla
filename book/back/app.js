@@ -72,23 +72,6 @@ const deleteImage = (postId) => {
   });
 };
 
-const preDeleteImage = (postId) => {
-  let sql = "SELECT photo FROM posts WHERE id = ?";
-  connection.query(sql, [postId], (err, results) => {
-    if (err) {
-      return null;
-    } else {
-      if (results[0].photo) {
-        return results[0].photo;
-      }
-    }
-  });
-};
-
-const doDeleteImage = (filename) => {
-  fs.unlinkSync("public/img/" + filename);
-};
-
 const maintenance = (req, res, next) => {
   res
     .status(503)
@@ -186,6 +169,34 @@ app.get("/web/posts", (req, res) => {
   }, 500);
 });
 
+app.get("/web/post/:id", (req, res) => {
+  setTimeout((_) => {
+    const { id } = req.params;
+    const sql = `SELECT * FROM posts WHERE id = ?`;
+    connection.query(sql, [id], (err, rows) => {
+      if (err) throw err;
+      if (!rows.length) {
+        res
+          .status(404)
+          .json({
+            message: {
+              type: "info",
+              title: "Straipsniai",
+              text: `Straipsnis nerastas`,
+            },
+          })
+          .end();
+        return;
+      }
+      res
+        .json({
+          post: rows[0],
+        })
+        .end();
+    });
+  }, 1500);
+});
+
 app.get("/web/content", (req, res) => {
   setTimeout((_) => {
     const sql = `
@@ -222,43 +233,85 @@ app.get("/admin/posts", (req, res) => {
   }, 1500);
 });
 
-app.delete("/admin/delete/post/:id", (req, res) => {
+app.put("/admin/change/post/top/:id", (req, res) => {
   setTimeout((_) => {
     const { id } = req.params;
-    const filename = preDeleteImage(id);
-    const sql = `
-        DELETE 
-        FROM posts 
-        WHERE id = ? AND is_top = 0
-        `;
+
+    const sql = `UPDATE posts SET is_top = CASE WHEN id = ? THEN 1 ELSE 0 END`;
+
     connection.query(sql, [id], (err, result) => {
       if (err) throw err;
-      const deleted = result.affectedRows;
-      if (!deleted) {
+      const updated = result.affectedRows;
+      if (!updated) {
         res
-          .status(422)
+          .status(404)
           .json({
             message: {
               type: "info",
               title: "Straipsniai",
-              text: `Straipsnis yra priskirtas kaip viršutinis ir negali būti ištrintas arba straipsnis neegzistuoja`,
+              text: `Straipsnis nerastas`,
             },
           })
           .end();
         return;
-      }
-      if (filename) {
-        doDeleteImage(filename);
       }
       res
         .json({
           message: {
             type: "success",
             title: "Straipsniai",
-            text: `Straipsnis sėkmingai ištrintas`,
+            text: `Straipsnio viršūnė sėkmingai pakeista`,
           },
+          newID: id,
         })
         .end();
+    });
+  }, 1500);
+});
+
+app.delete("/admin/delete/post/:id", (req, res) => {
+  setTimeout((_) => {
+    const { id } = req.params;
+    let filename = null;
+    let sql = "SELECT photo FROM posts WHERE id = ?";
+    connection.query(sql, [id], (err, results) => {
+      if (results[0].photo) {
+        filename = results[0].photo;
+        const sql = `
+                  DELETE
+                  FROM posts
+                  WHERE id = ? AND is_top = 0
+                  `;
+        connection.query(sql, [id], (err, result) => {
+          if (err) throw err;
+          const deleted = result.affectedRows;
+          if (!deleted) {
+            res
+              .status(422)
+              .json({
+                message: {
+                  type: "info",
+                  title: "Straipsniai",
+                  text: `Straipsnis yra priskirtas kaip viršutinis ir negali būti ištrintas arba straipsnis neegzistuoja`,
+                },
+              })
+              .end();
+            return;
+          }
+          if (filename) {
+            fs.unlinkSync("public/img/" + filename);
+          }
+          res
+            .json({
+              message: {
+                type: "success",
+                title: "Straipsniai",
+                text: `Straipsnis sėkmingai ištrintas`,
+              },
+            })
+            .end();
+        });
+      }
     });
   }, 1500);
 });

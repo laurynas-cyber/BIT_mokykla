@@ -1,9 +1,10 @@
 import useServerGet from "../../Hooks/useServerGet";
 import * as l from "../../Constants/urls";
-import { useCallback, useContext, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useRef, useState } from "react";
 import useServerDelete from "../../Hooks/useServerDelete";
 import { ModalContext } from "../../Contexts/Modals";
-
+import useServerPut from "../../Hooks/useServerPut";
+import { LoaderContext } from "../../Contexts/Loader";
 
 export default function PostsList() {
   const { doAction: doGet, serverResponse: serverGetResponse } = useServerGet(
@@ -11,8 +12,12 @@ export default function PostsList() {
   );
   const { doAction: doDelete, serverResponse: serverDeleteResponse } =
     useServerDelete(l.SERVER_DELETE_POST);
+  const { doAction: doPut, serverResponse: serverPutResponse } = useServerPut(
+    l.SERVER_CHANGE_POST_TOP
+  );
   const { setDeleteModal } = useContext(ModalContext);
   const [posts, setPosts] = useState(null);
+  const { setShow } = useContext(LoaderContext);
 
   const hidePost = (post) => {
     setPosts((p) =>
@@ -40,12 +45,16 @@ export default function PostsList() {
     [doGet]
   );
 
+  const oldTopId = useRef(null);
   useEffect(
     (_) => {
       if (null === serverGetResponse) {
         return;
       }
       setPosts(serverGetResponse.serverData.posts ?? null);
+      oldTopId.current =
+        serverGetResponse.serverData.posts.find((p) => p.is_top === 1)?.id ??
+        null;
     },
     [serverGetResponse]
   );
@@ -63,6 +72,36 @@ export default function PostsList() {
     },
     [serverDeleteResponse, showPost, removeHidden]
   );
+
+  useEffect(
+    (_) => {
+      if (null === serverPutResponse) {
+        return;
+      }
+      if (serverPutResponse.type === "error") {
+        setPosts((p) =>
+          p.map((p) =>
+            p.id === oldTopId.current
+              ? { ...p, is_top: 1 }
+              : { ...p, is_top: 0 }
+          )
+        );
+      } else {
+        oldTopId.current = serverPutResponse.serverData.newID;
+      }
+    },
+    [serverPutResponse, oldTopId]
+  );
+
+  const makeTop = (post) => {
+    setPosts((p) =>
+      p.map((p) =>
+        p.id === post.id ? { ...p, is_top: 1 } : { ...p, is_top: 0 }
+      )
+    );
+    setShow(true);
+    doPut({ id: post.id });
+  };
 
   return (
     <>
@@ -107,7 +146,18 @@ export default function PostsList() {
                           />
                         )}
                       </td>
-                      <td>{p.is_top ? "Pagrindinis" : ""}</td>
+                      <td>
+                        {p.is_top ? (
+                          <b>"Pagrindinis"</b>
+                        ) : (
+                          <input
+                            type="button"
+                            className="small"
+                            value="Padaryti pagrindiniu"
+                            onClick={(_) => makeTop(p)}
+                          />
+                        )}
+                      </td>
                       <td className="two">
                         <ul className="actions special">
                           <li>

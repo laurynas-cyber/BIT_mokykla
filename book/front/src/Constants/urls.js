@@ -7,6 +7,7 @@ export const SITE_LOGIN = "#prisijungti";
 export const SITE_REGISTER = "#registruotis";
 export const SITE_HOME = "#";
 export const REDIRECT_AFTER_REGISTER = "#prisijungti";
+export const SITE_POST = "#post";
 
 // Admin URLs
 export const SITE_DASHBORD = "#admin/dashbord";
@@ -22,6 +23,7 @@ export const POST_EDIT = "#admin/post-edit";
 export const GET_WEB_CONTENT = "web/content";
 export const GET_TYPES = "web/types";
 export const GET_POSTS = "web/posts";
+export const GET_POST = "web/post";
 
 // Server back URLs
 export const SERVER_REGISTER = "register";
@@ -36,6 +38,7 @@ export const SERVER_DELETE_POST = "admin/delete/post";
 export const SERVER_EDIT_POST = "admin/edit/post";
 export const SERVER_UPDATE_POST = "admin/update/post";
 export const SERVER_STORE_POST = "admin/store/post";
+export const SERVER_CHANGE_POST_TOP = "admin/change/post/top";
 
 export const SERVER_EDIT_CONTACTS = "admin/edit/contacts";
 export const SERVER_UPDATE_CONTACTS = "admin/update/contacts";

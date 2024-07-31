@@ -21,7 +21,7 @@ const useServerPut = (url) => {
         messageSuccess(res);
         setResponse({
           type: "success",
-          data: res.data,
+          serverData: res.data,
         });
       })
       .catch((error) => {
